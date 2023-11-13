@@ -1,0 +1,35 @@
+.container {
+  background: rgba(36, 61, 102, 0.5);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: 194px;
+  padding-block: 28px;
+}
+
+.rightSide {
+  ul {
+    display: flex;
+    gap: 23px;
+  }
+  li {
+    list-style-type: none;
+    text-transform: uppercase;
+    font-family: Poppins;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
