@@ -1,0 +1,238 @@
+.container {
+  background-color: #dff6fd;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  gap: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+.topcontent {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    width: 388px;
+  }
+  p {
+    color: var(--black, #090812);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    width: 785px;
+  }
+}
+.leftside {
+  img {
+    width: 736px;
+    height: 430px;
+  }
+}
+.Underpicture {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  button {
+    border-radius: 4px;
+    background: #fb2431;
+    width: 73px;
+    height: 28px;
+  }
+  p {
+    color: var(--brand-mid-blue, #243d66);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.textleft {
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    width: 780px;
+  }
+  p {
+    width: 736px;
+    color: var(--black, #090812);
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+.theme1 {
+  display: flex;
+  gap: 24px;
+  img {
+    width: 352px;
+    height: 198px;
+  }
+  button {
+    border-radius: 4px;
+    background: #fb2431;
+    width: 73px;
+    height: 28px;
+  }
+  p {
+    color: var(--brand-mid-blue, #243d66);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 359px;
+  }
+}
+.botaoevento {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 17px;
+}
+.textcontent {
+  padding-left: 24px;
+  padding-top: 12px;
+}
+.Theme {
+  display: flex;
+}
+
+.theme2 {
+  display: flex;
+  gap: 24px;
+  padding-top: 32px;
+  img {
+    width: 352px;
+    height: 198px;
+  }
+  button {
+    border-radius: 4px;
+    background: #24c8fb;
+    width: 73px;
+    color: var(--brand-blue, #000040);
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  p {
+    color: var(--brand-mid-blue, #243d66);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 359px;
+  }
+}
+.textcontent2 {
+  padding-left: 24px;
+  padding-top: 12px;
+}
+.theme3 {
+  display: flex;
+  gap: 24px;
+  padding-top: 32px;
+  img {
+    width: 352px;
+    height: 198px;
+  }
+  button {
+    border-radius: 4px;
+    background: #2460fb;
+    width: 73px;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  p {
+    color: var(--brand-mid-blue, #243d66);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 359px;
+  }
+}
+.textcontent3 {
+  padding-left: 24px;
+  padding-top: 12px;
+}
+.theme4 {
+  display: flex;
+  gap: 24px;
+  padding-top: 32px;
+  img {
+    width: 352px;
+    height: 198px;
+  }
+  button {
+    border-radius: 4px;
+    background: #ff9040;
+    width: 73px;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  p {
+    color: var(--brand-mid-blue, #243d66);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  h1 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 359px;
+  }
+}
+.textcontent4 {
+  padding-left: 24px;
+  padding-top: 12px;
+}

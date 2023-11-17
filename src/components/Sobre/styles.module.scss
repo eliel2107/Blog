@@ -1,0 +1,95 @@
+.container {
+  flex-direction: column;
+  padding-top: 58px;
+  padding-inline: 335px;
+  width: 100%;
+  align-items: center;
+  background-color: #fff;
+  justify-content: flex-start;
+}
+
+.topcontent {
+  align-items: center;
+  h2 {
+    color: var(--brand-blue, #000040);
+    text-align: center;
+    font-family: Dela Gothic One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 93px;
+  }
+}
+.youtube {
+  flex-direction: row;
+  display: flex;
+  gap: 53px;
+  iframe {
+    border-radius: 16px;
+    background: var(--brand-mid-blue, #243d66);
+  }
+  align-items: center;
+  justify-content: center;
+}
+
+.leftbar {
+  border-radius: 48px;
+  background: #1515d9;
+  filter: blur(1px);
+  width: 7.631px;
+  height: 633.369px;
+  flex-shrink: 0;
+}
+
+.rightbar {
+  border-radius: 48px;
+  background: #1515d9;
+  filter: blur(1px);
+  width: 7.631px;
+  height: 633.369px;
+  flex-shrink: 0;
+}
+.videobg {
+  width: 1252px;
+  height: 612px;
+  border-radius: 16px;
+  background: var(--brand-mid-blue, #243d66);
+}
+.bottomcontent {
+  margin-top: 300px;
+  gap: 126px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  h2 {
+    color: var(--brand-blue, #000040);
+    text-align: center;
+    font-family: Dela Gothic One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    color: var(--black, #090812);
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.Parceiros {
+  display: flex;
+  gap: 190px;
+  img {
+    width: 259.985px;
+    height: 68.935px;
+  }
+}

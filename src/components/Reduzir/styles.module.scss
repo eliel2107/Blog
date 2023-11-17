@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 410px;
+  padding-bottom: 363px;
+  padding-inline: 260px;
+}
+.content {
+  display: flex;
+  margin-inline: auto;
+}
+.rightside {
+  h1 {
+    width: 669px;
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    width: 669px;
+    opacity: 0.8;
+  }
+  button {
+    display: flex;
+    width: 445px;
+    padding: 20px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 16px;
+    border: 2px solid #fff;
+    background: #fff;
+
+    border: 2px solid var(--brand-blue, #000040);
+    color: var(--brand-blue, #000040);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  }
+}

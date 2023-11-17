@@ -1,0 +1,147 @@
+.container {
+  background-color: #000040;
+}
+.content {
+  display: flex;
+  gap: 190px;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  padding-left: 208px;
+  padding-top: 213px;
+  gap: 59px;
+}
+
+.title {
+  h2 {
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    width: 697px;
+  }
+}
+
+.serviços {
+  h2 {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Dela Gothic One;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 62px;
+  }
+  p {
+    color: #fff;
+
+    leading-trim: both;
+
+    text-edge: cap;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+  }
+}
+.top {
+  display: flex;
+  gap: 174px;
+  button {
+    display: flex;
+    width: 203px;
+    height: 56px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: var(--brand-blue, #000040);
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.bottom {
+  display: flex;
+  gap: 174px;
+  button {
+    display: flex;
+    width: 203px;
+    height: 56px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: var(--brand-blue, #000040);
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.servicesrighttop {
+  width: 221px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.serviceslefttop {
+  width: 203px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.servicesrightbottom {
+  width: 203px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+}
+.servicesleftbottom {
+  width: 203px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+}
+.rightside {
+}
+.card {
+  width: 394px;
+  height: 620px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 64, 0.6) 65.4%
+  );
+}

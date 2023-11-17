@@ -1,0 +1,221 @@
+.container {
+  background-color: var(--brand-blue, #000040);
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  gap: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+.title {
+  h1 {
+    width: 959px;
+
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    width: 785px;
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+.addres {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  h1 {
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    width: 270px;
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 10px;
+  }
+}
+.email {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  h1 {
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    width: 270px;
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 10px;
+  }
+}
+.icon {
+  display: flex;
+  gap: 96px;
+  padding-top: 82px;
+}
+.background {
+  width: 470px;
+  height: 612px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.15);
+  transform: rotate(3deg);
+  align-items: center;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.title {
+  h2 {
+    color: var(--brand-blue, #000040);
+    font-family: Dela Gothic One;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  padding-top: 57px;
+}
+.name {
+  h3 {
+    color: var(--Black, #27323f);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  input {
+    color: #637381;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    outline: none;
+    width: 350px;
+  }
+}
+.contactemail {
+  h3 {
+    color: var(--Black, #27323f);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  input {
+    color: #637381;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    outline: none;
+    width: 350px;
+  }
+}
+.phone {
+  h3 {
+    color: var(--Black, #27323f);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  input {
+    color: #637381;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    outline: none;
+    width: 350px;
+  }
+}
+.message {
+  h3 {
+    color: var(--Black, #27323f);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  input {
+    color: #637381;
+
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    outline: none;
+    width: 350px;
+  }
+}
+.send {
+  button {
+    width: 360px;
+    height: 54px;
+    border-radius: 5px;
+    background: var(--brand-light-blue, #16c2f4);
+
+    color: var(--brand-blue, #000040);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  padding-top: 30px;
+}
+.bottomcontent {
+  width: 1432px;
+  height: 266.667px;
+  border-radius: 13.333px;
+  background: var(--White, #fff);
+  margin-inline: auto;
+}
