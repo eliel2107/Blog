@@ -3,16 +3,15 @@
 }
 .content {
   display: flex;
-  gap: 190px;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   width: 100%;
   overflow: hidden;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
   max-width: 1440px;
   margin-inline: auto;
+  padding-bottom: 300px;
+  margin-top: -80px;
 }
 .leftside {
   display: flex;
@@ -47,9 +46,7 @@
   }
   p {
     color: #fff;
-
     leading-trim: both;
-
     text-edge: cap;
     font-family: Poppins;
     font-size: 18px;
@@ -71,7 +68,6 @@
     border: 1px solid #fff;
     background: #fff;
     color: var(--brand-blue, #000040);
-
     text-align: center;
     font-family: Poppins;
     font-size: 16px;
@@ -82,6 +78,7 @@
 .bottom {
   display: flex;
   gap: 174px;
+  margin-top: 115px;
   button {
     display: flex;
     width: 203px;
@@ -133,6 +130,40 @@
   }
 }
 .rightside {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -110px;
+  gap: 48px;
+
+  .carrossel {
+    display: flex;
+    align-items: center;
+  }
+
+  .buttonsForCarrossel {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    .wrapArrow {
+      cursor: pointer;
+      background: #fff;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+
+      .leftArrow {
+        margin-top: -3px;
+      }
+      .rightArrow {
+        margin-top: 0px;
+      }
+
+      img {
+        padding: 5px;
+      }
+    }
+  }
 }
 .card {
   width: 394px;

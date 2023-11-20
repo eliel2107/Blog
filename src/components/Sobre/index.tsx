@@ -1,6 +1,25 @@
-import styles from './styles.module.scss';
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function sobre() {
+  const [offset, setOffset] = useState(0);
+  const logosRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOffset((prevOffset) => {
+        const singleSetWidth = logosRef.current
+          ? /*@ts-ignore*/
+            logosRef!.current!.firstChild!.offsetWidth
+          : 0;
+
+        return prevOffset >= singleSetWidth ? 0 : prevOffset + 1;
+      });
+    }, 15);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <section className={styles.container}>
@@ -11,13 +30,11 @@ export default function sobre() {
             <div className={styles.leftbar}></div>
             <div className={styles.videobg}>
               <iframe
-                width="1252"
+                width="852"
                 height="586"
-                src="https://www.youtube.com/embed/5WmIwcTGO5Q"
+                src="https://www.youtube.com/embed/0AxqAU0k-sM?si=IEgx2FwOuGL6u4I4"
                 title="YouTube video player"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
               ></iframe>
             </div>
             <div className={styles.rightbar}></div>
@@ -28,11 +45,25 @@ export default function sobre() {
             <h2>Parceiros de sucesso</h2>
             <p>Trabalhando juntos para otimizar processos e reduzir custos</p>
           </div>
-          <div className={styles.Parceiros}>
-            <img src="\Logo.svg" alt="" />
-            <img src="\Logo.svg" alt="" />
-            <img src="\Logo.svg" alt="" />
-            <img src="\Logo.svg" alt="" />
+          <div className={styles.Parceiros} ref={logosRef}>
+            <div style={{ transform: `translateX(-${offset}px)` }}>
+              {[...Array(300)].map(() => (
+                <>
+                  <img src="/clientes/CCV.png" alt="" />
+                  <img src="/clientes/GRUPO_PETROPOLIS.png" alt="" />
+                  <img src="/clientes/JSL.png" alt="" />
+                  <img src="/clientes/KOVI.png" alt="" />
+                  <img src="/clientes/LM.png" alt="" />
+                  <img src="/clientes/LOCALIZA.png" alt="" />
+                  <img src="/clientes/MOVIDA.png" alt="" />
+                  <img src="/clientes/RENAULT.png" alt="" />
+                  <img src="/clientes/TURBI.png" alt="" />
+                  <img src="/clientes/UNIDAS.png" alt="" />
+                  <img src="/clientes/VOLVO.png" alt="" />
+                  <img src="/clientes/FORD.png" alt="" />
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </section>

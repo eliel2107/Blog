@@ -13,7 +13,7 @@
     padding-bottom: 182px;
   }
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -25,6 +25,18 @@
       rgba(0, 0, 64, 0.6) 100%
     );
     z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 310%;
+    height: 250px;
+    background-image: url("/curve-azul.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 .videoBackground {
@@ -52,21 +64,26 @@
 .middlecontent {
   z-index: 1;
   max-width: 1440px;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 80px;
+  width: 100%;
   margin-inline: auto;
 
   h1 {
     color: #fff;
-
     text-align: center;
-    font-family: 'Dela Gothic One';
-    font-size: 80px;
+    font-family: "Dela Gothic One";
+    font-size: 50px;
     font-style: normal;
     font-weight: 400;
-    width: 1400px;
+    margin-inline: auto;
+    padding-inline: 194px;
+
+    @media only screen and (max-width: 1642px) {
+      padding-inline: 0px;
+    }
   }
   button {
     display: flex;
@@ -75,14 +92,16 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+    margin-inline: auto;
     border-radius: 16px;
     background: #fff;
     color: var(--brand-mid-blue, #243d66);
-
+    text-transform: uppercase;
     text-align: center;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
+    cursor: pointer;
   }
 }
