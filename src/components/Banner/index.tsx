@@ -11,7 +11,9 @@ export default function Banner() {
         <div className={styles.videogradient}></div>
         <div className={styles.middlecontent}>
           <h1>TECNOLOGIA Á SERVIÇO DA MOBILIDADE</h1>
-          <button>saiba mais</button>
+          <a href="/sobre">
+            <button>saiba mais</button>
+          </a>
         </div>
       </section>
     </>

@@ -1,0 +1,73 @@
+.container {
+  background-image: url('Bannerblogbg.svg');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 844px;
+  margin-inline: auto;
+}
+.overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-inline: 194px 60px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 64, 0.9) 53.53%,
+    rgba(0, 0, 0, 0) 70.97%
+  );
+}
+.text {
+  justify-content: flex-start;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+}
+.toptitle {
+  display: flex;
+  gap: 16px;
+  button {
+    width: 65px;
+    height: 22px;
+    border-radius: 4px;
+    background: #ff9040;
+    border: none;
+  }
+  p {
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.title {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  h1 {
+    color: #fff;
+
+    font-family: Dela Gothic One;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    padding-right: 580px;
+  }
+}

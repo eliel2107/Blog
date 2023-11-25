@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./styles.module.scss";
+import { useEffect, useRef, useState } from 'react';
+import styles from './styles.module.scss';
 
-export default function sobre() {
+export default function Sobre() {
   const [offset, setOffset] = useState(0);
   const logosRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +42,7 @@ export default function sobre() {
         </div>
         <div className={styles.bottomcontent}>
           <div className={styles.title}>
-            <h2>Parceiros de sucesso</h2>
+            <h2>CLIENTES QUE JÁ FIZERAM A ESCOLHA CERTA</h2>
             <p>Trabalhando juntos para otimizar processos e reduzir custos</p>
           </div>
           <div className={styles.Parceiros} ref={logosRef}>

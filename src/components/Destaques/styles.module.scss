@@ -1,6 +1,23 @@
 .container {
   background-color: #dff6fd;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 300 / 67;
+    background-image: url('/faleconosco.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left 86px;
+
+    z-index: 100;
+  }
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -13,6 +30,8 @@
   align-items: center;
   max-width: 1440px;
   margin-inline: auto;
+  padding-inline: 194px;
+  padding-block: 100px 360px;
 }
 .topcontent {
   display: inline-flex;
@@ -20,26 +39,25 @@
   align-items: center;
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
+    font-family: Montserrat;
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
-    width: 388px;
+    cursor: pointer;
   }
   p {
     color: var(--black, #090812);
     text-align: center;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    width: 785px;
   }
 }
 .leftside {
   img {
-    width: 736px;
-    height: 430px;
+    width: 552px;
+    height: 322px;
   }
 }
 .Underpicture {
@@ -49,13 +67,13 @@
   button {
     border-radius: 4px;
     background: #fb2431;
-    width: 73px;
-    height: 28px;
+    width: 54px;
+    height: 21px;
   }
   p {
     color: var(--brand-mid-blue, #243d66);
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
@@ -63,17 +81,15 @@
 .textleft {
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
-    font-size: 32px;
+    font-family: Montserrat;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    width: 780px;
   }
   p {
-    width: 736px;
     color: var(--black, #090812);
-    font-family: Poppins;
-    font-size: 24px;
+    font-family: Montserrat;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
   }
@@ -82,29 +98,27 @@
   display: flex;
   gap: 24px;
   img {
-    width: 352px;
-    height: 198px;
+    width: 264px;
+    height: 148px;
   }
   button {
     border-radius: 4px;
     background: #fb2431;
-    width: 73px;
-    height: 28px;
+    width: 54px;
   }
   p {
     color: var(--brand-mid-blue, #243d66);
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
-    font-size: 18px;
+    font-family: Montserrat;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    width: 359px;
   }
 }
 .botaoevento {
@@ -119,6 +133,7 @@
 }
 .Theme {
   display: flex;
+  gap: 10px;
 }
 
 .theme2 {
@@ -126,34 +141,33 @@
   gap: 24px;
   padding-top: 32px;
   img {
-    width: 352px;
-    height: 198px;
+    width: 264px;
+    height: 148px;
   }
   button {
     border-radius: 4px;
     background: #24c8fb;
-    width: 73px;
+    width: 54px;
     color: var(--brand-blue, #000040);
 
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   p {
     color: var(--brand-mid-blue, #243d66);
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
-    font-size: 18px;
+    font-family: Montserrat;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    width: 359px;
   }
 }
 .textcontent2 {
@@ -165,33 +179,32 @@
   gap: 24px;
   padding-top: 32px;
   img {
-    width: 352px;
-    height: 198px;
+    width: 264px;
+    height: 148px;
   }
   button {
     border-radius: 4px;
     background: #2460fb;
-    width: 73px;
+    width: 54px;
 
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   p {
     color: var(--brand-mid-blue, #243d66);
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
-    font-size: 18px;
+    font-family: Montserrat;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    width: 359px;
   }
 }
 .textcontent3 {
@@ -203,33 +216,32 @@
   gap: 24px;
   padding-top: 32px;
   img {
-    width: 352px;
-    height: 198px;
+    width: 264px;
+    height: 148px;
   }
   button {
     border-radius: 4px;
     background: #ff9040;
-    width: 73px;
+    width: 54px;
 
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   p {
     color: var(--brand-mid-blue, #243d66);
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: Montserrat;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
   }
   h1 {
     color: var(--brand-blue, #000040);
-    font-family: Dela Gothic One;
-    font-size: 18px;
+    font-family: Montserrat;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    width: 359px;
   }
 }
 .textcontent4 {

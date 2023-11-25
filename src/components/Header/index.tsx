@@ -1,16 +1,27 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 export default function Header() {
   return (
     <>
       <section className={styles.container}>
         <div className={styles.content}>
-          <img src="/lwLOGO.svg" />
+          <a href="/">
+            <img src="/lwLOGO.svg" />
+          </a>
           <div className={styles.rightSide}>
             <ul>
-              <li>sobre nós</li>
-              <li>soluções</li>
-              <li>contato</li>
+              <a href="/sobre">
+                <li>sobre nós</li>
+              </a>
+              <a href="/solucoes">
+                <li>soluções</li>
+              </a>
+              <a href="/contato">
+                <li>contato</li>
+              </a>
+              <a href="/blog">
+                <li>Blog</li>
+              </a>
               <li>|</li>
               <li>área do cliente</li>
             </ul>

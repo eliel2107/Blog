@@ -22,22 +22,24 @@ export default function Numeros() {
 
                 <div className={styles.card2}>
                   <img src="hand.gif" alt="" />
-                  <p>Mais de 100 parceiros muito satisfeitos</p>
+                  <p>Mais de 140 clientes satisfeitos</p>
                 </div>
               </div>
               <div className={styles.rightcard}>
                 <div className={styles.card3}>
                   <img src="pencil.gif" alt="" />
-                  <p>Uma média de 90% de redução da burocracia</p>
+                  <p>Mais de 90% de redução na burocracia</p>
                 </div>
                 <div className={styles.card4}>
                   <img src="rocket.gif" alt="" />
-                  <p>Em média 95% de melhora da eficiência</p>
+                  <p>Média 95% de melhora da eficiência</p>
                 </div>
               </div>
             </div>
             <div className={styles.bottomcontent}>
-              <button>Saiba Mais</button>
+              <a href="/sobre">
+                <button>Saiba Mais</button>
+              </a>
             </div>
           </div>
         </div>

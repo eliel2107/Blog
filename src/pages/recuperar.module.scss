@@ -1,0 +1,109 @@
+.container {
+  background-color: #fff;
+  display: flex;
+  min-height: 100vh;
+}
+.leftside {
+  width: 100%;
+
+  background-image: url('/recuperarbg.svg');
+  position: relative;
+  background-size: cover;
+}
+.logo {
+  padding-left: 48px;
+  padding-top: 48px;
+}
+.socials {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 43px;
+  padding-bottom: 47px;
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+}
+.title {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: var(--black, #404049);
+    font-family: Outfit;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+  p {
+    color: var(--black, #404049);
+    font-family: Outfit;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.flexInput {
+  padding-top: 16px;
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  input {
+    border-radius: 5px;
+    border: 1px solid rgba(64, 64, 73, 0.3);
+
+    background: #fff;
+    display: flex;
+    height: 43px;
+    padding: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    width: 443px;
+    color: #404049;
+  }
+}
+
+.button {
+  margin-top: 72px;
+  button {
+    border-radius: 5px;
+    background: var(--brand-blue, #000040);
+    display: flex;
+    width: 442px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.rightside {
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create {
+  display: flex;
+  gap: 16px;
+
+  h4 {
+    color: var(--brand-blue, #000040);
+
+    font-family: Outfit;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+.divisor {
+  width: 443px;
+  height: 1px;
+  background: #ececf0;
+  margin-top: 193px;
+  margin-bottom: 24px;
+}

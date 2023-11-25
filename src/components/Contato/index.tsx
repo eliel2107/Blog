@@ -8,10 +8,9 @@ export default function Contato() {
           <div className={styles.leftside}>
             <div className={styles.textcontent}>
               <div className={styles.title}>
-                <h1>FALE CONOSCO,ADORAREMOS TE RESPONDER.</h1>
+                <h1>CONTATO</h1>
                 <p>
-                  Mantenha-se atualizado com as últimas notícias e tendências no
-                  mundo da gestão de frotas
+                  Fale com a gente! Um especialista LW está sempre à disposição.
                 </p>
               </div>
               <div className={styles.icon}>
@@ -38,40 +37,54 @@ export default function Contato() {
             </div>
           </div>
           <div className={styles.rightside}>
-            <div className={styles.background}>
-              <div className={styles.title}>
-                <h2>Entre em contato conosco</h2>
-              </div>
+            <div className={styles.backgroundContainer}>
+              {/* New Background */}
 
-              <div className={styles.name}>
-                <h3> Nome completo</h3>
-                <input type="text" placeholder="Escreva aqui seu nome..." />
+              {/* Original Background */}
+              <div className={styles.background}>
+                <div className={styles.title}>
+                  <h2>Entre em contato conosco</h2>
+                </div>
+                <div className={styles.name}>
+                  <h3> Nome completo</h3>
+                  <input type="text" placeholder="Escreva aqui seu nome..." />
+                </div>
+                <div className={styles.contactemail}>
+                  <h3>Email*</h3>
+                  <input type="text" placeholder="exemplo@mail.com" />
+                </div>
+                <div className={styles.phone}>
+                  <h3>Telefone*</h3>
+                  <input type="text" placeholder="61 99999-9999" />
+                </div>
+                <div className={styles.message}>
+                  <h3>Mensagem*</h3>{' '}
+                  <input
+                    type="text"
+                    placeholder="Nos conte um pouco sobre sua demanda..."
+                  />
+                </div>
+                <div className={styles.send}>
+                  <button>Enviar</button>
+                </div>
               </div>
-              <div className={styles.contactemail}>
-                <h3>Email*</h3>
-                <input type="text" placeholder="exemplo@mail.com" />
-              </div>
-
-              <div className={styles.phone}>
-                <h3>Telefone*</h3>
-                <input type="text" placeholder="61 99999-9999" />
-              </div>
-              <div className={styles.message}>
-                <h3>Mensagem*</h3>{' '}
-                <input
-                  type="text"
-                  placeholder="Nos conte um pouco sobre sua demanda..."
-                />
-              </div>
-              <div className={styles.send}>
-                <button>Enviar</button>
+              <div className={styles.newBackground}>
+                {/* Additional content for the new background */}
+                {/* ... */}
               </div>
             </div>
           </div>
         </div>
         <div className={styles.bottomcontent}>
-          <div className={styles.leftside}></div>
-          <div className={styles.rightside}></div>
+          <div className={styles.leftside}>
+            <h1>FIQUE POR DENTRO DAS NOVIDADES</h1>
+          </div>
+          <div className={styles.rightsidebottom}>
+            <div className={styles.inputcontainer}>
+              <input type="text" placeholder="Digite seu email aqui" />
+              <button>Me inscrever</button>
+            </div>
+          </div>
         </div>
       </section>
     </>

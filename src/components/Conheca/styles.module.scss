@@ -1,6 +1,10 @@
 .container {
   background-color: #000040;
+
+  z-index: 1;
+  position: relative;
 }
+
 .content {
   display: flex;
   align-items: flex-end;
@@ -10,7 +14,7 @@
   justify-content: space-between;
   max-width: 1440px;
   margin-inline: auto;
-  padding-bottom: 300px;
+  padding-bottom: 150px;
   margin-top: -80px;
 }
 .leftside {
@@ -25,7 +29,7 @@
   h2 {
     color: #fff;
 
-    font-family: Dela Gothic One;
+    font-family: Montserrat;
     font-size: 56px;
     font-style: normal;
     font-weight: 400;
@@ -38,7 +42,7 @@
     color: #fff;
     leading-trim: both;
     text-edge: cap;
-    font-family: Dela Gothic One;
+    font-family: Montserrat;
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
@@ -48,7 +52,7 @@
     color: #fff;
     leading-trim: both;
     text-edge: cap;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
   }
@@ -69,7 +73,7 @@
     background: #fff;
     color: var(--brand-blue, #000040);
     text-align: center;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -79,9 +83,12 @@
   display: flex;
   gap: 174px;
   margin-top: 115px;
+}
+.button {
   button {
+    margin-top: 50px;
     display: flex;
-    width: 203px;
+    width: 593px;
     height: 56px;
     padding: 16px;
     justify-content: center;
@@ -91,9 +98,9 @@
     border: 1px solid #fff;
     background: #fff;
     color: var(--brand-blue, #000040);
-
+    cursor: pointer;
     text-align: center;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -101,6 +108,9 @@
 }
 .servicesrighttop {
   width: 221px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
   img {
     width: 72px;
     height: 72px;
@@ -109,6 +119,9 @@
 
 .serviceslefttop {
   width: 203px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
   img {
     width: 72px;
     height: 72px;
@@ -117,6 +130,9 @@
 
 .servicesrightbottom {
   width: 203px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
   img {
     width: 72px;
     height: 72px;
@@ -124,6 +140,9 @@
 }
 .servicesleftbottom {
   width: 203px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
   img {
     width: 72px;
     height: 72px;

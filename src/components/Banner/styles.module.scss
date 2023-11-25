@@ -13,7 +13,7 @@
     padding-bottom: 182px;
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -28,13 +28,13 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 310%;
     height: 250px;
-    background-image: url("/curve-azul.svg");
+    background-image: url('/curve-azul.svg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -74,7 +74,7 @@
   h1 {
     color: #fff;
     text-align: center;
-    font-family: "Dela Gothic One";
+    font-family: Montserrat;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
@@ -98,7 +98,7 @@
     color: var(--brand-mid-blue, #243d66);
     text-transform: uppercase;
     text-align: center;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;

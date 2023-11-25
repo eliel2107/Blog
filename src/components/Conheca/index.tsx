@@ -1,9 +1,9 @@
-import { useState } from "react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import styles from "./styles.module.scss";
+import { useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import styles from './styles.module.scss';
 
 type SlideType = {
   id: number;
@@ -14,7 +14,7 @@ type SlideType = {
 
 export default function Conheca() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = ["/Locadora.png", "/Fleet.png", "/Transportadora.png"];
+  const slides = ['/Locadora.png', '/Fleet.png', '/Transportadora.png'];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -29,7 +29,7 @@ export default function Conheca() {
         <div className={styles.content}>
           <div className={styles.leftside}>
             <div className={styles.title}>
-              <h2>CONHEÇA NOSSAS SOLUÇÕES</h2>
+              <h2>AS MELHORES SOLUÇÕES PARA SUA FROTA</h2>
             </div>
             <div className={styles.subtitle}></div>
             <div className={styles.serviços}>
@@ -38,29 +38,30 @@ export default function Conheca() {
                 <div className={styles.serviceslefttop}>
                   <img src="./lefttop.gif" alt="" />
                   <p>Maior prazo para indicação do condutor</p>
-                  <button>Saiba mais</button>
                 </div>
                 <div className={styles.servicesrighttop}>
                   <img src="./righttop.gif" alt="" />
                   <p>
-                    {" "}
+                    {' '}
                     Gerencie o processo por loja (documentos, indicação do
                     condutor)
                   </p>
-                  <button>Saiba mais</button>
                 </div>
               </div>
-              <div className={styles.bottom}>
-                <div className={styles.servicesrightbottom}>
-                  <img src="./rightbottom.gif" alt="" />
-                  <p>Antecipe a cobrança no cartão de crédito</p>
-                  <button>Saiba mais</button>
+              <div className={styles.button}>
+                <div className={styles.bottom}>
+                  <div className={styles.servicesrightbottom}>
+                    <img src="./rightbottom.gif" alt="" />
+                    <p>Antecipe a cobrança no cartão de crédito</p>
+                  </div>
+                  <div className={styles.servicesleftbottom}>
+                    <img src="./leftbottom.gif" alt="" />
+                    <p>Pagamento das multas com desconto</p>
+                  </div>
                 </div>
-                <div className={styles.servicesleftbottom}>
-                  <img src="./leftbottom.gif" alt="" />
-                  <p>Pagamento das multas com desconto</p>
+                <a href="/solucoes">
                   <button>Saiba mais</button>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -71,7 +72,7 @@ export default function Conheca() {
                   key={index}
                   src={src}
                   alt=""
-                  style={{ display: index === currentSlide ? "flex" : "none" }}
+                  style={{ display: index === currentSlide ? 'flex' : 'none' }}
                 />
               ))}
             </div>

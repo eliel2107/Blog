@@ -3,31 +3,68 @@
   width: 100%;
   overflow: hidden;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-top: 410px;
-  padding-bottom: 363px;
-  padding-inline: 260px;
+  padding-top: 307px;
+  padding-block: 450px;
+  height: 712px;
+}
+
+.container::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 300 / 67;
+  z-index: 100;
+  background-image: url('/reduzir.svg');
+  background-size: cover;
+  background-position: left -62px;
+  background-repeat: no-repeat;
+}
+.container::after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 300 / 67;
+  background-image: url('/destaques.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  z-index: 100;
 }
 .content {
   display: flex;
   margin-inline: auto;
 }
+.leftside {
+  position: relative;
+}
 .rightside {
+  max-width: 1440px;
+  padding-inline: 194px;
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
   h1 {
     width: 669px;
     color: #fff;
 
-    font-family: Dela Gothic One;
-    font-size: 48px;
+    font-family: Montserrat;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
   }
   p {
     color: #fff;
 
-    font-family: Poppins;
-    font-size: 24px;
+    font-family: Montserrat;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     width: 669px;
@@ -43,13 +80,31 @@
     border-radius: 16px;
     border: 2px solid #fff;
     background: #fff;
-
+    cursor: pointer;
     border: 2px solid var(--brand-blue, #000040);
     color: var(--brand-blue, #000040);
     text-align: center;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
   }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-inline: 194px 60px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(
+    270deg,
+    #000040 48.13%,
+    rgba(0, 0, 64, 0.83) 58.27%,
+    rgba(0, 0, 64, 0.64) 69.62%,
+    rgba(0, 0, 64, 0) 99.9%
+  );
 }
