@@ -14,22 +14,29 @@ export default function Conhecasobre() {
             </div>
             <div className={styles.text}>
               <p>
-                A LW Tecnologia é uma empresa de tecnologia que desenvolve
-                ferramentas de software para gestão de dados da mobilidade
-                urbana, veiculares e pessoais. Nosso propósito é ajudar nossos
-                clientes a economizar dinheiro, melhorar a gestão de processos e
-                conscientizar sobre o trânsito. Como prever o que vai acontecer
-                daqui a alguns anos em um segmento que tem o movimento em sua
-                essência?Atualmente temos um time com mais de 6o colaboradores,
-                simplificamos a burocracia dos órgãos autuadores e a
-                descentralização das informações veiculares.Venha fazer parte de
-                um time inovador e trabalhar junto com a gente na missão de
-                utilizar a tecnologia a serviço da mobilidade.Se você gosta de
-                tecnologia e acredita no futuro da mobilidade, venha para o
-                nosso time.
+                Fundada em agosto de 2016 a partir das mentes visionárias de
+                dois empreendedores profundamente sintonizados com o panorama da
+                gestão de frotas, a nossa jornada combina mais de 25 anos de
+                experiência coletiva em documentação de veículos com tecnologia
+                de ponta. Essa fusão gera ferramentas que não apenas atendem aos
+                nossos parceiros, mas também elevam os processos, proporcionando
+                economia, inteligência e agilidade. Originários de Curitiba,
+                nosso DNA ressoa na simplificação. Somos os arquitetos de
+                soluções que desvendam as complexidades das autoridades fiscais
+                e descentralizar as informações dos veículos. Nossa missão?
+                Conceder aos gestores e administradores uma autonomia e controle
+                sem precedentes sobre os dados da sua frota. Assim, podem
+                dedicar o seu foco ao cultivo de uma cultura de segurança e à
+                formação contínua dos condutores, melhorando a experiência por
+                um trânsito mais seguro e tranquilo. Junte-se a nós na revolução
+                do cenário da gestão de frotas, onde a experiência se encontra
+                com a inovação, simplificando processos e moldando um futuro
+                centrado na segurança e na eficiência.
               </p>
             </div>
-            <button>Quero me inscrever</button>
+            <a href="/solucoes">
+              <button>Conheça nossos produtos</button>
+            </a>
           </div>
         </div>
       </section>

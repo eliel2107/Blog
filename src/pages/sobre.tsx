@@ -10,7 +10,7 @@ export default function Sobre() {
   return (
     <>
       <Header />
-      <Bannersobre />
+
       <Conhecasobre />
       <Visao />
       <Sobrevideo />

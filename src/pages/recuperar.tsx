@@ -15,9 +15,9 @@ export default function Recuperar() {
             <img src="LOGOLW.svg" alt="" />
           </div>
           <div className={styles.socials}>
-            <img src="fbr.svg" alt="" />
-            <img src="igr.svg" alt="" />
-            <img src="ttr.svg" alt="" />
+            <img src="fbicon.svg" alt="" />
+            <img src="igicon.svg" alt="" />
+            <img src="tticon.svg" alt="" />
           </div>
         </div>
         <div className={styles.rightside}>
@@ -36,7 +36,9 @@ export default function Recuperar() {
                 </div>
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
-                  <h4>Voltar ao login</h4>
+                  <a href="/login">
+                    <h4>Voltar ao login</h4>
+                  </a>
                 </div>
               </form>
             </div>

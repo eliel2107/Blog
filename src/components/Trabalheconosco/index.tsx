@@ -1,6 +1,20 @@
+import { useRef } from 'react';
 import styles from './styles.module.scss';
 
 export default function Trabalheconosco() {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleAttachmentButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    console.log('Selected File:', selectedFile);
+    // You can handle the selected file as needed, e.g., upload it to a server.
+  };
   return (
     <>
       <div className={styles.container}>
@@ -59,10 +73,21 @@ export default function Trabalheconosco() {
                   />
                 </div>
                 <div className={styles.anexo}>
-                  <button>
-                    Anexar curriculo{' '}
-                    <button className={styles.send}>Enviar</button>
+                  <button
+                    className={styles.attachmentButton}
+                    onClick={handleAttachmentButtonClick}
+                  >
+                    Anexar currículo
                   </button>
+                  {/* Hidden file input */}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".pdf, .doc, .docx"
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                  />
+                  <button className={styles.sendButton}>Enviar</button>
                 </div>
                 <div className={styles.button}>
                   <button type="submit">

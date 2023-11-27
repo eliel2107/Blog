@@ -21,7 +21,7 @@ export default function Faleconosco() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="MapImage1.svg" alt="" />
+            <img src="CONTATO.jpg" alt="" />
           </div>
           <div className={styles.rightside}>
             <div className={styles.title}>

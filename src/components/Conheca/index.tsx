@@ -14,7 +14,13 @@ type SlideType = {
 
 export default function Conheca() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = ['/Locadora.png', '/Fleet.png', '/Transportadora.png'];
+  const slides = [
+    '/LOCADORAHOME.png',
+    '/FLEETHOME.png',
+    '/EMBARCADORHOME.png',
+    '/FROTAHOME.png',
+    '/TRANSPORTADORAHOME.png',
+  ];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));

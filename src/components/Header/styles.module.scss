@@ -21,14 +21,14 @@
 .rightSide {
   ul {
     display: flex;
-    gap: 23px;
+    gap: 15px;
   }
   li {
     list-style-type: none;
     text-transform: uppercase;
     font-family: Montserrat;
     cursor: pointer;
-
+    font-size: small;
     &:hover {
       text-decoration: underline;
     }

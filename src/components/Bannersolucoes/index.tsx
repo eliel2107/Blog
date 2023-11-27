@@ -8,19 +8,20 @@ export default function Bannersolucoes() {
           <div className={styles.leftside}>
             <div className={styles.title}>
               <h1>
-                Nossas <br />
-                soluções
+                CONHEÇA O PRODUTO <br />
+                IDEAL PARA SUA FROTA
               </h1>
             </div>
           </div>
           <div className={styles.rightside}>
             <p>
-              Cras imperdiet est eget nulla fringilla, sit amet volutpat sem
-              tristique. Pellentesque quis augue ac mauris posuere vehicula.
+              Com a LW Tecnologia, você pode aumentar a eficiência operacional e
+              reduzir os custos de operação em até 40%, além de melhorar e
+              simplificar a gestão de sua frota.
             </p>
             <a href="/contato">
               <button>
-                Fale Conosco <img src="ArrowRight.svg" alt="" />
+                Fale com um especialista <img src="ArrowRight.svg" alt="" />
               </button>
             </a>
           </div>

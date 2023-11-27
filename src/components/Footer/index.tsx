@@ -12,7 +12,7 @@ export default function Footer() {
                   <li>Home</li>
                 </a>
                 <a href="/sobre">
-                  <li>sobre nós</li>
+                  <li>Quem somos</li>
                 </a>
                 <a href="/solucoes">
                   <li>soluções</li>
@@ -22,6 +22,9 @@ export default function Footer() {
                 </a>
                 <a href="/contato">
                   <li>Contato</li>
+                </a>
+                <a href="/trabalhe">
+                  <li>Trabalhe conosco</li>
                 </a>
               </ul>
             </div>
@@ -35,7 +38,25 @@ export default function Footer() {
         </div>
         <div className={styles.bottomcontent}>
           <p>© 2023 LW Tecnologia. Todos os direitos reservados</p>
-          <img src="logofooter.svg" alt="" />
+          <div className={styles.middle}>
+            <img src="logofooter.svg" alt="" />
+            <div className={styles.undertitle}>
+              <div className={styles.stars}>
+                <img src="starsicon.svg" alt="" />
+                <div className={styles.pro}>
+                  <h2>Proffisionalismo</h2>
+                  <p>Máxima qualidade</p>
+                </div>
+              </div>
+              <div className={styles.satisfaction}>
+                <img src="Like.svg" alt="" />
+                <div className={styles.like}>
+                  <h2>Satisfação dos clientes</h2>
+                  <p>100%</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul>
             <li>Termos de serviço</li>
             <li>Políticas de privacidade</li>

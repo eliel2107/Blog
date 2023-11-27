@@ -68,6 +68,14 @@
     font-weight: 400;
     padding-bottom: 30px;
   }
+  h1 {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+  }
   p {
     color: #fff;
     leading-trim: both;
@@ -80,7 +88,7 @@
 .top {
   display: flex;
   gap: 86px;
-  margin-top: 33px;
+
   button {
     display: flex;
     width: 203px;
@@ -103,7 +111,7 @@
 .bottom {
   display: flex;
   gap: 86px;
-  margin-top: 33px;
+
   button {
     display: flex;
     width: 203px;
@@ -164,5 +172,27 @@
   img {
     width: 72px;
     height: 72px;
+  }
+}
+.button {
+  button {
+    margin-top: 20px;
+    display: flex;
+    width: 515px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-inline: auto;
+    border-radius: 16px;
+    background: #fff;
+    color: var(--brand-mid-blue, #243d66);
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    cursor: pointer;
   }
 }

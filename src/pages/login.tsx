@@ -38,7 +38,9 @@ export default function Login() {
                   />
                 </div>
                 <div className={styles.forgot}>
-                  <p>Esqueci minha senha</p>
+                  <a href="/recuperar">
+                    <p>Esqueci minha senha</p>
+                  </a>
                 </div>
                 <div className={styles.button}>
                   <button type="submit">Entrar</button>
@@ -46,7 +48,9 @@ export default function Login() {
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
                   <p>Ainda não tem uma conta?</p>
-                  <h4>Criar conta</h4>
+                  <a href="/cadastro">
+                    <h4>Criar conta</h4>
+                  </a>
                 </div>
               </form>
             </div>

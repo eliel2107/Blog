@@ -8,15 +8,16 @@ export default function Bannertrabalhe() {
           <div className={styles.leftside}>
             <div className={styles.title}>
               <h1>Faça parte do nosso time de especialistas</h1>
+              <p>#RODAMOSJUNTOS</p>
             </div>
           </div>
           <div className={styles.rightside}>
             <p>
               Faça parte desse super time de especialistas e vamos juntos levar
-              essa revolução do para nossos clientes parceiros.
+              essa revolução para nossos clientes.
             </p>
             <button>
-              Quero me inscrever <img src="ArrowRight.svg" alt="" />
+              Quero deixar meu currículo <img src="ArrowRight.svg" alt="" />
             </button>
           </div>
         </div>

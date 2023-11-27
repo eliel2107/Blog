@@ -45,9 +45,10 @@ export default function Sobre() {
             <h2>CLIENTES QUE JÁ FIZERAM A ESCOLHA CERTA</h2>
             <p>Trabalhando juntos para otimizar processos e reduzir custos</p>
           </div>
-          <div className={styles.Parceiros} ref={logosRef}>
-            <div style={{ transform: `translateX(-${offset}px)` }}>
-              {[...Array(300)].map(() => (
+
+          <div className={styles.Parceiros}>
+            <div className={styles.row}>
+              {[...Array(2)].map(() => (
                 <>
                   <img src="/clientes/CCV.png" alt="" />
                   <img src="/clientes/GRUPO_PETROPOLIS.png" alt="" />

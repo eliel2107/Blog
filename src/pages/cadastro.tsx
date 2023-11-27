@@ -39,7 +39,9 @@ export default function Cadastro() {
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
                   <p>Já possui uma conta?</p>
-                  <h4>Fazer login</h4>
+                  <a href="/login">
+                    <h4>Fazer login</h4>
+                  </a>
                 </div>
               </form>
             </div>
@@ -50,9 +52,9 @@ export default function Cadastro() {
             <img src="LOGOLW.svg" alt="" />
           </div>
           <div className={styles.socials}>
-            <img src="fbr.svg" alt="" />
-            <img src="igr.svg" alt="" />
-            <img src="ttr.svg" alt="" />
+            <img src="fbicon.svg" alt="" />
+            <img src="igicon.svg" alt="" />
+            <img src="tticon.svg" alt="" />
           </div>
         </div>
       </section>

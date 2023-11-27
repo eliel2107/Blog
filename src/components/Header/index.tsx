@@ -11,7 +11,7 @@ export default function Header() {
           <div className={styles.rightSide}>
             <ul>
               <a href="/sobre">
-                <li>sobre nós</li>
+                <li>Quem somos</li>
               </a>
               <a href="/solucoes">
                 <li>soluções</li>
@@ -22,8 +22,13 @@ export default function Header() {
               <a href="/blog">
                 <li>Blog</li>
               </a>
+              <a href="/trabalhe">
+                <li>Trabalhe conosco</li>
+              </a>
               <li>|</li>
-              <li>área do cliente</li>
+              <a href="/login">
+                <li>área do cliente</li>
+              </a>
             </ul>
           </div>
         </div>

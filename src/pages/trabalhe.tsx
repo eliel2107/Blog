@@ -7,13 +7,14 @@ import Visao from '@/components/Visao';
 import Sobrevideo from '@/components/Sobre video';
 import Quemtrabalhe from '@/components/Quemtrabalhe';
 import Trabalheconosco from '@/components/Trabalheconosco';
+import ConhecaTrabalhe from '@/components/ConhecaTrabalhe';
 export default function Trabalhe() {
   return (
     <>
       <Header />
       <Bannertrabalhe />
-      <Conhecasobre />
-      <Visao />
+      <ConhecaTrabalhe />
+
       <Quemtrabalhe />
       <Trabalheconosco />
 

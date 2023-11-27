@@ -116,33 +116,47 @@
 
 .Parceiros {
   display: flex;
-  overflow: hidden;
-  white-space: nowrap;
+  align-items: center;
+  gap: 50px;
+  padding-top: 50px;
+  width: 100%;
   padding-bottom: 120px;
 
-  > div {
-    display: flex;
-    gap: 50px;
-  }
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
 
   img {
     display: inline-block;
     width: 209.269px;
     height: 58.973px;
+  }
 
-    object-fit: contain;
-    margin-right: 50px; // Adjust spacing between logos
-    &:last-child {
-      margin-right: 0;
+  .row {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    width: 100%;
+    animation: scrolling-left 20s linear infinite;
+
+    span {
+      color: #fff;
+      font-family: Syne;
+      font-size: 0.73488rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 0.82675rem; /* 112.5% */
+      letter-spacing: 0.00513rem;
     }
   }
 }
-
-@keyframes scrollLogos {
+@keyframes scrolling-left {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%); // Move to the left
+    transform: translateX(-100%);
   }
 }
