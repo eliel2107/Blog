@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './login.module.scss';
+import Link from 'next/link';
 
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -38,9 +39,9 @@ export default function Login() {
                   />
                 </div>
                 <div className={styles.forgot}>
-                  <a href="/recuperar">
+                  <Link href={'/recuperar'}>
                     <p>Esqueci minha senha</p>
-                  </a>
+                  </Link>
                 </div>
                 <div className={styles.button}>
                   <button type="submit">Entrar</button>
@@ -48,9 +49,9 @@ export default function Login() {
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
                   <p>Ainda não tem uma conta?</p>
-                  <a href="/cadastro">
+                  <Link href={'/cadastro'}>
                     <h4>Criar conta</h4>
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>

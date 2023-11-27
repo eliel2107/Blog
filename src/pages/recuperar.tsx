@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './recuperar.module.scss';
+import Link from 'next/link';
 
 export default function Recuperar() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -36,9 +37,9 @@ export default function Recuperar() {
                 </div>
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
-                  <a href="/login">
+                  <Link href={'/login'}>
                     <h4>Voltar ao login</h4>
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>
