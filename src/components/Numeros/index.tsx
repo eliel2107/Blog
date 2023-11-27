@@ -1,4 +1,5 @@
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export default function Numeros() {
   return (
@@ -37,9 +38,9 @@ export default function Numeros() {
               </div>
             </div>
             <div className={styles.bottomcontent}>
-              <a href="/sobre">
+              <Link href="/sobre">
                 <button>Saiba Mais</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

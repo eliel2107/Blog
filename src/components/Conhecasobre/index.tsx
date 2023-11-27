@@ -1,4 +1,5 @@
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export default function Conhecasobre() {
   return (
@@ -34,9 +35,9 @@ export default function Conhecasobre() {
                 centrado na segurança e na eficiência.
               </p>
             </div>
-            <a href="/solucoes">
+            <Link href="/solucoes">
               <button>Conheça nossos produtos</button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import { useState } from "react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import styles from "./styles.module.scss";
 
 type SlideType = {
   id: number;
@@ -15,11 +16,11 @@ type SlideType = {
 export default function Conheca() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    '/LOCADORAHOME.png',
-    '/FLEETHOME.png',
-    '/EMBARCADORHOME.png',
-    '/FROTAHOME.png',
-    '/TRANSPORTADORAHOME.png',
+    "/LOCADORAHOME.png",
+    "/FLEETHOME.png",
+    "/EMBARCADORHOME.png",
+    "/FROTAHOME.png",
+    "/TRANSPORTADORAHOME.png",
   ];
 
   const nextSlide = () => {
@@ -48,7 +49,7 @@ export default function Conheca() {
                 <div className={styles.servicesrighttop}>
                   <img src="./righttop.gif" alt="" />
                   <p>
-                    {' '}
+                    {" "}
                     Gerencie o processo por loja (documentos, indicação do
                     condutor)
                   </p>
@@ -65,9 +66,9 @@ export default function Conheca() {
                     <p>Pagamento das multas com desconto</p>
                   </div>
                 </div>
-                <a href="/solucoes">
+                <Link href="/solucoes">
                   <button>Saiba mais</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -78,7 +79,7 @@ export default function Conheca() {
                   key={index}
                   src={src}
                   alt=""
-                  style={{ display: index === currentSlide ? 'flex' : 'none' }}
+                  style={{ display: index === currentSlide ? "flex" : "none" }}
                 />
               ))}
             </div>
