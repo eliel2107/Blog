@@ -6,9 +6,9 @@ export default function Header() {
     <>
       <section className={styles.container}>
         <div className={styles.content}>
-          <a href="/">
+          <Link href={'/'}>
             <img src="/lwLOGO.svg" />
-          </a>
+          </Link>
           <div className={styles.rightSide}>
             <ul>
               <Link href={'/sobre'}>
