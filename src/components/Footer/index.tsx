@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export default function Footer() {
   return (
@@ -9,22 +9,22 @@ export default function Footer() {
           <div className={styles.topcontent}>
             <div className={styles.pages}>
               <ul>
-                <Link href={'/'}>
+                <Link href={"/"}>
                   <li>Home</li>
                 </Link>
-                <Link href={'/sobre'}>
+                <Link href={"/sobre"}>
                   <li>Quem somos</li>
                 </Link>
-                <Link href={'/solucoes'}>
-                  <li>soluções</li>
+                <Link href={"/solucoes"}>
+                  <li>produtos</li>
                 </Link>
-                <Link href={'/blog'}>
+                <Link href={"/blog"}>
                   <li>Blog</li>
                 </Link>
-                <Link href={'/contato'}>
+                <Link href={"/contato"}>
                   <li>Contato</li>
                 </Link>
-                <Link href={'/trabalhe'}>
+                <Link href={"/trabalhe"}>
                   <li>Trabalhe conosco</li>
                 </Link>
               </ul>
