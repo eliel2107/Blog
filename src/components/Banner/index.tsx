@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Banner() {
@@ -11,9 +12,9 @@ export default function Banner() {
         <div className={styles.videogradient}></div>
         <div className={styles.middlecontent}>
           <h1>TECNOLOGIA Á SERVIÇO DA MOBILIDADE</h1>
-          <a href="/sobre">
+          <Link href={'/sobre'}>
             <button>saiba mais</button>
-          </a>
+          </Link>
         </div>
       </section>
     </>
