@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Header() {
@@ -10,25 +11,26 @@ export default function Header() {
           </a>
           <div className={styles.rightSide}>
             <ul>
-              <a href="/sobre">
+              <Link href={'/sobre'}>
                 <li>Quem somos</li>
-              </a>
-              <a href="/solucoes">
+              </Link>
+
+              <Link href={'/solucoes'}>
                 <li>soluções</li>
-              </a>
-              <a href="/contato">
+              </Link>
+              <Link href={'/contato'}>
                 <li>contato</li>
-              </a>
-              <a href="/blog">
+              </Link>
+              <Link href={'/blog'}>
                 <li>Blog</li>
-              </a>
-              <a href="/trabalhe">
+              </Link>
+              <Link href={'/trabalhe'}>
                 <li>Trabalhe conosco</li>
-              </a>
+              </Link>
               <li>|</li>
-              <a href="/login">
+              <Link href={'/login'}>
                 <li>área do cliente</li>
-              </a>
+              </Link>
             </ul>
           </div>
         </div>

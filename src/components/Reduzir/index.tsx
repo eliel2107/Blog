@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Reduzir() {
@@ -20,11 +21,11 @@ export default function Reduzir() {
                   gestão de sua frota.
                 </p>
                 <div className={styles.bottom}>
-                  <a href="/contato">
+                  <Link href={'/contato'}>
                     <button>
                       FALE CONOSCO <img src="Chats.svg" alt="" />
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

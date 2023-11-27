@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './cadastro.module.scss';
+import Link from 'next/link';
 
 export default function Cadastro() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -39,9 +40,9 @@ export default function Cadastro() {
                 <div className={styles.divisor}></div>
                 <div className={styles.create}>
                   <p>Já possui uma conta?</p>
-                  <a href="/login">
+                  <Link href={'/login'}>
                     <h4>Fazer login</h4>
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>

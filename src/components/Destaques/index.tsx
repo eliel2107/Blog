@@ -6,9 +6,9 @@ export default function Destaques() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.topcontent}>
-            <a href="/blog">
+            <Link href={'/blog'}>
               <h1>BLOG</h1>
-            </a>
+            </Link>
             <p>As últimas notícias e tendências no setor de gestão de frotas</p>
           </div>
           <div className={styles.Theme}>

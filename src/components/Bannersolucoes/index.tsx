@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Bannersolucoes() {
@@ -19,11 +20,11 @@ export default function Bannersolucoes() {
               reduzir os custos de operação em até 40%, além de melhorar e
               simplificar a gestão de sua frota.
             </p>
-            <a href="/contato">
+            <Link href="/contato">
               <button>
                 Fale com um especialista <img src="ArrowRight.svg" alt="" />
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
