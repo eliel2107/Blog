@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.scss';
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function Sobre() {
   const [offset, setOffset] = useState(0);
@@ -40,6 +40,7 @@ export default function Sobre() {
             <div className={styles.rightbar}></div>
           </div>
         </div>
+        {/**/}
         <div className={styles.bottomcontent}>
           <div className={styles.title}>
             <h2>CLIENTES QUE JÁ FIZERAM A ESCOLHA CERTA</h2>
