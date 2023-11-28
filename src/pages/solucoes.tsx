@@ -6,9 +6,10 @@ import Bannersolucoes from '@/components/Bannersolucoes';
 import Footer from '@/components/Footer';
 import Locadora from '@/components/Locadora';
 import Transportadora from '@/components/Transportadora';
-import Fleet from '@/components/Fleet';
+import Fleet1 from '@/components/Fleet1';
 import Frota from '@/components/Frota';
-import Embarcador from '@/components/Embarcador';
+
+import Embarcador1 from '@/components/Embarcador1';
 export default function solucoes() {
   return (
     <>
@@ -16,9 +17,9 @@ export default function solucoes() {
       <Bannersolucoes />
       <Locadora />
       <Transportadora />
-      <Fleet />
+      <Fleet1 />
       <Frota />
-      <Embarcador />
+      <Embarcador1 />
       <Footer />
     </>
   );

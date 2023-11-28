@@ -12,10 +12,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-inline: 194px 60px;
+  padding-inline: 194px;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+
   align-items: center;
   background: linear-gradient(
     90deg,
@@ -24,11 +24,12 @@
   );
 }
 .text {
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 1440px;
+  max-width: 1083px;
+  margin-inline: auto;
 }
 .toptitle {
   display: flex;

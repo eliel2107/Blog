@@ -44,7 +44,7 @@
   }
   button {
     display: flex;
-    width: 414px;
+    width: 100%;
     height: 45px;
     padding: 0px 32px;
     justify-content: center;
@@ -58,5 +58,22 @@
     font-style: normal;
     font-weight: 400;
     cursor: pointer;
+  }
+}
+@media (min-width: 1441px) {
+  .container {
+    background-color: #e3f7fd;
+
+    padding-block: 115px;
+  }
+
+  .content {
+    padding-inline: 194px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+    align-items: center;
+    gap: 120px;
   }
 }

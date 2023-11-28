@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-export default function Locadora() {
+export default function Embarcador1() {
   return (
     <>
       <section className={styles.container}>
@@ -10,51 +10,42 @@ export default function Locadora() {
             <div className={styles.overlay}>
               <div className={styles.rightside}>
                 <div className={styles.serviços}>
-                  <h2>LW MULTAS</h2>
+                  <h2>LW REMARKETING</h2>
                   <p>
-                    Agilidade e eficiência na Gestão de Infrações, com 3 opções
-                    de planos:
+                    Plataforma de devolução e venda de veículos <br />
+                    ao final de contrato com agilidade, segurança e controle.
                   </p>
                   <div className={styles.top}>
                     <div className={styles.serviceslefttop}>
                       <img src="./lefttop.gif" alt="" />
-                      <h1>Lite</h1>
+                      <h1>Gestão de Devolução</h1>
                       <p>
-                        <em>Auto-gestão</em>
+                        Devolução do veículo após envios periódicos de avisos ao
+                        condutor sobre o fim do contrato e pré-agendamento de
+                        devolução.
                       </p>
-                      <ul>
-                        <li>Consulta de multas em uma plataforma Web;</li>
-                        <li>Gestão de notificações e boleto;</li>
-                        <li>Relatórios financeiros e indicadores.</li>
-                      </ul>
                     </div>
                     <div className={styles.servicesrighttop}>
                       <img src="./righttop.gif" alt="" />
-                      <h1>Plus+</h1>
+                      <h1>Gestão de Vistoria</h1>
                       <p>
-                        <em>Gesão de indicação</em>
+                        Armazenamento, análise e visualização dos itens do laudo
+                        de vistoria além do processo de avaliação de avarias.
                       </p>
-                      <ul>
-                        <li>Plano Lite +</li>
-                        <li>Gestão terceirizada de indicação do condutor;</li>
-                        <li>Acesso às tratativas e indicações realizadas.</li>
-                      </ul>
                     </div>
                     <div className={styles.servicesleftbottom}>
                       <img src="./leftbottom.gif" alt="" />
-                      <h1>PREMIUM</h1>
+                      <h1>Gestão de Orçamento</h1>
                       <p>
-                        <em>Auto-gestão</em>
+                        Auxilia a criação de um orçamento do veículo com o valor
+                        total de avarias, multas e débitos durante o período
+                        utilizado pelo condutor.
                       </p>
-                      <ul>
-                        <li>Plano plus +</li>
-                        <li>Prestação de contas dos pagamentos realizados</li>
-                      </ul>
                     </div>
                   </div>
 
                   <div className={styles.bottom}>
-                    <button>Quero o LW Multas</button>
+                    <button>Quero o LW Remarketing</button>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 .container {
+  background-image: url('Photo4.png');
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -8,6 +9,8 @@
   padding-top: 307px;
   padding-block: 450px;
   height: 800px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .content {
@@ -15,10 +18,9 @@
   margin-inline: auto;
 }
 .leftside {
-  position: relative;
-  img {
-    width: 1440px;
-  }
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
 }
 .rightside {
   max-width: 1440px;
@@ -32,10 +34,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-inline: 60px 194px;
+  padding-inline: 194px;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  padding-right: 435px;
+  justify-content: center;
   align-items: center;
   background: linear-gradient(
     90deg,
@@ -99,29 +102,40 @@
     font-style: normal;
     font-weight: 500;
   }
+  h1 {
+    color: #fff;
+
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+  }
+  li {
+    font-family: Montserrat;
+  }
 }
 .bottom {
   display: flex;
   gap: 86px;
   margin-top: 33px;
   button {
+    margin-top: 20px;
     display: flex;
-    width: 203px;
-    height: 56px;
+    width: 515px;
     padding: 16px;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    border-radius: 8px;
-    border: 1px solid #fff;
+    margin-inline: auto;
+    border-radius: 16px;
     background: #fff;
-    color: var(--brand-blue, #000040);
-
+    color: var(--brand-mid-blue, #243d66);
+    text-transform: uppercase;
     text-align: center;
     font-family: Montserrat;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
+    cursor: pointer;
   }
 }
 .servicesrighttop {

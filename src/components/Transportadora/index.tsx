@@ -6,7 +6,7 @@ export default function Transportadora() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="Photo2.png" alt="" />
+            <img src="" alt="" />
             <div className={styles.overlay}>
               <div className={styles.rightside}>
                 <div className={styles.serviços}>

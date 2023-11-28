@@ -60,6 +60,8 @@
 .top {
   display: flex;
   gap: 174px;
+  flex-wrap: wrap;
+
   button {
     display: flex;
     width: 203px;
@@ -106,18 +108,8 @@
     font-weight: 500;
   }
 }
-.servicesrighttop {
-  width: 221px;
-  gap: 28px;
-  display: flex;
-  flex-direction: column;
-  img {
-    width: 72px;
-    height: 72px;
-  }
-}
 
-.serviceslefttop {
+.serviceCard {
   width: 203px;
   gap: 28px;
   display: flex;
@@ -128,26 +120,6 @@
   }
 }
 
-.servicesrightbottom {
-  width: 203px;
-  gap: 28px;
-  display: flex;
-  flex-direction: column;
-  img {
-    width: 72px;
-    height: 72px;
-  }
-}
-.servicesleftbottom {
-  width: 203px;
-  gap: 28px;
-  display: flex;
-  flex-direction: column;
-  img {
-    width: 72px;
-    height: 72px;
-  }
-}
 .rightside {
   display: flex;
   flex-direction: column;

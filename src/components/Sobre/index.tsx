@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./styles.module.scss";
+import { useEffect, useRef, useState } from 'react';
+import styles from './styles.module.scss';
 
 export default function Sobre() {
   const [offset, setOffset] = useState(0);
@@ -49,7 +49,7 @@ export default function Sobre() {
 
           <div className={styles.Parceiros}>
             <div className={styles.row}>
-              {[...Array(2)].map(() => (
+              {[...Array(5)].map(() => (
                 <>
                   <img src="/clientes/CCV.png" alt="" />
                   <img src="/clientes/GRUPO_PETROPOLIS.png" alt="" />

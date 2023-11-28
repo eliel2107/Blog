@@ -2,6 +2,7 @@
   background-color: #fff;
   display: flex;
   min-height: 100vh;
+  height: 100vh;
 }
 .rightside {
   width: 100%;
@@ -46,27 +47,27 @@
   cursor: pointer;
 }
 .title {
-  gap: 16px;
+  gap: 12px;
   display: flex;
   flex-direction: column;
   h1 {
     color: var(--black, #404049);
     font-family: Outfit;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
   }
   p {
     color: var(--black, #404049);
     font-family: Outfit;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 500;
   }
 }
 .flexInput {
-  padding-top: 16px;
-  gap: 6px;
+  padding-top: 12px;
+  gap: 4px;
   display: flex;
   flex-direction: column;
   input {
@@ -75,19 +76,19 @@
 
     background: #fff;
     display: flex;
-    height: 43px;
-    padding: 16px;
+    height: 38px;
+    padding: 12px;
     justify-content: flex-end;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     align-self: stretch;
-    width: 443px;
+    width: 400px;
     color: #404049;
   }
 }
 
 .button {
-  margin-top: 72px;
+  margin-top: 65px;
   button {
     border-radius: 5px;
     background-size: 400% 200%;
@@ -100,11 +101,11 @@
       var(--brand-blue, #0505b9)
     );
     display: flex;
-    width: 442px;
-    padding: 16px;
+    width: 400px;
+    padding: 12px;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     animation: textura 7.4s cubic-bezier(0.2, 0.5, 0.9, 0.6) 2s infinite normal
       none running;
     transition: all 10.8s cubic-bezier(0.55, 0.1, 0.47, 0.94);
@@ -124,7 +125,7 @@
 }
 .leftside {
   width: 100%;
-  height: 1080px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,14 +133,14 @@
 
 .create {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 
   h4 {
     cursor: pointer;
     color: var(--brand-blue, #000040);
 
     font-family: Outfit;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 600;
     text-decoration: underline;
@@ -147,15 +148,15 @@
   p {
     color: var(--black, #404049);
     font-family: Outfit;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
   }
 }
 .divisor {
-  width: 443px;
+  width: 400px;
   height: 1px;
   background: #ececf0;
-  margin-top: 53px;
-  margin-bottom: 24px;
+  margin-top: 45px;
+  margin-bottom: 20px;
 }

@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { useState } from "react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import styles from "./styles.module.scss";
+import Link from 'next/link';
+import { useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import styles from './styles.module.scss';
 
 type SlideType = {
   id: number;
@@ -16,11 +16,118 @@ type SlideType = {
 export default function Conheca() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "/LOCADORAHOME.png",
-    "/FLEETHOME.png",
-    "/EMBARCADORHOME.png",
-    "/FROTAHOME.png",
-    "/TRANSPORTADORAHOME.png",
+    '/LOCADORAHOME.png',
+    '/FLEETHOME.png',
+    '/EMBARCADORHOME.png',
+    '/FROTAHOME.png',
+    '/TRANSPORTADORAHOME.png',
+  ];
+  const slidesContent = [
+    {
+      title: 'LOCADORA',
+      content: [
+        {
+          imageURL: './lefttop.gif',
+          text: 'Maior prazo para indicação do condutor',
+        },
+        {
+          imageURL: './righttop.gif',
+          text: 'Gerencie o processo por loja (documentos, indicação do condutor)r',
+        },
+        {
+          imageURL: './rightbottom.gif',
+          text: 'Antecipe a cobrança no cartão de crédito',
+        },
+        {
+          imageURL: './leftbottom.gif',
+          text: 'Pagamento das multas com desconto',
+        },
+      ],
+    },
+    {
+      title: 'FLEET',
+      content: [
+        {
+          imageURL: './lefttop.gif',
+          text: 'Maior prazo para indicação do condutor',
+        },
+        {
+          imageURL: './righttop.gif',
+          text: 'Relatórios Gerenciais',
+        },
+        {
+          imageURL: './rightbottom.gif',
+          text: 'Disparo automático de e-mail (notificação de trânsito)',
+        },
+        {
+          imageURL: './leftbottom.gif',
+          text: 'Pagamento de multa com 20% de desconto',
+        },
+      ],
+    },
+    {
+      title: 'EMBARCADOR',
+      content: [
+        {
+          imageURL: './lefttop.gif',
+          text: 'Consulta ativa das multas por excesso de peso',
+        },
+        {
+          imageURL: './righttop.gif',
+          text: 'Multas cadastradas no CNPJ',
+        },
+        {
+          imageURL: './rightbottom.gif',
+          text: 'Entre com recursos das multas dentro do prazo',
+        },
+        {
+          imageURL: './leftbottom.gif',
+          text: 'Pagamento com desconto',
+        },
+      ],
+    },
+    {
+      title: 'FROTA PRÓPRIA',
+      content: [
+        {
+          imageURL: './lefttop.gif',
+          text: 'Consulta CNH',
+        },
+        {
+          imageURL: './righttop.gif',
+          text: 'Maior prazo para indicação do condutor',
+        },
+        {
+          imageURL: './rightbottom.gif',
+          text: 'Automatizamos o processo de desconto em folha de pagamento',
+        },
+        {
+          imageURL: './leftbottom.gif',
+          text: 'Pagamento das multas com desconto',
+        },
+      ],
+    },
+    {
+      title: 'TRANSPORTADORA',
+      content: [
+        {
+          imageURL: './lefttop.gif',
+          text: 'Consulta CNH',
+        },
+        {
+          imageURL: './righttop.gif',
+          text: 'Consulta de Multas ANTT',
+        },
+        {
+          imageURL: './rightbottom.gif',
+          text: 'Maior prazo para indicação do condutor',
+        },
+        {
+          imageURL: './leftbottom.gif',
+          text: 'Pagamento de multa com desconto.',
+        },
+      ],
+    },
   ];
 
   const nextSlide = () => {
@@ -40,32 +147,16 @@ export default function Conheca() {
             </div>
             <div className={styles.subtitle}></div>
             <div className={styles.serviços}>
-              <h2>IDEAL PARA LOCADORA</h2>
+              <h2>{slidesContent[currentSlide].title}</h2>
               <div className={styles.top}>
-                <div className={styles.serviceslefttop}>
-                  <img src="./lefttop.gif" alt="" />
-                  <p>Maior prazo para indicação do condutor</p>
-                </div>
-                <div className={styles.servicesrighttop}>
-                  <img src="./righttop.gif" alt="" />
-                  <p>
-                    {" "}
-                    Gerencie o processo por loja (documentos, indicação do
-                    condutor)
-                  </p>
-                </div>
+                {slidesContent[currentSlide].content.map((item, index) => (
+                  <div key={index} className={styles.serviceCard}>
+                    <img src={item.imageURL} alt="" />
+                    <p>{item.text}</p>
+                  </div>
+                ))}
               </div>
               <div className={styles.button}>
-                <div className={styles.bottom}>
-                  <div className={styles.servicesrightbottom}>
-                    <img src="./rightbottom.gif" alt="" />
-                    <p>Antecipe a cobrança no cartão de crédito</p>
-                  </div>
-                  <div className={styles.servicesleftbottom}>
-                    <img src="./leftbottom.gif" alt="" />
-                    <p>Pagamento das multas com desconto</p>
-                  </div>
-                </div>
                 <Link href="/solucoes">
                   <button>Saiba mais</button>
                 </Link>
@@ -79,7 +170,7 @@ export default function Conheca() {
                   key={index}
                   src={src}
                   alt=""
-                  style={{ display: index === currentSlide ? "flex" : "none" }}
+                  style={{ display: index === currentSlide ? 'flex' : 'none' }}
                 />
               ))}
             </div>
