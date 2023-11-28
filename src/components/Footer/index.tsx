@@ -29,6 +29,7 @@ export default function Footer() {
                 </Link>
               </ul>
             </div>
+            {/*@ts-ignore*/}
             <div className={styles.social}>
               <img src="facebook-lw.svg" alt="" />
               <img src="twitter-lw.svg" alt="" />
