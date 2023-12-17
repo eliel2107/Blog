@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './styles.module.scss';
-
+import SimpleSlider from '../Slider';
 export default function Destaquesblog() {
   return (
     <>
@@ -12,6 +12,7 @@ export default function Destaquesblog() {
               <p>Recentes</p> <img src="CaretDown.svg" alt="" />
             </div>
           </div>
+          <SimpleSlider />
           <div className={styles.middle}>
             <div className={styles.l}>
               <Link href="/post">
@@ -114,6 +115,8 @@ export default function Destaquesblog() {
           <div className={styles.top}>
             <h1>Últimas Postagens</h1>
           </div>
+          <SimpleSlider />
+          <SimpleSlider />
           <div className={styles.middle}>
             <div className={styles.l}>
               <Link href="/post">
@@ -288,4 +291,7 @@ export default function Destaquesblog() {
       </section>
     </>
   );
+}
+function setActiveSlide(arg0: (prev: any) => number) {
+  throw new Error('Function not implemented.');
 }

@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .content {
@@ -13,15 +13,30 @@
   align-items: center;
   justify-content: space-between;
   margin-inline: auto;
-  padding-inline: 194px;
   padding-block: 28px;
   max-width: 1440px;
+  padding-inline: 198px;
+}
+.hamburger {
+  display: none;
+}
+@media (max-width: 768px) {
+  .content {
+    padding-inline: 22px;
+    .rightSide {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+    }
+  }
 }
 
 .rightSide {
   ul {
     display: flex;
     gap: 15px;
+    align-items: center;
   }
   li {
     list-style-type: none;
@@ -32,5 +47,195 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 15px;
+      height: 15px;
+    }
+    .rotate {
+      transform: rotate(90deg); // Rotates the image 180 degrees
+      transition: transform 0.3s ease; // Smooth transition for the rotation
+    }
+    .rotateBack {
+      transform: rotate(0deg); // Rotates the image back to 0 degrees
+      transition: transform 0.3s ease; // Smooth transition for the rotation
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(
+        100% - -10px
+      ); // Position the triangle to extend beyond the dropdown
+      left: 30px; // Adjust based on where you want the triangle to appear
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      transform: rotate(45deg);
+      box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1; // Ensure it's above other elements
+      display: none; // Initially hide the triangle
+    }
+
+    &.open {
+      .dropdownContent {
+        display: block;
+      }
+
+      &::before {
+        display: block; // Show the triangle when .dropdown has .open class
+      }
+    }
+  }
+}
+.dropdownContent::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+.dropdownContent::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.dropdownContent::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+.dropdownContent {
+  max-height: 300px; /* Set a maximum height for the dropdown content */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-radius: 10px;
+  display: none;
+  margin-top: 20px;
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: 100%;
+  min-width: 700px;
+  padding: 16px;
+
+  .flex {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas com largura igual */
+    grid-gap: 10px; /* Espaçamento entre as células */
+  }
+  li {
+    padding: 12px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: #707070;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    a {
+      color: #000040;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .leftIcon {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #000040;
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+
+  &.open {
+    width: 100%;
+  }
+
+  .contentDrawer {
+    padding: 18px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    overflow-x: hidden;
+    transition: width 0.2s;
+
+    &.visible {
+      width: 100%;
+    }
+  }
+
+  .middleContentDrawer {
+    padding-inline: 13px;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      font-size: 16px;
+      text-transform: uppercase;
+      flex-wrap: nowrap;
+    }
+    li {
+      color: #fff;
+
+      font-family: Poppins;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+}
+.topContentDrawer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.divisor {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+}
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .name {
+    color: #000040;
+    font-weight: 800;
+  }
+  .description {
+    color: #707070;
+    font-weight: 100;
   }
 }

@@ -30,6 +30,7 @@ export default function Sobre() {
             <div className={styles.leftbar}></div>
             <div className={styles.videobg}>
               <iframe
+                className={styles.iframe}
                 width="852"
                 height="586"
                 src="https://www.youtube.com/embed/0AxqAU0k-sM?si=IEgx2FwOuGL6u4I4"
@@ -49,20 +50,24 @@ export default function Sobre() {
 
           <div className={styles.Parceiros}>
             <div className={styles.row}>
-              {[...Array(5)].map(() => (
+              {[...Array(5)].map((value) => (
                 <>
-                  <img src="/clientes/CCV.png" alt="" />
-                  <img src="/clientes/GRUPO_PETROPOLIS.png" alt="" />
-                  <img src="/clientes/JSL.png" alt="" />
-                  <img src="/clientes/KOVI.png" alt="" />
-                  <img src="/clientes/LM.png" alt="" />
-                  <img src="/clientes/LOCALIZA.png" alt="" />
-                  <img src="/clientes/MOVIDA.png" alt="" />
-                  <img src="/clientes/RENAULT.png" alt="" />
-                  <img src="/clientes/TURBI.png" alt="" />
-                  <img src="/clientes/UNIDAS.png" alt="" />
-                  <img src="/clientes/VOLVO.png" alt="" />
-                  <img src="/clientes/FORD.png" alt="" />
+                  <img key={value} src="/clientes/CCV.png" alt="" />
+                  <img
+                    key={value}
+                    src="/clientes/GRUPO_PETROPOLIS.png"
+                    alt=""
+                  />
+                  <img key={value} src="/clientes/JSL.png" alt="" />
+                  <img key={value} src="/clientes/KOVI.png" alt="" />
+                  <img key={value} src="/clientes/LM.png" alt="" />
+                  <img key={value} src="/clientes/LOCALIZA.png" alt="" />
+                  <img key={value} src="/clientes/MOVIDA.png" alt="" />
+                  <img key={value} src="/clientes/RENAULT.png" alt="" />
+                  <img key={value} src="/clientes/TURBI.png" alt="" />
+                  <img key={value} src="/clientes/UNIDAS.png" alt="" />
+                  <img key={value} src="/clientes/VOLVO.png" alt="" />
+                  <img key={value} src="/clientes/FORD.png" alt="" />
                 </>
               ))}
             </div>

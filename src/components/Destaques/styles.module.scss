@@ -16,6 +16,12 @@
 
     z-index: 100;
   }
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    &::after {
+      background-position: left 18px;
+    }
+  }
 }
 
 .content {
@@ -32,6 +38,11 @@
   margin-inline: auto;
   padding-inline: 194px;
   padding-block: 100px 360px;
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    padding-inline: 0;
+    padding-block: 100px 150px;
+  }
 }
 .topcontent {
   display: inline-flex;
@@ -53,11 +64,24 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    p {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+  }
 }
 .leftside {
   img {
     width: 552px;
     height: 322px;
+  }
+  @media only screen and (max-width: 768px) {
+    img {
+      width: 100%;
+    }
   }
 }
 .Underpicture {
@@ -120,6 +144,15 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  @media only screen and (max-width: 768px) {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .botaoevento {
   display: flex;
@@ -130,10 +163,17 @@
 .textcontent {
   padding-left: 24px;
   padding-top: 12px;
+  @media only screen and (max-width: 768px) {
+    text-align: left;
+    padding: 0;
+  }
 }
 .Theme {
   display: flex;
   gap: 10px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .theme2 {
@@ -169,10 +209,21 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .textcontent2 {
   padding-left: 24px;
   padding-top: 12px;
+  @media only screen and (max-width: 768px) {
+    text-align: left;
+    padding: 0;
+  }
 }
 .theme3 {
   display: flex;
@@ -206,10 +257,22 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .textcontent3 {
   padding-left: 24px;
   padding-top: 12px;
+  @media only screen and (max-width: 768px) {
+    text-align: left;
+    padding: 0;
+  }
 }
 .theme4 {
   display: flex;
@@ -243,8 +306,20 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .textcontent4 {
   padding-left: 24px;
   padding-top: 12px;
+  @media only screen and (max-width: 768px) {
+    text-align: left;
+    padding: 0;
+  }
 }

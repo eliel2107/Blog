@@ -22,6 +22,14 @@
     rgba(0, 0, 64, 0.9) 53.53%,
     rgba(0, 0, 0, 0) 70.97%
   );
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 64, 0.9) 53.53%,
+      rgba(0, 0, 0, 0) 70.97%
+    );
+  }
 }
 .text {
   justify-content: center;
@@ -70,5 +78,8 @@
     font-style: normal;
     font-weight: 500;
     padding-right: 580px;
+    @media only screen and (max-width: 768px) {
+      padding-right: 0;
+    }
   }
 }

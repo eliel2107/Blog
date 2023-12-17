@@ -1,0 +1,182 @@
+/* components/Slider.module.css */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.l {
+  width: 320px;
+  height: 520px;
+  background-color: #fff;
+}
+.l1 {
+  width: 320px;
+  height: 520px;
+  background-color: #fff;
+}
+.l2 {
+  width: 320px;
+  height: 520px;
+  background-color: #fff;
+}
+.image {
+  img {
+    width: 273px;
+    height: 416px;
+  }
+}
+
+.text {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  h1 {
+    color: #121416;
+
+    font-family: Montserrat;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  p {
+    color: #6c757d;
+
+    font-family: Montserrat;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+.day {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  p {
+    color: #6c757d;
+
+    font-family: Poppins;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+.divisor {
+  width: 33.789px;
+  height: 0.939px;
+  background: rgba(108, 117, 125, 0.4);
+}
+.link {
+  p {
+    color: #00023c;
+
+    font-family: Poppins;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+}
+.middle {
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    padding-bottom: 50px;
+  }
+}
+.swiperContainer {
+  display: flex;
+}
+
+.image {
+  img {
+    height: auto;
+  }
+}
+
+/* Estilos para os serviços dentro do primeiro SwiperSlide */
+.serviços {
+  margin-top: 50px;
+  h2 {
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 20px;
+    text-align: left;
+  }
+
+  /* Estilos para a seção superior dos serviços */
+  .top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    gap: 20px;
+
+    /* Estilos para cada card de serviço */
+    .serviceCard {
+      width: 150px;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        color: #fff;
+        font-family: Montserrat;
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* Estilos para o botão dentro dos serviços */
+  .button {
+    margin-top: 60px;
+    display: flex;
+
+    button {
+      display: flex;
+      width: 100%;
+      min-width: 250px;
+      height: 56px;
+      padding: 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 8px;
+      border: 1px solid #fff;
+      background: #fff;
+      color: var(--brand-blue, #000040);
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Estilos para a seção de botões fora do primeiro SwiperSlide */
+.button {
+  margin-top: 20px;
+
+  button {
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
+  }
+}

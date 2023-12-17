@@ -33,6 +33,15 @@
   padding-left: 48px;
   padding-top: 48px;
 }
+.logoR {
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}
 .socials {
   position: absolute;
   bottom: 0;
@@ -82,6 +91,11 @@
     width: 443px;
     color: #404049;
   }
+  @media only screen and (max-width: 768px) {
+    input {
+      width: 100%;
+    }
+  }
 }
 
 .button {
@@ -111,6 +125,11 @@
   button:focus {
     filter: brightness(0.9);
   }
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
+  }
 }
 @keyframes textura {
   0% {
@@ -126,6 +145,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 .forgot {
   margin-top: 8px;
@@ -161,4 +183,7 @@
   background: #ececf0;
   margin-top: 66px;
   margin-bottom: 24px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }

@@ -23,6 +23,9 @@ export default function Recuperar() {
         </div>
         <div className={styles.rightside}>
           <div className={styles.title}>
+            <div className={styles.logoR}>
+              <img src="LWLOGOB.png" alt="" />
+            </div>
             <h1>Recuperar Senha</h1>
             <p>Informe seu email de cadastro</p>
             <div className={styles.formblock}>

@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import styles from './styles.module.scss';
+import SimpleSlider from '../Slider';
+import SliderHome from '../SliderHome';
 
 type SlideType = {
   id: number;
@@ -141,6 +139,10 @@ export default function Conheca() {
     <>
       <section className={styles.container}>
         <div className={styles.content}>
+          <div className={styles.topcontent}>
+            <h1>AS MELHORES SOLUÇÕES PARA SUA FROTA</h1>
+            <SliderHome />
+          </div>
           <div className={styles.leftside}>
             <div className={styles.title}>
               <h2>AS MELHORES SOLUÇÕES PARA SUA FROTA</h2>
@@ -164,6 +166,9 @@ export default function Conheca() {
             </div>
           </div>
           <div className={styles.rightside}>
+            <div className={styles.titleright}>
+              <h2>AS MELHORES SOLUÇÕES PARA SUA FROTA</h2>
+            </div>
             <div className={styles.carrossel}>
               {slides.map((src, index) => (
                 <img

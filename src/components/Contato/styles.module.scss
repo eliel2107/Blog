@@ -3,7 +3,12 @@
   margin-inline: auto;
   background-color: var(--brand-blue, #000040);
   z-index: 0;
-  padding-top: 17px;
+  padding-top: 65px;
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    padding-block: 50px;
+    background: linear-gradient(#000040 93%, white 7%);
+  }
 }
 
 .container::after {
@@ -30,6 +35,10 @@
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 194px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    padding-inline: 20px;
+  }
 }
 
 .title {
@@ -51,6 +60,10 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
+  }
+  @media only screen and (max-width: 768px) {
+    p {
+    }
   }
 }
 
@@ -104,8 +117,21 @@
   display: flex;
   gap: 72px;
   padding-top: 61px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    display: none;
+  }
 }
 
+.iconresponsive {
+  display: none;
+  gap: 72px;
+  padding-top: 61px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    display: flex;
+  }
+}
 .backgroundContainer {
   position: relative;
 }
@@ -285,6 +311,16 @@
     font-style: normal;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    padding-block: 20px;
+    padding-inline: 10px;
+    height: unset;
+    flex-direction: column;
+    h1 {
+      font-size: 1rem;
+    }
+  }
 }
 
 .rightsidebottom {
@@ -293,7 +329,7 @@
 
   input {
     width: 356px;
-    height: 92px;
+
     background: none;
     border: none;
     color: var(--brand-blue, #000040);
@@ -302,6 +338,9 @@
     font-style: normal;
     font-weight: 400;
     padding-left: 24px;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   button {
@@ -318,12 +357,21 @@
     font-style: normal;
     font-weight: 600;
   }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    button {
+      height: 50px;
+    }
+  }
 }
 
 .inputcontainer {
   display: flex;
   border-radius: 5.333px;
   border: 2.667px solid rgba(0, 0, 64, 0.1);
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .contatos {

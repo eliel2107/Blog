@@ -7,6 +7,7 @@ import Numeros from '@/components/Numeros';
 import Reduzir from '@/components/Reduzir';
 import Sobre from '@/components/Sobre';
 import Footer from '@/components/Footer';
+
 export default function Home() {
   return (
     <>

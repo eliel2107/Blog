@@ -9,6 +9,9 @@
   justify-content: flex-start;
   margin-top: -15px;
   position: relative;
+  @media (max-width: 768px) {
+    padding-inline: 0;
+  }
 }
 
 .topcontent {
@@ -22,9 +25,16 @@
   iframe {
     border-radius: 16px;
     background: var(--brand-mid-blue, #243d66);
+    @media (max-width: 768px) {
+      width: auto;
+      height: 200px;
+    }
   }
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    gap: 22px;
+  }
 }
 
 .leftbar {
@@ -34,6 +44,9 @@
   width: 7.631px;
   height: 633.369px;
   flex-shrink: 0;
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 }
 
 .rightbar {
@@ -43,6 +56,9 @@
   width: 7.631px;
   height: 633.369px;
   flex-shrink: 0;
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 }
 .videobg {
   border-radius: 16px;
@@ -64,5 +80,11 @@
     font-weight: 400;
 
     width: 500px;
+  }
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+    margin-bottom: 50px;
   }
 }

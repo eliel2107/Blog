@@ -32,6 +32,7 @@ export default function Sobrevideo() {
             <div className={styles.leftbar}></div>
             <div className={styles.videobg}>
               <iframe
+                className={styles.iframe}
                 width="852"
                 height="586"
                 src="https://www.youtube.com/embed/0AxqAU0k-sM?si=IEgx2FwOuGL6u4I4"

@@ -8,6 +8,11 @@
   margin-inline: auto;
   padding-inline: 194px;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 80px;
+    padding-inline: 20px;
+  }
 
   h2 {
     color: #fff;
@@ -26,7 +31,7 @@
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    width: 300px;
+    width: 100%;
   }
 }
 .mission {

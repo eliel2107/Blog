@@ -85,6 +85,11 @@
     width: 443px;
     color: #404049;
   }
+  @media only screen and (max-width: 768px) {
+    input {
+      width: 100%;
+    }
+  }
 }
 
 .button {
@@ -113,6 +118,11 @@
   button:hover,
   button:focus {
     filter: brightness(0.9);
+  }
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
   }
 }
 @keyframes textura {
@@ -152,4 +162,17 @@
   background: #ececf0;
   margin-top: 20px;
   margin-bottom: 24px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+.logoR {
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin-bottom: 50px;
+    min-width: 300px;
+  }
 }

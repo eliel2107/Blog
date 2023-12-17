@@ -8,9 +8,12 @@
   padding-top: 307px;
   padding-block: 450px;
   height: 1000px;
-  background-image: url('Photo2.png');
+  background-image: url('Photo21.png');
   background-repeat: no-repeat;
   background-size: cover;
+  @media only screen and (max-width: 768px) {
+    padding-block: 681px;
+  }
 }
 
 .content {
@@ -28,6 +31,9 @@
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    margin-inline: 0;
+  }
 }
 .overlay {
   position: absolute;
@@ -46,6 +52,17 @@
     rgba(0, 0, 64, 0.64) 69.62%,
     rgba(0, 0, 64, 0) 99.9%
   );
+  @media (max-width: 768px) {
+    background: linear-gradient(
+      180deg,
+      #000040 48.13%,
+      rgba(0, 0, 64, 0.83) 58.27%,
+      rgba(0, 0, 64, 0.64) 69.62%,
+      rgba(0, 0, 64, 0) 99.9%
+    );
+    padding: 0;
+    padding-inline: 20px;
+  }
 }
 .title {
   h2 {
@@ -140,6 +157,9 @@
     width: 72px;
     height: 72px;
   }
+  @media only screen and (max-width: 768px) {
+    width: 115px;
+  }
 }
 
 .serviceslefttop {
@@ -150,6 +170,9 @@
   img {
     width: 72px;
     height: 72px;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 115px;
   }
 }
 
@@ -162,6 +185,9 @@
     width: 72px;
     height: 72px;
   }
+  @media only screen and (max-width: 768px) {
+    width: 115px;
+  }
 }
 .servicesleftbottom {
   width: 203px;
@@ -171,6 +197,9 @@
   img {
     width: 72px;
     height: 72px;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 115px;
   }
 }
 .button {
@@ -193,5 +222,10 @@
     font-style: normal;
     font-weight: 700;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
   }
 }

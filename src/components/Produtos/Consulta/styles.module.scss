@@ -1,0 +1,43 @@
+.container {
+  background-color: #000040;
+}
+.content {
+  padding-inline: 194px;
+  padding-block: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 55px;
+  max-width: 1440px;
+  margin-inline: auto;
+  align-items: center;
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    padding-block: 50px;
+    flex-direction: column-reverse;
+    img {
+      width: 350px;
+      height: 250px;
+    }
+  }
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h1 {
+    color: #fff;
+
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+  p {
+    color: #fff;
+
+    font-family: Montserrat;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+}

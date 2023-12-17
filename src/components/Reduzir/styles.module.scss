@@ -8,6 +8,9 @@
   padding-top: 307px;
   padding-block: 450px;
   height: 712px;
+  @media only screen and (max-width: 768px) {
+    padding-block: 250px 450px;
+  }
 }
 
 .container::before {
@@ -28,7 +31,7 @@
   content: '';
 
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   aspect-ratio: 300 / 67;
@@ -89,6 +92,20 @@
     font-style: normal;
     font-weight: 600;
   }
+  @media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 150%;
+      width: unset;
+    }
+    p {
+      font-size: 100%;
+      width: unset;
+    }
+    button {
+      width: 100%;
+    }
+    padding-inline: 547px;
+  }
 }
 .overlay {
   position: absolute;
@@ -107,4 +124,15 @@
     rgba(0, 0, 64, 0.64) 69.62%,
     rgba(0, 0, 64, 0) 99.9%
   );
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    background: linear-gradient(
+      180deg,
+      #000040 48.13%,
+      rgba(0, 0, 64, 0.83) 58.27%,
+      rgba(0, 0, 64, 0.64) 69.62%,
+      rgba(0, 0, 64, 0) 99.9%
+    );
+    padding-inline: 0;
+  }
 }

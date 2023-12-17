@@ -2,6 +2,9 @@
   background-color: #e3f7fd;
 
   padding-block: 115px;
+  @media (max-width: 768px) {
+    padding-inline: 20px;
+  }
 }
 .content {
   margin-right: max(0px, (100% - 1440px)/2);
@@ -13,12 +16,24 @@
 
   gap: 120px;
   max-width: 1440px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+    gap: 50px;
+  }
 }
 .leftside {
   img {
     width: 600px;
 
     border-radius: 0px 10px 10px 0px;
+  }
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+      max-width: 500px;
+    }
   }
 }
 .rightside {
@@ -73,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     margin-inline: auto;
-    align-items: center;
+
     gap: 120px;
   }
 }

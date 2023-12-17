@@ -3,6 +3,8 @@
 
   z-index: 1;
   position: relative;
+  @media only screen and (max-width: 768px) {
+  }
 }
 
 .content {
@@ -14,8 +16,31 @@
   justify-content: space-between;
   max-width: 1440px;
   margin-inline: auto;
-  padding-bottom: 150px;
+  padding-bottom: 149px;
   margin-top: -80px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 80px;
+    display: block;
+  }
+}
+.topcontent {
+  display: none;
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    display: block;
+    h1 {
+      color: #fff;
+      padding-bottom: 50px;
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
 }
 .leftside {
   display: flex;
@@ -23,6 +48,16 @@
   padding-left: 208px;
   padding-top: 213px;
   gap: 59px;
+  @media only screen and (max-width: 768px) {
+    display: none;
+    button {
+      width: 250px;
+    }
+    padding: 0;
+    padding-inline: 20px;
+
+    gap: 30px;
+  }
 }
 
 .title {
@@ -35,28 +70,34 @@
     font-weight: 400;
     width: 697px;
   }
+  @media only screen and (max-width: 768px) {
+    align-items: center;
+    h2 {
+      text-align: center;
+      width: unset;
+      font-size: 32px;
+    }
+    display: none;
+  }
 }
-
-.serviços {
+.titleright {
+  display: none;
   h2 {
     color: #fff;
-    leading-trim: both;
-    text-edge: cap;
+
     font-family: Montserrat;
-    font-size: 32px;
+    font-size: 56px;
     font-style: normal;
     font-weight: 400;
-    padding-bottom: 62px;
+    width: 697px;
   }
-  p {
-    color: #fff;
-    leading-trim: both;
-    text-edge: cap;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
+  @media only screen and (max-width: 768px) {
+    h2 {
+      display: block !important;
+    }
   }
 }
+
 .top {
   display: flex;
   gap: 174px;
@@ -79,6 +120,10 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+  }
+  @media only screen and (max-width: 768px) {
+    gap: 10%;
+    flex-direction: column;
   }
 }
 .bottom {
@@ -107,6 +152,11 @@
     font-style: normal;
     font-weight: 500;
   }
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
+  }
 }
 
 .serviceCard {
@@ -125,6 +175,9 @@
   flex-direction: column;
   margin-bottom: -110px;
   gap: 48px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   .carrossel {
     display: flex;
@@ -136,6 +189,9 @@
     display: flex;
     align-items: center;
     gap: 28px;
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
 
     .wrapArrow {
       cursor: pointer;
@@ -157,14 +213,27 @@
     }
   }
 }
-.card {
-  width: 394px;
-  height: 620px;
-  flex-shrink: 0;
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 64, 0.6) 65.4%
-  );
+
+.serviços {
+  h2 {
+    color: #fff;
+
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 62px;
+  }
+  p {
+    color: #fff;
+
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+  }
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: 24px;
+    }
+  }
 }

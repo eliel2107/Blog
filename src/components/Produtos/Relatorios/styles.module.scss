@@ -1,0 +1,51 @@
+.container {
+  background-color: #fff;
+}
+.content {
+  padding-inline: 194px;
+  padding-block: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 55px;
+  max-width: 1440px;
+  margin-inline: auto;
+  align-items: center;
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    padding-block: 50px;
+    flex-direction: column;
+    img {
+      width: 275px;
+      height: 250px;
+    }
+  }
+}
+.rightside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h1 {
+    color: #000040;
+
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+  p {
+    color: #000040;
+
+    font-family: Montserrat;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.check {
+  display: flex;
+  gap: 10px;
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}

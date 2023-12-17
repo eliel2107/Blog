@@ -73,6 +73,26 @@ export default function Contato() {
                 {/* ... */}
               </div>
             </div>
+            <div className={styles.iconresponsive}>
+              <div className={styles.addres}>
+                <div className={styles.map}>
+                  <img src="map.svg" alt="" />
+                </div>{' '}
+                <div className={styles.location}>
+                  <h1>Endereço</h1>{' '}
+                  <p>401 Broadway, 24th Floor, Orchard Cloud View, London</p>
+                </div>
+              </div>
+              <div className={styles.email}>
+                <div className={styles.lettter}>
+                  <img src="letter.svg" alt="" />
+                </div>
+                <div className={styles.contatos}>
+                  <h1>Nossos contatos</h1>
+                  <p>contato@lwtecnologia.com</p> <p>ajuda@lwtecnologia.com</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.bottomcontent}>

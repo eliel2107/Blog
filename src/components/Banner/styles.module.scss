@@ -37,8 +37,27 @@
     background-image: url('/curve-azul.svg');
     background-size: cover;
     background-repeat: no-repeat;
+    @media only screen and (max-width: 768px) {
+      height: 107px;
+    }
   }
 }
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 0;
+  }
+
+  .middlecontent h1 {
+    font-size: 30px !important;
+  }
+  .middlecontent button {
+    width: 250px !important;
+  }
+  .middlecontent {
+    gap: 25px !important;
+  }
+}
+
 .videoBackground {
   position: absolute;
   top: 0;
@@ -79,15 +98,10 @@
     font-style: normal;
     font-weight: 400;
     margin-inline: auto;
-    padding-inline: 194px;
-
-    @media only screen and (max-width: 1642px) {
-      padding-inline: 0px;
-    }
   }
   button {
     display: flex;
-    width: 342px;
+    width: 300px;
     padding: 16px;
     justify-content: center;
     align-items: center;

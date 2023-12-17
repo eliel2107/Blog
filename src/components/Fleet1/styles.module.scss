@@ -10,6 +10,9 @@
   padding-block: 450px;
   background-repeat: no-repeat;
   background-size: cover;
+  @media only screen and (max-width: 768px) {
+    padding-block: 681px;
+  }
 }
 
 .content {
@@ -27,6 +30,9 @@
   gap: 25px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }
 .overlay {
   position: absolute;
@@ -45,6 +51,17 @@
     rgba(0, 0, 64, 0.64) 69.62%,
     rgba(0, 0, 64, 0) 99.9%
   );
+  @media (max-width: 768px) {
+    background: linear-gradient(
+      180deg,
+      #000040 48.13%,
+      rgba(0, 0, 64, 0.83) 58.27%,
+      rgba(0, 0, 64, 0.64) 69.62%,
+      rgba(0, 0, 64, 0) 99.9%
+    );
+    padding: 0;
+    padding-inline: 20px;
+  }
 }
 .title {
   h2 {
@@ -109,6 +126,10 @@
   li {
     font-family: Montserrat;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .bottom {
   display: flex;
@@ -133,6 +154,11 @@
     font-style: normal;
     font-weight: 700;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 100%;
+    }
   }
 }
 .servicesrighttop {
