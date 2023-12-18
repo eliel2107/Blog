@@ -61,10 +61,6 @@
     font-style: normal;
     font-weight: 400;
   }
-  @media only screen and (max-width: 768px) {
-    p {
-    }
-  }
 }
 
 .addres {
@@ -149,6 +145,9 @@
   display: flex;
   flex-direction: column;
   gap: 22px;
+  @media only screen and (max-width: 768px) {
+    transform: rotate(0deg);
+  }
 
   .title {
     h2 {
@@ -289,6 +288,9 @@
   flex-direction: column;
   gap: 22px;
   z-index: -1;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .bottomcontent {
