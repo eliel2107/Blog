@@ -49,7 +49,7 @@ export default function Header() {
       name: 'LW Doc',
       description:
         'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-      image: '/EmplacamentoIcon.svg',
+      image: '/DocIcon.svg',
     },
     {
       url: '/cnh',
