@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import styles from './styles.module.scss';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import ProdutosResponsive from '../ProdutosResponsive';
+import styles from './styles.module.scss';
 
 export default function Header() {
   const router = useRouter();
@@ -89,7 +89,7 @@ export default function Header() {
       name: 'Multas ANTT',
       description:
         'Gerencie suas infrações e evite complicações operacionais e financeiras.',
-      image: '/LicencimentoIcon.svg',
+      image: '/LicencimentoIcon2.svg',
     },
     {
       url: '/indicacao',
