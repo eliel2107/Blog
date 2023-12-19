@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styles from './styles.module.scss';
-import Link from 'next/link';
+import Link from "next/link";
+import React, { useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function ProdutosResponsive() {
   const Accordion = () => {
@@ -11,72 +11,72 @@ export default function ProdutosResponsive() {
     };
     const produtosDropdown = [
       {
-        url: '/assist',
+        url: "/assist",
 
-        name: 'LW Assist',
-        description: 'Sua frota com mais segurança e suporte aos condutores',
-        image: '/SecurityCar.svg',
+        name: "LW Assist",
+        description: "Sua frota com mais segurança e suporte aos condutores",
+        image: "/SecurityCar.svg",
       },
       {
-        url: '/debitos',
-        name: 'LW Débitos',
+        url: "/debitos",
+        name: "LW Débitos",
         description:
-          'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-        image: '/MoneyIcon.svg',
+          "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
+        image: "/MoneyIcon.svg",
       },
       {
-        url: '/doc',
-        name: 'LW Doc',
+        url: "/doc",
+        name: "LW Doc",
         description:
-          'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-        image: '/EmplacamentoIcon.svg',
+          "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
+        image: "/EmplacamentoIcon.svg",
       },
       {
-        url: '/cnh',
-        name: 'Consulta de CNH',
+        url: "/cnh",
+        name: "Consulta de CNH",
         description:
-          'Acompanhe a pontuação dos seus condutores de forma facilitada.',
-        image: '/CNHIcon.svg',
+          "Acompanhe a pontuação dos seus condutores de forma facilitada.",
+        image: "/CNHIcon.svg",
       },
       {
-        url: '/digitalizacao',
-        name: 'Digitalização',
-        description: 'Otimize seus processos e ganhe tempo.',
-        image: '/RadarIcon.svg',
+        url: "/digitalizacao",
+        name: "Digitalização",
+        description: "Otimize seus processos e ganhe tempo.",
+        image: "/RadarIcon.svg",
       },
       {
-        url: '/sat',
-        name: 'LW Sat',
-        description: 'Controle sua frota com tecnologia de alta performance.',
-        image: '/PhoneIcon.svg',
+        url: "/sat",
+        name: "LW Sat",
+        description: "Controle sua frota com tecnologia de alta performance.",
+        image: "/PhoneIcon.svg",
       },
       {
-        url: '/vendas',
-        name: 'Pré-Venda',
+        url: "/vendas",
+        name: "Pré-Venda",
         description:
-          'Tenha as informações necessárias para uma negociação rápida e sem complicações.',
-        image: '/MoneyIcon.svg',
+          "Tenha as informações necessárias para uma negociação rápida e sem complicações.",
+        image: "/MoneyIcon.svg",
       },
       {
-        url: '/multas',
-        name: 'LW Multas',
+        url: "/multas",
+        name: "LW Multas",
         description:
-          'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-        image: '/DangerIcon.svg',
+          "Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.",
+        image: "/DangerIcon.svg",
       },
       {
-        url: '/antt',
-        name: 'Multas ANTT',
+        url: "/antt",
+        name: "Multas ANTT",
         description:
-          'Gerencie suas infrações e evite complicações operacionais e financeiras.',
-        image: '/LicencimentoIcon.svg',
+          "Gerencie suas infrações e evite complicações operacionais e financeiras.",
+        image: "/LicencimentoIcon2.svg",
       },
       {
-        url: '/indicacao',
-        name: 'Indicação Digital',
+        url: "/indicacao",
+        name: "Indicação Digital",
         description:
-          'A indicação dos seus condutores de forma rápida e sustentável.',
-        image: '/AssinaturaIcon.svg',
+          "A indicação dos seus condutores de forma rápida e sustentável.",
+        image: "/AssinaturaIcon.svg",
       },
     ];
     function handleLinkClick(event: React.MouseEvent<HTMLLIElement>): void {}
@@ -87,7 +87,7 @@ export default function ProdutosResponsive() {
           <div className={styles.button}>
             <button
               className={`${styles.button} ${
-                isAccordionOpen ? styles.open : ''
+                isAccordionOpen ? styles.open : ""
               }`}
               onClick={toggleAccordion}
             >

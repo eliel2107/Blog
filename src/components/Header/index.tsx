@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import ProdutosResponsive from '../ProdutosResponsive';
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import ProdutosResponsive from "../ProdutosResponsive";
+import styles from "./styles.module.scss";
 
 export default function Header() {
   const router = useRouter();
@@ -31,72 +31,72 @@ export default function Header() {
 
   const produtosDropdown = [
     {
-      url: '/assist',
+      url: "/assist",
 
-      name: 'LW Assist',
-      description: 'Sua frota com mais segurança e suporte aos condutores',
-      image: '/SecurityCar.svg',
+      name: "LW Assist",
+      description: "Sua frota com mais segurança e suporte aos condutores",
+      image: "/SecurityCar.svg",
     },
     {
-      url: '/debitos',
-      name: 'LW Débitos',
+      url: "/debitos",
+      name: "LW Débitos",
       description:
-        'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-      image: '/MoneyIcon.svg',
+        "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
+      image: "/MoneyIcon.svg",
     },
     {
-      url: '/doc',
-      name: 'LW Doc',
+      url: "/doc",
+      name: "LW Doc",
       description:
-        'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-      image: '/EmplacamentoIcon.svg',
+        "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
+      image: "/EmplacamentoIcon.svg",
     },
     {
-      url: '/cnh',
-      name: 'Consulta de CNH',
+      url: "/cnh",
+      name: "Consulta de CNH",
       description:
-        'Acompanhe a pontuação dos seus condutores de forma facilitada.',
-      image: '/CNHIcon.svg',
+        "Acompanhe a pontuação dos seus condutores de forma facilitada.",
+      image: "/CNHIcon.svg",
     },
     {
-      url: '/digitalizacao',
-      name: 'Digitalização',
-      description: 'Otimize seus processos e ganhe tempo.',
-      image: '/RadarIcon.svg',
+      url: "/digitalizacao",
+      name: "Digitalização",
+      description: "Otimize seus processos e ganhe tempo.",
+      image: "/RadarIcon.svg",
     },
     {
-      url: '/sat',
-      name: 'LW Sat',
-      description: 'Controle sua frota com tecnologia de alta performance.',
-      image: '/PhoneIcon.svg',
+      url: "/sat",
+      name: "LW Sat",
+      description: "Controle sua frota com tecnologia de alta performance.",
+      image: "/PhoneIcon.svg",
     },
     {
-      url: '/vendas',
-      name: 'Pré-Venda',
+      url: "/vendas",
+      name: "Pré-Venda",
       description:
-        'Tenha as informações necessárias para uma negociação rápida e sem complicações.',
-      image: '/MoneyIcon.svg',
+        "Tenha as informações necessárias para uma negociação rápida e sem complicações.",
+      image: "/MoneyIcon.svg",
     },
     {
-      url: '/multas',
-      name: 'LW Multas',
+      url: "/multas",
+      name: "LW Multas",
       description:
-        'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-      image: '/DangerIcon.svg',
+        "Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.",
+      image: "/DangerIcon.svg",
     },
     {
-      url: '/antt',
-      name: 'Multas ANTT',
+      url: "/antt",
+      name: "Multas ANTT",
       description:
-        'Gerencie suas infrações e evite complicações operacionais e financeiras.',
-      image: '/LicencimentoIcon.svg',
+        "Gerencie suas infrações e evite complicações operacionais e financeiras.",
+      image: "/LicencimentoIcon2.svg",
     },
     {
-      url: '/indicacao',
-      name: 'Indicação Digital',
+      url: "/indicacao",
+      name: "Indicação Digital",
       description:
-        'A indicação dos seus condutores de forma rápida e sustentável.',
-      image: '/AssinaturaIcon.svg',
+        "A indicação dos seus condutores de forma rápida e sustentável.",
+      image: "/AssinaturaIcon.svg",
     },
   ];
 
@@ -105,24 +105,24 @@ export default function Header() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <Link href={'/'}>
+            <Link href={"/"}>
               <img src="/lwLOGO.svg" alt="Logo" />
             </Link>
           </div>
 
           <div className={styles.rightSide}>
             <ul>
-              <Link href={'/sobre'}>
-                <li className={isActive('/sobre')}>Quem somos</li>
+              <Link href={"/sobre"}>
+                <li className={isActive("/sobre")}>Quem somos</li>
               </Link>
 
               <li
-                className={`${isActive('/solucoes')} ${styles.dropdown} ${
-                  isDropdownOpen ? styles.open : ''
+                className={`${isActive("/solucoes")} ${styles.dropdown} ${
+                  isDropdownOpen ? styles.open : ""
                 }`}
                 onClick={handleDropdownClick}
               >
-                Produtos{' '}
+                Produtos{" "}
                 <img
                   src="ArrowHeader.svg"
                   alt=""
@@ -153,18 +153,18 @@ export default function Header() {
                 )}
               </li>
 
-              <Link href={'/contato'}>
-                <li className={isActive('/contato')}>Contato</li>
+              <Link href={"/contato"}>
+                <li className={isActive("/contato")}>Contato</li>
               </Link>
-              <Link href={'/blog'}>
-                <li className={isActive('/blog')}>Blog</li>
+              <Link href={"/blog"}>
+                <li className={isActive("/blog")}>Blog</li>
               </Link>
-              <Link href={'/trabalhe'}>
-                <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
+              <Link href={"/trabalhe"}>
+                <li className={isActive("/trabalhe")}>Trabalhe conosco</li>
               </Link>
               <li>|</li>
-              <Link href={'/login'}>
-                <li className={isActive('/login')}>Área do cliente</li>
+              <Link href={"/login"}>
+                <li className={isActive("/login")}>Área do cliente</li>
               </Link>
             </ul>
           </div>
@@ -173,7 +173,7 @@ export default function Header() {
           </div>
         </div>
       </section>
-      <div className={`${styles.drawer} ${drawerOpen ? styles.open : ''}`}>
+      <div className={`${styles.drawer} ${drawerOpen ? styles.open : ""}`}>
         <div className={styles.contentDrawer}>
           <div className={styles.topContentDrawer}>
             <img className={styles.logo} src="/LOGOLW.svg" alt="Logo" />
@@ -213,7 +213,7 @@ export default function Header() {
         </div>
       </div>
       <div
-        className={`${styles.overlay} ${drawerOpen ? styles.visible : ''}`}
+        className={`${styles.overlay} ${drawerOpen ? styles.visible : ""}`}
         onClick={toggleDrawer}
       ></div>
     </>
