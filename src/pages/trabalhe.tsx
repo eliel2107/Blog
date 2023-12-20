@@ -8,6 +8,7 @@ import Sobrevideo from '@/components/Sobre video';
 import Quemtrabalhe from '@/components/Quemtrabalhe';
 import Trabalheconosco from '@/components/Trabalheconosco';
 import ConhecaTrabalhe from '@/components/ConhecaTrabalhe';
+import WhatsApp from '@/components/WhatsApp';
 export default function Trabalhe() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function Trabalhe() {
       <Trabalheconosco />
 
       <Footer />
+      <WhatsApp />
     </>
   );
 }

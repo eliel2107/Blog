@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
+import WhatsApp from '@/components/WhatsApp';
 import ANTTServices from '@/components/Produtos/Servicos/ANTTServices';
 
 import Contato from '@/components/Contato';
@@ -18,6 +18,7 @@ export default function debitos() {
 
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

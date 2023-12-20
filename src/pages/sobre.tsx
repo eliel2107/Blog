@@ -5,7 +5,7 @@ import Bannersobre from '@/components/Bannersobre';
 import Conhecasobre from '@/components/Conhecasobre';
 import Visao from '@/components/Visao';
 import Sobrevideo from '@/components/Sobre video';
-
+import WhatsApp from '@/components/WhatsApp';
 export default function Sobre() {
   return (
     <>
@@ -16,6 +16,7 @@ export default function Sobre() {
       <Sobrevideo />
 
       <Footer />
+      <WhatsApp />
     </>
   );
 }

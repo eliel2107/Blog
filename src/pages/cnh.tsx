@@ -8,6 +8,7 @@ import LWCNH from '@/components/Produtos/ProductSession/LWCNH';
 import CNHVantages from '@/components/Produtos/Vantagens/CNHVantages';
 
 import ProcessoCnh from '@/components/Produtos/Processo/ProcessoCnh';
+import WhatsApp from '@/components/WhatsApp';
 export default function debitos() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function debitos() {
       <ProcessoCnh />
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

@@ -8,6 +8,7 @@ import LWVenda from '@/components/Produtos/ProductSession/LWVenda';
 import VendaVantagens from '@/components/Produtos/Vantagens/VendaVantagens';
 import Processo from '@/components/Produtos/Processo';
 import ProcessoVendas from '@/components/Produtos/Processo/ProcessoVendas';
+import WhatsApp from '@/components/WhatsApp';
 export default function debitos() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function debitos() {
       <ProcessoVendas />
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

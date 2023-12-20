@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Bannerblog from '@/components/Bannerblog';
 import Destaquesblog from '@/components/Destaquesblog';
+import WhatsApp from '@/components/WhatsApp';
 export default function Blog() {
   return (
     <>
@@ -11,6 +12,7 @@ export default function Blog() {
       <Bannerblog />
       <Destaquesblog />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

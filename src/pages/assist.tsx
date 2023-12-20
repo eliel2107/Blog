@@ -6,6 +6,8 @@ import AssistServices from '@/components/Produtos/Servicos/AssistServices';
 import AssistVantages from '@/components/Produtos/Vantagens/AssistVantages';
 import Processo from '@/components/Produtos/Processo';
 import Contato from '@/components/Contato';
+import WhatsApp from '@/components/WhatsApp';
+
 export default function assist() {
   return (
     <>
@@ -17,6 +19,7 @@ export default function assist() {
       <Processo />
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

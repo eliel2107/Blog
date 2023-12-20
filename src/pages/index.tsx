@@ -7,6 +7,7 @@ import Numeros from '@/components/Numeros';
 import Reduzir from '@/components/Reduzir';
 import Sobre from '@/components/Sobre';
 import Footer from '@/components/Footer';
+import WhatsApp from '@/components/WhatsApp';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Destaques />
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }

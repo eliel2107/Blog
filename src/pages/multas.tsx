@@ -6,6 +6,7 @@ import MultasServices from '@/components/Produtos/Servicos/MultasServices';
 import MultasVantages from '@/components/Produtos/Vantagens/MultasVantages';
 import RelatorioMultas from '@/components/Produtos/Relatorios/RelatorioMultas';
 import Contato from '@/components/Contato';
+import WhatsApp from '@/components/WhatsApp';
 export default function assist() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function assist() {
       <RelatorioMultas />
       <Contato />
       <Footer />
+      <WhatsApp />
     </>
   );
 }
