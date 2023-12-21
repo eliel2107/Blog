@@ -26,6 +26,9 @@
   background-size: cover;
   background-position: left -62px;
   background-repeat: no-repeat;
+  @media only screen and (max-width: 768px) {
+    background-position: left -4px;
+  }
 }
 .container::after {
   content: '';
@@ -51,6 +54,7 @@
 .rightside {
   max-width: 1440px;
   padding-inline: 194px;
+  padding-top: 157px;
   gap: 25px;
   display: flex;
   flex-direction: column;

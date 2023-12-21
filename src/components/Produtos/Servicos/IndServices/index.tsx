@@ -12,7 +12,7 @@ export default function AssistServices() {
           <div className={styles.middlecontent}>
             <div className={styles.lefttop}>
               <div className={styles.image}>
-                <img src="EmplacamentoIcon.svg" alt="" />
+                <img src="DocIcon.svg" alt="" />
               </div>
               <div className={styles.text}>
                 <h2>ACESSO AO PORTAL DE MULTAS</h2>

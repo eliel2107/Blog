@@ -69,7 +69,7 @@ export default function AssistServices() {
               <>
                 <div className={styles.bottomcontent}>
                   <div className={styles.image}>
-                    <img src="EmplacamentoIcon.svg" alt="" />
+                    <img src="DocIcon.svg" alt="" />
                   </div>
                   <div className={styles.text}>
                     <h2>LINK DE INDICAÇÃO</h2>
@@ -80,16 +80,18 @@ export default function AssistServices() {
                 </div>
               </>
             )}
-            <div className={styles.button}>
-              <button
-                className={`${styles.button} ${
-                  isAccordionOpen ? styles.open : ''
-                }`}
-                onClick={toggleAccordion}
-              >
-                Ver todos
-              </button>
-            </div>
+            {!isAccordionOpen && (
+              <div className={styles.button}>
+                <button
+                  className={`${styles.button} ${
+                    isAccordionOpen ? styles.open : ''
+                  }`}
+                  onClick={toggleAccordion}
+                >
+                  Ver todos
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </>

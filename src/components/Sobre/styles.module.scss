@@ -1,7 +1,7 @@
 .container {
   flex-direction: column;
   padding-top: 58px;
-  padding-bottom: 250px;
+  padding-bottom: 280px;
   padding-inline: 194px;
   width: 100%;
   align-items: center;
@@ -9,6 +9,9 @@
   justify-content: flex-start;
   margin-top: -15px;
   position: relative;
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 140px;
+  }
 
   &::before {
     content: '';
@@ -16,14 +19,23 @@
     bottom: 0;
     left: 0;
     width: 250%;
-    height: 400px;
-    background-image: url('/divisorBlue2.svg');
+    height: 562px;
+    background-image: url('/conhecapcTurn.svg');
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: -100px;
     z-index: 2;
     @media only screen and (max-width: 768px) {
       margin-bottom: 0px;
+      background-image: url('/conhecapcTurn.svg');
+      width: 250%;
+      height: 300px;
+    }
+    @media only screen and (max-width: 500px) {
+      margin-bottom: 0px;
+      background-image: url('/conhecapcTurn.svg');
+      width: 250%;
+      height: 215px;
     }
   }
   &::after {
@@ -33,13 +45,18 @@
     left: 0;
     width: 100%;
     height: 350px;
-    background-image: url('/divisorBlue3.svg');
+    background-image: url('/conhecaacTurn.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: -100px;
+    margin-bottom: 34px;
     z-index: 1;
     @media only screen and (max-width: 768px) {
       margin-bottom: 48px;
+      background-image: url('/conhecaacTurn.svg');
+      width: 250%;
+      height: 400px;
+      margin-bottom: 100px;
+      aspect-ratio: 1440/320;
     }
   }
 }
@@ -47,7 +64,6 @@
   .container {
     padding-inline: 20px;
     padding-top: 20px;
-    padding-bottom: 419px;
   }
   .topcontent h2 {
     font-size: 24px !important;

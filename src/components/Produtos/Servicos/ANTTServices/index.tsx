@@ -86,16 +86,18 @@ export default function AssistServices() {
                 </div>
               </>
             )}
-            <div className={styles.button}>
-              <button
-                className={`${styles.button} ${
-                  isAccordionOpen ? styles.open : ''
-                }`}
-                onClick={toggleAccordion}
-              >
-                Ver todos
-              </button>
-            </div>
+            {!isAccordionOpen && (
+              <div className={styles.button}>
+                <button
+                  className={`${styles.button} ${
+                    isAccordionOpen ? styles.open : ''
+                  }`}
+                  onClick={toggleAccordion}
+                >
+                  Ver todos
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </>
