@@ -7,7 +7,10 @@ export default function Bannercontato() {
         <div className={styles.content}>
           <div className={styles.leftside}>
             <div className={styles.title}>
-              <h1>Entre em contato conosco e tire suas dúvidas </h1>
+              <h1>
+                Entre em contato <br />
+                conosco e tire suas dúvidas{' '}
+              </h1>
             </div>
           </div>
           <div className={styles.rightside}>
@@ -20,6 +23,11 @@ export default function Bannercontato() {
               <img src="phonecont1.svg" alt="" />
               <h1>TELEFONE</h1>
               <p>11 99999-9999</p>
+            </div>
+            <div className={styles.email}>
+              <img src="DenIcon.svg" alt="" />
+              <h1>CANAL DE DENÚNCIA</h1>
+              <p>complience@lwtecnologia.com.br</p>
             </div>
           </div>
         </div>

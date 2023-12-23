@@ -1,34 +1,24 @@
 .container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 307px;
-  padding-block: 450px;
-  height: 1000px;
-  background-image: url('Photo21.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media only screen and (max-width: 768px) {
-    padding-block: 681px;
-  }
+  background: #000040;
 }
 
 .content {
-  display: flex;
-  margin-inline: auto;
-}
-.leftside {
   width: 100%;
-  height: 100%;
+  padding-inline: 194px;
+  display: flex;
+  padding-block: 50px;
+  margin-inline: auto;
+  max-width: 1440px;
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+  }
 }
+
 .rightside {
   max-width: 1440px;
 
   gap: 25px;
-  margin-inline: auto;
+
   display: flex;
   flex-direction: column;
   @media only screen and (max-width: 768px) {
@@ -36,35 +26,7 @@
     max-width: 380px;
   }
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-inline: 194px;
-  height: 100%;
-  display: flex;
-  padding-left: 660px;
-  align-items: center;
-  background: linear-gradient(
-    270deg,
-    #000040 48.13%,
-    rgba(0, 0, 64, 0.83) 58.27%,
-    rgba(0, 0, 64, 0.64) 69.62%,
-    rgba(0, 0, 64, 0) 99.9%
-  );
-  @media (max-width: 768px) {
-    background: linear-gradient(
-      180deg,
-      #000040 48.13%,
-      rgba(0, 0, 64, 0.83) 58.27%,
-      rgba(0, 0, 64, 0.64) 69.62%,
-      rgba(0, 0, 64, 0) 99.9%
-    );
-    padding: 0;
-    padding-inline: 20px;
-  }
-}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -80,6 +42,29 @@
   }
 }
 
+.top {
+  display: flex;
+  gap: 86px;
+
+  button {
+    display: flex;
+    width: 203px;
+    height: 56px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: var(--brand-blue, #000040);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
 .serviços {
   h2 {
     color: #fff;
@@ -103,29 +88,6 @@
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
-  }
-}
-.top {
-  display: flex;
-  gap: 86px;
-
-  button {
-    display: flex;
-    width: 203px;
-    height: 56px;
-    padding: 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    border: 1px solid #fff;
-    background: #fff;
-    color: var(--brand-blue, #000040);
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
   }
 }
 .bottom {
@@ -241,7 +203,6 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 15px;
-  max-width: 470px;
 }
 .serviços {
   display: flex;

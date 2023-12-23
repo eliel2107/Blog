@@ -3,12 +3,14 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import ProdutosResponsive from '../ProdutosResponsive';
 import styles from './styles.module.scss';
+import AreaResponsive from '../AreaResponsive';
 
 export default function Header() {
   const router = useRouter();
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
 
   const isActive = (route: string) => {
     return route === router.pathname
@@ -22,11 +24,15 @@ export default function Header() {
 
   const handleLinkClick = () => {
     setDrawerOpen(false);
-    setIsDropdownOpen(false); // Close dropdown when a link is clicked
+    setIsDropdownOpen(false);
+    setIsClienteDropdownOpen(false);
   };
 
   const handleDropdownClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+  const handleClienteDropdownClick = () => {
+    setIsClienteDropdownOpen(!isClienteDropdownOpen);
   };
 
   const produtosDropdown = [
@@ -65,8 +71,8 @@ export default function Header() {
       image: '/RadarIcon.svg',
     },
     {
-      url: '/sat',
-      name: 'LW Sat',
+      url: '/sim',
+      name: 'LW SIM',
       description: 'Controle sua frota com tecnologia de alta performance.',
       image: '/PhoneIcon.svg',
     },
@@ -98,6 +104,27 @@ export default function Header() {
         'A indicação dos seus condutores de forma rápida e sustentável.',
       image: '/AssinaturaIcon.svg',
     },
+  ];
+  const clienteDropdown = [
+    {
+      url: '/login',
+      name: 'LW Débitos',
+      description: 'Clique para acessar o portal.',
+      image: '/MoneyIcon.svg',
+    },
+    {
+      url: '/login',
+      name: 'LW Sat',
+      description: 'Clique para acessar o portal.',
+      image: '/PhoneIcon.svg',
+    },
+    {
+      url: '/login',
+      name: 'LW Doc',
+      description: 'Clique para acessar o portal.',
+      image: '/DocIcon.svg',
+    },
+    // Add more items as needed
   ];
 
   return (
@@ -163,9 +190,41 @@ export default function Header() {
                 <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
               </Link>
               <li>|</li>
-              <Link href={'/login'}>
-                <li className={isActive('/login')}>Área do cliente</li>
-              </Link>
+
+              <li
+                className={`${isActive('/login')} ${styles.dropdown} ${
+                  isClienteDropdownOpen ? styles.open : ''
+                }`}
+                onClick={handleClienteDropdownClick} // Toggle dropdown on click
+              >
+                Área do cliente
+                <img
+                  src="ArrowHeader.svg" // Reuse the same arrow image
+                  alt=""
+                  className={`${
+                    isClienteDropdownOpen ? styles.rotate : styles.rotateBack
+                  }`}
+                />
+                {isClienteDropdownOpen && (
+                  <ul className={styles.dropdownContentArea}>
+                    {clienteDropdown.map((item) => (
+                      <li key={item.url} onClick={handleLinkClick}>
+                        <div className={styles.leftIcon}>
+                          <img src={item.image} alt={`${item.name} Icon`} />
+                        </div>
+                        <Link href={item.url}>
+                          <div className={styles.textContent}>
+                            <span className={styles.name}>{item.name}</span>
+                            <span className={styles.description}>
+                              {item.description}
+                            </span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             </ul>
           </div>
           <div className={styles.hamburger} onClick={toggleDrawer}>
@@ -191,7 +250,7 @@ export default function Header() {
               </Link>
 
               <Link href="/sobre">
-                <li onClick={handleLinkClick}>Sobre</li>
+                <li onClick={handleLinkClick}>Quem Somos</li>
               </Link>
 
               <ProdutosResponsive />
@@ -205,9 +264,7 @@ export default function Header() {
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>
               </Link>
               <div className={styles.divisor}></div>
-              <Link href="/login">
-                <li onClick={handleLinkClick}>Área do cliente</li>
-              </Link>
+              <AreaResponsive />
             </ul>
           </div>
         </div>

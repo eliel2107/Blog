@@ -10,7 +10,7 @@ export default function AssistServices() {
             <img src="satmac.png" alt="" />
           </div>
           <div className={styles.rightside}>
-            <h1>LW SAT</h1>
+            <h1>LW SIM</h1>
             <p>
               É uma plataforma desenvolvida para monitoramento e rastreamento da
               sua frota de veículos com:

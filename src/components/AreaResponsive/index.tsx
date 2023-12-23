@@ -11,9 +11,9 @@ export default function ProdutosResponsive() {
     };
     const produtosDropdown = [
       {
-        url: '/assist',
+        url: '/sim',
 
-        name: 'LW Assist',
+        name: 'LW Sat',
         description: 'Sua frota com mais segurança e suporte aos condutores',
         image: '/SecurityCar.svg',
       },
@@ -31,53 +31,6 @@ export default function ProdutosResponsive() {
           'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
         image: '/EmplacamentoIcon.svg',
       },
-      {
-        url: '/cnh',
-        name: 'Consulta de CNH',
-        description:
-          'Acompanhe a pontuação dos seus condutores de forma facilitada.',
-        image: '/CNHIcon.svg',
-      },
-      {
-        url: '/digitalizacao',
-        name: 'Digitalização',
-        description: 'Otimize seus processos e ganhe tempo.',
-        image: '/RadarIcon.svg',
-      },
-      {
-        url: '/sim',
-        name: 'LW SIM',
-        description: 'Controle sua frota com tecnologia de alta performance.',
-        image: '/PhoneIcon.svg',
-      },
-      {
-        url: '/vendas',
-        name: 'Pré-Venda',
-        description:
-          'Tenha as informações necessárias para uma negociação rápida e sem complicações.',
-        image: '/MoneyIcon.svg',
-      },
-      {
-        url: '/multas',
-        name: 'LW Multas',
-        description:
-          'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-        image: '/DangerIcon.svg',
-      },
-      {
-        url: '/antt',
-        name: 'Multas ANTT',
-        description:
-          'Gerencie suas infrações e evite complicações operacionais e financeiras.',
-        image: '/LicencimentoIcon2.svg',
-      },
-      {
-        url: '/indicacao',
-        name: 'Indicação Digital',
-        description:
-          'A indicação dos seus condutores de forma rápida e sustentável.',
-        image: '/AssinaturaIcon.svg',
-      },
     ];
     function handleLinkClick(event: React.MouseEvent<HTMLLIElement>): void {}
 
@@ -91,7 +44,7 @@ export default function ProdutosResponsive() {
               }`}
               onClick={toggleAccordion}
             >
-              PRODUTOS
+              ÁREA DO CLIENTE
               <img
                 src="ArrowHeader.svg"
                 alt=""
