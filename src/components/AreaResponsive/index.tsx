@@ -11,26 +11,30 @@ export default function ProdutosResponsive() {
     };
     const produtosDropdown = [
       {
-        url: '/sim',
-
-        name: 'LW Sat',
-        description: 'Sua frota com mais segurança e suporte aos condutores',
-        image: '/SecurityCar.svg',
+        url: 'https://admin.onemonitora.com.br/',
+        name: 'LW SIM (One)',
+        description: 'Clique para acessar o portal.',
+        image: '/PhoneIcon.svg',
       },
       {
-        url: '/debitos',
+        url: 'https://www.sistemamultas.com.br/app',
+        name: 'LW Multas',
+        description: 'Clique para acessar o portal.',
+        image: '/DangerIcon.svg',
+      },
+      {
+        url: 'https://documentacao.lwtecnologia.com.br/',
+        name: 'LW Doc',
+        description: 'Clique para acessar o portal.',
+        image: '/DocIcon.svg',
+      },
+      {
+        url: 'https://debitos.lwtecnologia.com.br/',
         name: 'LW Débitos',
-        description:
-          'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
+        description: 'Clique para acessar o portal.',
         image: '/MoneyIcon.svg',
       },
-      {
-        url: '/doc',
-        name: 'LW Doc',
-        description:
-          'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-        image: '/EmplacamentoIcon.svg',
-      },
+      // Add more items as needed
     ];
     function handleLinkClick(event: React.MouseEvent<HTMLLIElement>): void {}
 
@@ -60,7 +64,7 @@ export default function ProdutosResponsive() {
                   <div className={styles.flex}>
                     {produtosDropdown.map((item) => (
                       <li key={item.url} onClick={handleLinkClick}>
-                        <Link href={item.url}>
+                        <Link rel="noreferrer" href={item.url}>
                           <div className={styles.textContent}>
                             <span className={styles.name}>{item.name}</span>
 

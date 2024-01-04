@@ -107,22 +107,28 @@ export default function Header() {
   ];
   const clienteDropdown = [
     {
-      url: '/login',
-      name: 'LW Débitos',
-      description: 'Clique para acessar o portal.',
-      image: '/MoneyIcon.svg',
-    },
-    {
-      url: '/login',
-      name: 'LW Sat',
+      url: 'https://admin.onemonitora.com.br/',
+      name: 'LW SIM (One)',
       description: 'Clique para acessar o portal.',
       image: '/PhoneIcon.svg',
     },
     {
-      url: '/login',
+      url: 'https://www.sistemamultas.com.br/app',
+      name: 'LW Multas',
+      description: 'Clique para acessar o portal.',
+      image: '/DangerIcon.svg',
+    },
+    {
+      url: 'https://documentacao.lwtecnologia.com.br/',
       name: 'LW Doc',
       description: 'Clique para acessar o portal.',
       image: '/DocIcon.svg',
+    },
+    {
+      url: 'https://debitos.lwtecnologia.com.br/',
+      name: 'LW Débitos',
+      description: 'Clique para acessar o portal.',
+      image: '/MoneyIcon.svg',
     },
     // Add more items as needed
   ];
@@ -212,7 +218,7 @@ export default function Header() {
                         <div className={styles.leftIcon}>
                           <img src={item.image} alt={`${item.name} Icon`} />
                         </div>
-                        <Link href={item.url}>
+                        <Link rel="noreferrer" href={item.url}>
                           <div className={styles.textContent}>
                             <span className={styles.name}>{item.name}</span>
                             <span className={styles.description}>

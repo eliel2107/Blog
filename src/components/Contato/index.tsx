@@ -83,7 +83,11 @@ export default function Contato() {
                 </div>{' '}
                 <div className={styles.location}>
                   <h1>Endereço</h1>{' '}
-                  <p>401 Broadway, 24th Floor, Orchard Cloud View, London</p>
+                  <p>
+                    {' '}
+                    R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
+                    80020-310
+                  </p>
                 </div>
               </div>
               <div className={styles.email}>
