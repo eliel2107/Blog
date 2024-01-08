@@ -42,7 +42,7 @@ export default function AssistServices() {
                 <h2>Perfis e Usuários</h2>
                 <p>
                   Controle total de perfis de usuários cadastrados, podendo
-                  visualizar gerenciar permissões
+                  visualizar e gerenciar permissões
                 </p>
               </div>
             </div>

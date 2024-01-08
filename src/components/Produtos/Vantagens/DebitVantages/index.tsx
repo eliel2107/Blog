@@ -29,7 +29,7 @@ export default function AssistServices() {
               <div className={styles.text}>
                 <h2>Informações Centralizadas</h2>
                 <p>
-                  Visualize os dados dos débitos veículares da sua frota em um
+                  Visualize os dados dos débitos veiculares da sua frota em um
                   único lugar.
                 </p>
               </div>

@@ -64,7 +64,7 @@ export default function AssistServices() {
                   <img src="HeadsetIcon.svg" alt="" />
                 </div>
                 <div className={styles.text}>
-                  <h2>CENRAL DE EMERGÊNCIA 24H E AS A SERVICE</h2>
+                  <h2>CENTRAL DE EMERGÊNCIA 24H E AS A SERVICE</h2>
                   <p>
                     Realizamos os atendimentos telefônicos direcionados a
                     Central de Atendimento, dando todo suporte e atenção

@@ -125,13 +125,25 @@
   min-width: 700px;
   padding: 16px;
   @media (max-width: 1400px) {
-    max-height: 300px;
+    max-width: 90%;
+    font-size: 0.8em;
+    img {
+      max-width: 70px; // Reduz o tamanho da imagem
+      max-height: 70px;
+    }
+    .name,
+    .description {
+      font-size: 0.9em; // Reduz o tamanho do texto
+    }
   }
 
   .flex {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Duas colunas com largura igual */
     grid-gap: 10px; /* Espaçamento entre as células */
+    @media (max-width: 1400px) {
+      grid-gap: unset;
+    }
   }
   li {
     padding: 12px;
@@ -288,4 +300,9 @@
     color: #707070;
     font-weight: 100;
   }
+}
+.leftside img {
+  /* Other styles... */
+  position: relative; /* or absolute */
+  clip-path: inset(0px 1px 0px 0px); /* Top Right Bottom Left */
 }

@@ -21,7 +21,7 @@ export default function Transportadora() {
                 <div className={styles.serviceslefttop}>
                   <img src="./lefttop.gif" alt="" />
 
-                  <p>Mais eficiência</p>
+                  <p>Maior eficiência</p>
                 </div>
                 <div className={styles.servicesrighttop}>
                   <img src="./righttop.gif" alt="" />

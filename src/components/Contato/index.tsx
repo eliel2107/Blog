@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Contato() {
@@ -19,11 +20,13 @@ export default function Contato() {
                     <img src="map.svg" alt="" />
                   </div>{' '}
                   <div className={styles.location}>
-                    <h1>Endereço</h1>{' '}
-                    <p>
-                      R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
-                      80020-310
-                    </p>
+                    <Link href={'https://maps.app.goo.gl/kUJqwdEun6XpRDg86'}>
+                      <h1>Endereço</h1>{' '}
+                      <p>
+                        R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
+                        80020-310
+                      </p>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles.email}>
@@ -32,8 +35,12 @@ export default function Contato() {
                   </div>
                   <div className={styles.contatos}>
                     <h1>Nossos contatos</h1>
-                    <p>contato@lwtecnologia.com</p>{' '}
-                    <p>ajuda@lwtecnologia.com</p>
+                    <Link href="mailto:contato@lwtecnologia.com">
+                      <p>contato@lwtecnologia.com</p>{' '}
+                    </Link>
+                    <Link href="mailto:ajuda@lwtecnologia.com">
+                      <p>ajuda@lwtecnologia.com</p>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -82,12 +89,13 @@ export default function Contato() {
                   <img src="map.svg" alt="" />
                 </div>{' '}
                 <div className={styles.location}>
-                  <h1>Endereço</h1>{' '}
-                  <p>
-                    {' '}
-                    R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
-                    80020-310
-                  </p>
+                  <Link href={'https://maps.app.goo.gl/kUJqwdEun6XpRDg86'}>
+                    <h1>Endereço</h1>{' '}
+                    <p>
+                      R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
+                      80020-310
+                    </p>
+                  </Link>
                 </div>
               </div>
               <div className={styles.email}>
@@ -96,7 +104,12 @@ export default function Contato() {
                 </div>
                 <div className={styles.contatos}>
                   <h1>Nossos contatos</h1>
-                  <p>contato@lwtecnologia.com</p> <p>ajuda@lwtecnologia.com</p>
+                  <Link href="mailto:contato@lwtecnologia.com">
+                    <p>contato@lwtecnologia.com</p>{' '}
+                  </Link>
+                  <Link href="mailto:ajuda@lwtecnologia.com">
+                    <p>ajuda@lwtecnologia.com</p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -109,7 +122,7 @@ export default function Contato() {
           <div className={styles.rightsidebottom}>
             <div className={styles.inputcontainer}>
               <input type="text" placeholder="Digite seu email aqui" />
-              <button>Me inscrever</button>
+              <button>Inscrever</button>
             </div>
           </div>
         </div>

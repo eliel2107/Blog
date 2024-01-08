@@ -47,7 +47,7 @@
   flex-direction: column;
   padding-left: 208px;
   padding-top: 213px;
-  gap: 59px;
+  gap: 18px;
   @media only screen and (max-width: 768px) {
     display: none;
     button {
@@ -65,7 +65,7 @@
     color: #fff;
 
     font-family: Montserrat;
-    font-size: 56px;
+    font-size: 47px;
     font-style: normal;
     font-weight: 400;
     width: 697px;
@@ -175,6 +175,11 @@
   flex-direction: column;
   margin-bottom: -110px;
   gap: 48px;
+  position: relative;
+  left: -10px;
+  img {
+    width: 85%;
+  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -182,7 +187,7 @@
   .carrossel {
     display: flex;
     align-items: center;
-    width: 390px;
+    width: 469px;
   }
 
   .buttonsForCarrossel {
@@ -199,6 +204,9 @@
       border-radius: 50%;
       width: 56px;
       height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       .leftArrow {
         margin-top: -3px;

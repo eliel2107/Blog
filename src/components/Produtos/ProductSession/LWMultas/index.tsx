@@ -13,11 +13,10 @@ export default function Transportadora() {
                 <p>
                   É uma plataforma pensada na redução do tempo gasto em
                   verificações, envios e recebimentos de multas veiculares.
-                </p>
-                <p>
-                  Através de uma solução eficiente e ágil que facilita o
+                  Através de uma solução eficiente e ágil, que facilita o
                   gerenciamento de frotas pequenas, médias e grandes.
                 </p>
+
                 <p>Esse produto possui os seguintes planos:</p>
               </div>
               <div className={styles.top}>

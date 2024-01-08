@@ -30,7 +30,7 @@ export default function Conheca() {
         },
         {
           imageURL: './righttop.gif',
-          text: 'Gerencie o processo por loja (documentos, indicação do condutor)r',
+          text: 'Gerencie o processo por loja (documentos, indicação do condutor)',
         },
         {
           imageURL: './rightbottom.gif',
@@ -129,12 +129,13 @@ export default function Conheca() {
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
+
   return (
     <>
       <section className={styles.container}>
@@ -169,13 +170,24 @@ export default function Conheca() {
             <div className={styles.titleright}>
               <h2>AS MELHORES SOLUÇÕES PARA SUA FROTA</h2>
             </div>
-            <div className={styles.carrossel}>
+            <div className={styles.carrossel} style={{ overflow: 'hidden' }}>
               {slides.map((src, index) => (
                 <img
                   key={index}
                   src={src}
                   alt=""
-                  style={{ display: index === currentSlide ? 'flex' : 'none' }}
+                  style={{
+                    display:
+                      index === currentSlide ||
+                      (index === currentSlide + 1 &&
+                        currentSlide !== slides.length - 1)
+                        ? 'block'
+                        : 'none',
+
+                    marginRight:
+                      currentSlide === slides.length - 1 ? '0px' : '20px', // No margin for the last image
+                    float: 'left', // Make images sit side by side
+                  }}
                 />
               ))}
             </div>

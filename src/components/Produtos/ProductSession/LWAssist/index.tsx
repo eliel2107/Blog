@@ -52,12 +52,7 @@ export default function Transportadora() {
                 </div>
               </div>
               <div className={styles.button}>
-                <div className={styles.serviceslefttop}>
-                  <img src="./lefttop.gif" alt="" />
-
-                  <p>Acompanhamento Velado e Preservação</p>
-                </div>
-                <Link href={'/contato'}>
+                <Link className={styles.buttonLink} href={'/contato'}>
                   <button>Saiba mais</button>
                 </Link>
               </div>

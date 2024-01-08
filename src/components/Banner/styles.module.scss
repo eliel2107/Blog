@@ -81,6 +81,8 @@
   z-index: 0;
 }
 .middlecontent {
+  position: relative;
+  top: -100px;
   z-index: 1;
   max-width: 1440px;
   display: flex;

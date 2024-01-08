@@ -49,8 +49,8 @@ export default function AssistServices() {
               <div className={styles.text}>
                 <h2>Equipe de Desenvolvimento</h2>
                 <p>
-                  Nosso sistema é desenvolvimento por uma equipe própria que
-                  está pronta para atender as demandas e melhorias.
+                  Nosso sistema é desenvolvido por uma equipe própria que está
+                  pronta para atender as demandas e melhorias.
                 </p>
               </div>
             </div>

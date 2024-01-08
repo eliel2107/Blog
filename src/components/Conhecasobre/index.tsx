@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 export default function Conhecasobre() {
   return (
@@ -24,7 +24,7 @@ export default function Conhecasobre() {
                 economia, inteligência e agilidade. Originários de Curitiba,
                 nosso DNA ressoa na simplificação. Somos os arquitetos de
                 soluções que desvendam as complexidades das autoridades fiscais
-                e descentralizar as informações dos veículos. Nossa missão?
+                e descentralizam as informações dos veículos. Nossa missão?
                 Conceder aos gestores e administradores uma autonomia e controle
                 sem precedentes sobre os dados da sua frota. Assim, podem
                 dedicar o seu foco ao cultivo de uma cultura de segurança e à

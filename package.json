@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/swiper": "^6.0.0",
     "lottie-web": "^5.12.2",
     "next": "14.0.2",
     "next-auth": "^4.24.5",

@@ -53,8 +53,7 @@ export default function Header() {
     {
       url: '/doc',
       name: 'LW Doc',
-      description:
-        'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
+      description: 'Simplifique sua gestão documental através da tecnologia.',
       image: '/DocIcon.svg',
     },
     {

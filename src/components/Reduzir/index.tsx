@@ -15,7 +15,7 @@ export default function Reduzir() {
               <div className={styles.rightside}>
                 <h1>VAMOS COMEÇAR NOSSA JORNADA JUNTOS?</h1>
                 <p>
-                  Fale agora mesmo com um de nossos especialistas e receba
+                  Fale agora mesmo com um de nossos especialistas , receba
                   gratuitamente um diagnóstico da sua empresa e descubra como e
                   quanto você pode economizar, além de melhorar e simplificar a
                   gestão de sua frota.
