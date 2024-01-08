@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 export default function Numeros() {
   return (
@@ -8,7 +8,7 @@ export default function Numeros() {
         <div className={styles.content}>
           <div className={styles.middlecontent}>
             <div className={styles.topcontent}>
-              <h2>ALGUNS NÚMEROS QUE NOS ORGULHAMOS</h2>
+              <h2>ALGUNS NÚMEROS DE QUE NOS ORGULHAMOS</h2>
               <p>
                 Estamos orgulhosos do impacto positivo que tivemos na gestão de
                 frotas. Alguns números que definem nossa jornada:
@@ -33,7 +33,7 @@ export default function Numeros() {
                 </div>
                 <div className={styles.card4}>
                   <img src="rocket.gif" alt="" />
-                  <p>Média 95% de melhora da eficiência</p>
+                  <p>Média de 95% de melhora da eficiência</p>
                 </div>
               </div>
             </div>

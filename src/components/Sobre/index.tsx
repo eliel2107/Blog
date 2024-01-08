@@ -33,7 +33,7 @@ export default function Sobre() {
                 className={styles.iframe}
                 width="852"
                 height="586"
-                src="https://www.youtube.com/embed/0AxqAU0k-sM?si=IEgx2FwOuGL6u4I4"
+                src="INSTITUCIONAL_LW.mp4"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>

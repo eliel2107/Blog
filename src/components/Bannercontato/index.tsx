@@ -27,7 +27,7 @@ export default function Bannercontato() {
             <div className={styles.email}>
               <img src="DenIcon.svg" alt="" />
               <h1>CANAL DE DENÚNCIA</h1>
-              <p>complience@lwtecnologia.com.br</p>
+              <p>compliance@lwtecnologia.com.br</p>
             </div>
           </div>
         </div>
