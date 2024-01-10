@@ -9,8 +9,8 @@ import Destaques from '@/components/Destaques';
 import DestaquesNew from '@/components/DestaquesNew';
 
 const contentfulClient = createClient({
-  accessToken: 'FwTu54gbsW1aagce6gfcahZJQQuTv7RmeQOo9Wp9B_E',
-  space: 'ssmj7cph8322',
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
 });
 
 interface BlogPostProps {
