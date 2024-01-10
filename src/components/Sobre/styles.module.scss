@@ -15,7 +15,9 @@
   @media only screen and (min-width: 2000px) {
     padding-bottom: 550px;
   }
-
+  .iframe {
+    border-radius: 16px;
+  }
   &::before {
     content: '';
     position: absolute;
@@ -90,6 +92,7 @@
   .iframe {
     width: auto;
     height: 200px;
+    border-radius: 16px;
   }
   .title h2 {
     font-size: 24px !important;

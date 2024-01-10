@@ -18,9 +18,11 @@ export default function Home() {
       <Conheca />
       <Numeros />
       <Reduzir />
+
       <Destaques />
       <Contato />
       <Footer />
+
       <WhatsApp />
     </>
   );

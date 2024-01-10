@@ -188,8 +188,8 @@ export default function Header() {
               <Link href={'/contato'}>
                 <li className={isActive('/contato')}>Contato</li>
               </Link>
-              <Link href={'/blog'}>
-                <li className={isActive('/blog')}>Blog</li>
+              <Link href={'/#Destaques'}>
+                <li className={isActive('/#Destaques')}>Blog</li>
               </Link>
               <Link href={'/trabalhe'}>
                 <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
@@ -262,8 +262,8 @@ export default function Header() {
               <Link href="/contato">
                 <li onClick={handleLinkClick}>Contato</li>
               </Link>
-              <Link href="/blog">
-                <li onClick={handleLinkClick}>Blog</li>
+              <Link href="/#Destaques">
+                <li className={isActive('/#Destaques')}>Blog</li>
               </Link>
               <Link href="/trabalhe">
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>

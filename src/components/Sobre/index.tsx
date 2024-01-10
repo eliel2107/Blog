@@ -29,15 +29,17 @@ export default function Sobre() {
           <div className={styles.youtube}>
             <div className={styles.leftbar}></div>
             <div className={styles.videobg}>
-              <iframe
+              <video
                 className={styles.iframe}
                 width="852"
                 height="586"
-                src="INSTITUCIONAL_LW.mp4"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
+                controls
+              >
+                <source src="INSTITUCIONAL_LW.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
             </div>
+
             <div className={styles.rightbar}></div>
           </div>
         </div>

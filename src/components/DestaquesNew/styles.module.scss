@@ -1,27 +1,6 @@
 .container {
   background-color: #dff6fd;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    aspect-ratio: 300 / 67;
-    background-image: url('/faleconosco.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left 86px;
-
-    z-index: 100;
-  }
-  @media only screen and (max-width: 768px) {
-    padding-inline: 20px;
-    &::after {
-      background-position: left 18px;
-    }
-  }
 }
 
 .content {
@@ -37,7 +16,7 @@
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 194px;
-  padding-block: 100px 360px;
+
   @media only screen and (max-width: 768px) {
     justify-content: center;
     padding-inline: 0;
@@ -405,7 +384,7 @@
     }
     p {
       text-align: left;
-      color: #000040;
+      color: #f4c648;
       font-weight: 600;
       font-size: 12px;
       line-height: 12px;

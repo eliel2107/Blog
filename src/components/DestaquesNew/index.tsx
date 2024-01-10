@@ -29,7 +29,7 @@ export default function Destaques() {
   }, []);
   return (
     <>
-      <section className={styles.container} id="Destaques">
+      <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.topcontent}>
             <h1>BLOG</h1>
