@@ -58,11 +58,7 @@ export default function BlogPost({ post }: BlogPostProps) {
     <section className={styles.container}>
       <Header />
       <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.imgBlock}>
-            <img src="/LWLOGOB.png" alt="" />
-          </div>
-        </div>
+        <div className={styles.content}></div>
       </div>
       <div className={styles.blogPart}>
         <p className={styles.date}>{formatDate(post.fields.date)}</p>
