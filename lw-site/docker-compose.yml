@@ -5,7 +5,7 @@ services:
     image: 039595914115.dkr.ecr.us-east-2.amazonaws.com/lwauto_vendas_api
     build:
       context: .
-      dockerfile: Dockerfile.api.prod
+      dockerfile: Dockerfile
     restart: unless-stopped
     command: 'npm run start:prod'
     deploy:
