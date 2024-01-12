@@ -14,7 +14,7 @@ RUN npm install
 RUN npm run build
  
 # Exponha a porta em que a aplicação será executada
-EXPOSE 4200
+EXPOSE 3000
  
 # Defina o comando padrão para iniciar a aplicação
-CMD ["npm", "run", "start"]
+#CMD ["npm", "run", "start"]

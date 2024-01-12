@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  lwauto_vendas_api:
+  lw-website:
     image: 539841448493.dkr.ecr.us-east-1.amazonaws.com/lw-dev-site
     build:
       context: .
@@ -14,4 +14,4 @@ services:
           cpus: '0.2'
           memory: 250M
     ports:
-      - '4200:4200'
+      - '3000:3000'
