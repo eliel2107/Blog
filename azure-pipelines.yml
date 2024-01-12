@@ -12,23 +12,29 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-      # TASK API
+
       - task: Docker@2
-        displayName: "Build API $(IMAGE_NAME_API_PROD)"
+        displayName: "Build API $(IMAGE_NAME)"
         inputs:
           command: 'build'
           Dockerfile: 'Dockerfile'
           repository: '$(IMAGE_NAME)'
           tags: '$(Build.BuildId)'
 
-
       - task: ECRPushImage@1
         displayName: "Push latest $(IMAGE_NAME)"
         inputs:
-          awsCredentials: 'AWS-ECR'
+          awsCredentials: 'pipeline-aws-dev-deploy'
           regionName: 'us-east-1'
           imageSource: 'imagename'
           sourceImageName: '$(IMAGE_NAME)'
           sourceImageTag: '$(Build.BuildId)'
-          repositoryName: '$(IMAGE_NAME'
+          repositoryName: '$(IMAGE_NAME)'
           pushTag: 'latest'
+
+      - task: ECRPullImage@1
+        inputs:
+          awsCredentials: 'pipeline-aws-dev-deploy'
+          regionName: 'us-east-1'
+          repository: '$(IMAGE_NAME)'
+          imageSource: 'imagetag'
