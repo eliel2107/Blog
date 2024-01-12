@@ -1,0 +1,34 @@
+trigger:
+  branches:
+    include:
+    - master
+
+stages:
+- stage: Build
+  displayName: Build
+  jobs:
+  - job: Build
+    displayName: Build on self microsoft agent
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      # TASK API
+      - task: Docker@2
+        displayName: "Build API $(IMAGE_NAME_API_PROD)"
+        inputs:
+          command: 'build'
+          Dockerfile: 'Dockerfile'
+          repository: '$(IMAGE_NAME)'
+          tags: '$(Build.BuildId)'
+
+
+      - task: ECRPushImage@1
+        displayName: "Push latest $(IMAGE_NAME)"
+        inputs:
+          awsCredentials: 'AWS-ECR'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: '$(IMAGE_NAME)'
+          sourceImageTag: '$(Build.BuildId)'
+          repositoryName: '$(IMAGE_NAME'
+          pushTag: 'latest'
