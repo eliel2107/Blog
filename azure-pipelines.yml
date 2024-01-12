@@ -11,8 +11,8 @@ stages:
     displayName: Build on self microsoft agent
     pool:
       vmImage: ubuntu-latest
-    steps:
 
+    steps:        
       - task: Docker@2
         displayName: "Build API $(IMAGE_NAME)"
         inputs:
