@@ -24,21 +24,21 @@ stages:
           repository: '$(IMAGE_NAME)'
           tags: '$(Build.BuildId)'
 
-      - task: ECRPushImage@1
-        displayName: "Push latest $(IMAGE_NAME)"
-        inputs:
-          awsCredentials: 'pipeline-aws-dev-deploy'
-          regionName: 'us-east-1'
-          imageSource: 'imagename'
-          sourceImageName: '$(IMAGE_NAME)'
-          sourceImageTag: '$(Build.BuildId)'
-          repositoryName: '$(IMAGE_NAME)'
-          pushTag: 'latest'
+      # - task: ECRPushImage@1
+      #   displayName: "Push latest $(IMAGE_NAME)"
+      #   inputs:
+      #     awsCredentials: 'pipeline-aws-dev-deploy'
+      #     regionName: 'us-east-1'
+      #     imageSource: 'imagename'
+      #     sourceImageName: '$(IMAGE_NAME)'
+      #     sourceImageTag: '$(Build.BuildId)'
+      #     repositoryName: '$(IMAGE_NAME)'
+      #     pushTag: 'latest'
 
-      - task: ECRPullImage@1
-        displayName: "Pull latest $(IMAGE_NAME)"
-        inputs:
-          awsCredentials: 'pipeline-aws-dev-deploy'
-          regionName: 'us-east-1'
-          repository: '$(IMAGE_NAME)'
-          imageSource: 'imagetag'
+      # - task: ECRPullImage@1
+      #   displayName: "Pull latest $(IMAGE_NAME)"
+      #   inputs:
+      #     awsCredentials: 'pipeline-aws-dev-deploy'
+      #     regionName: 'us-east-1'
+      #     repository: '$(IMAGE_NAME)'
+      #     imageSource: 'imagetag'
