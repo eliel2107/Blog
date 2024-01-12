@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-    - devv
+    - dev
 
 stages:
 - stage: Build
@@ -12,12 +12,13 @@ stages:
     pool:
       vmImage: ubuntu-latest
 
-    steps:        
+    steps:       
+      - script: |
+          echo "NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)" >> .env.local
+          echo "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)" >> .env.local
+
       - task: Docker@2
         displayName: "Build API $(IMAGE_NAME)"
-        env: 
-          NEXT_PUBLIC_CONTENTFUL_SPACE_ID: "$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)"
-          NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: "$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)"
         inputs:
           command: 'build'
           Dockerfile: '**/Dockerfile'
