@@ -1,8 +1,8 @@
 # Use a imagem oficial do Node.js com uma versão específica (14 neste caso)
-FROM node:20-alpine3.18 as build
+FROM node:18-alpine3.18 as build
  
 # Crie e defina o diretório de trabalho na imagem
-WORKDIR /usr/src/app
+WORKDIR /website
  
 # Copie os arquivos da aplicação para a imagem
 COPY . .

@@ -2,16 +2,16 @@ version: '3.8'
 
 services:
   lwauto_vendas_api:
-    image: 039595914115.dkr.ecr.us-east-2.amazonaws.com/lwauto_vendas_api
+    image: 539841448493.dkr.ecr.us-east-1.amazonaws.com/lw-dev-site
     build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-    command: 'npm run start:prod'
+    command: 'npm run start'
     deploy:
       resources:
         limits:
           cpus: '0.2'
           memory: 250M
     ports:
-      - '4201:4201'
+      - '4200:4200'
