@@ -20,7 +20,7 @@ stages:
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
         inputs:
           command: 'build'
-          Dockerfile: 'Dockerfile'
+          Dockerfile: '**/Dockerfile'
           repository: '$(IMAGE_NAME)'
           tags: '$(Build.BuildId)'
 
