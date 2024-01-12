@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-    - dev
+    - devv
 
 stages:
 - stage: Build
@@ -12,36 +12,33 @@ stages:
     pool:
       vmImage: ubuntu-latest
 
-    steps:
+    steps:        
       - task: Docker@2
-        displayName: "Build image $(IMAGE_NAME)"
-        inputs:
-          command: 'build'
-          Dockerfile: 'Dockerfile'
-          repository: '$(IMAGE_NAME)'
-          tags: '$(Build.BuildId)'
-        env:
+        displayName: "Build API $(IMAGE_NAME)"
+        env: 
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
+        inputs:
+          command: 'build'
+          Dockerfile: '**/Dockerfile'
+          repository: '$(IMAGE_NAME)'
+          tags: '$(Build.BuildId)'
 
-          
-      - script: echo $NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+      - task: ECRPushImage@1
+        displayName: "Push latest $(IMAGE_NAME)"
+        inputs:
+          awsCredentials: 'pipeline-aws-dev-deploy'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: '$(IMAGE_NAME)'
+          sourceImageTag: '$(Build.BuildId)'
+          repositoryName: '$(IMAGE_NAME)'
+          pushTag: 'latest'
 
-      # - task: ECRPushImage@1
-      #   displayName: "Push latest $(IMAGE_NAME)"
-      #   inputs:
-      #     awsCredentials: 'pipeline-aws-dev-deploy'
-      #     regionName: 'us-east-1'
-      #     imageSource: 'imagename'
-      #     sourceImageName: '$(IMAGE_NAME)'
-      #     sourceImageTag: '$(Build.BuildId)'
-      #     repositoryName: '$(IMAGE_NAME)'
-      #     pushTag: 'latest'
-
-      # - task: ECRPullImage@1
-      #   displayName: "Pull latest $(IMAGE_NAME)"
-      #   inputs:
-      #     awsCredentials: 'pipeline-aws-dev-deploy'
-      #     regionName: 'us-east-1'
-      #     repository: '$(IMAGE_NAME)'
-      #     imageSource: 'imagetag'
+      - task: ECRPullImage@1
+        displayName: "Pull latest $(IMAGE_NAME)"
+        inputs:
+          awsCredentials: 'pipeline-aws-dev-deploy'
+          regionName: 'us-east-1'
+          repository: '$(IMAGE_NAME)'
+          imageSource: 'imagetag'
