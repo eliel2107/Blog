@@ -33,6 +33,7 @@ stages:
           pushTag: 'latest'
 
       - task: ECRPullImage@1
+        displayName: "Pull latest $(IMAGE_NAME)"
         inputs:
           awsCredentials: 'pipeline-aws-dev-deploy'
           regionName: 'us-east-1'
