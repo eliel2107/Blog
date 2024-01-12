@@ -8,10 +8,5 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     command: 'npm run start'
-    deploy:
-      resources:
-        limits:
-          cpus: '0.2'
-          memory: 250M
     ports:
       - '3000:3000'
