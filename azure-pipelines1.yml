@@ -27,13 +27,10 @@ steps:
     NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
     NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
   inputs:
-    containerregistrytype: 'Container Registry'
-    action: 'Build an image'
-    dockerFile: '**/Dockerfile'
-    buildArguments: |
-
-    imageName: '$(IMAGE_NAME)'
-    additionalImageTags: '$(Build.BuildId)'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    repository: '$(IMAGE_NAME)'
+    tags: '$(Build.BuildId)'
     
     
 - task: ECRPushImage@1
