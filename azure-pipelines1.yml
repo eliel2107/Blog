@@ -28,7 +28,7 @@ stages:
 
           cat /home/vsts/temp-portal-task.json
 
-    steps:        
+            
       - task: Docker@2
         displayName: "Build API $(IMAGE_NAME)"
         env: 
