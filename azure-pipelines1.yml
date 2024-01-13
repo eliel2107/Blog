@@ -1,3 +1,8 @@
+trigger:
+  branches:
+    include:
+    - mainn
+
 pool:
   name: Azure Pipelines
 
@@ -16,10 +21,6 @@ steps:
       env | sort
 
       cat /home/vsts/temp-portal-task.json
-trigger:
-  branches:
-    include:
-    - mainn
 
 stages:
 - stage: Build
