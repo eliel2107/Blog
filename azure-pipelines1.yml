@@ -12,6 +12,11 @@ steps:
       sudo apt-get install -y jq
       sudo apt-get install -y gettext-base
       
+      source ./azure-settings-portal.sh
+
+      echo "##vso[task.setvariable variable=image]$IMAGE_NAME"
+      echo "##vso[task.setvariable variable=version]$VERSION_NUMBER"
+      
       envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
       env | sort
 
@@ -19,14 +24,13 @@ steps:
 - task: Docker@0
   displayName: 'Criando o container'
   inputs:
-    env: 
-      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
-      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
-   inputs:
-     command: 'build'
-     Dockerfile: '**/Dockerfile'
-     repository: '$(IMAGE_NAME)'
-     tags: '$(Build.BuildId)'
+    containerregistrytype: 'Container Registry'
+    action: 'Build an image'
+    dockerFile: '**/Dockerfile'
+    buildArguments: |
+
+    imageName: '$(IMAGE_NAME)'
+    additionalImageTags: '$(Build.BuildId)'
     
     
 - task: ECRPushImage@1
