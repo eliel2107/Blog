@@ -1,24 +1,4 @@
 trigger:
-
-
-pool:
-  name: Azure Pipelines
-
-steps:
-- task: Bash@3
-  displayName: 'Carregando as variáveis'
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo Iniciando o processo no Shell
-      sudo apt-get update
-      sudo apt-get install -y jq
-      sudo apt-get install -y gettext-base
-                 
-      envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
-      env | sort
-
-      cat /home/vsts/temp-portal-task.json
   branches:
     include:
     - mainn
@@ -31,6 +11,22 @@ stages:
     displayName: Build on self microsoft agent
     pool:
       vmImage: ubuntu-latest
+
+    steps:
+    - task: Bash@3
+      displayName: 'Carregando as variáveis'
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo Iniciando o processo no Shell
+          sudo apt-get update
+          sudo apt-get install -y jq
+          sudo apt-get install -y gettext-base
+                    
+          envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
+          env | sort
+
+          cat /home/vsts/temp-portal-task.json
 
     steps:        
       - task: Docker@2
