@@ -12,7 +12,7 @@ steps:
       sudo apt-get install -y jq
       sudo apt-get install -y gettext-base
       
-      envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$GOOGLE_API_KEY,\$SITE_URL,\$GOOGLE_API_URL,\$GOOGLE_RECAPTCHA_KEY,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
+      envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
       env | sort
 
       cat /home/vsts/temp-portal-task.json
