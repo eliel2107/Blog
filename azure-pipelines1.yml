@@ -32,9 +32,6 @@ stages:
 
     steps:        
       - task: Docker@2
-
-    steps:        
-      - task: Docker@2
         displayName: "Build API $(IMAGE_NAME)"
         env: 
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
