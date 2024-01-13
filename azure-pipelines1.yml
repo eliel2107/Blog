@@ -19,14 +19,14 @@ steps:
 - task: Docker@0
   displayName: 'Criando o container'
   inputs:
-        env: 
-          NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
-          NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
-        inputs:
-          command: 'build'
-          Dockerfile: '**/Dockerfile'
-          repository: '$(IMAGE_NAME)'
-          tags: '$(Build.BuildId)'
+    env: 
+      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
+      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
+   inputs:
+      command: 'build'
+      Dockerfile: '**/Dockerfile'
+      repository: '$(IMAGE_NAME)'
+      tags: '$(Build.BuildId)'
     
     
 - task: ECRPushImage@1
