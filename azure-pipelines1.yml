@@ -23,6 +23,9 @@ steps:
       cat /home/vsts/temp-portal-task.json
 - task: Docker@0
   displayName: 'Criando o container'
+  env:
+    NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
+    NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
   inputs:
     containerregistrytype: 'Container Registry'
     action: 'Build an image'
