@@ -25,7 +25,6 @@ steps:
     buildArguments: |
 
     imageName: '$(image)'
-    additionalImageTags: '$(version)'
     
     
 - task: ECRPushImage@1
