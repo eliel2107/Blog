@@ -34,9 +34,9 @@ steps:
     regionName: 'us-east-1'
     imageSource: 'imagename'
     sourceImageName: '$(image)'
-    sourceImageTag: '$(version)'
+    sourceImageTag: 
     repositoryName: '$(REPOSITORY_NAME)'
-    pushTag: '$(version)'
+    pushTag: 'latest'
     autoCreateRepository: true
 
 - task: AWSCLI@1
