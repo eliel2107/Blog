@@ -1,56 +1,61 @@
-trigger:
-  branches:
-    include:
-    - mainn
+pool:
+  name: Azure Pipelines
 
-stages:
-- stage: Build
-  displayName: Build
-  jobs:
-  - job: Build
-    displayName: Build on self microsoft agent
-    pool:
-      vmImage: ubuntu-latest
+steps:
+- task: Bash@3
+  displayName: 'Carregando as variáveis'
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo Iniciando o processo no Shell
+      sudo apt-get update
+      sudo apt-get install -y jq
+      sudo apt-get install -y gettext-base
+      
+      envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
+      env | sort
 
-    steps:        
-      - task: Docker@2
-        displayName: "Build API $(IMAGE_NAME)"
-        env: 
-          NEXT_PUBLIC_CONTENTFUL_SPACE_ID: $(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
-          NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: $(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
-        inputs:
-          command: 'build'
-          Dockerfile: '**/Dockerfile'
-          repository: '$(IMAGE_NAME)'
-          tags: '$(Build.BuildId)'
+      cat /home/vsts/temp-portal-task.json
+- task: Docker@0
+  displayName: 'Criando o container'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    action: 'Build an image'
+    dockerFile: '$(DOCKER_FILE)'
+    buildArguments: |
 
-      - task: ECRPushImage@1
-        displayName: "Push latest $(IMAGE_NAME)"
-        inputs:
-          awsCredentials: 'pipeline-aws-dev-deploy'
-          regionName: 'us-east-1'
-          imageSource: 'imagename'
-          sourceImageName: '$(IMAGE_NAME)'
-          sourceImageTag: '$(Build.BuildId)'
-          repositoryName: '$(IMAGE_NAME)'
-          pushTag: 'latest'
+    imageName: '$(image)'
+    additionalImageTags: '$(version)'
+    
+    
+- task: ECRPushImage@1
+  displayName: 'Publicando a imagem'
+  inputs:
+    awsCredentials: $(AWS_CREDENTIALS)
+    regionName: 'us-east-1'
+    imageSource: 'imagename'
+    sourceImageName: '$(image)'
+    sourceImageTag: '$(version)'
+    repositoryName: '$(REPOSITORY_NAME)'
+    pushTag: '$(version)'
+    autoCreateRepository: true
 
-      - task: AWSCLI@1
-        displayName: 'Registrando a task-definition'
-        inputs:
-          awsCredentials: 'pipeline-aws-dev-deploy'
-          regionName: 'us-east-1'
-          awsCommand: 'ecs'
-          awsSubCommand: 'register-task-definition'
-          awsArguments: '--cli-input-json file:///home/vsts/temp-portal-task.json'
-          failOnStandardError: false
+- task: AWSCLI@1
+  displayName: 'Registrando a task-definition'
+  inputs:
+    awsCredentials: $(AWS_CREDENTIALS)
+    regionName: 'us-east-1'
+    awsCommand: 'ecs'
+    awsSubCommand: 'register-task-definition'
+    awsArguments: '--cli-input-json file:///home/vsts/temp-portal-task.json'
+    failOnStandardError: false
 
-      - task: AWSCLI@1
-        displayName: 'Atualizando o serviço'
-        inputs:
-          awsCredentials: 'pipeline-aws-dev-deploy'
-          regionName: 'us-east-1'
-          awsCommand: ecs
-          awsSubCommand: 'update-service'
-          awsArguments: '--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment'
-          failOnStandardError: false
+- task: AWSCLI@1
+  displayName: 'Atualizando o serviço'
+  inputs:
+    awsCredentials: $(AWS_CREDENTIALS)
+    regionName: 'us-east-1'
+    awsCommand: ecs
+    awsSubCommand: 'update-service'
+    awsArguments: '--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment'
+    failOnStandardError: false
