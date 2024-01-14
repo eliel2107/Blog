@@ -2,7 +2,8 @@ FROM node
 
 WORKDIR /appjs
 
-COPY ..
+COPY /src .
+copy /public .
 
 EXPOSE 3000
 
