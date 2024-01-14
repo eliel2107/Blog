@@ -23,7 +23,6 @@ steps:
 
       cat /home/vsts/temp-portal-task.json
 
--
 - task: Docker@0
   displayName: 'Criando o container'
   inputs:
