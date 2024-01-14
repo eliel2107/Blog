@@ -2,7 +2,7 @@ trigger:
   branches:
     include:
     - mainn
-    
+
 stages:
 - stage: Build
   displayName: Build
@@ -12,23 +12,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
 
-    steps:
-      - task: Bash@3
-        displayName: 'Carregando as variáveis'
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo Iniciando o processo no Shell
-            sudo apt-get update
-            sudo apt-get install -y jq
-            sudo apt-get install -y gettext-base
-                      
-            envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
-            env | sort
-
-            cat /home/vsts/temp-portal-task.json
-
-            
+    steps:        
       - task: Docker@2
         displayName: "Build API $(IMAGE_NAME)"
         env: 
@@ -41,16 +25,15 @@ stages:
           tags: '$(Build.BuildId)'
 
       - task: ECRPushImage@1
-        displayName: 'Publicando a imagem'
+        displayName: "Push latest $(IMAGE_NAME)"
         inputs:
           awsCredentials: 'pipeline-aws-dev-deploy'
           regionName: 'us-east-1'
           imageSource: 'imagename'
-          sourceImageName: '$(image)'
+          sourceImageName: '$(IMAGE_NAME)'
           sourceImageTag: '$(Build.BuildId)'
           repositoryName: '$(IMAGE_NAME)'
           pushTag: 'latest'
-          autoCreateRepository: true
 
       - task: AWSCLI@1
         displayName: 'Registrando a task-definition'
