@@ -5,6 +5,7 @@ WORKDIR /appjs
 COPY /src .
 copy /public .
 
-EXPOSE 3000
+EXPOSE 3000/tcp
+EXPOSE 80/tcp
 
 CMD ["node", "app.js"]
