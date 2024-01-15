@@ -9,8 +9,7 @@ steps:
     script: |
       echo Iniciando o processo no Shell
       sudo apt-get update
-      sudo apt-get install -y jq
-      sudo apt-get install -y gettext-base
+      sudo apt-get install -y jq awscli gettext-base
       source ./azure-settings-portal.sh
 
       echo "##vso[task.setvariable variable=image]$IMAGE_NAME"
@@ -27,28 +26,35 @@ steps:
       echo "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)" >> .env.local
 
 
-- task: Docker@0
-  displayName: 'Criando o container'
-  inputs:
-    containerregistrytype: 'Container Registry'
-    action: 'Build an image'
-    dockerFile: '$(DOCKER_FILE)'
-    buildArguments: |
+# - task: Docker@0
+#   displayName: 'Criando o container'
+#   inputs:
+#     containerregistrytype: 'Container Registry'
+#     action: 'Build an image'
+#     dockerFile: '$(DOCKER_FILE)'
+#     buildArguments: |
 
-    imageName: '$(image)'
-    additionalImageTags: '$(version)'
+#     imageName: '$(image)'
+#     additionalImageTags: '$(VERSION_NUMBER)'
     
-    
+- task: Docker@2
+  displayName: "Build $(IMAGE_NAME) - version $(VERSION_NUMBER)"
+  inputs:
+    command: 'build'
+    Dockerfile: '$(DOCKER_FILE)'
+    repository: '$(IMAGE_NAME)'
+    tags: '$(VERSION_NUMBER)'
+
 - task: ECRPushImage@1
   displayName: 'Publicando a imagem'
   inputs:
     awsCredentials: $(AWS_CREDENTIALS)
     regionName: 'us-east-1'
     imageSource: 'imagename'
-    sourceImageName: '$(image)'
-    sourceImageTag: '$(version)'
+    sourceImageName: '$(IMAGE_NAME)'
+    sourceImageTag: '$(VERSION_NUMBER)'
     repositoryName: '$(REPOSITORY_NAME)'
-    pushTag: '$(version)'
+    pushTag: '$(VERSION_NUMBER)'
     autoCreateRepository: true
 
 - task: AWSCLI@1
