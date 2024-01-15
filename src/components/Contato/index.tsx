@@ -1,7 +1,95 @@
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function Contato() {
+  const [email, setEmail] = useState('');
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [mensagem, setMensagem] = useState('');
+
+  const handleSubmitBackground = async (event: {
+    preventDefault: () => void;
+  }) => {
+    event.preventDefault();
+
+    // Crie um objeto com os dados do formulário do background
+    const formDataBackground = {
+      nome,
+      telefone,
+      mensagem,
+      email,
+    };
+
+    try {
+      const response = await fetch('/api/SendBackgroundForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataBackground),
+      });
+
+      if (response.ok) {
+        // Envio bem-sucedido
+        toast.success('Mensagem enviada com sucesso!', {
+          position: 'top-right',
+          autoClose: 5000,
+        });
+        console.log('Mensagem enviada com sucesso');
+      } else {
+        // Erro no envio
+        toast.error('Erro ao enviar a mensagem.', {
+          position: 'top-right',
+          autoClose: 5000,
+        });
+        console.error('Erro ao enviar a mensagem');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar a mensagem:', error);
+    }
+  };
+
+  const handleSubmitInscricao = async (event: {
+    preventDefault: () => void;
+  }) => {
+    event.preventDefault();
+
+    // Crie um objeto com os dados do formulário de inscrição de email
+    const formDataInscricao = {
+      email,
+    };
+
+    try {
+      const response = await fetch('/api/SendInscricao', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataInscricao),
+      });
+
+      if (response.ok) {
+        // Envio bem-sucedido
+        toast.success('Inscrição realizada com sucesso!', {
+          position: 'top-right',
+          autoClose: 5000,
+        });
+        console.log('Inscrição realizada com sucesso');
+      } else {
+        // Erro no envio
+        toast.error('Erro ao realizar a inscrição.', {
+          position: 'top-right',
+          autoClose: 5000,
+        });
+        console.error('Erro ao realizar a inscrição');
+      }
+    } catch (error) {
+      console.error('Erro ao realizar a inscrição:', error);
+    }
+  };
+
   return (
     <>
       <section className={styles.container}>
@@ -38,9 +126,6 @@ export default function Contato() {
                     <Link href="mailto:contato@lwtecnologia.com">
                       <p>contato@lwtecnologia.com</p>{' '}
                     </Link>
-                    <Link href="mailto:ajuda@lwtecnologia.com">
-                      <p>ajuda@lwtecnologia.com</p>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -48,34 +133,48 @@ export default function Contato() {
           </div>
           <div className={styles.rightside}>
             <div className={styles.backgroundContainer}>
-              {/* New Background */}
-
-              {/* Original Background */}
               <div className={styles.background}>
                 <div className={styles.title}>
                   <h2>Entre em contato conosco</h2>
                 </div>
                 <div className={styles.name}>
-                  <h3> Nome completo</h3>
-                  <input type="text" placeholder="Escreva aqui seu nome..." />
+                  <h3>Nome completo</h3>
+                  <input
+                    type="text"
+                    placeholder="Escreva aqui seu nome..."
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                  />
                 </div>
                 <div className={styles.contactemail}>
                   <h3>Email*</h3>
-                  <input type="text" placeholder="exemplo@mail.com" />
+                  <input
+                    type="text"
+                    placeholder="exemplo@mail.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
                 <div className={styles.phone}>
                   <h3>Telefone*</h3>
-                  <input type="text" placeholder="61 99999-9999" />
+                  <input
+                    type="text"
+                    placeholder="61 99999-9999"
+                    value={telefone}
+                    onChange={(e) => setTelefone(e.target.value)}
+                  />
                 </div>
                 <div className={styles.message}>
                   <h3>Mensagem*</h3>{' '}
                   <input
                     type="text"
                     placeholder="Nos conte um pouco sobre sua demanda..."
+                    value={mensagem}
+                    onChange={(e) => setMensagem(e.target.value)}
                   />
                 </div>
                 <div className={styles.send}>
-                  <button>Enviar</button>
+                  <button onClick={handleSubmitBackground}>Enviar</button>
                 </div>
               </div>
               <div className={styles.newBackground}>
@@ -107,9 +206,6 @@ export default function Contato() {
                   <Link href="mailto:contato@lwtecnologia.com">
                     <p>contato@lwtecnologia.com</p>{' '}
                   </Link>
-                  <Link href="mailto:ajuda@lwtecnologia.com">
-                    <p>ajuda@lwtecnologia.com</p>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -120,10 +216,17 @@ export default function Contato() {
             <h1>FIQUE POR DENTRO DAS NOVIDADES</h1>
           </div>
           <div className={styles.rightsidebottom}>
-            <div className={styles.inputcontainer}>
-              <input type="text" placeholder="Digite seu email aqui" />
-              <button>Inscrever</button>
-            </div>
+            <form onSubmit={handleSubmitInscricao}>
+              <div className={styles.inputcontainer}>
+                <input
+                  type="text"
+                  placeholder="Digite seu email aqui"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button type="submit">Inscrever</button>
+              </div>
+            </form>
           </div>
         </div>
       </section>

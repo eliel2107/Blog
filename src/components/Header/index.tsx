@@ -144,6 +144,9 @@ export default function Header() {
 
           <div className={styles.rightSide}>
             <ul>
+              <Link href={'/'}>
+                <li className={isActive('/')}>Home</li>
+              </Link>
               <Link href={'/sobre'}>
                 <li className={isActive('/sobre')}>Quem somos</li>
               </Link>

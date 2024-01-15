@@ -28,10 +28,24 @@ export default function Footer() {
               </ul>
             </div>
             <div className={styles.social}>
-              <img src="facebook-lw.svg" alt="" />
-              <img src="twitter-lw.svg" alt="" />
-              <img src="vimeo-lw.svg" alt="" />
-              <img src="youtube-lw.svg" alt="" />
+              <Link
+                rel="noreferrer"
+                href="https://www.facebook.com/lwtecnologia?mibextid=ZbWKwL"
+              >
+                <img src="facebook-lw.svg" alt="" />
+              </Link>
+              <Link
+                rel="noreferrer"
+                href="https://www.instagram.com/lwtecnologia?igsh=MWRka2Z2dXBpdjFkYw=="
+              >
+                <img src="InstagramFooter.svg" alt="" />
+              </Link>
+              <Link
+                rel="noreferrer"
+                href="https://www.linkedin.com/company/lwtecnologia/"
+              >
+                <img src="/LinkedinFooter.svg" alt="" />
+              </Link>
             </div>
           </div>
         </div>
@@ -41,9 +55,24 @@ export default function Footer() {
             <img src="logofooter.svg" alt="" />
           </div>
           <ul>
-            <li>Termos de serviço</li>
-            <li>Políticas de privacidade</li>
+            <Link href={'/termos'}>
+              <li>Termos de serviço</li>
+            </Link>
+            <Link href={'/privacidade'}>
+              <li>Políticas de privacidade</li>
+            </Link>
           </ul>
+        </div>
+        <div className={styles.info}>
+          <p>LW TECNOLOGIA LTDA</p>
+
+          <p>CNPJ: 25.462.472/0001-97</p>
+
+          <p>Email: contato@lwtecnologia.com</p>
+          <p>
+            Endereço: R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
+            80020-310
+          </p>
         </div>
       </section>
       <section className={styles.containerresponsive}>
@@ -75,15 +104,34 @@ export default function Footer() {
             <div className={styles.divisor}></div>
             <div className={styles.politicasresponsive}>
               <ul>
-                <li>Termos de serviço</li>
-                <li>Políticas de privacidade</li>
+                <Link href={'/termos'}>
+                  <li>Termos de serviço</li>
+                </Link>
+                <Link href={'/privacidade'}>
+                  {' '}
+                  <li>Políticas de privacidade</li>
+                </Link>
               </ul>
             </div>
             <div className={styles.socialresponsive}>
-              <img src="facebook-lw.svg" alt="" />
-              <img src="twitter-lw.svg" alt="" />
-              <img src="vimeo-lw.svg" alt="" />
-              <img src="youtube-lw.svg" alt="" />
+              <Link
+                rel="noreferrer"
+                href="https://www.facebook.com/lwtecnologia?mibextid=ZbWKwL"
+              >
+                <img src="facebook-lw.svg" alt="" />
+              </Link>
+              <Link
+                rel="noreferrer"
+                href="https://www.instagram.com/lwtecnologia?igsh=MWRka2Z2dXBpdjFkYw=="
+              >
+                <img src="InstagramFooter.svg" alt="" />
+              </Link>
+              <Link
+                rel="noreferrer"
+                href="https://www.linkedin.com/company/lwtecnologia/"
+              >
+                <img src="/LinkedinFooter.svg" alt="" />
+              </Link>
             </div>
             <div>
               <p>© 2023 LW Tecnologia. Todos os direitos reservados</p>

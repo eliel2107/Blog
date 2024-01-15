@@ -35,7 +35,7 @@ export default function Conhecasobre() {
                 centrado na segurança e na eficiência.
               </p>
             </div>
-            <Link href="/solucoes">
+            <Link href="/assist">
               <button>Conheça nossos produtos</button>
             </Link>
           </div>

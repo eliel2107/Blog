@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 export default function ConhecaTrabalhe() {
   return (
@@ -37,7 +37,7 @@ export default function ConhecaTrabalhe() {
                 Tecnologia. Sua hora é agora!
               </p>
             </div>
-            <Link href="/solucoes">
+            <Link href="/assist">
               <button>Conheça nossos produtos</button>
             </Link>
           </div>

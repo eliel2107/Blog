@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Quemtrabalhe() {
@@ -20,7 +21,9 @@ export default function Quemtrabalhe() {
                 profissional.
               </p>
             </div>
-            <button>Quero me inscrever</button>
+            <Link href="#trabalhe">
+              <button>Quero me inscrever</button>
+            </Link>
           </div>
           <div className={styles.rightside}>
             <img src="teacher.svg" alt="" />

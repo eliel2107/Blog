@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Bannertrabalhe() {
@@ -16,9 +17,11 @@ export default function Bannertrabalhe() {
               Faça parte desse super time de especialistas e vamos juntos levar
               essa revolução para nossos clientes.
             </p>
-            <button>
-              Quero deixar meu currículo <img src="ArrowRight.svg" alt="" />
-            </button>
+            <Link href="#trabalhe">
+              <button>
+                Quero deixar meu currículo <img src="ArrowRight.svg" alt="" />
+              </button>
+            </Link>
           </div>
         </div>
       </section>
