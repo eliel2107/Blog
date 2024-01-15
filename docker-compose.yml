@@ -5,7 +5,7 @@ services:
     image: 539841448493.dkr.ecr.us-east-1.amazonaws.com/lw-dev-site
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile1
     restart: unless-stopped
     command: 'npm run start'
     ports:
