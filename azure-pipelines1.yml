@@ -24,25 +24,13 @@ steps:
 
         echo "NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)" >> .env.local
         echo "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)" >> .env.local
-
-
-# - task: Docker@0
-#   displayName: 'Criando o container'
-#   inputs:
-#     containerregistrytype: 'Container Registry'
-#     action: 'Build an image'
-#     dockerFile: '$(DOCKER_FILE)'
-#     buildArguments: |
-
-#     imageName: '$(image)'
-#     additionalImageTags: '$(version)'
     
   - task: Docker@2
     displayName: "Build - version $(version)"
     inputs:
       command: 'build'
       Dockerfile: '$(DOCKER_FILE)'
-      repository: '$(IMAGE_NAME)'
+      repository: '$(image)'
       tags: '$(version)'
 
   - task: ECRPushImage@1
