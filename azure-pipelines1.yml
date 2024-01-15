@@ -63,6 +63,6 @@ steps:
     awsCredentials: $(AWS_CREDENTIALS)
     regionName: 'us-east-1'
     awsCommand: ecs
-    awsSubCommand: 'create-service'
+    awsSubCommand: 'update-service'
     awsArguments: '--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment'
     failOnStandardError: false
