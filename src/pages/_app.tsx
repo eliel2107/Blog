@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import Head from 'next/head'; // Import the Head component
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Importe os estilos do react-toastify
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,8 +14,8 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Add other head elements if needed */}
       </Head>
       <NextNProgress color="#fff" />
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
       <Component {...pageProps} />
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
     </>
   );
 }
