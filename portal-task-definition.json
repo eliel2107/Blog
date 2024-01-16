@@ -22,6 +22,11 @@
 					"hostPort": 443,
 					"protocol": "tcp",
 					"containerPort": 443
+				},
+				{
+					"hostPort": 3000,
+					"protocol": "tcp",
+					"containerPort": 3000
 				}
 			],
 			"cpu": 0,
