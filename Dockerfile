@@ -1,21 +1,15 @@
-# Use a imagem oficial do Node.js com uma versão específica (14 neste caso)
-FROM node:18-alpine3.18 as build
- 
-# Crie e defina o diretório de trabalho na imagem
+FROM node:20-alpine as build
+
 WORKDIR /website
- 
-# Copie os arquivos da aplicação para a imagem
-COPY . .
- 
-# Instale as dependências do projeto
+
+COPY ./ /website/
+
 RUN npm install
- 
-# Construa a aplicação Next.js
+
+ENV NEXT_PUBLIC_CONTENTFUL_SPACE_ID=ssmj7cph8322
+ENV NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=FwTu54gbsW1aagce6gfcahZJQQuTv7RmeQOo9Wp9B_E
 RUN npm run build
- 
-# Exponha a porta em que a aplicação será executada
+
 EXPOSE 3000
-EXPOSE 80
- 
-# Defina o comando padrão para iniciar a aplicação
-#CMD ["npm", "run", "start"]
+
+CMD [ "npm", "start"]
