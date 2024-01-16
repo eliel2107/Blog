@@ -35,12 +35,9 @@ export default async function SendContactForm(
         console.log(
           'Campos obrigatórios não encontrados no corpo da requisição'
         );
-        res
-          .status(400)
-          .json({
-            message:
-              'Campos obrigatórios não encontrados no corpo da requisição',
-          });
+        res.status(400).json({
+          message: 'Campos obrigatórios não encontrados no corpo da requisição',
+        });
         return;
       }
 
@@ -63,7 +60,7 @@ export default async function SendContactForm(
 
         const mailOptions = {
           from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'ddiegerfernandes@gmail.com', // Substitua pelo e-mail de destino
+          to: 'LWlover@lwtecnologia.com.br', // Substitua pelo e-mail de destino
           subject: 'Formulário de Contato',
           text: `
             Nome: ${name}
@@ -75,11 +72,9 @@ export default async function SendContactForm(
 
         await transporter.sendMail(mailOptions);
         console.log('E-mail do formulário de contato enviado com sucesso');
-        res
-          .status(200)
-          .json({
-            message: 'E-mail do formulário de contato enviado com sucesso!',
-          });
+        res.status(200).json({
+          message: 'E-mail do formulário de contato enviado com sucesso!',
+        });
       } catch (error) {
         console.error('Erro ao enviar e-mail do formulário de contato:', error);
         res

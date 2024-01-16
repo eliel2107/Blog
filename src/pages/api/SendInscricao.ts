@@ -55,7 +55,7 @@ export default async function sendEmail(
 
         const mailOptions = {
           from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'ddiegerfernandes@gmail.com', // Substitua pelo e-mail de destino
+          to: 'LWlover@lwtecnologia.com.br', // Substitua pelo e-mail de destino
           subject: 'Inscrição de E-mail',
           text: `E-mail de inscrição: ${email}`,
         };

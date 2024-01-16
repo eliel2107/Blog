@@ -11,7 +11,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="icon" href="/FavIcon.svg" type="image/svg+xml" />
         <title>LW TECNOLOGIA</title>
-        {/* Add other head elements if needed */}
       </Head>
       <NextNProgress color="#fff" />
       <Component {...pageProps} />
