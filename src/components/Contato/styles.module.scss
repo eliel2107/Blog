@@ -1,13 +1,13 @@
 .container {
   position: relative;
   margin-inline: auto;
-  background-color: var(--brand-blue, #000040);
+  background-color: #336699;
   z-index: 0;
   padding-top: 65px;
   @media only screen and (max-width: 768px) {
     padding-inline: 20px;
     padding-block: 50px;
-    background: linear-gradient(#000040 93%, white 7%);
+    background: linear-gradient(#336699 93%, #99b2cc 7%);
   }
 }
 

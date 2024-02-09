@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  background: #000040;
+  background: #336699;
 }
 
 .content {
@@ -187,6 +187,8 @@
     gap: 8px;
     margin-inline: auto;
     border-radius: 16px;
+    border: none;
+    max-width: 500px;
     background: #fff;
     color: var(--brand-mid-blue, #243d66);
     text-transform: uppercase;
@@ -201,12 +203,16 @@
     button {
       width: 100%;
       min-width: unset;
+      max-width: 300px;
     }
   }
 }
 .title {
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    max-width: 340px;
+  }
   padding-bottom: 15px;
 }
 .serviços {

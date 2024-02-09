@@ -22,7 +22,7 @@ export default function Conheca() {
   ];
   const slidesContent = [
     {
-      title: 'LOCADORA',
+      title: 'LOCADORAS',
       content: [
         {
           imageURL: './lefttop.gif',
@@ -43,7 +43,7 @@ export default function Conheca() {
       ],
     },
     {
-      title: 'FLEET',
+      title: 'FLEETS',
       content: [
         {
           imageURL: './lefttop.gif',
@@ -64,7 +64,7 @@ export default function Conheca() {
       ],
     },
     {
-      title: 'EMBARCADOR',
+      title: 'OPERADORES LOGISTICOS',
       content: [
         {
           imageURL: './lefttop.gif',
@@ -85,7 +85,7 @@ export default function Conheca() {
       ],
     },
     {
-      title: 'FROTA PRÓPRIA',
+      title: 'FROTAS PRÓPRIAS',
       content: [
         {
           imageURL: './lefttop.gif',
@@ -106,7 +106,7 @@ export default function Conheca() {
       ],
     },
     {
-      title: 'TRANSPORTADORA',
+      title: 'TRANSPORTADORAS',
       content: [
         {
           imageURL: './lefttop.gif',
@@ -160,7 +160,7 @@ export default function Conheca() {
                 ))}
               </div>
               <div className={styles.button}>
-                <Link href="/solucoes">
+                <Link href="/sobre">
                   <button>Saiba mais</button>
                 </Link>
               </div>

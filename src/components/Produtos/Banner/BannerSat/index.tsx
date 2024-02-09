@@ -8,7 +8,7 @@ export default function Bannerblog() {
         <div className={styles.overlay}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>LW SIM</h1>
+              <img src="/SIMLOGO.png" alt="" />
               <p>Controle sua frota com tecnologia de alta performance.</p>
             </div>
             <div className={styles.button}>

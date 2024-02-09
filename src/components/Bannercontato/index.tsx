@@ -17,12 +17,12 @@ export default function Bannercontato() {
             <div className={styles.email}>
               <img src="emailcont.svg" alt="" />
               <h1>EMAIL</h1>
-              <p>Info@lwtecnologia.com</p>
+              <p>contato@lwtecnologia.com.br</p>
             </div>
             <div className={styles.phone}>
               <img src="phonecont1.svg" alt="" />
               <h1>TELEFONE</h1>
-              <p>11 99999-9999</p>
+              <p>41 3501-8315</p>
             </div>
             <div className={styles.email}>
               <img src="DenIcon.svg" alt="" />

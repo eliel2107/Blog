@@ -35,7 +35,7 @@ export default function Transportadora() {
 
                   <p>Emissão de CRLV</p>
                 </div>
-                <Link href={'/contato'}>
+                <Link href={'/contato'} className={styles.link}>
                   <button>Saiba mais</button>
                 </Link>
               </div>

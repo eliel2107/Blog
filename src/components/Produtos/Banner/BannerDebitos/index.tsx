@@ -8,7 +8,7 @@ export default function Bannerblog() {
         <div className={styles.overlay}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>LW Débitos</h1>
+              <img src="/DEBITOSLOGO.png" alt="" />
               <p>
                 Elimine planilhas e processos manuais no pagamento dos débitos
                 da sua frota de veículos.

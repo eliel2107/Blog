@@ -1,6 +1,13 @@
 .container {
   background-color: #dff6fd;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    padding-inline: 20px;
+    &::after {
+      background-position: left 18px;
+    }
+  }
 }
 
 .content {
@@ -16,7 +23,7 @@
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 194px;
-
+  padding-block: 100px 360px;
   @media only screen and (max-width: 768px) {
     justify-content: center;
     padding-inline: 0;
@@ -28,7 +35,7 @@
   flex-direction: column;
   align-items: center;
   h1 {
-    color: var(--brand-blue, #000040);
+    color: #336699;
     font-family: Montserrat;
     font-size: 48px;
     font-style: normal;
@@ -36,7 +43,7 @@
     cursor: pointer;
   }
   p {
-    color: var(--black, #090812);
+    color: #336699;
     text-align: center;
     font-family: Montserrat;
     font-size: 24px;
@@ -352,7 +359,7 @@
     font-size: 22px;
     line-height: 24px;
     font-family: Montserrat;
-    color: #000040;
+    color: #336699;
     text-align: start;
     &:hover {
       text-decoration: underline;
@@ -364,7 +371,7 @@
     font-size: 16px;
     font-family: Montserrat;
     line-height: 20px;
-    color: #000040;
+    color: #336699;
     margin-top: 8px;
     text-align: start;
     &:hover {
@@ -373,6 +380,8 @@
   }
 
   @media only screen and (max-width: 768px) {
+    position: relative;
+    left: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -384,7 +393,7 @@
     }
     p {
       text-align: left;
-      color: #000040;
+      color: #336699;
       font-weight: 600;
       font-size: 12px;
       line-height: 12px;

@@ -8,7 +8,7 @@ export default function Bannerblog() {
         <div className={styles.overlay}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>LW DOC</h1>
+              <img src="/DOCLOGO.png" alt="" />
               <p>Simplifique sua gestão documental através da tecnologia.</p>
             </div>
             <div className={styles.button}>

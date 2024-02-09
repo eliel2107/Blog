@@ -1,5 +1,5 @@
 .container {
-  background: var(--White, #fff);
+  background: #99b2cc;
   padding-bottom: 70px;
   @media only screen and (max-width: 768px) {
     display: none;
@@ -15,7 +15,7 @@
   justify-content: space-between;
   max-width: 1280px;
   margin-inline: auto;
-  border-bottom: 1.333px solid var(--brand-blue, #000040);
+  border-bottom: 1.333px solid var(--brand-blue, #fff);
   padding-bottom: 20px;
   padding-top: 68px;
 }
@@ -27,7 +27,7 @@
     gap: 30px;
   }
   li {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
@@ -49,7 +49,7 @@
   max-width: 1440px;
   padding-inline: 194px;
   p {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
@@ -61,7 +61,7 @@
     gap: 96px;
   }
   li {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     font-family: Montserrat;
     font-size: 1.125rem;
     font-style: normal;
@@ -96,6 +96,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  img {
+    width: 250px;
+  }
 }
 .like {
   width: 100px;
@@ -105,7 +108,7 @@
 }
 .containerresponsive {
   display: none;
-  background: var(--White, #fff);
+  background: #99b2cc;
   padding-bottom: 70px;
   @media only screen and (max-width: 768px) {
     display: block;
@@ -121,7 +124,7 @@
     gap: 30px;
   }
   li {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
@@ -136,10 +139,9 @@
   gap: 60px;
   img {
     width: 200px;
-    height: 24px;
   }
   p {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     text-align: center;
     font-family: Poppins;
     font-size: 1.125rem;
@@ -153,7 +155,7 @@
 }
 .politicasresponsive {
   li {
-    color: var(--brand-blue, #000040);
+    color: var(--brand-blue, #fff);
     font-family: Montserrat;
     font-size: 0.9rem;
     font-style: normal;
@@ -170,8 +172,32 @@
 .divisor {
   width: 100%;
   height: 1px;
-  background-color: #000040;
+  background-color: #fff;
 }
 .socialresponsive {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  max-width: 390px;
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.info {
   display: flex;
+  gap: 50px;
+  padding-top: 64px;
+
+  margin-inline: auto;
+  max-width: 1440px;
+  padding-inline: 194px;
+  p {
+    color: var(--brand-blue, #fff);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    width: 257px;
+  }
 }

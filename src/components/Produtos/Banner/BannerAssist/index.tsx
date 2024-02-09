@@ -8,7 +8,8 @@ export default function Bannerblog() {
         <div className={styles.overlay}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>LW ASSIST</h1>
+              <img src="/ASSISTLOGO.png" alt="" />
+
               <p>Sua frota com mais segurança e suporte aos condutores.</p>
             </div>
             <div className={styles.button}>

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 export default function ConhecaTrabalhe() {
   return (
@@ -7,7 +7,7 @@ export default function ConhecaTrabalhe() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="business.svg" alt="" />
+            <img src="business.jpg" alt="" />
           </div>
           <div className={styles.rightside}>
             <div className={styles.title}>
@@ -37,7 +37,7 @@ export default function ConhecaTrabalhe() {
                 Tecnologia. Sua hora é agora!
               </p>
             </div>
-            <Link href="/solucoes">
+            <Link href="/debitos">
               <button>Conheça nossos produtos</button>
             </Link>
           </div>

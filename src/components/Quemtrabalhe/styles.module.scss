@@ -41,7 +41,7 @@
   justify-content: center;
 
   h1 {
-    color: #061c3d;
+    color: #336699;
 
     font-family: Montserrat;
     font-size: 1.5rem;
@@ -51,7 +51,7 @@
   p {
     padding-top: 20px;
     padding-bottom: 30px;
-    color: #2c2c2c;
+    color: #336699;
 
     font-family: Montserrat;
     font-size: 0.9rem;
@@ -67,8 +67,9 @@
     align-items: center;
     gap: 12px;
     border-radius: 7px;
-    background: var(--brand-blue, #000040);
-    color: var(--gray-00, #fff);
+    border: 1px solid #336699;
+    background: none;
+    color: #336699;
     font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;

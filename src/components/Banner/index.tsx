@@ -11,10 +11,11 @@ export default function Banner() {
         </video>
         <div className={styles.videogradient}></div>
         <div className={styles.middlecontent}>
-          <h1>TECNOLOGIA A SERVIÇO DA MOBILIDADE</h1>
+          <img src="/LOGOCOLORIDA.png" alt="" />
+          {/* <h1>TECNOLOGIA A SERVIÇO DA MOBILIDADE</h1>
           <Link href={'/sobre'}>
             <button>saiba mais</button>
-          </Link>
+          </Link> */}
         </div>
       </section>
     </>
