@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProdutosResponsive from '../ProdutosResponsive';
 import styles from './styles.module.scss';
 import AreaResponsive from '../AreaResponsive';
@@ -11,7 +11,7 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
-
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const isActive = (route: string) => {
     return route === router.pathname
       ? `${styles.menulink} ${styles.active}`
@@ -36,72 +36,40 @@ export default function Header() {
   };
 
   const produtosDropdown = [
-    {
-      url: '/assist',
+    // {
+    //   url: '/assist',
 
-      name: 'LW Assist',
-      description: 'Sua frota com mais segurança e suporte aos condutores',
-      image: '/SecurityCar.svg',
-    },
+    //   name: 'LW Assist',
+    //   description: 'Sua frota com mais segurança e suporte aos condutores',
+    //   image: '/NewIcons/AssistIconNew.svg',
+    // },
     {
       url: '/debitos',
       name: 'LW Débitos',
       description:
         'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-      image: '/MoneyIcon.svg',
+      image: '/NewIcons/DebitosIconNew.svg',
     },
     {
       url: '/doc',
       name: 'LW Doc',
       description: 'Simplifique sua gestão documental através da tecnologia.',
-      image: '/DocIcon.svg',
+      image: '/NewIcons/DocIconNew.svg',
     },
-    {
-      url: '/cnh',
-      name: 'Consulta de CNH',
-      description:
-        'Acompanhe a pontuação dos seus condutores de forma facilitada.',
-      image: '/CNHIcon.svg',
-    },
-    {
-      url: '/digitalizacao',
-      name: 'Digitalização',
-      description: 'Otimize seus processos e ganhe tempo.',
-      image: '/RadarIcon.svg',
-    },
+
     {
       url: '/sim',
       name: 'LW SIM',
       description: 'Controle sua frota com tecnologia de alta performance.',
-      image: '/PhoneIcon.svg',
+      image: '/NewIcons/SimIconNew.svg',
     },
-    {
-      url: '/vendas',
-      name: 'Pré-Venda',
-      description:
-        'Tenha as informações necessárias para uma negociação rápida e sem complicações.',
-      image: '/MoneyIcon.svg',
-    },
+
     {
       url: '/multas',
       name: 'LW Multas',
       description:
         'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-      image: '/DangerIcon.svg',
-    },
-    {
-      url: '/antt',
-      name: 'Multas ANTT',
-      description:
-        'Gerencie suas infrações e evite complicações operacionais e financeiras.',
-      image: '/LicencimentoIcon2.svg',
-    },
-    {
-      url: '/indicacao',
-      name: 'Indicação Digital',
-      description:
-        'A indicação dos seus condutores de forma rápida e sustentável.',
-      image: '/AssinaturaIcon.svg',
+      image: '/NewIcons/MultasIconNew.svg',
     },
   ];
   const clienteDropdown = [
@@ -131,14 +99,31 @@ export default function Header() {
     },
     // Add more items as needed
   ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+        setIsClienteDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
       <section className={styles.container}>
-        <div className={styles.content}>
+        <div className={styles.content} ref={dropdownRef}>
           <div className={styles.leftside}>
             <Link href={'/'}>
-              <img src="/lwLOGO.svg" alt="Logo" />
+              <img src="/LOGOPRINCIPAL.png" alt="Logo" />
             </Link>
           </div>
 
@@ -192,7 +177,7 @@ export default function Header() {
                 <li className={isActive('/contato')}>Contato</li>
               </Link>
               <Link href={'/#Destaques'}>
-                <li className={isActive('/#Destaques')}>Blog</li>
+                <li className={isActive('/#Destaques')}>LW NEWS</li>
               </Link>
               <Link href={'/trabalhe'}>
                 <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
@@ -243,7 +228,7 @@ export default function Header() {
       <div className={`${styles.drawer} ${drawerOpen ? styles.open : ''}`}>
         <div className={styles.contentDrawer}>
           <div className={styles.topContentDrawer}>
-            <img className={styles.logo} src="/LOGOLW.svg" alt="Logo" />
+            <img className={styles.logo} src="/LOGOPRINCIPAL.png" alt="Logo" />
             <img
               className={styles.close}
               src="/close.svg"
@@ -266,7 +251,7 @@ export default function Header() {
                 <li onClick={handleLinkClick}>Contato</li>
               </Link>
               <Link href="/#Destaques">
-                <li className={isActive('/#Destaques')}>Blog</li>
+                <li className={isActive('/#Destaques')}>LW NEWS</li>
               </Link>
               <Link href="/trabalhe">
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>

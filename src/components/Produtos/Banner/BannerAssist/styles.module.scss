@@ -19,15 +19,17 @@
   align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 64, 0.9) 53.53%,
-    rgba(0, 0, 0, 0) 70.97%
+    rgba(51, 102, 153, 0.9) 53.53%,
+    /* #336699 com 90% de opacidade */ rgba(51, 102, 153, 0) 70.97%
+      /* #336699 completamente transparente */
   );
+
   @media only screen and (max-width: 768px) {
     padding-inline: 20px;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 64, 0.9) 53.53%,
-      rgba(0, 0, 0, 0) 70.97%
+      rgba(51, 102, 153, 0.9) 53.53%,
+      /* #336699 com 90% de opacidade */ rgba(51, 102, 153, 0) 70.97%
     );
   }
 }
@@ -41,6 +43,9 @@
 }
 
 .title {
+  img {
+    width: 250px;
+  }
   display: flex;
   gap: 24px;
   flex-direction: column;

@@ -31,7 +31,7 @@ export default function Destaques() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.topcontent}>
-            <h1>BLOG</h1>
+            <h1>LW NEWS</h1>
 
             <p>As últimas notícias e tendências no setor de gestão de frotas</p>
           </div>
@@ -44,7 +44,7 @@ export default function Destaques() {
             >
               {posts.map((post, index) => (
                 <SwiperSlide key={post.sys.id} className={styles.swiperSlide}>
-                  <Link href={`/PostNew/${post.sys.id}`}>
+                  <Link href={`/${post.sys.id}`}>
                     <div className={styles.swiperContent}>
                       <div className={styles.blogImage}>
                         <img src={post.fields.thumb.fields.file.url} alt="" />

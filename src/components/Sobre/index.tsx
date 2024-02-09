@@ -35,7 +35,7 @@ export default function Sobre() {
                 height="586"
                 controls
               >
-                <source src="INSTITUCIONAL_LW.mp4" type="video/mp4" />
+                <source src="VIDEOPRINCIPAL.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
               </video>
             </div>

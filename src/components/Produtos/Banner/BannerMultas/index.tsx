@@ -8,7 +8,7 @@ export default function Bannerblog() {
         <div className={styles.overlay}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>LW MULTAS</h1>
+              <img src="/MULTASLOGO.png" alt="" />
               <p>
                 Sua gestão de multas mais eficiente, ágil e segura para diversos
                 tamanhos de frotas.

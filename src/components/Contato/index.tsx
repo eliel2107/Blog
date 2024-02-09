@@ -123,8 +123,8 @@ export default function Contato() {
                   </div>
                   <div className={styles.contatos}>
                     <h1>Nossos contatos</h1>
-                    <Link href="mailto:contato@lwtecnologia.com">
-                      <p>contato@lwtecnologia.com</p>{' '}
+                    <Link href="mailto:contato@lwtecnologia.com.br">
+                      <p>contato@lwtecnologia.com.br</p>{' '}
                     </Link>
                   </div>
                 </div>
@@ -203,8 +203,8 @@ export default function Contato() {
                 </div>
                 <div className={styles.contatos}>
                   <h1>Nossos contatos</h1>
-                  <Link href="mailto:contato@lwtecnologia.com">
-                    <p>contato@lwtecnologia.com</p>{' '}
+                  <Link href="mailto:contato@lwtecnologia.com.br">
+                    <p>contato@lwtecnologia.com.br</p>{' '}
                   </Link>
                 </div>
               </div>

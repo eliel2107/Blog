@@ -7,7 +7,7 @@ export default function Conhecasobre() {
       <section className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="business.svg" alt="" />
+            <img src="CONHECALW.jpg" alt="" />
           </div>
           <div className={styles.rightside}>
             <div className={styles.title}>
@@ -35,7 +35,7 @@ export default function Conhecasobre() {
                 centrado na segurança e na eficiência.
               </p>
             </div>
-            <Link href="/assist">
+            <Link href="/debitos">
               <button>Conheça nossos produtos</button>
             </Link>
           </div>

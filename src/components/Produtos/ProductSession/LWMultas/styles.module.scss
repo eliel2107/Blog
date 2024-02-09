@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  background: #000040;
+  background: #336693;
 }
 
 .content {
@@ -68,9 +68,6 @@
 .top {
   display: flex;
   gap: 310px;
-  @media only screen and (max-width: 768px) {
-    gap: 90px;
-  }
 
   button {
     display: flex;
@@ -90,13 +87,14 @@
     font-style: normal;
     font-weight: 500;
   }
+  @media only screen and (max-width: 768px) {
+    gap: 50px;
+    flex-direction: column;
+  }
 }
 .bottom {
   display: flex;
-  gap: 310px;
-  @media only screen and (max-width: 768px) {
-    gap: 90px;
-  }
+  gap: 86px;
 
   button {
     display: flex;
@@ -177,13 +175,16 @@
   align-items: flex-end;
   gap: 310px;
   @media only screen and (max-width: 768px) {
-    gap: 90px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 50px;
   }
   button {
     margin-top: 20px;
     display: flex;
     width: 100%;
     min-width: 350px;
+    border: none;
     max-height: 56px;
     padding: 16px;
     justify-content: center;
@@ -212,9 +213,16 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 15px;
+  @media only screen and (max-width: 768px) {
+    max-width: 340px;
+  }
 }
 .serviços {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+.link {
+  width: 100%;
+  max-width: 300px;
 }

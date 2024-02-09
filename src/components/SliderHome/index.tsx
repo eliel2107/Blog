@@ -25,7 +25,7 @@ type SlideContent = {
 
 const slidesContent: SlideContent[] = [
   {
-    title: 'LOCADORA',
+    title: 'LOCADORAS',
     content: [
       {
         imageURL: './lefttop.gif',
@@ -46,7 +46,7 @@ const slidesContent: SlideContent[] = [
     ],
   },
   {
-    title: 'FLEET',
+    title: 'FLEETS',
     content: [
       {
         imageURL: './lefttop.gif',
@@ -67,7 +67,7 @@ const slidesContent: SlideContent[] = [
     ],
   },
   {
-    title: 'EMBARCADOR',
+    title: 'OPERADORES LOGÍSTICOS',
     content: [
       {
         imageURL: './lefttop.gif',
@@ -88,7 +88,7 @@ const slidesContent: SlideContent[] = [
     ],
   },
   {
-    title: 'FROTA PRÓPRIA',
+    title: 'FROTAS PRÓPRIAS',
     content: [
       {
         imageURL: './lefttop.gif',
@@ -109,7 +109,7 @@ const slidesContent: SlideContent[] = [
     ],
   },
   {
-    title: 'TRANSPORTADORA',
+    title: 'TRANSPORTADORAS',
     content: [
       {
         imageURL: './lefttop.gif',
@@ -192,7 +192,7 @@ export default function SliderHome() {
           ))}
         </div>
         <div className={styles.button}>
-          <Link href="/solucoes">
+          <Link href="/sobre">
             <button>Saiba mais</button>
           </Link>
         </div>

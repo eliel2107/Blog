@@ -61,7 +61,7 @@ export default function Trabalheconosco() {
       <div className={styles.container} id="trabalhe">
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="MapImage.svg" alt="" />
+            <img src="LWCOFFE.jpg" alt="" />
           </div>
           <div className={styles.rightside}>
             <div className={styles.title}>

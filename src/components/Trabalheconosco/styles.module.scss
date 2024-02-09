@@ -10,7 +10,7 @@
   display: flex;
 
   margin-inline: auto;
-  margin-right: max(0px, (100% - 1440px)/2);
+  padding-inline: 194px;
   max-width: 1440px;
   gap: 50px;
 
@@ -24,6 +24,7 @@
   img {
     width: 100%;
     height: auto;
+    max-width: 500px;
   }
   @media (max-width: 768px) {
     display: none;
@@ -200,9 +201,9 @@
     align-items: center;
     gap: 9px;
     border-radius: 7px;
-    background: var(--brand-blue, #000040);
+    background: #336699;
     color: var(--gray-00, #fff);
-    font-family: Dela Gothic One;
+    font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -267,8 +268,9 @@
     gap: 9px;
     border-radius: 7px;
     background: var(--brand-blue, #fff);
-    color: var(--gray-00, #000040);
-    font-family: Dela Gothic One;
+    border: 1px solid #336699;
+    color: #336699;
+    font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;

@@ -26,7 +26,7 @@ export default function Quemtrabalhe() {
             </Link>
           </div>
           <div className={styles.rightside}>
-            <img src="teacher.svg" alt="" />
+            <img src="teacher.jpg" alt="" />
           </div>
         </div>
       </section>

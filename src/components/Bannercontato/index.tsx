@@ -17,7 +17,7 @@ export default function Bannercontato() {
             <div className={styles.email}>
               <img src="emailcont.svg" alt="" />
               <h1>EMAIL</h1>
-              <p>contato@lwtecnologia.com</p>
+              <p>contato@lwtecnologia.com.br</p>
             </div>
             <div className={styles.phone}>
               <img src="phonecont1.svg" alt="" />

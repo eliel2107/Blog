@@ -16,8 +16,8 @@ export default function Footer() {
                   <li>Quem somos</li>
                 </Link>
 
-                <Link href={'/blog'}>
-                  <li>Blog</li>
+                <Link href={'/#Destaques'}>
+                  <li>LW NEWS</li>
                 </Link>
                 <Link href={'/contato'}>
                   <li>Contato</li>
@@ -52,7 +52,7 @@ export default function Footer() {
         <div className={styles.bottomcontent}>
           <p>© 2023 LW Tecnologia. Todos os direitos reservados</p>
           <div className={styles.middle}>
-            <img src="logofooter.svg" alt="" />
+            <img src="LOGOPRINCIPAL.png" alt="" />
           </div>
           <ul>
             <Link href={'/termos'}>
@@ -68,7 +68,7 @@ export default function Footer() {
 
           <p>CNPJ: 25.462.472/0001-97</p>
 
-          <p>Email: contato@lwtecnologia.com</p>
+          <p>Email: contato@lwtecnologia.com.br</p>
           <p>
             Endereço: R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
             80020-310
@@ -78,7 +78,7 @@ export default function Footer() {
       <section className={styles.containerresponsive}>
         <div className={styles.contentresponsive}>
           <div className={styles.topcontentresponsive}>
-            <img src="logofooter.svg" alt="" />
+            <img src="LOGOPRINCIPAL.png" alt="" />
             <div className={styles.pagesresponsive}>
               <ul>
                 <Link href={'/'}>
@@ -87,11 +87,11 @@ export default function Footer() {
                 <Link href={'/sobre'}>
                   <li>Quem somos</li>
                 </Link>
-                <Link href={'/solucoes'}>
+                <Link href={'/debitos'}>
                   <li>produtos</li>
                 </Link>
-                <Link href={'/blog'}>
-                  <li>Blog</li>
+                <Link href={'/#Destaques'}>
+                  <li>LW NEWS</li>
                 </Link>
                 <Link href={'/contato'}>
                   <li>Contato</li>

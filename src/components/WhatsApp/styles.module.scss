@@ -9,5 +9,9 @@
   position: fixed;
   cursor: pointer;
   bottom: 30px;
-  right: 15px;
+  right: 65px;
+  @media (max-width: 768px) {
+    bottom: 60px;
+    right: 25px;
+  }
 }
