@@ -37,7 +37,7 @@ export default function WhatsApp() {
         <div className={styles.whatsApp}>
           <Link rel="noreferrer" href="https://wa.link/mxg63k">
             <Image
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/NEWWHATSICON.png"
+              src="/NEWWHATSICON.png"
               alt="WhatsApp"
               width={imageWidth}
               height={imageHeight}
