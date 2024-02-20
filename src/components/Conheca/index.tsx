@@ -13,30 +13,30 @@ type SlideType = {
 export default function Conheca() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
-        '/LOCADORAHOME.png',
-        '/FLEETHOME.png',
-        '/EMBARCADORHOME.png',
-        '/FROTAHOME.png',
-        '/TRANSPORTADORAHOME.png',
+        'https://d10fqir6n4h7sq.cloudfront.net/public/LOCADORAHOME.png',
+        'https://d10fqir6n4h7sq.cloudfront.net/public/FLEETHOME.png',
+        'https://d10fqir6n4h7sq.cloudfront.net/public/EMBARCADORHOME.png',
+        'https://d10fqir6n4h7sq.cloudfront.net/public/FROTAHOME.png',
+        'https://d10fqir6n4h7sq.cloudfront.net/public/TRANSPORTADORAHOME.png',
     ];
     const slidesContent = [
         {
             title: 'LOCADORAS',
             content: [
                 {
-                    imageURL: './lefttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/lefttop.gif',
                     text: 'Maior prazo para indicação do condutor',
                 },
                 {
-                    imageURL: './righttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/righttop.gif',
                     text: 'Gerencie o processo por loja (documentos, indicação do condutor)',
                 },
                 {
-                    imageURL: './rightbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
                     text: 'Antecipe a cobrança no cartão de crédito',
                 },
                 {
-                    imageURL: './leftbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
                     text: 'Pagamento das multas com desconto',
                 },
             ],
@@ -45,19 +45,19 @@ export default function Conheca() {
             title: 'FLEETS',
             content: [
                 {
-                    imageURL: './lefttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/lefttop.gif',
                     text: 'Maior prazo para indicação do condutor',
                 },
                 {
-                    imageURL: './righttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/righttop.gif',
                     text: 'Relatórios Gerenciais',
                 },
                 {
-                    imageURL: './rightbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
                     text: 'Disparo automático de e-mail (notificação de trânsito)',
                 },
                 {
-                    imageURL: './leftbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
                     text: 'Pagamento de multa com 20% de desconto',
                 },
             ],
@@ -66,19 +66,19 @@ export default function Conheca() {
             title: 'OPERADORES LOGISTICOS',
             content: [
                 {
-                    imageURL: './lefttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/lefttop.gif',
                     text: 'Consulta ativa das multas por excesso de peso',
                 },
                 {
-                    imageURL: './righttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/righttop.gif',
                     text: 'Multas cadastradas no CNPJ',
                 },
                 {
-                    imageURL: './rightbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
                     text: 'Entre com recursos das multas dentro do prazo',
                 },
                 {
-                    imageURL: './leftbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
                     text: 'Pagamento com desconto',
                 },
             ],
@@ -87,19 +87,19 @@ export default function Conheca() {
             title: 'FROTAS PRÓPRIAS',
             content: [
                 {
-                    imageURL: './lefttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/lefttop.gif',
                     text: 'Consulta CNH',
                 },
                 {
-                    imageURL: './righttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/righttop.gif',
                     text: 'Maior prazo para indicação do condutor',
                 },
                 {
-                    imageURL: './rightbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
                     text: 'Automatizamos o processo de desconto em folha de pagamento',
                 },
                 {
-                    imageURL: './leftbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
                     text: 'Pagamento das multas com desconto',
                 },
             ],
@@ -108,19 +108,19 @@ export default function Conheca() {
             title: 'TRANSPORTADORAS',
             content: [
                 {
-                    imageURL: './lefttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/lefttop.gif',
                     text: 'Consulta CNH',
                 },
                 {
-                    imageURL: './righttop.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/righttop.gif',
                     text: 'Consulta de Multas ANTT',
                 },
                 {
-                    imageURL: './rightbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
                     text: 'Maior prazo para indicação do condutor',
                 },
                 {
-                    imageURL: './leftbottom.gif',
+                    imageURL: 'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
                     text: 'Pagamento de multa com desconto.',
                 },
             ],
@@ -207,7 +207,7 @@ export default function Conheca() {
                                 onClick={prevSlide}
                             >
                                 <img
-                                    src="/arrowLeftLW.svg"
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowLeftLW.svg"
                                     className={styles.leftArrow}
                                     alt="Previous"
                                 />

@@ -14,25 +14,25 @@ export default function ProdutosResponsive() {
         url: 'https://admin.onemonitora.com.br/',
         name: 'LW SIM (One)',
         description: 'Clique para acessar o portal.',
-        image: '/PhoneIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
       },
       {
         url: 'https://www.sistemamultas.com.br/app',
         name: 'LW Multas',
         description: 'Clique para acessar o portal.',
-        image: '/DangerIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
       },
       {
         url: 'https://documentacao.lwtecnologia.com.br/',
         name: 'LW Doc',
         description: 'Clique para acessar o portal.',
-        image: '/DocIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
       },
       {
         url: 'https://debitos.lwtecnologia.com.br/',
         name: 'LW Débitos',
         description: 'Clique para acessar o portal.',
-        image: '/MoneyIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
       },
       // Add more items as needed
     ];
