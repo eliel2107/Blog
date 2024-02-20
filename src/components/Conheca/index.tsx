@@ -217,7 +217,7 @@ export default function Conheca() {
                                 onClick={nextSlide}
                             >
                                 <img
-                                    src="https://d10fqir6n4h7sq.cloudfront.net/public//arrowRightLW.svg"
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowRightLW.svg"
                                     alt="Next"
                                 />
                             </div>
