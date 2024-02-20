@@ -41,21 +41,21 @@ export default function Header() {
 
         //   name: 'LW Assist',
         //   description: 'Sua frota com mais segurança e suporte aos condutores',
-        //   image: '/NewIcons/AssistIconNew.svg',
+        //   image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/AssistIconNew.svg',
         // },
         {
             url: '/debitos',
             name: 'LW Débitos',
             description:
                 'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-            image: '/NewIcons/DebitosIconNew.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DebitosIconNew.svg',
         },
         {
             url: '/doc',
             name: 'LW Doc',
             description:
                 'Simplifique sua gestão documental através da tecnologia.',
-            image: '/NewIcons/DocIconNew.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DocIconNew.svg',
         },
 
         {
@@ -63,7 +63,7 @@ export default function Header() {
             name: 'LW SIM',
             description:
                 'Controle sua frota com tecnologia de alta performance.',
-            image: '/NewIcons/SimIconNew.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/SimIconNew.svg',
         },
 
         {
@@ -71,7 +71,7 @@ export default function Header() {
             name: 'LW Multas',
             description:
                 'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-            image: '/NewIcons/MultasIconNew.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg',
         },
     ];
     const clienteDropdown = [
@@ -79,25 +79,25 @@ export default function Header() {
             url: 'https://admin.onemonitora.com.br/',
             name: 'LW SIM (One)',
             description: 'Clique para acessar o portal.',
-            image: '/PhoneIcon.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
         },
         {
             url: 'https://www.sistemamultas.com.br/app',
             name: 'LW Multas',
             description: 'Clique para acessar o portal.',
-            image: '/DangerIcon.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
         },
         {
             url: 'https://documentacao.lwtecnologia.com.br/',
             name: 'LW Doc',
             description: 'Clique para acessar o portal.',
-            image: '/DocIcon.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
         },
         {
             url: 'https://debitos.lwtecnologia.com.br/',
             name: 'LW Débitos',
             description: 'Clique para acessar o portal.',
-            image: '/MoneyIcon.svg',
+            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
         },
         // Add more items as needed
     ];
@@ -151,7 +151,7 @@ export default function Header() {
                             >
                                 Produtos{' '}
                                 <img
-                                    src="ArrowHeader.svg"
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
                                     alt=""
                                     className={`${
                                         isDropdownOpen
@@ -233,7 +233,7 @@ export default function Header() {
                             >
                                 Área do cliente
                                 <img
-                                    src="ArrowHeader.svg" // Reuse the same arrow image
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg" // Reuse the same arrow image
                                     alt=""
                                     className={`${
                                         isClienteDropdownOpen
@@ -303,12 +303,12 @@ export default function Header() {
                     <div className={styles.topContentDrawer}>
                         <img
                             className={styles.logo}
-                            src="/LOGOPRINCIPAL.png"
+                            src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
                             alt="Logo"
                         />
                         <img
                             className={styles.close}
-                            src="/close.svg"
+                            src="https://d10fqir6n4h7sq.cloudfront.net/public/close.svg"
                             alt="Close Icon"
                             onClick={toggleDrawer}
                         />

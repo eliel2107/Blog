@@ -5,7 +5,7 @@ export default function Banner() {
         <>
             <section className={styles.container}>
                 <video autoPlay muted loop className={styles.videoBackground}>
-                    <source src="/videos/carro.mp4" type="video/mp4" />
+                    <source src="https://d10fqir6n4h7sq.cloudfront.net/public/videos/carro.mp4" type="video/mp4" />
                     Seu navegador não suporta a tag de vídeo.
                 </video>
                 <div className={styles.videogradient}></div>

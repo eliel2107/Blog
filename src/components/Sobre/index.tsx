@@ -35,7 +35,7 @@ export default function Sobre() {
                 height="586"
                 controls
               >
-                <source src="VIDEOPRINCIPAL.mp4" type="video/mp4" />
+                <source src="https://d10fqir6n4h7sq.cloudfront.net/public/VIDEOPRINCIPAL.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
               </video>
             </div>
@@ -54,22 +54,22 @@ export default function Sobre() {
             <div className={styles.row}>
               {[...Array(5)].map((value) => (
                 <>
-                  <img key={value} src="/clientes/CCV.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/CCV.png" alt="" />
                   <img
                     key={value}
-                    src="/clientes/GRUPO_PETROPOLIS.png"
+                    src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/GRUPO_PETROPOLIS.png"
                     alt=""
                   />
-                  <img key={value} src="/clientes/JSL.png" alt="" />
-                  <img key={value} src="/clientes/KOVI.png" alt="" />
-                  <img key={value} src="/clientes/LM.png" alt="" />
-                  <img key={value} src="/clientes/LOCALIZA.png" alt="" />
-                  <img key={value} src="/clientes/MOVIDA.png" alt="" />
-                  <img key={value} src="/clientes/RENAULT.png" alt="" />
-                  <img key={value} src="/clientes/TURBI.png" alt="" />
-                  <img key={value} src="/clientes/UNIDAS.png" alt="" />
-                  <img key={value} src="/clientes/VOLVO.png" alt="" />
-                  <img key={value} src="/clientes/FORD.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/JSL.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/KOVI.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/LM.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/LOCALIZA.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/MOVIDA.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/RENAULT.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/TURBI.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/UNIDAS.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/VOLVO.png" alt="" />
+                  <img key={value} src="https://d10fqir6n4h7sq.cloudfront.net/public/clientes/FORD.png" alt="" />
                 </>
               ))}
             </div>
