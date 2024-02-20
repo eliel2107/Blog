@@ -1,23 +1,25 @@
-import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Banner() {
-  return (
-    <>
-      <section className={styles.container}>
-        <video autoPlay muted loop className={styles.videoBackground}>
-          <source src="/videos/carro.mp4" type="video/mp4" />
-          Seu navegador não suporta a tag de vídeo.
-        </video>
-        <div className={styles.videogradient}></div>
-        <div className={styles.middlecontent}>
-          <img src="/LOGOCOLORIDA.png" alt="" />
-          {/* <h1>TECNOLOGIA A SERVIÇO DA MOBILIDADE</h1>
+    return (
+        <>
+            <section className={styles.container}>
+                <video autoPlay muted loop className={styles.videoBackground}>
+                    <source src="/videos/carro.mp4" type="video/mp4" />
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div className={styles.videogradient}></div>
+                <div className={styles.middlecontent}>
+                    <img
+                        src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOCOLORIDA.png"
+                        alt=""
+                    />
+                    {/* <h1>TECNOLOGIA A SERVIÇO DA MOBILIDADE</h1>
           <Link href={'/sobre'}>
             <button>saiba mais</button>
           </Link> */}
-        </div>
-      </section>
-    </>
-  );
+                </div>
+            </section>
+        </>
+    );
 }

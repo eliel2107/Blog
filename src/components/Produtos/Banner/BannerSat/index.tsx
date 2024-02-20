@@ -2,25 +2,35 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 
 export default function Bannerblog() {
-  return (
-    <>
-      <section className={styles.container}>
-        <div className={styles.overlay}>
-          <div className={styles.text}>
-            <div className={styles.title}>
-              <img src="/SIMLOGO.png" alt="" />
-              <p>Controle sua frota com tecnologia de alta performance.</p>
-            </div>
-            <div className={styles.button}>
-              <Link href={'/contato'}>
-                <button>
-                  Fale conosco <img src="ArrowRightw.svg" alt="" />
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+    return (
+        <>
+            <section className={styles.container}>
+                <div className={styles.overlay}>
+                    <div className={styles.text}>
+                        <div className={styles.title}>
+                            <img
+                                src="https://d10fqir6n4h7sq.cloudfront.net/public//SIMLOGO.png"
+                                alt=""
+                            />
+                            <p>
+                                Controle sua frota com tecnologia de alta
+                                performance.
+                            </p>
+                        </div>
+                        <div className={styles.button}>
+                            <Link href={'/contato'}>
+                                <button>
+                                    Fale conosco{' '}
+                                    <img
+                                        src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowRightw.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
