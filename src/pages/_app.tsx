@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-                <link rel="icon" href="https://d10fqir6n4h7sq.cloudfront.net/public/FavIcon.svg" type="image/svg+xml" />
+                <link rel="icon" href="/FavIcon.svg" type="image/svg+xml" />
                 <title>LW TECNOLOGIA</title>
             </Head>
             <NextNProgress color="#fff" />
