@@ -39,7 +39,7 @@ export default function Footer() {
                             </Link>
                             <Link
                                 rel="noreferrer"
-                                href="https://www.instagram.com/lwtecnologia?igsh=MWRka2Z2dXBpdjFkYw=="
+                                href="https://www.instagram.com/grupolw_gestaodefrotas/"
                             >
                                 <img
                                     src="https://d10fqir6n4h7sq.cloudfront.net/public/InstagramFooter.svg"
@@ -140,7 +140,7 @@ export default function Footer() {
                             </Link>
                             <Link
                                 rel="noreferrer"
-                                href="https://www.instagram.com/lwtecnologia?igsh=MWRka2Z2dXBpdjFkYw=="
+                                href="https://www.instagram.com/grupolw_gestaodefrotas/"
                             >
                                 <img
                                     src="https://d10fqir6n4h7sq.cloudfront.net/public/InstagramFooter.svg"
