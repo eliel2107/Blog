@@ -35,7 +35,7 @@ export default function WhatsApp() {
     <>
       <section className={styles.sectionWhats}>
         <div className={styles.whatsApp}>
-          <Link rel="noreferrer" href="https://wa.link/mxg63k">
+          <Link rel="noreferrer" href="https:///mxg63k">
             <Image
               src="/NEWWHATSICON.png"
               alt="WhatsApp"
