@@ -1,3 +1,4 @@
+import Cookies from '@/components/Cookies';
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 import Head from 'next/head'; // Import the Head component
@@ -10,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <link rel="icon" href="/FavIcon.svg" type="image/svg+xml" />
-                <title>LW TECNOLOGIA</title>
+                <title>Grupo LW</title>
             </Head>
             <NextNProgress color="#fff" />
             <Component {...pageProps} />
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 autoClose={5000}
                 hideProgressBar
             />
+            <Cookies />
         </>
     );
 }

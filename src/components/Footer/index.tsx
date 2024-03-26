@@ -59,7 +59,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className={styles.bottomcontent}>
-                    <p>© 2023 LW Tecnologia. Todos os direitos reservados</p>
+                    <p>© 2024 LW Tecnologia. Todos os direitos reservados</p>
                     <div className={styles.middle}>
                         <img
                             src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
@@ -159,7 +159,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <p>
-                                © 2023 LW Tecnologia. Todos os direitos
+                                © 2024 LW Tecnologia. Todos os direitos
                                 reservados
                             </p>
                         </div>
