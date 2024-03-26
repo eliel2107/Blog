@@ -74,10 +74,6 @@ export default function Conheca() {
                     text: 'Multas cadastradas no CNPJ',
                 },
                 {
-                    imageURL: './rightbottom.gif',
-                    text: 'Entre com recursos das multas dentro do prazo',
-                },
-                {
                     imageURL: './leftbottom.gif',
                     text: 'Pagamento com desconto',
                 },

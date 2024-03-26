@@ -55,10 +55,6 @@ export default function AssistServices() {
                                 src="https://d10fqir6n4h7sq.cloudfront.net/public/iconrel.png"
                                 alt=""
                             />
-                            <p>
-                                Acessar o documento digital do veículo de forma
-                                rápida e prática.
-                            </p>
                         </div>
                     </div>
                 </div>

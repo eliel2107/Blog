@@ -80,7 +80,7 @@ export default function Footer() {
 
                     <p>CNPJ: 25.462.472/0001-97</p>
 
-                    <p>Email: contato@lwtecnologia.com.br</p>
+                    <p>Email: comercial@lwtecnologia.com.br</p>
                     <p>
                         Endereço: R. XV de Novembro, 621 2º andar Centro,
                         Curitiba PR, 80020-310
