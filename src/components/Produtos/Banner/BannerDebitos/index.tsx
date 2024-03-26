@@ -9,7 +9,7 @@ export default function Bannerblog() {
                     <div className={styles.text}>
                         <div className={styles.title}>
                             <img
-                                src="https://d10fqir6n4h7sq.cloudfront.net/public//DEBITOSLOGO.png"
+                                src="https://d10fqir6n4h7sq.cloudfront.net/public/DEBITOSLOGO.png"
                                 alt=""
                             />
                             <p>

@@ -12,16 +12,16 @@
   background-size: cover;
   @keyframes changeBackground {
     0% {
-      background-image: url('/loginbg.svg');
+      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg');
     }
     33% {
-      background-image: url('/cadastrobg.svg');
+      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/cadastrobg.svg');
     }
     66% {
-      background-image: url('/recuperarbg.svg');
+      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/recuperarbg.svg');
     }
     100% {
-      background-image: url('/loginbg.svg');
+      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg');
     }
   }
 

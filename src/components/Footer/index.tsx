@@ -51,7 +51,7 @@ export default function Footer() {
                                 href="https://www.linkedin.com/company/lwtecnologia/"
                             >
                                 <img
-                                    src="https://d10fqir6n4h7sq.cloudfront.net/public//LinkedinFooter.svg"
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/LinkedinFooter.svg"
                                     alt=""
                                 />
                             </Link>
@@ -152,7 +152,7 @@ export default function Footer() {
                                 href="https://www.linkedin.com/company/lwtecnologia/"
                             >
                                 <img
-                                    src="https://d10fqir6n4h7sq.cloudfront.net/public//LinkedinFooter.svg"
+                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/LinkedinFooter.svg"
                                     alt=""
                                 />
                             </Link>

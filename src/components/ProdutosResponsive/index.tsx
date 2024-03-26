@@ -15,27 +15,27 @@ export default function ProdutosResponsive() {
 
       //   name: 'LW Assist',
       //   description: 'Sua frota com mais segurança e suporte aos condutores',
-      //   image: '/SecurityCar.svg',
+      //   image: 'https://d10fqir6n4h7sq.cloudfront.net/public/SecurityCar.svg',
       // },
       {
         url: '/debitos',
         name: 'LW Débitos',
         description:
           'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-        image: '/MoneyIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
       },
       {
         url: '/doc',
         name: 'LW Doc',
         description: 'Simplifique sua gestão documental através da tecnologia.',
-        image: '/EmplacamentoIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/EmplacamentoIcon.svg',
       },
 
       {
         url: '/sim',
         name: 'LW SIM',
         description: 'Controle sua frota com tecnologia de alta performance.',
-        image: '/PhoneIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
       },
 
       {
@@ -43,7 +43,7 @@ export default function ProdutosResponsive() {
         name: 'LW Multas',
         description:
           'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-        image: '/DangerIcon.svg',
+        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
       },
     ];
     function handleLinkClick(event: React.MouseEvent<HTMLLIElement>): void {}
