@@ -20,7 +20,7 @@ export default function Bannercontato() {
                                 alt=""
                             />
                             <h1>EMAIL</h1>
-                            <p>contato@lwtecnologia.com.br</p>
+                            <p>comercial@lwtecnologia.com.br</p>
                         </div>
                         <div className={styles.phone}>
                             <img

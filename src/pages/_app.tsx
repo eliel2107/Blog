@@ -1,24 +1,43 @@
-import '@/styles/globals.scss';
+import Cookies from '@/components/Cookies';
+import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head'; // Import the Head component
 import NextNProgress from 'nextjs-progressbar';
+import { ReactElement, ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Importe os estilos do react-toastify
+import 'react-toastify/dist/ReactToastify.css';
+import { montserrat, poppins } from '../styles/fonts';
+import '../styles/globals.scss';
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+    getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout;
+};
+
+export default function App({
+    Component,
+    pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
+    const getLayout = Component.getLayout ?? ((page) => page);
     return (
         <>
             <Head>
                 <link rel="icon" href="/FavIcon.svg" type="image/svg+xml" />
-                <title>LW TECNOLOGIA</title>
+                <title>Grupo LW</title>
             </Head>
             <NextNProgress color="#fff" />
-            <Component {...pageProps} />
+            <div className={`${poppins.variable} ${montserrat.variable}`}>
+                {getLayout(<Component {...pageProps} />)}
+            </div>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar
             />
+            <Cookies />
         </>
     );
 }

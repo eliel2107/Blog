@@ -14,10 +14,6 @@ export default function Banner() {
                         src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOCOLORIDA.png"
                         alt=""
                     />
-                    {/* <h1>TECNOLOGIA A SERVIÇO DA MOBILIDADE</h1>
-          <Link href={'/sobre'}>
-            <button>saiba mais</button>
-          </Link> */}
                 </div>
             </section>
         </>

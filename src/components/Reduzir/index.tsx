@@ -28,7 +28,7 @@ export default function Reduzir() {
                                     frota.
                                 </p>
                                 <div className={styles.bottom}>
-                                    <Link href={'/contato'}>
+                                    <Link href="/contato">
                                         <button>
                                             FALE CONOSCO{' '}
                                             <img

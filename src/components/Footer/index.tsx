@@ -59,7 +59,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className={styles.bottomcontent}>
-                    <p>© 2023 LW Tecnologia. Todos os direitos reservados</p>
+                    <p>© 2024 LW Tecnologia. Todos os direitos reservados</p>
                     <div className={styles.middle}>
                         <img
                             src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
@@ -80,7 +80,7 @@ export default function Footer() {
 
                     <p>CNPJ: 25.462.472/0001-97</p>
 
-                    <p>Email: contato@lwtecnologia.com.br</p>
+                    <p>Email: comercial@lwtecnologia.com.br</p>
                     <p>
                         Endereço: R. XV de Novembro, 621 2º andar Centro,
                         Curitiba PR, 80020-310
@@ -159,7 +159,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <p>
-                                © 2023 LW Tecnologia. Todos os direitos
+                                © 2024 LW Tecnologia. Todos os direitos
                                 reservados
                             </p>
                         </div>

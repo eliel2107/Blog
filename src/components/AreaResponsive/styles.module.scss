@@ -1,60 +1,60 @@
 .button {
-  button {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border-color: #fff;
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: Poppins;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 500;
-  }
+    button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border-color: #fff;
+        background: none;
+        border: none;
+        color: #fff;
+        font-family: var(--font-poppins, sans-serif);
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 500;
+    }
 
-  p {
-    margin-top: 20px;
-    color: #fff;
-    font-family: Poppins;
-    font-size: 0.60625rem;
-    font-style: normal;
-    font-weight: 400;
-  }
+    p {
+        margin-top: 20px;
+        color: #fff;
+        font-family: var(--font-poppins, sans-serif);
+        font-size: 0.60625rem;
+        font-style: normal;
+        font-weight: 400;
+    }
 }
 .rotate {
-  transform: rotate(90deg); // Rotates the image 180 degrees
-  transition: transform 0.3s ease; // Smooth transition for the rotation
+    transform: rotate(90deg); // Rotates the image 180 degrees
+    transition: transform 0.3s ease; // Smooth transition for the rotation
 }
 .rotateBack {
-  transform: rotate(0deg); // Rotates the image back to 0 degrees
-  transition: transform 0.3s ease; // Smooth transition for the rotation
+    transform: rotate(0deg); // Rotates the image back to 0 degrees
+    transition: transform 0.3s ease; // Smooth transition for the rotation
 }
 .divisor {
-  opacity: 0.6;
-  background: #fff;
-  height: 1px;
-  margin-top: 15px;
+    opacity: 0.6;
+    background: #fff;
+    height: 1px;
+    margin-top: 15px;
 }
 
 .accordioncontent {
-  margin-top: 20px;
+    margin-top: 20px;
 
-  width: 100%;
+    width: 100%;
 
-  padding: 16px;
-  .textContent {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
-    .description {
-      color: #fff;
-      font-weight: 100;
-      font-size: 1rem;
+    padding: 16px;
+    .textContent {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+        .description {
+            color: #fff;
+            font-weight: 100;
+            font-size: 1rem;
+        }
+        .name {
+            font-weight: 600;
+        }
     }
-    .name {
-      font-weight: 600;
-    }
-  }
 }
