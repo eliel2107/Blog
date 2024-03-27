@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import styles from '../styles/login.module.scss';
+import styles from '../styles/Login.module.scss';
 
 export default function Login() {
     const [passwordVisible, setPasswordVisible] = useState(false);
