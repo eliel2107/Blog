@@ -1,6 +1,6 @@
+import styles from '@/styles/recuperar.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
-import styles from './recuperar.module.scss';
 
 export default function Recuperar() {
     const [passwordVisible, setPasswordVisible] = useState(false);
