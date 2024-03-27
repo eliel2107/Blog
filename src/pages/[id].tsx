@@ -5,7 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
 import DestaquesNew from '@/components/DestaquesNew';
-import styles from '@/styles/Id.module.scss';
+import styles from '../styles/Id.module.scss';
 
 const contentfulClient = createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,

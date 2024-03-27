@@ -1,6 +1,4 @@
 import Cookies from '@/components/Cookies';
-import { montserrat, poppins } from '@/styles/fonts';
-import '@/styles/globals.scss';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head'; // Import the Head component
@@ -8,6 +6,8 @@ import NextNProgress from 'nextjs-progressbar';
 import { ReactElement, ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { montserrat, poppins } from '../styles/fonts';
+import '../styles/globals.scss';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     getLayout?: (page: ReactElement) => ReactNode;
