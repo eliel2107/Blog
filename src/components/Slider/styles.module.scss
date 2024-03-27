@@ -1,102 +1,102 @@
 /* components/Slider.module.css */
 .slider {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 .l {
-  width: 320px;
-  height: 520px;
-  background-color: #fff;
+    width: 320px;
+    height: 520px;
+    background-color: #fff;
 }
 .l1 {
-  width: 320px;
-  height: 520px;
-  background-color: #fff;
+    width: 320px;
+    height: 520px;
+    background-color: #fff;
 }
 .l2 {
-  width: 320px;
-  height: 520px;
-  background-color: #fff;
+    width: 320px;
+    height: 520px;
+    background-color: #fff;
 }
 .image {
-  background-image: url('R1.png');
-  width: 320px;
-  height: 300px;
-  padding-top: 24px;
-  padding-left: 24px;
-  button {
-    border-radius: 6.126px;
-    background: #ff9040;
-    width: 80px;
-    height: 30px;
-    border: none;
-  }
+    background-image: url('R1.png');
+    width: 320px;
+    height: 300px;
+    padding-top: 24px;
+    padding-left: 24px;
+    button {
+        border-radius: 6.126px;
+        background: #ff9040;
+        width: 80px;
+        height: 30px;
+        border: none;
+    }
 }
 .text {
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-right: 10px;
-  h1 {
-    color: #121416;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    h1 {
+        color: #121416;
 
-    font-family: Montserrat;
-    font-size: 1.1rem;
-    font-style: normal;
-    font-weight: 400;
-  }
-  p {
-    color: #6c757d;
+        font-family: var(--font-montserrat, sans-serif);
+        font-size: 1.1rem;
+        font-style: normal;
+        font-weight: 400;
+    }
+    p {
+        color: #6c757d;
 
-    font-family: Montserrat;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-  }
+        font-family: var(--font-montserrat, sans-serif);
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 400;
+    }
 }
 .day {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  p {
-    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+        color: #6c757d;
 
-    font-family: Poppins;
-    font-size: 0.7rem;
-    font-style: normal;
-    font-weight: 400;
-  }
+        font-family: var(--font-poppins, sans-serif);
+        font-size: 0.7rem;
+        font-style: normal;
+        font-weight: 400;
+    }
 }
 .divisor {
-  width: 33.789px;
-  height: 0.939px;
-  background: rgba(108, 117, 125, 0.4);
+    width: 33.789px;
+    height: 0.939px;
+    background: rgba(108, 117, 125, 0.4);
 }
 .link {
-  p {
-    color: #00023c;
+    p {
+        color: #00023c;
 
-    font-family: Poppins;
-    font-size: 0.7rem;
-    font-style: normal;
-    font-weight: 400;
-    text-decoration: underline;
-  }
+        font-family: var(--font-poppins, sans-serif);
+        font-size: 0.7rem;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: underline;
+    }
 }
 .middle {
-  display: none;
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    padding-bottom: 50px;
-  }
+    display: none;
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        padding-bottom: 50px;
+    }
 }
 .swiperContainer {
-  display: flex;
+    display: flex;
 }

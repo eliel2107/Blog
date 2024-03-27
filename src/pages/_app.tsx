@@ -1,12 +1,27 @@
 import Cookies from '@/components/Cookies';
+import { montserrat, poppins } from '@/styles/fonts';
 import '@/styles/globals.scss';
+import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head'; // Import the Head component
 import NextNProgress from 'nextjs-progressbar';
+import { ReactElement, ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Importe os estilos do react-toastify
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+    getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout;
+};
+
+export default function App({
+    Component,
+    pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
+    const getLayout = Component.getLayout ?? ((page) => page);
     return (
         <>
             <Head>
@@ -14,7 +29,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>Grupo LW</title>
             </Head>
             <NextNProgress color="#fff" />
-            <Component {...pageProps} />
+            <div className={`${poppins.variable} ${montserrat.variable}`}>
+                {getLayout(<Component {...pageProps} />)}
+            </div>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
