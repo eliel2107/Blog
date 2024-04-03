@@ -105,6 +105,11 @@ export default function Conheca() {
             'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
           text: 'Pagamento das multas com desconto',
         },
+        {
+          imageURL:
+            'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
+          text: 'Automatizamos o processo de desconto em folha de pagamento',
+        },
       ],
     },
     {
