@@ -1,6 +1,5 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import WhatsApp from '@/components/WhatsApp';
 import styles from '../styles/termos.module.scss';
 
 export default function PoliticaPrivacidade() {
@@ -171,7 +170,6 @@ export default function PoliticaPrivacidade() {
                 </div>
             </div>
             <Footer />
-            <WhatsApp />
         </>
     );
 }

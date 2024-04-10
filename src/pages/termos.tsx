@@ -1,6 +1,5 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import WhatsApp from '@/components/WhatsApp';
 import styles from '../styles/termos.module.scss';
 
 export default function Trabalhe() {
@@ -70,7 +69,6 @@ export default function Trabalhe() {
                 </div>
             </div>
             <Footer />
-            <WhatsApp />
         </>
     );
 }

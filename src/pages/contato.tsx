@@ -1,16 +1,14 @@
 import Bannercontato from '@/components/Bannercontato';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Faleconosco from '@/components/Faleconosco';
-import WhatsApp from '@/components/WhatsApp';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 export default function contato() {
-  return (
-    <>
-      <Header />
-      <Bannercontato />
-      <Faleconosco />
-      <Footer />
-      <WhatsApp />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Bannercontato />
+            <Faleconosco />
+            <Footer />
+        </>
+    );
 }

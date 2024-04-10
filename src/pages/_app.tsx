@@ -57,6 +57,11 @@ export default function App({
                 />
                 <meta property="og:image:width" content="304" />
                 <meta property="og:image:height" content="158" />
+                <script
+                    type="text/javascript"
+                    async
+                    src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js"
+                ></script>
             </Head>
             <NextNProgress color="#fff" />
             <div className={`${poppins.variable} ${montserrat.variable}`}>

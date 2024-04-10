@@ -8,23 +8,21 @@ import Mobilidade from '@/components/Prêmios/Mobilidade';
 import TECNO from '@/components/Prêmios/TECNO';
 import Sobrevideo from '@/components/Sobre video';
 import Visao from '@/components/Visao';
-import WhatsApp from '@/components/WhatsApp';
 export default function Sobre() {
-  return (
-    <>
-      <Header />
+    return (
+        <>
+            <Header />
 
-      <Conhecasobre />
-      <Visao />
-      <Mobilidade />
-      <MESC />
-      <ISO />
-      <PCI />
-      <TECNO />
-      <Sobrevideo />
+            <Conhecasobre />
+            <Visao />
+            <Mobilidade />
+            <MESC />
+            <ISO />
+            <PCI />
+            <TECNO />
+            <Sobrevideo />
 
-      <Footer />
-      <WhatsApp />
-    </>
-  );
+            <Footer />
+        </>
+    );
 }
