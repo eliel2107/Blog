@@ -1,14 +1,14 @@
-import styles from './sobre.module.scss';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Bannersobre from '@/components/Bannersobre';
 import Conhecasobre from '@/components/Conhecasobre';
-import Visao from '@/components/Visao';
-import Sobrevideo from '@/components/Sobre video';
-import WhatsApp from '@/components/WhatsApp';
-import Mobilidade from '@/components/Prêmios/Mobilidade';
-import MESC from '@/components/Prêmios/MESC';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import PCI from '@/components/Pre╠émios/PCI';
 import ISO from '@/components/Prêmios/ISO';
+import MESC from '@/components/Prêmios/MESC';
+import Mobilidade from '@/components/Prêmios/Mobilidade';
+import TECNO from '@/components/Prêmios/TECNO';
+import Sobrevideo from '@/components/Sobre video';
+import Visao from '@/components/Visao';
+import WhatsApp from '@/components/WhatsApp';
 export default function Sobre() {
   return (
     <>
@@ -19,6 +19,8 @@ export default function Sobre() {
       <Mobilidade />
       <MESC />
       <ISO />
+      <PCI />
+      <TECNO />
       <Sobrevideo />
 
       <Footer />

@@ -1,8 +1,8 @@
 trigger:
   branches:
     include:
-    - masterr
     - dev
+    - master
 
 pool:
   name: Azure Pipelines
@@ -29,7 +29,7 @@ steps:
         cat /home/vsts/temp-portal-task.json
     
   - task: Docker@2
-    displayName: "Build - version $(version)"
+    displayName: "Build"
     inputs:
       command: 'build'
       Dockerfile: '$(DOCKER_FILE)'
@@ -37,7 +37,7 @@ steps:
       tags: '$(version)'
 
   - task: ECRPushImage@1
-    displayName: 'Publicando a imagem - version $(version)'
+    displayName: 'Publicando a imagem'
     inputs:
       awsCredentials: $(AWS_CREDENTIALS)
       regionName: 'us-east-1'

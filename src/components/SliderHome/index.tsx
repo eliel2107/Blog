@@ -90,7 +90,7 @@ const slidesContent: SlideContent[] = [
             {
                 imageURL:
                     'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
-                text: 'Entre com recursos das multas dentro do prazo',
+                text: 'Envio de recursos de multas dentro do prazo',
             },
             {
                 imageURL:
@@ -114,13 +114,13 @@ const slidesContent: SlideContent[] = [
             },
             {
                 imageURL:
-                    'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
-                text: 'Automatizamos o processo de desconto em folha de pagamento',
+                    'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
+                text: 'Pagamento das multas com desconto',
             },
             {
                 imageURL:
-                    'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
-                text: 'Pagamento das multas com desconto',
+                    'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
+                text: 'Automatizamos o processo de desconto em folha de pagamento',
             },
         ],
     },
@@ -185,7 +185,7 @@ export default function SliderHome() {
         <section className={styles.container}>
             <Swiper
                 slidesPerView={2}
-                spaceBetween={200}
+                spaceBetween={100}
                 loop={true}
                 onSlideChange={handleSlideChange}
                 pagination={{

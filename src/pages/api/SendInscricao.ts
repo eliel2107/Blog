@@ -29,8 +29,6 @@ export default async function sendEmail(
           .json({ message: 'Erro no processamento do formulário' });
         return;
       }
-
-      // Verifica se o corpo da requisição contém a propriedade 'email'
       if (!fields.email) {
         console.log('E-mail não encontrado no corpo da requisição');
         res
@@ -39,7 +37,6 @@ export default async function sendEmail(
         return;
       }
 
-      // Lógica para processar o e-mail da inscrição
       const email = fields.email;
 
       try {
@@ -47,15 +44,15 @@ export default async function sendEmail(
           service: 'gmail',
 
           auth: {
-            user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
-            pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
           },
-          debug: true, // Isso habilita o modo de depuração, se necessário
+          debug: true,
         });
 
         const mailOptions = {
-          from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'LWlover@lwtecnologia.com.br', // Substitua pelo e-mail de destino
+          from: 'diogaodieger@gmail.com',
+          to: 'marketing@lwtecnologia.com.br',
           subject: 'Inscrição de E-mail',
           text: `E-mail de inscrição: ${email}`,
         };

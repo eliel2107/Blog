@@ -86,7 +86,7 @@ export default function Conheca() {
                 {
                     imageURL:
                         'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
-                    text: 'Entre com recursos das multas dentro do prazo',
+                    text: 'Envio de recursos de multas dentro do prazo',
                 },
                 {
                     imageURL:
@@ -110,13 +110,13 @@ export default function Conheca() {
                 },
                 {
                     imageURL:
-                        'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
-                    text: 'Automatizamos o processo de desconto em folha de pagamento',
+                        'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
+                    text: 'Pagamento das multas com desconto',
                 },
                 {
                     imageURL:
-                        'https://d10fqir6n4h7sq.cloudfront.net/public/leftbottom.gif',
-                    text: 'Pagamento das multas com desconto',
+                        'https://d10fqir6n4h7sq.cloudfront.net/public/rightbottom.gif',
+                    text: 'Automatizamos o processo de desconto em folha de pagamento',
                 },
             ],
         },
@@ -215,8 +215,8 @@ export default function Conheca() {
                                         marginRight:
                                             currentSlide === slides.length - 1
                                                 ? '0px'
-                                                : '20px', // No margin for the last image
-                                        float: 'left', // Make images sit side by side
+                                                : '20px',
+                                        float: 'left',
                                     }}
                                 />
                             ))}

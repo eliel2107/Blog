@@ -68,7 +68,7 @@ export default async function sendEmail(
 
         const mailOptions = {
           from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'LWlover@lwtecnologia.com.br', // Substitua pelo e-mail de destino
+          to: 'comercial@lwtecnologia.com.br', // Substitua pelo e-mail de destino
           subject: 'Novo Cadastro do Formulário',
           text: `Dados do Formulário: ${JSON.stringify(fields)}`,
           attachments: attachments,
