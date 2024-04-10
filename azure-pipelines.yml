@@ -1,8 +1,7 @@
 trigger:
   branches:
     include:
-    - dev
-    - master
+      - $(BRANCH)
 
 pool:
   name: Azure Pipelines
