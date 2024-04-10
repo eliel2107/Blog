@@ -2,7 +2,6 @@ trigger:
   branches:
     include:
     - dev
-    - master
 
 pool:
   name: Azure Pipelines
