@@ -36,7 +36,7 @@ export default function Sobre() {
                 controls
               >
                 <source
-                  src="https://d10fqir6n4h7sq.cloudfront.net/public/VIDEOPRINCIPAL.mp4"
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/APRESENTACAO_GRUPO_LW_SEM_ASSIST.mp4"
                   type="video/mp4"
                 />
                 Seu navegador não suporta vídeos.
