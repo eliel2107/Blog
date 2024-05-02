@@ -31,7 +31,7 @@ export default function Trabalheconosco() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch('/api/sendEmail', {
+      const response = await fetch('/api/sendEmailRH', {
         method: 'POST',
         body: formData, // Envia os dados como FormData
       });
@@ -61,7 +61,10 @@ export default function Trabalheconosco() {
       <div className={styles.container} id="trabalhe">
         <div className={styles.content}>
           <div className={styles.leftside}>
-            <img src="https://d10fqir6n4h7sq.cloudfront.net/public/fotos/Escritorio1.JPG" alt="" />
+            <img
+              src="https://d10fqir6n4h7sq.cloudfront.net/public/fotos/Escritorio1.JPG"
+              alt=""
+            />
           </div>
           <div className={styles.rightside}>
             <div className={styles.title}>
