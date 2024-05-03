@@ -26,13 +26,7 @@ steps:
         env | sort
 
         cat /home/vsts/temp-portal-task.json
-  - task: Bash@3
-    displayName: 'Atualizando o env file'
-    inputs:
-      targetType: 'inline'
-      script: |
-          sed -i '/^EMAIL_USERNAME=/ {s/.*/EMAIL_USERNAME=$(EMAIL_USERNAME)/}; /^EMAIL_PASSWORD=/ {s/.*/EMAIL_PASSWORD=$(EMAIL_PASSWORD)/}' .env
-          echo .env
+
   - task: Docker@2
     displayName: "Build"
     inputs:
