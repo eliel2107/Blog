@@ -159,7 +159,24 @@ export default function Conheca() {
             </div>
             <div className={styles.subtitle}></div>
             <div className={styles.serviços}>
-              <h2>{slidesContent[currentSlide].title}</h2>
+              <div className={styles.topPart}>
+                <h2>{slidesContent[currentSlide].title}</h2>
+                <div className={styles.buttonsForCarrossel}>
+                  <div className={styles.wrapArrow} onClick={prevSlide}>
+                    <img
+                      src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowLeftLW.svg"
+                      className={styles.leftArrow}
+                      alt="Previous"
+                    />
+                  </div>
+                  <div className={styles.wrapArrow} onClick={nextSlide}>
+                    <img
+                      src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowRightLW.svg"
+                      alt="Next"
+                    />
+                  </div>
+                </div>
+              </div>
               <div className={styles.top}>
                 {slidesContent[currentSlide].content.map((item, index) => (
                   <div key={index} className={styles.serviceCard}>
@@ -179,6 +196,7 @@ export default function Conheca() {
             <div className={styles.titleright}>
               <h2>AS MELHORES SOLUÇÕES PARA SUA FROTA</h2>
             </div>
+
             <div className={styles.carrossel} style={{ overflow: 'hidden' }}>
               {slides.map((src, index) => (
                 <img
@@ -199,21 +217,6 @@ export default function Conheca() {
                   }}
                 />
               ))}
-            </div>
-            <div className={styles.buttonsForCarrossel}>
-              <div className={styles.wrapArrow} onClick={prevSlide}>
-                <img
-                  src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowLeftLW.svg"
-                  className={styles.leftArrow}
-                  alt="Previous"
-                />
-              </div>
-              <div className={styles.wrapArrow} onClick={nextSlide}>
-                <img
-                  src="https://d10fqir6n4h7sq.cloudfront.net/public/arrowRightLW.svg"
-                  alt="Next"
-                />
-              </div>
             </div>
           </div>
         </div>
