@@ -52,7 +52,7 @@ export default function App({
         />
         <meta
           property="og:image"
-          content="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+          content="https://d10fqir6n4h7sq.cloudfront.net/public/LOGO_Fundo-Azul.PNG"
         />
         <meta property="og:image:width" content="304" />
         <meta property="og:image:height" content="158" />
