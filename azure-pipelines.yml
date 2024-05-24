@@ -22,10 +22,10 @@ steps:
     
         export IMAGE_VERSION_NAME="$IMAGE_NAME:$VERSION_NUMBER"
         export AWS_ECR_IMAGE="$AWS_ECR_ENDPOINT/$IMAGE_VERSION_NAME"
-        envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "/home/vsts/temp-portal-task.json"
+        envsubst "\$TASK_FAMILY,\$TASK_ROLE,\$AWS_ECR_IMAGE,\$CONTAINER_NAME,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "temp-portal-task.json"
         env | sort
 
-        cat /home/vsts/temp-portal-task.json
+        cat temp-portal-task.json
     
   - task: Docker@2
     displayName: "Build"
@@ -54,7 +54,7 @@ steps:
       regionName: 'us-east-1'
       awsCommand: 'ecs'
       awsSubCommand: 'register-task-definition'
-      awsArguments: '--cli-input-json file:///home/vsts/temp-portal-task.json'
+      awsArguments: '--cli-input-json file://temp-portal-task.json'
       failOnStandardError: false
 
   - task: AWSCLI@1
