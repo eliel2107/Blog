@@ -4,7 +4,7 @@ trigger:
     - dev
 
 pool:
-  name: Azure Pipelines
+  name: LW-Agents
 
 steps:
   - task: Bash@3
