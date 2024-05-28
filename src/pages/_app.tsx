@@ -38,6 +38,7 @@ export default function App({
           href="https://d10fqir6n4h7sq.cloudfront.net/public/FavIcon.svg"
           type="image/svg+xml"
         />
+        <link rel="canonical" href="https://www.lwtecnologia.com.br/" />
         <title>Grupo LW</title>
         <meta property="og:title" content="Grupo LW" />
         <meta

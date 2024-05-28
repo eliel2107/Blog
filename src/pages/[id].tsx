@@ -149,18 +149,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string;
 
-  if (!id) {
+  try {
+    const post = await contentfulClient.getEntry(id);
+
     return {
-      notFound: true,
+      props: {
+        post,
+      },
+      revalidate: 1,
     };
+  } catch (error) {
+    if ((error as any).sys?.id === 'NotFound') {
+      return {
+        notFound: true,
+      };
+    }
+
+    throw error;
   }
-
-  const post = await contentfulClient.getEntry(id);
-
-  return {
-    props: {
-      post,
-    },
-    revalidate: 1,
-  };
 };
