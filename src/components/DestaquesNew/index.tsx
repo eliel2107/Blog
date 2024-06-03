@@ -1,6 +1,6 @@
-import styles from './styles.module.scss';
 import { createClient } from 'contentful';
 import Link from 'next/link';
+import styles from './styles.module.scss';
 
 import { useEffect, useState } from 'react';
 import 'swiper/css';
