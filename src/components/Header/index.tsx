@@ -6,356 +6,287 @@ import ProdutosResponsive from '../ProdutosResponsive';
 import styles from './styles.module.scss';
 
 export default function Header() {
-    const router = useRouter();
+  const router = useRouter();
 
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    const isActive = (route: string) => {
-        return route === router.pathname
-            ? `${styles.menulink} ${styles.active}`
-            : styles.menulink;
-    };
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const isActive = (route: string) => {
+    return route === router.pathname
+      ? `${styles.menulink} ${styles.active}`
+      : styles.menulink;
+  };
 
-    const toggleDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    };
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
-    const handleLinkClick = () => {
-        setDrawerOpen(false);
+  const handleLinkClick = () => {
+    setDrawerOpen(false);
+    setIsDropdownOpen(false);
+    setIsClienteDropdownOpen(false);
+  };
+
+  const handleDropdownClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    if (isClienteDropdownOpen) {
+      setIsClienteDropdownOpen(false);
+    }
+  };
+
+  const handleClienteDropdownClick = () => {
+    setIsClienteDropdownOpen(!isClienteDropdownOpen);
+    if (isDropdownOpen) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  const produtosDropdown = [
+    {
+      url: '/debitos',
+      name: 'LW Débitos',
+      description:
+        'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
+      image:
+        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DebitosIconNew.svg',
+    },
+    {
+      url: '/doc',
+      name: 'LW Doc',
+      description: 'Simplifique sua gestão documental através da tecnologia.',
+      image:
+        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DocIconNew.svg',
+    },
+
+    {
+      url: '/sim',
+      name: 'LW SIM',
+      description: 'Controle sua frota com tecnologia de alta performance.',
+      image:
+        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/SimIconNew.svg',
+    },
+
+    {
+      url: '/multas',
+      name: 'LW Multas',
+      description:
+        'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
+      image:
+        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg',
+    },
+    {
+      url: '',
+
+      name: 'LW Auto (em breve)',
+      description: 'O jeito mais facil de comprar e vender seus veiculos',
+      image: '/LogoAuto.svg',
+    },
+  ];
+  const clienteDropdown = [
+    {
+      url: 'https://admin.onemonitora.com.br/',
+      name: 'LW SIM (One)',
+      description: 'Clique para acessar o portal.',
+      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
+    },
+    {
+      url: 'https://www.sistemamultas.com.br/app',
+      name: 'LW Multas',
+      description: 'Clique para acessar o portal.',
+      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
+    },
+    {
+      url: 'https://documentacao.lwtecnologia.com.br/',
+      name: 'LW Doc',
+      description: 'Clique para acessar o portal.',
+      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
+    },
+    {
+      url: 'https://debitos.lwtecnologia.com.br/',
+      name: 'LW Débitos',
+      description: 'Clique para acessar o portal.',
+      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
+    },
+    // Add more items as needed
+  ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownOpen(false);
         setIsClienteDropdownOpen(false);
+      }
     };
 
-    const handleDropdownClick = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-        if (isClienteDropdownOpen) {
-            setIsClienteDropdownOpen(false);
-        }
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
+  }, []);
 
-    const handleClienteDropdownClick = () => {
-        setIsClienteDropdownOpen(!isClienteDropdownOpen);
-        if (isDropdownOpen) {
-            setIsDropdownOpen(false);
-        }
-    };
+  return (
+    <>
+      <section className={styles.container}>
+        <div className={styles.content} ref={dropdownRef}>
+          <div className={styles.leftside}>
+            <Link href={'/'}>
+              <img
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+                alt="Logo"
+              />
+            </Link>
+          </div>
 
-    const produtosDropdown = [
-        {
-            url: '/debitos',
-            name: 'LW Débitos',
-            description:
-                'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DebitosIconNew.svg',
-        },
-        {
-            url: '/doc',
-            name: 'LW Doc',
-            description:
-                'Simplifique sua gestão documental através da tecnologia.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DocIconNew.svg',
-        },
+          <div className={styles.rightSide}>
+            <ul>
+              <Link href={'/'}>
+                <li className={isActive('/')}>Home</li>
+              </Link>
+              <Link href={'/sobre'}>
+                <li className={isActive('/sobre')}>Quem somos</li>
+              </Link>
 
-        {
-            url: '/sim',
-            name: 'LW SIM',
-            description:
-                'Controle sua frota com tecnologia de alta performance.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/SimIconNew.svg',
-        },
-
-        {
-            url: '/multas',
-            name: 'LW Multas',
-            description:
-                'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg',
-        },
-        {
-            url: '',
-
-            name: 'LW Auto (em breve)',
-            description: 'O jeito mais facil de comprar e vender seus veiculos',
-            image: '/LogoAuto.svg',
-        },
-    ];
-    const clienteDropdown = [
-        {
-            url: 'https://admin.onemonitora.com.br/',
-            name: 'LW SIM (One)',
-            description: 'Clique para acessar o portal.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
-        },
-        {
-            url: 'https://www.sistemamultas.com.br/app',
-            name: 'LW Multas',
-            description: 'Clique para acessar o portal.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
-        },
-        {
-            url: 'https://documentacao.lwtecnologia.com.br/',
-            name: 'LW Doc',
-            description: 'Clique para acessar o portal.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
-        },
-        {
-            url: 'https://debitos.lwtecnologia.com.br/',
-            name: 'LW Débitos',
-            description: 'Clique para acessar o portal.',
-            image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
-        },
-        // Add more items as needed
-    ];
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target as Node)
-            ) {
-                setIsDropdownOpen(false);
-                setIsClienteDropdownOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
-    return (
-        <>
-            <section className={styles.container}>
-                <div className={styles.content} ref={dropdownRef}>
-                    <div className={styles.leftside}>
-                        <Link href={'/'}>
-                            <img
-                                src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
-                                alt="Logo"
-                            />
-                        </Link>
-                    </div>
-
-                    <div className={styles.rightSide}>
-                        <ul>
-                            <Link href={'/'}>
-                                <li className={isActive('/')}>Home</li>
-                            </Link>
-                            <Link href={'/sobre'}>
-                                <li className={isActive('/sobre')}>
-                                    Quem somos
-                                </li>
-                            </Link>
-
-                            <li
-                                className={`${isActive('/solucoes')} ${
-                                    styles.dropdown
-                                } ${isDropdownOpen ? styles.open : ''}`}
-                                onClick={handleDropdownClick}
-                            >
-                                Produtos{' '}
-                                <img
-                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
-                                    alt=""
-                                    className={`${
-                                        isDropdownOpen
-                                            ? styles.rotate
-                                            : styles.rotateBack
-                                    }`}
-                                />
-                                {isDropdownOpen && (
-                                    <ul className={styles.dropdownContent}>
-                                        <div className={styles.flex}>
-                                            {produtosDropdown.map((item) => (
-                                                <li
-                                                    key={item.url}
-                                                    onClick={handleLinkClick}
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.leftIcon
-                                                        }
-                                                    >
-                                                        <img
-                                                            src={item.image}
-                                                            alt={`${item.name} Icon`}
-                                                        />
-                                                    </div>
-                                                    <Link href={item.url}>
-                                                        <div
-                                                            className={
-                                                                styles.textContent
-                                                            }
-                                                        >
-                                                            <span
-                                                                className={
-                                                                    styles.name
-                                                                }
-                                                            >
-                                                                {item.name}
-                                                            </span>
-                                                            <span
-                                                                className={
-                                                                    styles.description
-                                                                }
-                                                            >
-                                                                {
-                                                                    item.description
-                                                                }
-                                                            </span>
-                                                        </div>
-                                                    </Link>
-                                                </li>
-                                            ))}
-                                        </div>
-                                    </ul>
-                                )}
-                            </li>
-
-                            <Link href={'/contato'}>
-                                <li className={isActive('/contato')}>
-                                    Contato
-                                </li>
-                            </Link>
-                            <Link href={'/#Destaques'}>
-                                <li className={isActive('/#Destaques')}>
-                                    LW NEWS
-                                </li>
-                            </Link>
-                            <Link href={'/trabalhe'}>
-                                <li className={isActive('/trabalhe')}>
-                                    Trabalhe conosco
-                                </li>
-                            </Link>
-                            <li>|</li>
-
-                            <li
-                                className={`${isActive('/login')} ${
-                                    styles.dropdown
-                                } ${isClienteDropdownOpen ? styles.open : ''}`}
-                                onClick={handleClienteDropdownClick} // Toggle dropdown on click
-                            >
-                                Área do cliente
-                                <img
-                                    src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg" // Reuse the same arrow image
-                                    alt=""
-                                    className={`${
-                                        isClienteDropdownOpen
-                                            ? styles.rotate
-                                            : styles.rotateBack
-                                    }`}
-                                />
-                                {isClienteDropdownOpen && (
-                                    <ul className={styles.dropdownContentArea}>
-                                        {clienteDropdown.map((item) => (
-                                            <li
-                                                key={item.url}
-                                                onClick={handleLinkClick}
-                                            >
-                                                <div
-                                                    className={styles.leftIcon}
-                                                >
-                                                    <img
-                                                        src={item.image}
-                                                        alt={`${item.name} Icon`}
-                                                    />
-                                                </div>
-                                                <Link
-                                                    rel="noreferrer"
-                                                    href={item.url}
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.textContent
-                                                        }
-                                                    >
-                                                        <span
-                                                            className={
-                                                                styles.name
-                                                            }
-                                                        >
-                                                            {item.name}
-                                                        </span>
-                                                        <span
-                                                            className={
-                                                                styles.description
-                                                            }
-                                                        >
-                                                            {item.description}
-                                                        </span>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={styles.hamburger} onClick={toggleDrawer}>
-                        <img
-                            src="https://d10fqir6n4h7sq.cloudfront.net/public/List.svg"
-                            alt="Hamburger Icon"
-                        />
-                    </div>
-                </div>
-            </section>
-            <div
-                className={`${styles.drawer} ${drawerOpen ? styles.open : ''}`}
-            >
-                <div className={styles.contentDrawer}>
-                    <div className={styles.topContentDrawer}>
-                        <img
-                            className={styles.logo}
-                            src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
-                            alt="Logo"
-                        />
-                        <img
-                            className={styles.close}
-                            src="https://d10fqir6n4h7sq.cloudfront.net/public/close.svg"
-                            alt="Close Icon"
-                            onClick={toggleDrawer}
-                        />
-                    </div>
-                    <div className={styles.middleContentDrawer}>
-                        <ul>
-                            <Link href={`/`}>
-                                <li onClick={handleLinkClick}>Início</li>
-                            </Link>
-
-                            <Link href="/sobre">
-                                <li onClick={handleLinkClick}>Quem Somos</li>
-                            </Link>
-
-                            <ProdutosResponsive />
-                            <Link href="/contato">
-                                <li onClick={handleLinkClick}>Contato</li>
-                            </Link>
-                            <Link href="/#Destaques">
-                                <li className={isActive('/#Destaques')}>
-                                    LW NEWS
-                                </li>
-                            </Link>
-                            <Link href="/trabalhe">
-                                <li onClick={handleLinkClick}>
-                                    Trabalhe Conosco
-                                </li>
-                            </Link>
-                            <div className={styles.divisor}></div>
-                            <AreaResponsive />
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div
-                className={`${styles.overlay} ${
-                    drawerOpen ? styles.visible : ''
+              <li
+                className={`${isActive('/solucoes')} ${styles.dropdown} ${
+                  isDropdownOpen ? styles.open : ''
                 }`}
-                onClick={toggleDrawer}
-            ></div>
-        </>
-    );
+                onClick={handleDropdownClick}
+              >
+                Produtos{' '}
+                <img
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
+                  alt=""
+                  className={`${
+                    isDropdownOpen ? styles.rotate : styles.rotateBack
+                  }`}
+                />
+                {isDropdownOpen && (
+                  <ul className={styles.dropdownContent}>
+                    <div className={styles.flex}>
+                      {produtosDropdown.map((item) => (
+                        <li key={item.url} onClick={handleLinkClick}>
+                          <div className={styles.leftIcon}>
+                            <img src={item.image} alt={`${item.name} Icon`} />
+                          </div>
+                          <Link href={item.url}>
+                            <div className={styles.textContent}>
+                              <span className={styles.name}>{item.name}</span>
+                              <span className={styles.description}>
+                                {item.description}
+                              </span>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </div>
+                  </ul>
+                )}
+              </li>
+
+              <Link href={'/contato'}>
+                <li className={isActive('/contato')}>Contato</li>
+              </Link>
+              <Link href={'/blog'}>
+                <li className={isActive('/blog')}>LW NEWS</li>
+              </Link>
+              <Link href={'/trabalhe'}>
+                <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
+              </Link>
+              <li>|</li>
+
+              <li
+                className={`${isActive('/login')} ${styles.dropdown} ${
+                  isClienteDropdownOpen ? styles.open : ''
+                }`}
+                onClick={handleClienteDropdownClick} // Toggle dropdown on click
+              >
+                Área do cliente
+                <img
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg" // Reuse the same arrow image
+                  alt=""
+                  className={`${
+                    isClienteDropdownOpen ? styles.rotate : styles.rotateBack
+                  }`}
+                />
+                {isClienteDropdownOpen && (
+                  <ul className={styles.dropdownContentArea}>
+                    {clienteDropdown.map((item) => (
+                      <li key={item.url} onClick={handleLinkClick}>
+                        <div className={styles.leftIcon}>
+                          <img src={item.image} alt={`${item.name} Icon`} />
+                        </div>
+                        <Link rel="noreferrer" href={item.url}>
+                          <div className={styles.textContent}>
+                            <span className={styles.name}>{item.name}</span>
+                            <span className={styles.description}>
+                              {item.description}
+                            </span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            </ul>
+          </div>
+          <div className={styles.hamburger} onClick={toggleDrawer}>
+            <img
+              src="https://d10fqir6n4h7sq.cloudfront.net/public/List.svg"
+              alt="Hamburger Icon"
+            />
+          </div>
+        </div>
+      </section>
+      <div className={`${styles.drawer} ${drawerOpen ? styles.open : ''}`}>
+        <div className={styles.contentDrawer}>
+          <div className={styles.topContentDrawer}>
+            <img
+              className={styles.logo}
+              src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+              alt="Logo"
+            />
+            <img
+              className={styles.close}
+              src="https://d10fqir6n4h7sq.cloudfront.net/public/close.svg"
+              alt="Close Icon"
+              onClick={toggleDrawer}
+            />
+          </div>
+          <div className={styles.middleContentDrawer}>
+            <ul>
+              <Link href={`/`}>
+                <li onClick={handleLinkClick}>Início</li>
+              </Link>
+
+              <Link href="/sobre">
+                <li onClick={handleLinkClick}>Quem Somos</li>
+              </Link>
+
+              <ProdutosResponsive />
+              <Link href="/contato">
+                <li onClick={handleLinkClick}>Contato</li>
+              </Link>
+              <Link href="/blog">
+                <li className={isActive('/blog')}>LW NEWS</li>
+              </Link>
+              <Link href="/trabalhe">
+                <li onClick={handleLinkClick}>Trabalhe Conosco</li>
+              </Link>
+              <div className={styles.divisor}></div>
+              <AreaResponsive />
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`${styles.overlay} ${drawerOpen ? styles.visible : ''}`}
+        onClick={toggleDrawer}
+      ></div>
+    </>
+  );
 }
