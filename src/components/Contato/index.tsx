@@ -8,11 +8,24 @@ export default function Contato() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [emailInscricao, setEmailInscricao] = useState('');
+
+  const verificaCamposContato = () => {
+    if (!nome || !email || !telefone || !mensagem) {
+      toast.error('Por favor, preencha todos os campos obrigatórios.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmitBackground = async (event: {
     preventDefault: () => void;
   }) => {
     event.preventDefault();
+    if (!verificaCamposContato()) return;
 
     const formDataBackground = {
       nome,
@@ -49,11 +62,22 @@ export default function Contato() {
       console.error('Erro ao enviar a mensagem:', error);
     }
   };
+  const verificaEmailInscricao = () => {
+    if (!emailInscricao) {
+      toast.error('Por favor, insira seu email para inscrição.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmitInscricao = async (event: {
     preventDefault: () => void;
   }) => {
     event.preventDefault();
+    if (!verificaEmailInscricao()) return;
 
     const formDataInscricao = {
       email,
@@ -226,8 +250,8 @@ export default function Contato() {
                 <input
                   type="text"
                   placeholder="Digite seu email aqui"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={emailInscricao}
+                  onChange={(e) => setEmailInscricao(e.target.value)}
                 />
                 <button type="submit">Inscrever</button>
               </div>
