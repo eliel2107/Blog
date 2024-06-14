@@ -1,10 +1,11 @@
+import DestaquesNew from '@/components/DestaquesNew';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-
-import DestaquesNew from '@/components/DestaquesNew';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import styles from '../styles/Id.module.scss';
@@ -13,6 +14,22 @@ const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
 });
+
+const options = {
+  renderNode: {
+    [INLINES.HYPERLINK]: (node: any, children: any) => (
+      <a
+        href={node.data.uri}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ fontWeight: 'bold' }}
+      >
+        {children}
+      </a>
+    ),
+    [BLOCKS.PARAGRAPH]: (node: any, children: any) => <p>{children}</p>,
+  },
+};
 
 interface BlogPostProps {
   post: any;
@@ -86,9 +103,7 @@ export default function BlogPost({ post }: BlogPostProps) {
     return `Publicado ${day} de ${month} de ${year}`;
   }
 
-  const paragraphs = post.fields.body.content.map((content: any) => {
-    return content.content[0].value;
-  });
+  const content = documentToReactComponents(post.fields.body, options);
 
   return (
     <>
@@ -103,11 +118,7 @@ export default function BlogPost({ post }: BlogPostProps) {
           <div className={styles.blogImage}>
             <img src={post.fields.thumb.fields.file.url} alt="" />
           </div>
-          {paragraphs.map((paragraph: string, index: number) => (
-            <p className={styles.bodyPost} key={index}>
-              {paragraph}
-            </p>
-          ))}
+          <div className={styles.bodyPost}>{content}</div>
         </div>
         <div className={styles.bottomcontent}>
           <div className={styles.leftside}>
