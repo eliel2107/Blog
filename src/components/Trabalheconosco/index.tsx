@@ -20,7 +20,17 @@ export default function Trabalheconosco() {
     if (selectedFile) {
       setFileName(selectedFile.name);
     }
-    // You can handle the selected file as needed, e.g., upload it to a server.
+  };
+
+  const verificaCurriculo = () => {
+    if (!fileName) {
+      toast.error('Por favor, anexe o curriculo.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = async (event: {
@@ -28,23 +38,22 @@ export default function Trabalheconosco() {
     currentTarget: HTMLFormElement | undefined;
   }) => {
     event.preventDefault();
+    if (!verificaCurriculo()) return;
     const formData = new FormData(event.currentTarget);
 
     try {
       const response = await fetch('/api/sendEmailRH', {
         method: 'POST',
-        body: formData, // Envia os dados como FormData
+        body: formData,
       });
 
       if (response.ok) {
-        // Envio bem-sucedido
         toast.success('Currículo enviado com sucesso!', {
           position: 'top-right',
           autoClose: 5000,
         });
         console.log('Currículo enviado com sucesso');
       } else {
-        // Erro no envio
         toast.error('Erro ao enviar o currículo.', {
           position: 'top-right',
           autoClose: 5000,
@@ -78,7 +87,6 @@ export default function Trabalheconosco() {
               <form onSubmit={handleSubmit}>
                 <div className={styles.linkedin}>
                   <button>
-                    {' '}
                     <Link
                       rel="noreferrer"
                       href="https://www.linkedin.com/company/lwtecnologia/"
@@ -119,7 +127,7 @@ export default function Trabalheconosco() {
                 </div>
                 <div className={styles.button}>
                   <button type="submit">
-                    Enviar{' '}
+                    Enviar
                     <img
                       src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowRightw.svg"
                       alt=""
