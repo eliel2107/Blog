@@ -34,7 +34,11 @@ export default async function SendBackgroundForm(
         !fields.nome ||
         !fields.telefone ||
         !fields.mensagem ||
-        !fields.email
+        !fields.email ||
+        !fields.enterprise ||
+        !fields.segmento ||
+        !fields.cnpj ||
+        !fields.carQuantity
       ) {
         console.log(
           'Campos obrigatórios não encontrados no corpo da requisição'
@@ -49,7 +53,10 @@ export default async function SendBackgroundForm(
       const email = fields.email;
       const telefone = fields.telefone;
       const mensagem = fields.mensagem;
-
+      const enterprise = fields.enterprise;
+      const segmento = fields.segmento;
+      const cnpj = fields.cnpj;
+      const carQuantity = fields.carQuantity;
       try {
         const transporter = nodemailer.createTransport({
           service: 'gmail',
@@ -64,12 +71,17 @@ export default async function SendBackgroundForm(
         const mailOptions = {
           from: 'diogaodieger@gmail.com',
           to: 'comercial@lwtecnologia.com.br',
-          subject: 'Formulário de Background',
+          subject: 'Formulário de Contato',
           text: `
             Nome: ${nome}
             Email: ${email}
             Telefone: ${telefone}
+            Empresa: ${enterprise} 
+            Cnpj: ${cnpj}
+            Segmento: ${segmento}
             Mensagem: ${mensagem}
+            Quantidade de carros: ${carQuantity}
+          
           `,
         };
 
