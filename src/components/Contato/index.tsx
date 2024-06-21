@@ -157,6 +157,12 @@ export default function Contato() {
           position: 'top-right',
           autoClose: 5000,
         });
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'formSubmission',
+            formData: formDataBackground,
+          });
+        }
         console.log('Mensagem enviada com sucesso');
       } else {
         toast.error('Erro ao enviar a mensagem.', {
