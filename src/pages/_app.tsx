@@ -30,6 +30,37 @@ export default function App({
   }, []);
   usePageTracking();
 
+  function handleConversion() {
+    (function () {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src =
+        'https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js';
+      document.head.appendChild(script);
+    })();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('event', 'conversion', {
+      send_to: 'AW-16519096883/Lu6HCIeYgK4ZELPU9cQ9',
+    });
+  }
+
+  useEffect(() => {
+    const button = document.getElementById('conversion-button');
+    if (button) {
+      button.addEventListener('click', handleConversion);
+    }
+
+    return () => {
+      if (button) {
+        button.removeEventListener('click', handleConversion);
+      }
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -61,6 +92,7 @@ export default function App({
           type="text/javascript"
           async
           src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js"
+          id="rdstation-script"
         ></script>
 
         <script
@@ -69,21 +101,19 @@ export default function App({
         ></script>
         <script>
           {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'AW-16519096883');
-                    `}
-        </script>
-        <script>
-          {`
-                        gtag('event', 'conversion', {'send_to': 'AW-16519096883/Lu6HCIeYgK4ZELPU9cQ9'});
-                    `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16519096883');
+          `}
         </script>
       </Head>
       <NextNProgress color="#fff" />
       <div className={`${poppins.variable} ${montserrat.variable}`}>
         {getLayout(<Component {...pageProps} />)}
+        <button id="conversion-button" className="conversion-button">
+          Convert
+        </button>
       </div>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
       <Cookies />

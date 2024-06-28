@@ -30,8 +30,17 @@ export default async function SendContactForm(
         return;
       }
 
-      // Verifica se o corpo da requisição contém as propriedades necessárias
-      if (!fields.name || !fields.email || !fields.company || !fields.message) {
+      console.log('Campos do formulário:', fields);
+      if (
+        !fields.name ||
+        !fields.email ||
+        !fields.company ||
+        !fields.message ||
+        !fields.phone ||
+        !fields.cnpj ||
+        !fields.carQuantity ||
+        !fields.segmento
+      ) {
         console.log(
           'Campos obrigatórios não encontrados no corpo da requisição'
         );
@@ -46,6 +55,10 @@ export default async function SendContactForm(
       const email = fields.email;
       const company = fields.company;
       const message = fields.message;
+      const phone = fields.phone;
+      const cnpj = fields.cnpj;
+      const carQuantity = fields.carQuantity;
+      const segmento = fields.segmento;
 
       try {
         const transporter = nodemailer.createTransport({
@@ -60,13 +73,17 @@ export default async function SendContactForm(
 
         const mailOptions = {
           from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'comercial@lwtecnologia.com.br', // Substitua pelo e-mail de destino
+          to: 'ddiegerfernandes@gmail.com', // Substitua pelo e-mail de destino
           subject: 'Formulário de Contato',
           text: `
             Nome: ${name}
             Email: ${email}
             Empresa: ${company}
             Mensagem: ${message}
+            Telefone: ${phone}
+            CNPJ: ${cnpj}
+            Quantidade de carros: ${carQuantity}
+            Segmento: ${segmento}
           `,
         };
 
