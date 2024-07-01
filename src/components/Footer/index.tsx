@@ -87,7 +87,7 @@ export default function Footer() {
           </p>
           <p>
             Filial Rio de Janeiro: Rua General Olimpio, nº 00340, Bairro Santa
-            Cruz, CEP 23.515-127, na Cidade de Rio de Jeneiro, Estado de Rio de
+            Cruz, CEP 23.515-127, na Cidade de Rio de Janeiro, Estado de Rio de
             Janeiro.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function Footer() {
               </p>
               <p>
                 Filial Rio de Janeiro: Rua General Olimpio, nº 00340, Bairro
-                Santa Cruz, CEP 23.515-127, na Cidade de Rio de Jeneiro, Estado
+                Santa Cruz, CEP 23.515-127, na Cidade de Rio de Janeiro, Estado
                 de Rio de Janeiro.
               </p>
             </div>
