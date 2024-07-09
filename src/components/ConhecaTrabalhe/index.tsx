@@ -18,26 +18,26 @@ export default function ConhecaTrabalhe() {
             </div>
             <div className={styles.text}>
               <p>
-                Bem-vindo à LW Tecnologia, onde a inovação encontra o pulso do
-                movimento na mobilidade urbana, veicular e pessoal. Não somos
-                apenas uma empresa de tecnologia; somos pioneiros moldando o
-                futuro de como nos movemos e nos conectamos. Na LW Tecnologia,
-                criamos ferramentas de software que redefinem o gerenciamento de
-                dados de mobilidade urbana, veicular e pessoal. Nossa missão é
-                simples, mas poderosa: capacitar nossos clientes economizando
-                custos, simplificando processos e provocando uma revolução na
-                conscientização sobre o trânsito. Prever o futuro num domínio
-                movido pelo movimento perpétuo é o nosso forte. Com uma equipe
-                de mais de 160 mentes dedicadas, simplificamos os obstáculos
-                burocráticos e descentralizamos as informações dos veículos,
-                abrindo caminho para um futuro mais acessível e eficiente.
-                Junte-se a nós nesta era de inovação, onde cada ideia importa e
-                a tecnologia é o coração das soluções de mobilidade. Faça parte
-                de uma equipe apaixonada, trabalhando em conjunto para
-                aproveitar o potencial da tecnologia na remodelação do cenário
-                da mobilidade. Se você é movido por tecnologia e imagina um
-                futuro onde a mobilidade prospere, venha para o mundo da LW
-                Tecnologia. Sua hora é agora!
+                No Grupo LW somos um espaço onde a inovação converge com as
+                necessidades de constante evolução da mobilidade urbana,
+                veicular e pessoal. Aqui não apenas representamos uma empresa de
+                tecnologia; somos os visionários que estão moldando o amanhã,
+                reinventando a forma como nos movemos e nos conectamos. Nosso
+                trabalho se concentra em criar ferramentas de software que não
+                apenas gerenciam, mas transformam e potencializam a gestão de
+                frotas. Nossa missão é clara: facilitar a gestão para nossos
+                clientes, reduzir custos, simplificarprocessos e, acima de tudo,
+                impulsar uma revolução na consciência do trânsito. Antecipar as
+                necessidades futuras em um mundo onde o movimento é constante é
+                o nosso diferencial. Com uma equipe composta por mais de 100
+                mentes dedicadas, superamos barreiras burocráticas e
+                democratizamos o acesso às informações veiculares, pavimentando
+                o caminho por uma gestão de frotas mais acessível e eficiente.
+                Junte-se a nós nesta era de descobertas, onde cada ideia é
+                valorizada e a tecnologia é o cerne das soluções de mobilidade.
+                Se você compartilha da nossa paixão pela tecnologia e enxerga um
+                futuro promissor onde a mobilidade prospera, então é hora de
+                fazer partedo Grupo LW. Esperamos você!
               </p>
             </div>
             <Link href="/debitos">
