@@ -24,7 +24,7 @@ export default function Sobre() {
     <>
       <section className={styles.container}>
         <div className={styles.topcontent}>
-          <h2>UM POUCO SOBRE NÓS</h2>
+          <h2>CONHEÇA NOSSAS SOLUÇÕES</h2>
 
           <div className={styles.youtube}>
             <div className={styles.leftbar}></div>
@@ -50,7 +50,10 @@ export default function Sobre() {
         <div className={styles.bottomcontent}>
           <div className={styles.title}>
             <h2>CLIENTES QUE JÁ FIZERAM A ESCOLHA CERTA</h2>
-            <p>Trabalhando juntos para otimizar processos e reduzir custos</p>
+            <p>
+              Otimizamos processos e Reduzimos custos com uma gestão de frotas
+              eficiente
+            </p>
           </div>
 
           <div className={styles.Parceiros}>

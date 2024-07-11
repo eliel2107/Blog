@@ -73,7 +73,7 @@ export default async function SendContactForm(
 
         const mailOptions = {
           from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'ddiegerfernandes@gmail.com', // Substitua pelo e-mail de destino
+          to: 'comercial@lwtecnologia.com.br', // Substitua pelo e-mail de destino
           subject: 'Formulário de Contato',
           text: `
             Nome: ${name}
