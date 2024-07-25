@@ -1,28 +1,34 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-
-export default function Footer() {
+import Link from "next/link";
+import styles from "./styles.module.scss";
+interface FooterProps {
+  variant?: string;
+}
+export default function Footer({ variant }: FooterProps) {
   return (
     <>
-      <section className={styles.container}>
+      <section
+        className={`${styles.container} ${
+          variant === "blue" ? styles.containerBlue : ""
+        }`}
+      >
         <div className={styles.content}>
           <div className={styles.topcontent}>
             <div className={styles.pages}>
               <ul>
-                <Link href={'/'}>
+                <Link href={"/"}>
                   <li>Home</li>
                 </Link>
-                <Link href={'/sobre'}>
+                <Link href={"/sobre"}>
                   <li>Quem somos</li>
                 </Link>
 
-                <Link href={'/blog'}>
+                <Link href={"/blog"}>
                   <li>LW NEWS</li>
                 </Link>
-                <Link href={'/contato'}>
+                <Link href={"/contato"}>
                   <li>Contato</li>
                 </Link>
-                <Link href={'/trabalhe'}>
+                <Link href={"/trabalhe"}>
                   <li>Trabalhe conosco</li>
                 </Link>
               </ul>
@@ -67,10 +73,10 @@ export default function Footer() {
             />
           </div>
           <ul>
-            <Link href={'/termos'}>
+            <Link href={"/termos"}>
               <li>Termos de serviço</li>
             </Link>
-            <Link href={'/privacidade'}>
+            <Link href={"/privacidade"}>
               <li>Políticas de privacidade</li>
             </Link>
           </ul>
@@ -92,7 +98,11 @@ export default function Footer() {
           </p>
         </div>
       </section>
-      <section className={styles.containerresponsive}>
+      <section
+        className={`${styles.containerresponsive} ${
+          variant === "blue" ? styles.containerBlue : ""
+        }`}
+      >
         <div className={styles.contentresponsive}>
           <div className={styles.topcontentresponsive}>
             <img
@@ -101,22 +111,22 @@ export default function Footer() {
             />
             <div className={styles.pagesresponsive}>
               <ul>
-                <Link href={'/'}>
+                <Link href={"/"}>
                   <li>Home</li>
                 </Link>
-                <Link href={'/sobre'}>
+                <Link href={"/sobre"}>
                   <li>Quem somos</li>
                 </Link>
-                <Link href={'/debitos'}>
+                <Link href={"/debitos"}>
                   <li>produtos</li>
                 </Link>
-                <Link href={'/blog'}>
+                <Link href={"/blog"}>
                   <li>LW NEWS</li>
                 </Link>
-                <Link href={'/contato'}>
+                <Link href={"/contato"}>
                   <li>Contato</li>
                 </Link>
-                <Link href={'/trabalhe'}>
+                <Link href={"/trabalhe"}>
                   <li>Trabalhe conosco</li>
                 </Link>
               </ul>
@@ -124,11 +134,11 @@ export default function Footer() {
             <div className={styles.divisor}></div>
             <div className={styles.politicasresponsive}>
               <ul>
-                <Link href={'/termos'}>
+                <Link href={"/termos"}>
                   <li>Termos de serviço</li>
                 </Link>
-                <Link href={'/privacidade'}>
-                  {' '}
+                <Link href={"/privacidade"}>
+                  {" "}
                   <li>Políticas de privacidade</li>
                 </Link>
               </ul>

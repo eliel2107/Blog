@@ -1,0 +1,12 @@
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1440"
+            height="124"
+            viewBox="0 0 1440 124"
+            fill="none"
+          >
+            <path
+              d="M1440 0C873.945 147.491 558.661 145.818 0 0V124H1440V0Z"
+              fill="#336699"
+            />
+          </svg>

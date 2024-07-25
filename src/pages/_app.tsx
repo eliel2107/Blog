@@ -28,15 +28,16 @@ export default function App({
   useEffect(() => {
     initializeTagManager();
   }, []);
+
   usePageTracking();
 
-  // Definindo a função gtag fora do bloco
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(args);
-  }
-
   useEffect(() => {
+    // Definindo a função gtag dentro de useEffect para garantir que só execute no client side
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+
     const handleConversion = (event: Event) => {
       const target = event.target as HTMLElement;
       if (target.dataset.conversion) {
