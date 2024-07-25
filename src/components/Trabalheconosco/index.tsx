@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { useRef, useState } from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styles from "./styles.module.scss";
 
 export default function Trabalheconosco() {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [fileName, setFileName] = useState<string>('');
+  const [fileName, setFileName] = useState<string>("");
 
   const handleAttachmentButtonClick = () => {
     if (fileInputRef.current) {
@@ -16,7 +16,7 @@ export default function Trabalheconosco() {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    console.log('Selected File:', selectedFile);
+    console.log("Selected File:", selectedFile);
     if (selectedFile) {
       setFileName(selectedFile.name);
     }
@@ -24,8 +24,8 @@ export default function Trabalheconosco() {
 
   const verificaCurriculo = () => {
     if (!fileName) {
-      toast.error('Por favor, anexe o curriculo.', {
-        position: 'top-right',
+      toast.error("Por favor, anexe o curriculo.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
@@ -42,26 +42,26 @@ export default function Trabalheconosco() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch('/api/sendEmailRH', {
-        method: 'POST',
+      const response = await fetch("/api/sendEmailRH", {
+        method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        toast.success('Currículo enviado com sucesso!', {
-          position: 'top-right',
+        toast.success("Currículo enviado com sucesso!", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.log('Currículo enviado com sucesso');
+        console.log("Currículo enviado com sucesso");
       } else {
-        toast.error('Erro ao enviar o currículo.', {
-          position: 'top-right',
+        toast.error("Erro ao enviar o currículo.", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.error('Erro ao enviar o currículo');
+        console.error("Erro ao enviar o currículo");
       }
     } catch (error) {
-      console.error('Erro ao enviar o currículo:', error);
+      console.error("Erro ao enviar o currículo:", error);
     }
   };
 
@@ -91,7 +91,7 @@ export default function Trabalheconosco() {
                       rel="noreferrer"
                       href="https://www.linkedin.com/company/lwtecnologia/"
                     >
-                      Enviar currículo pelo Linkedin{' '}
+                      Enviar currículo pelo Linkedin{" "}
                     </Link>
                   </button>
                 </div>
@@ -111,15 +111,15 @@ export default function Trabalheconosco() {
                       className={styles.attachmentButton}
                       onClick={handleAttachmentButtonClick}
                     >
-                      {fileName || 'Anexar currículo'}
+                      {fileName || "Anexar currículo"}
                     </button>
 
                     <input
                       ref={fileInputRef}
                       type="file"
                       name="curriculo"
-                      accept=".pdf, .doc, .docx"
-                      style={{ display: 'none' }}
+                      accept=".pdf"
+                      style={{ display: "none" }}
                       onChange={handleFileChange}
                     />
                     <button className={styles.sendButton}>Enviar</button>
