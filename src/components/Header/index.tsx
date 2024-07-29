@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
-import AreaResponsive from '../AreaResponsive';
-import ProdutosResponsive from '../ProdutosResponsive';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+import AreaResponsive from "../AreaResponsive";
+import ProdutosResponsive from "../ProdutosResponsive";
+import styles from "./styles.module.scss";
 
 export default function Header() {
   const router = useRouter();
@@ -44,69 +44,69 @@ export default function Header() {
 
   const produtosDropdown = [
     {
-      url: '/debitos',
-      name: 'LW Débitos',
+      url: "/debitos",
+      name: "LW Débitos",
       description:
-        'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
+        "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
       image:
-        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DebitosIconNew.svg',
+        "https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DebitosIconNew.svg",
     },
     {
-      url: '/doc',
-      name: 'LW Doc',
-      description: 'Simplifique sua gestão documental através da tecnologia.',
+      url: "/doc",
+      name: "LW Doc",
+      description: "Simplifique sua gestão documental através da tecnologia.",
       image:
-        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DocIconNew.svg',
-    },
-
-    {
-      url: '/sim',
-      name: 'LW SIM',
-      description: 'Controle sua frota com tecnologia de alta performance.',
-      image:
-        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/SimIconNew.svg',
+        "https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/DocIconNew.svg",
     },
 
     {
-      url: '/multas',
-      name: 'LW Multas',
+      url: "/sim",
+      name: "LW SIM",
+      description: "Controle sua frota com tecnologia de alta performance.",
+      image:
+        "https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/SimIconNew.svg",
+    },
+
+    {
+      url: "/multas",
+      name: "LW Multas",
       description:
-        'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
+        "Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.",
       image:
-        'https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg',
+        "https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg",
     },
     {
-      url: '',
+      url: "",
 
-      name: 'LW Auto (em breve)',
-      description: 'O jeito mais facil de comprar e vender seus veiculos',
-      image: '/LogoAuto.svg',
+      name: "LW Auto (em breve)",
+      description: "O jeito mais facil de comprar e vender seus veiculos",
+      image: "/LogoAuto.svg",
     },
   ];
   const clienteDropdown = [
     {
-      url: 'https://admin.onemonitora.com.br/',
-      name: 'LW SIM (One)',
-      description: 'Clique para acessar o portal.',
-      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
+      url: "https://admin.onemonitora.com.br/",
+      name: "LW SIM (One)",
+      description: "Clique para acessar o portal.",
+      image: "https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg",
     },
     {
-      url: 'https://www.sistemamultas.com.br/app',
-      name: 'LW Multas',
-      description: 'Clique para acessar o portal.',
-      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
+      url: "https://www.sistemamultas.com.br/app",
+      name: "LW Multas",
+      description: "Clique para acessar o portal.",
+      image: "https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg",
     },
     {
-      url: 'https://documentacao.lwtecnologia.com.br/',
-      name: 'LW Doc',
-      description: 'Clique para acessar o portal.',
-      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
+      url: "https://documentacao.lwtecnologia.com.br/",
+      name: "LW Doc",
+      description: "Clique para acessar o portal.",
+      image: "https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg",
     },
     {
-      url: 'https://debitos.lwtecnologia.com.br/',
-      name: 'LW Débitos',
-      description: 'Clique para acessar o portal.',
-      image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
+      url: "https://debitos.lwtecnologia.com.br/",
+      name: "LW Débitos",
+      description: "Clique para acessar o portal.",
+      image: "https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg",
     },
     // Add more items as needed
   ];
@@ -121,10 +121,10 @@ export default function Header() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -133,7 +133,7 @@ export default function Header() {
       <section className={styles.container}>
         <div className={styles.content} ref={dropdownRef}>
           <div className={styles.leftside}>
-            <Link href={'/'}>
+            <Link href={"/"}>
               <img
                 src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
                 alt="Logo"
@@ -143,20 +143,20 @@ export default function Header() {
 
           <div className={styles.rightSide}>
             <ul>
-              <Link href={'/'}>
-                <li className={isActive('/')}>Home</li>
+              <Link href={"/"}>
+                <li className={isActive("/")}>Home</li>
               </Link>
-              <Link href={'/sobre'}>
-                <li className={isActive('/sobre')}>Quem somos</li>
+              <Link href={"/sobre"}>
+                <li className={isActive("/sobre")}>Quem somos</li>
               </Link>
 
               <li
-                className={`${isActive('/solucoes')} ${styles.dropdown} ${
-                  isDropdownOpen ? styles.open : ''
+                className={`${isActive("/solucoes")} ${styles.dropdown} ${
+                  isDropdownOpen ? styles.open : ""
                 }`}
                 onClick={handleDropdownClick}
               >
-                Produtos{' '}
+                Produtos{" "}
                 <img
                   src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
                   alt=""
@@ -187,20 +187,23 @@ export default function Header() {
                 )}
               </li>
 
-              <Link href={'/contato'}>
-                <li className={isActive('/contato')}>Contato</li>
+              <Link href={"/contato"}>
+                <li className={isActive("/contato")}>Contato</li>
               </Link>
-              <Link href={'/blog'}>
-                <li className={isActive('/blog')}>LW NEWS</li>
+              <Link href={"/esg"}>
+                <li className={isActive("/esg")}>Esg</li>
               </Link>
-              <Link href={'/trabalhe'}>
-                <li className={isActive('/trabalhe')}>Trabalhe conosco</li>
+              <Link href={"/blog"}>
+                <li className={isActive("/blog")}>LW NEWS</li>
+              </Link>
+              <Link href={"/trabalhe"}>
+                <li className={isActive("/trabalhe")}>Trabalhe conosco</li>
               </Link>
               <li>|</li>
 
               <li
-                className={`${isActive('/login')} ${styles.dropdown} ${
-                  isClienteDropdownOpen ? styles.open : ''
+                className={`${isActive("/login")} ${styles.dropdown} ${
+                  isClienteDropdownOpen ? styles.open : ""
                 }`}
                 onClick={handleClienteDropdownClick} // Toggle dropdown on click
               >
@@ -242,7 +245,7 @@ export default function Header() {
           </div>
         </div>
       </section>
-      <div className={`${styles.drawer} ${drawerOpen ? styles.open : ''}`}>
+      <div className={`${styles.drawer} ${drawerOpen ? styles.open : ""}`}>
         <div className={styles.contentDrawer}>
           <div className={styles.topContentDrawer}>
             <img
@@ -271,8 +274,11 @@ export default function Header() {
               <Link href="/contato">
                 <li onClick={handleLinkClick}>Contato</li>
               </Link>
+              <Link href="/esg">
+                <li onClick={handleLinkClick}>Esg</li>
+              </Link>
               <Link href="/blog">
-                <li className={isActive('/blog')}>LW NEWS</li>
+                <li className={isActive("/blog")}>LW NEWS</li>
               </Link>
               <Link href="/trabalhe">
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>
@@ -284,7 +290,7 @@ export default function Header() {
         </div>
       </div>
       <div
-        className={`${styles.overlay} ${drawerOpen ? styles.visible : ''}`}
+        className={`${styles.overlay} ${drawerOpen ? styles.visible : ""}`}
         onClick={toggleDrawer}
       ></div>
     </>

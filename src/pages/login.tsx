@@ -167,6 +167,7 @@ export default function Login() {
 
         const accessToken = finalLoginResponse.data.token;
         const urlValidar = finalLoginResponse.data.urlValidar;
+        console.log(urlValidar);
         console.log("Login successful!", accessToken);
         window.location.href = urlValidar;
       }
