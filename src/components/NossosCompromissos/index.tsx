@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 export default function NossosCompromissos() {
   return (
@@ -69,8 +70,20 @@ export default function NossosCompromissos() {
           </div>
         </div>
         <div className={styles.footer}>
-          <p>Políticas da LW</p>
-          <p>Código de conduta</p>
+          <Link
+            href={
+              "https://d10fqir6n4h7sq.cloudfront.net/public/esg/Pol%C3%ADtica%20de%20Compliance.pdf"
+            }
+          >
+            <p>Políticas da LW</p>
+          </Link>
+          <Link
+            href={
+              "https://d10fqir6n4h7sq.cloudfront.net/public/esg/C%C3%B3digo%20de%20Conduta%20LW.pdf"
+            }
+          >
+            <p>Código de conduta</p>
+          </Link>
         </div>
       </div>
     </>
