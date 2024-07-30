@@ -24,11 +24,11 @@ export default function NossosCompromissos() {
         </div>
         <div className={styles.text}>
           <p>
-            Na <strong>LW</strong>, levamos nossos compromissos com práticas
-            ambientais, sociais e de governança muito a sério. Entendemos que o
-            futuro sustentável do nosso planeta e das próximas gerações depende
-            das <strong>decisões que tomamos hoje.</strong> Por isso, estamos
-            dedicados a:
+            Reconhecemos a <strong>importância</strong> de gerar um impacto
+            positivo nos contextos em que estamos inseridos. Como parte desse
+            compromisso, orientamos nossas práticas de negócios pela dedicação à
+            sustentabilidade ambiental, responsabilidade social e forte
+            governança corporativa. Nossos compromissos incluem:
           </p>
         </div>
         <div className={styles.cards}>
@@ -38,9 +38,16 @@ export default function NossosCompromissos() {
             </div>
             <div className={styles.cardDescription}>
               <p>
-                Minimizar nosso impacto ambiental através de inovações
-                sustentáveis e práticas operacionais que reduzem o consumo de
-                recursos e a emissão de poluentes.
+                • Cumprir todas as leis e regulamentações ambientais aplicáveis;
+                <br />
+                <br />
+                • Trabalhar continuamente para a redução da geração de resíduos;
+                <br />
+                <br />
+                • Apoiar iniciativas que contribuam para a proteção e
+                preservação do meio ambiente; <br />
+                <br />• Conscientizar nossos colaboradores e parceiros de
+                negócios sobre responsabilidade ambiental;
               </p>
             </div>
           </div>
@@ -50,9 +57,11 @@ export default function NossosCompromissos() {
             </div>
             <div className={styles.cardDescription}>
               <p>
-                Minimizar nosso impacto ambiental através de inovações
-                sustentáveis e práticas operacionais que reduzem o consumo de
-                recursos e a emissão de poluentes.
+                • Promover a diversidade, inclusão e equidade; <br />
+                <br />• Proporcionar um ambiente de trabalho seguro e inclusivo
+                para todos os colaboradores; <br />
+                <br />• Apoiar iniciativas sociais que estejam alinhadas aos
+                nossos valores e missão;
               </p>
             </div>
           </div>
@@ -62,9 +71,13 @@ export default function NossosCompromissos() {
             </div>
             <div className={styles.cardDescription}>
               <p>
-                Minimizar nosso impacto ambiental através de inovações
-                sustentáveis e práticas operacionais que reduzem o consumo de
-                recursos e a emissão de poluentes.
+                • Manter os mais altos padrões de ética, integridade e
+                transparência em todas as nossas operações; <br />
+                <br />• Reforçar todos os requisitos de Segurança da informação
+                e Privacidade em todas as nossas operações; <br />
+                <br />• Revisar e otimizar periodicamente nossos documentos
+                normativos internos e mecanismos de governança, a fim de sempre
+                adotar as melhores práticas;
               </p>
             </div>
           </div>
