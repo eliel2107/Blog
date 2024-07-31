@@ -1,15 +1,15 @@
-import Cookies from '@/components/Cookies';
-import { NextPage } from 'next';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import NextNProgress from 'nextjs-progressbar';
-import { ReactElement, ReactNode, useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { initializeTagManager } from '../../utils/gtm';
-import usePageTracking from '../../utils/usePageTracking';
-import { montserrat, poppins } from '../styles/fonts';
-import '../styles/globals.scss';
+import Cookies from "@/components/Cookies";
+import { NextPage } from "next";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
+import { ReactElement, ReactNode, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { initializeTagManager } from "../../utils/gtm";
+import usePageTracking from "../../utils/usePageTracking";
+import { montserrat, poppins } from "../styles/fonts";
+import "../styles/globals.scss";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -28,39 +28,76 @@ export default function App({
   useEffect(() => {
     initializeTagManager();
   }, []);
+
   usePageTracking();
 
-  function handleConversion() {
-    (function () {
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.src =
-        'https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js';
-      document.head.appendChild(script);
-    })();
-
+  useEffect(() => {
+    // Definindo a função gtag dentro de useEffect para garantir que só execute no client side
     window.dataLayer = window.dataLayer || [];
     function gtag(...args: any[]) {
       window.dataLayer.push(args);
     }
-    gtag('event', 'conversion', {
-      send_to: 'AW-16519096883/Lu6HCIeYgK4ZELPU9cQ9',
-    });
-  }
 
-  useEffect(() => {
-    const button = document.getElementById('conversion-button');
-    if (button) {
-      button.addEventListener('click', handleConversion);
-    }
+    const handleConversion = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.dataset.conversion) {
+        gtag("event", "conversion", {
+          send_to: "AW-16519096883/Lu6HCIeYgK4ZELPU9cQ9",
+        });
 
-    return () => {
-      if (button) {
-        button.removeEventListener('click', handleConversion);
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        script.src =
+          "https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js";
+        script.onload = () => {
+          const observer = new MutationObserver((mutationsList, observer) => {
+            for (const mutation of mutationsList) {
+              if (mutation.type === "childList") {
+                const rdElement = document.querySelector(
+                  "#rd-floating_button-l9ohyb60"
+                );
+                if (rdElement) {
+                  console.log(
+                    "Elemento do RD Station encontrado, simulando clique"
+                  );
+                  rdElement.dispatchEvent(new Event("click"));
+                  observer.disconnect();
+                  return;
+                }
+              }
+            }
+          });
+
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+
+          // Verificação inicial imediata
+          const rdElement = document.querySelector(
+            "#rd-floating_button-l9ohyb60"
+          );
+          if (rdElement) {
+            rdElement.dispatchEvent(new Event("click"));
+            observer.disconnect();
+          } else {
+            console.log(
+              "Elemento do RD Station não encontrado, observando mudanças no DOM"
+            );
+          }
+        };
+        document.head.appendChild(script);
       }
     };
+
+    document.addEventListener("click", handleConversion);
+
+    return () => {
+      document.removeEventListener("click", handleConversion);
+    };
   }, []);
+
   return (
     <>
       <Head>
@@ -89,13 +126,6 @@ export default function App({
         <meta property="og:image:width" content="304" />
         <meta property="og:image:height" content="158" />
         <script
-          type="text/javascript"
-          async
-          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js"
-          id="rdstation-script"
-        ></script>
-
-        <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16519096883"
         ></script>
@@ -111,7 +141,11 @@ export default function App({
       <NextNProgress color="#fff" />
       <div className={`${poppins.variable} ${montserrat.variable}`}>
         {getLayout(<Component {...pageProps} />)}
-        <button id="conversion-button" className="conversion-button">
+        <button
+          id="conversion-button"
+          className="conversion-button"
+          data-conversion="true"
+        >
           Convert
         </button>
       </div>

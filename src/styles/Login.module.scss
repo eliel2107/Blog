@@ -12,16 +12,16 @@
   background-size: cover;
   @keyframes changeBackground {
     0% {
-      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg');
+      background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg");
     }
     33% {
-      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/cadastrobg.svg');
+      background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/cadastrobg.svg");
     }
     66% {
-      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/recuperarbg.svg');
+      background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/recuperarbg.svg");
     }
     100% {
-      background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg');
+      background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/loginbg.svg");
     }
   }
 
@@ -52,7 +52,28 @@
   gap: 24px;
   cursor: pointer;
 }
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  img {
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+.horizontalLine {
+  width: 100%;
+  height: 3px;
+}
+
 .title {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding-block: 35px;
+  padding-inline: 31px;
   gap: 16px;
   display: flex;
   flex-direction: column;
@@ -71,6 +92,13 @@
     font-weight: 500;
   }
 }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
 .flexInput {
   padding-top: 16px;
   gap: 6px;
@@ -82,13 +110,13 @@
 
     background: #fff;
     display: flex;
-    height: 43px;
+    padding-block: 10px;
     padding: 16px;
     justify-content: flex-end;
     align-items: center;
     gap: 16px;
     align-self: stretch;
-    width: 443px;
+    width: 100%;
     color: #404049;
   }
   @media only screen and (max-width: 768px) {
@@ -104,15 +132,18 @@
     border-radius: 5px;
     background-size: 400% 200%;
     border: none;
-    background-image: linear-gradient(
-      45deg,
-      var(--brand-blue, #000040),
-      var(--brand-blue, #8787f6),
-      var(--brand-blue, #8a8acd),
-      var(--brand-blue, #0505b9)
+    background-image: var(
+      --button-gradient,
+      linear-gradient(
+        45deg,
+        var(--brand-blue, #000040),
+        var(--brand-blue, #8787f6),
+        var(--brand-blue, #8a8acd),
+        var(--brand-blue, #0505b9)
+      )
     );
     display: flex;
-    width: 442px;
+    width: 100%;
     padding: 16px;
     justify-content: center;
     align-items: center;
@@ -131,6 +162,7 @@
     }
   }
 }
+
 @keyframes textura {
   0% {
     background-position: 0% 50%;
