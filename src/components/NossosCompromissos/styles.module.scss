@@ -122,4 +122,8 @@
     text-decoration-line: underline;
     cursor: pointer;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
