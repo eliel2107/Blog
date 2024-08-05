@@ -1,7 +1,7 @@
-import { createClient } from 'contentful';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import styles from './styles.module.scss';
+import { createClient } from "contentful";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
 
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
@@ -14,7 +14,7 @@ export default function Bannerblog() {
   useEffect(() => {
     async function fetchPosts() {
       const response = await contentfulClient.getEntries({
-        content_type: 'blog',
+        content_type: "blog",
       });
 
       if (response.items.length > 0) {

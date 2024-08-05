@@ -1,19 +1,19 @@
-import React, { useRef, useState } from 'react';
-import InputMask from 'react-input-mask';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import styles from './styles.module.scss';
+import React, { useRef, useState } from "react";
+import InputMask from "react-input-mask";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styles from "./styles.module.scss";
 
 export default function Faleconosco() {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [cnpj, setCnpj] = useState('');
-  const [carQuantity, setCarQuantity] = useState('');
-  const [empresa, setEmpresa] = useState('');
-  const [mensagem, setMensagem] = useState('');
-  const [segmento, setSegmento] = useState('');
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [carQuantity, setCarQuantity] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const [segmento, setSegmento] = useState("");
   const isValidPhoneNumber = (phone: string) => {
     const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
     return phoneRegex.test(phone);
@@ -26,20 +26,20 @@ export default function Faleconosco() {
 
   const isCorporateEmail = (email: string) => {
     const publicDomains = [
-      'gmail.com',
-      'yahoo.com',
-      'hotmail.com',
-      'outlook.com',
-      'live.com',
-      'aol.com',
-      'icloud.com',
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "live.com",
+      "aol.com",
+      "icloud.com",
     ];
 
-    const domain = email.split('@')[1];
+    const domain = email.split("@")[1];
     return !publicDomains.includes(domain);
   };
   const isValidCNPJ = (cnpj: string) => {
-    cnpj = cnpj.replace(/[^\d]+/g, '');
+    cnpj = cnpj.replace(/[^\d]+/g, "");
 
     if (cnpj.length !== 14) return false;
 
@@ -85,37 +85,37 @@ export default function Faleconosco() {
       !cnpj ||
       !carQuantity
     ) {
-      toast.error('Por favor, preencha todos os campos obrigatórios.', {
-        position: 'top-right',
+      toast.error("Por favor, preencha todos os campos obrigatórios.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
 
     if (telefone && !isValidPhoneNumber(telefone)) {
-      toast.error('Por favor, insira um número de telefone válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um número de telefone válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isValidEmailFormat(email)) {
-      toast.error('Por favor, insira um email válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um email válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isCorporateEmail(email)) {
-      toast.error('Por favor, insira um email corporativo.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um email corporativo.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isValidCNPJ(cnpj)) {
-      toast.error('Por favor, insira um CNPJ válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um CNPJ válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
@@ -132,7 +132,7 @@ export default function Faleconosco() {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    console.log('Selected File:', selectedFile);
+    console.log("Selected File:", selectedFile);
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -140,36 +140,36 @@ export default function Faleconosco() {
     if (!verificaCamposContato()) return;
 
     const formData = new FormData();
-    formData.append('name', nome);
-    formData.append('email', email);
-    formData.append('company', empresa);
-    formData.append('message', mensagem);
-    formData.append('phone', telefone);
-    formData.append('cnpj', cnpj);
-    formData.append('carQuantity', carQuantity);
-    formData.append('segmento', segmento);
+    formData.append("name", nome);
+    formData.append("email", email);
+    formData.append("company", empresa);
+    formData.append("message", mensagem);
+    formData.append("phone", telefone);
+    formData.append("cnpj", cnpj);
+    formData.append("carQuantity", carQuantity);
+    formData.append("segmento", segmento);
 
     try {
-      const response = await fetch('/api/SendContactForm', {
-        method: 'POST',
+      const response = await fetch("/api/SendContactForm", {
+        method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        toast.success('Mensagem enviado com sucesso', {
-          position: 'top-right',
+        toast.success("Mensagem enviado com sucesso", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.log('Mensagem enviado com sucesso');
+        console.log("Mensagem enviado com sucesso");
       } else {
-        toast.error('Erro ao enviar o Mensagem', {
-          position: 'top-right',
+        toast.error("Erro ao enviar o Mensagem", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.error('Erro ao enviar o Mensagem');
+        console.error("Erro ao enviar o Mensagem");
       }
     } catch (error) {
-      console.error('Erro ao enviar o Mensagem:', error);
+      console.error("Erro ao enviar o Mensagem:", error);
     }
   };
 
@@ -284,7 +284,7 @@ export default function Faleconosco() {
 
                 <div className={styles.button}>
                   <button type="submit">
-                    Enviar{' '}
+                    Enviar{" "}
                     <img
                       src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowRightw.svg"
                       alt=""

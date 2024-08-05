@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import animationData from './animation.json';
+import React, { Component } from "react";
+import animationData from "./animation.json";
 
 interface WhatsAnimationProps {
   width?: number;
@@ -11,8 +11,8 @@ class WhatsAnimation extends Component<WhatsAnimationProps> {
   private Lottie?: any;
 
   async componentDidMount() {
-    if (typeof window !== 'undefined') {
-      const lottie = await import('lottie-web');
+    if (typeof window !== "undefined") {
+      const lottie = await import("lottie-web");
       this.Lottie = lottie.default;
       this.createAnimation();
     }
@@ -40,12 +40,12 @@ class WhatsAnimation extends Component<WhatsAnimationProps> {
       this.Lottie.destroy(); // Destroy any existing animation before creating a new one
       this.Lottie.loadAnimation({
         container: this.containerRef.current,
-        renderer: 'svg',
+        renderer: "svg",
         loop: true,
         autoplay: true,
         animationData,
         rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice',
+          preserveAspectRatio: "xMidYMid slice",
           viewBoxSize: `${width} ${height}`,
         },
       });

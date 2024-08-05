@@ -52,7 +52,7 @@ const CustomSlider = () => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1
+      prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1,
     );
   };
 

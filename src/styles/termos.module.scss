@@ -1,49 +1,49 @@
 .title {
-    padding-top: 80px;
-    h1,
-    h2 {
-        color: var(--gray-900, #061c3d);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: 800;
-    }
-    p {
-        color: var(--brand-blue, #000040);
+  padding-top: 80px;
+  h1,
+  h2 {
+    color: var(--gray-900, #061c3d);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 800;
+  }
+  p {
+    color: var(--brand-blue, #000040);
 
-        font-family: var(--font-poppins, sans-serif);
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 400;
-    }
+    font-family: var(--font-poppins, sans-serif);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+  }
 }
 .content {
-    p {
-        color: var(--brand-blue, #000040);
+  p {
+    color: var(--brand-blue, #000040);
 
-        font-family: var(--font-poppins, sans-serif);
-        font-size: 1.125rem;
-        font-style: normal;
-        padding-block: 10px;
-        font-weight: 400;
-    }
-    h1,
-    h2 {
-        color: var(--gray-900, #061c3d);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 1.5rem;
-        padding-block: 10px;
-        font-style: normal;
-        font-weight: 800;
-    }
+    font-family: var(--font-poppins, sans-serif);
+    font-size: 1.125rem;
+    font-style: normal;
+    padding-block: 10px;
+    font-weight: 400;
+  }
+  h1,
+  h2 {
+    color: var(--gray-900, #061c3d);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 1.5rem;
+    padding-block: 10px;
+    font-style: normal;
+    font-weight: 800;
+  }
 }
 .container {
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: space-between;
-    margin-inline: auto;
-    padding-block: 28px;
-    max-width: 1440px;
-    padding-inline: 198px;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-block: 28px;
+  max-width: 1440px;
+  padding-inline: 198px;
 }

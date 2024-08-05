@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.scss';
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function Sobre() {
   const [offset, setOffset] = useState(0);

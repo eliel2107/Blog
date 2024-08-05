@@ -55,11 +55,11 @@ export default function App({
             for (const mutation of mutationsList) {
               if (mutation.type === "childList") {
                 const rdElement = document.querySelector(
-                  "#rd-floating_button-l9ohyb60"
+                  "#rd-floating_button-l9ohyb60",
                 );
                 if (rdElement) {
                   console.log(
-                    "Elemento do RD Station encontrado, simulando clique"
+                    "Elemento do RD Station encontrado, simulando clique",
                   );
                   rdElement.dispatchEvent(new Event("click"));
                   observer.disconnect();
@@ -76,14 +76,14 @@ export default function App({
 
           // Verificação inicial imediata
           const rdElement = document.querySelector(
-            "#rd-floating_button-l9ohyb60"
+            "#rd-floating_button-l9ohyb60",
           );
           if (rdElement) {
             rdElement.dispatchEvent(new Event("click"));
             observer.disconnect();
           } else {
             console.log(
-              "Elemento do RD Station não encontrado, observando mudanças no DOM"
+              "Elemento do RD Station não encontrado, observando mudanças no DOM",
             );
           }
         };

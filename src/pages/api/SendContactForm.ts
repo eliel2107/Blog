@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
-const formidable = require('formidable');
+import type { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
+const formidable = require("formidable");
 
 export const config = {
   api: {
@@ -10,11 +10,11 @@ export const config = {
 
 export default async function SendContactForm(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-  if (req.method !== 'POST') {
-    console.log('Método não permitido');
-    res.status(405).json({ message: 'Method Not Allowed' });
+  if (req.method !== "POST") {
+    console.log("Método não permitido");
+    res.status(405).json({ message: "Method Not Allowed" });
     return;
   }
 
@@ -23,14 +23,14 @@ export default async function SendContactForm(
 
     form.parse(req, async (err: any, fields: any, files: any) => {
       if (err) {
-        console.log('Erro ao processar o formulário:', err);
+        console.log("Erro ao processar o formulário:", err);
         res
           .status(500)
-          .json({ message: 'Erro no processamento do formulário' });
+          .json({ message: "Erro no processamento do formulário" });
         return;
       }
 
-      console.log('Campos do formulário:', fields);
+      console.log("Campos do formulário:", fields);
       if (
         !fields.name ||
         !fields.email ||
@@ -42,10 +42,10 @@ export default async function SendContactForm(
         !fields.segmento
       ) {
         console.log(
-          'Campos obrigatórios não encontrados no corpo da requisição'
+          "Campos obrigatórios não encontrados no corpo da requisição",
         );
         res.status(400).json({
-          message: 'Campos obrigatórios não encontrados no corpo da requisição',
+          message: "Campos obrigatórios não encontrados no corpo da requisição",
         });
         return;
       }
@@ -62,7 +62,7 @@ export default async function SendContactForm(
 
       try {
         const transporter = nodemailer.createTransport({
-          service: 'gmail',
+          service: "gmail",
 
           auth: {
             user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
@@ -72,9 +72,9 @@ export default async function SendContactForm(
         });
 
         const mailOptions = {
-          from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'comercial@lwtecnologia.com.br', // Substitua pelo e-mail de destino
-          subject: 'Formulário de Contato',
+          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
+          to: "comercial@lwtecnologia.com.br", // Substitua pelo e-mail de destino
+          subject: "Formulário de Contato",
           text: `
             Nome: ${name}
             Email: ${email}
@@ -88,19 +88,19 @@ export default async function SendContactForm(
         };
 
         await transporter.sendMail(mailOptions);
-        console.log('E-mail do formulário de contato enviado com sucesso');
+        console.log("E-mail do formulário de contato enviado com sucesso");
         res.status(200).json({
-          message: 'E-mail do formulário de contato enviado com sucesso!',
+          message: "E-mail do formulário de contato enviado com sucesso!",
         });
       } catch (error) {
-        console.error('Erro ao enviar e-mail do formulário de contato:', error);
+        console.error("Erro ao enviar e-mail do formulário de contato:", error);
         res
           .status(500)
-          .json({ message: 'Erro ao enviar e-mail do formulário de contato' });
+          .json({ message: "Erro ao enviar e-mail do formulário de contato" });
       }
     });
   } catch (error) {
-    console.error('Erro na API:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
+    console.error("Erro na API:", error);
+    res.status(500).json({ message: "Erro interno do servidor" });
   }
 }

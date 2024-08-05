@@ -1,13 +1,13 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import { useRouter } from 'next/router';
-import styles from '../styles/404.module.scss';
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useRouter } from "next/router";
+import styles from "../styles/404.module.scss";
 
 export default function NotFound() {
   const router = useRouter();
 
   const navigateHome = () => {
-    router.push('/');
+    router.push("/");
   };
 
   return (

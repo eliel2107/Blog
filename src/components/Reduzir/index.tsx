@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export default function Reduzir() {
   return (
@@ -26,7 +26,7 @@ export default function Reduzir() {
                 <div className={styles.bottom}>
                   <Link href="/contato">
                     <button>
-                      FALE CONOSCO{' '}
+                      FALE CONOSCO{" "}
                       <img
                         src="https://d10fqir6n4h7sq.cloudfront.net/public/Chats.svg"
                         alt=""

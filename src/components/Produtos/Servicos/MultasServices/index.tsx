@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styles from './styles.module.scss';
+import { useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function AssistServices() {
   const Accordion = () => {
@@ -117,7 +117,7 @@ export default function AssistServices() {
               <div className={styles.button}>
                 <button
                   className={`${styles.button} ${
-                    isAccordionOpen ? styles.open : ''
+                    isAccordionOpen ? styles.open : ""
                   }`}
                   onClick={toggleAccordion}
                 >
