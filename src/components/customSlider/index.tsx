@@ -11,6 +11,9 @@ const sliderData = [
       "Nos comprometemos com a redução de resíduos através de soluções inovadoras.",
     description3:
       "Cumprimos todas as leis e regulamentações ambientais em nossas operações.",
+    icon1: "/folha.svg",
+    icon2: "/tree.svg",
+    icon3: "/home.svg",
   },
   {
     background: "/social.jpg",
@@ -21,6 +24,9 @@ const sliderData = [
       "Estabelecemos políticas para garantir um ambiente de trabalho mais igualitário e livre de discriminação.",
     description3:
       "Apoiamos a educação de crianças em situação de vulnerabilidade por meio de parcerias com instituições locais.",
+    icon1: "/social.svg",
+    icon2: "/handshake.svg",
+    icon3: "/enterprise.svg",
   },
   {
     background: "/gover.png",
@@ -31,6 +37,9 @@ const sliderData = [
       "Garantimos a conformidade com todas as regulamentações e políticas internas, promovendo uma cultura de integridade.",
     description3:
       "Implementamos práticas de governança que garantem a tomada de decisões responsáveis e sustentáveis.",
+    icon1: "/bank.svg",
+    icon2: "/hammer.svg",
+    icon3: "/list.svg",
   },
 ];
 
@@ -52,7 +61,7 @@ const CustomSlider = () => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1
     );
   };
 
@@ -105,7 +114,7 @@ const CustomSlider = () => {
                   currentDescriptionIndex === 0 ? styles.currentDescription : ""
                 } ${styles.topDescription}`}
               >
-                <img src="/folha.svg" alt="Icon" />
+                <img src={sliderData[currentIndex].icon1} alt="Icon" />
                 <p>{sliderData[currentIndex].description1}</p>
               </div>
               <img
@@ -137,7 +146,7 @@ const CustomSlider = () => {
                       : ""
                   } ${styles.rightDescription}`}
                 >
-                  <img src="/tree.svg" alt="Icon" />
+                  <img src={sliderData[currentIndex].icon2} alt="Icon" />
                   <p>{sliderData[currentIndex].description3}</p>
                 </div>
 
@@ -148,7 +157,7 @@ const CustomSlider = () => {
                       : ""
                   } ${styles.leftDescription}`}
                 >
-                  <img src="/home.svg" alt="Icon" />
+                  <img src={sliderData[currentIndex].icon3} alt="Icon" />
                   <p>{sliderData[currentIndex].description2}</p>
                 </div>
               </div>
