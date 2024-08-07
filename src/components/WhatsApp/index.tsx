@@ -1,7 +1,7 @@
 // import required modules
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function WhatsApp() {
   const [windowSize, setWindowSize] = useState<{
@@ -19,11 +19,11 @@ export default function WhatsApp() {
       });
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const imageWidth = windowSize.width && windowSize.width < 768 ? 50 : 80;

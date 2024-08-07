@@ -85,30 +85,17 @@ export default function Header() {
   ];
   const clienteDropdown = [
     {
-      url: "https://admin.onemonitora.com.br/",
-      name: "LW SIM (One)",
-      description: "Clique para acessar o portal.",
-      image: "https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg",
-    },
-    {
-      url: "https://www.sistemamultas.com.br/app",
-      name: "LW Multas",
-      description: "Clique para acessar o portal.",
-      image: "https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg",
-    },
-    {
-      url: "https://documentacao.lwtecnologia.com.br/",
-      name: "LW Doc",
-      description: "Clique para acessar o portal.",
+      url: "/sobre",
+      name: "A Empresa",
+      description: "Saiba mais sobre a LW Tecnologia.",
       image: "https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg",
     },
     {
-      url: "https://debitos.lwtecnologia.com.br/",
-      name: "LW Débitos",
-      description: "Clique para acessar o portal.",
-      image: "https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg",
+      url: "/nosso-time",
+      name: "Nosso Time",
+      description: "Conheça as pessoas que fazem a LW acontecer.",
+      image: "https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg",
     },
-    // Add more items as needed
   ];
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -146,9 +133,41 @@ export default function Header() {
               <Link href={"/"}>
                 <li className={isActive("/")}>Home</li>
               </Link>
-              <Link href={"/sobre"}>
-                <li className={isActive("/sobre")}>Quem somos</li>
-              </Link>
+
+              <li
+                className={`${isActive("/sobre")} ${styles.dropdown} ${
+                  isClienteDropdownOpen ? styles.open : ""
+                }`}
+                onClick={handleClienteDropdownClick}
+              >
+                Quem somos{" "}
+                <img
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
+                  alt=""
+                  className={`${
+                    isClienteDropdownOpen ? styles.rotate : styles.rotateBack
+                  }`}
+                />
+                {isClienteDropdownOpen && (
+                  <ul className={styles.dropdownContentArea}>
+                    {clienteDropdown.map((item) => (
+                      <li key={item.url} onClick={handleLinkClick}>
+                        <div className={styles.leftIcon}>
+                          <img src={item.image} alt={`${item.name} Icon`} />
+                        </div>
+                        <Link rel="noreferrer" href={item.url}>
+                          <div className={styles.textContent}>
+                            <span className={styles.name}>{item.name}</span>
+                            <span className={styles.description}>
+                              {item.description}
+                            </span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
 
               <li
                 className={`${isActive("/solucoes")} ${styles.dropdown} ${
@@ -200,41 +219,9 @@ export default function Header() {
                 <li className={isActive("/trabalhe")}>Trabalhe conosco</li>
               </Link>
               <li>|</li>
-
-              <li
-                className={`${isActive("/login")} ${styles.dropdown} ${
-                  isClienteDropdownOpen ? styles.open : ""
-                }`}
-                onClick={handleClienteDropdownClick} // Toggle dropdown on click
-              >
-                Área do cliente
-                <img
-                  src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg" // Reuse the same arrow image
-                  alt=""
-                  className={`${
-                    isClienteDropdownOpen ? styles.rotate : styles.rotateBack
-                  }`}
-                />
-                {isClienteDropdownOpen && (
-                  <ul className={styles.dropdownContentArea}>
-                    {clienteDropdown.map((item) => (
-                      <li key={item.url} onClick={handleLinkClick}>
-                        <div className={styles.leftIcon}>
-                          <img src={item.image} alt={`${item.name} Icon`} />
-                        </div>
-                        <Link rel="noreferrer" href={item.url}>
-                          <div className={styles.textContent}>
-                            <span className={styles.name}>{item.name}</span>
-                            <span className={styles.description}>
-                              {item.description}
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
+              <Link href={"/login"}>
+                <li className={`${isActive("/login")} `}>Área do cliente</li>
+              </Link>
             </ul>
           </div>
           <div className={styles.hamburger} onClick={toggleDrawer}>
@@ -269,6 +256,9 @@ export default function Header() {
               <Link href="/sobre">
                 <li onClick={handleLinkClick}>Quem Somos</li>
               </Link>
+              <Link href="/nosso-time">
+                <li onClick={handleLinkClick}>Nosso Time</li>
+              </Link>
 
               <ProdutosResponsive />
               <Link href="/contato">
@@ -284,7 +274,10 @@ export default function Header() {
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>
               </Link>
               <div className={styles.divisor}></div>
-              <AreaResponsive />
+              {/* <AreaResponsive /> */}
+              <Link href="/login">
+                <li onClick={handleLinkClick}>Área do Cliente</li>
+              </Link>
             </ul>
           </div>
         </div>

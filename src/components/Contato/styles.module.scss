@@ -12,13 +12,13 @@
 }
 
 .container::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   aspect-ratio: 300 / 67;
-  background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/fique.svg');
+  background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/fique.svg");
   background-position: left 78px;
   background-repeat: no-repeat;
   z-index: -1;

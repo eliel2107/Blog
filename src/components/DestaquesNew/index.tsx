@@ -1,11 +1,11 @@
-import { createClient } from 'contentful';
-import Link from 'next/link';
-import styles from './styles.module.scss';
+import { createClient } from "contentful";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
-import { useEffect, useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from "react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -17,7 +17,7 @@ export default function Destaques() {
   useEffect(() => {
     async function fetchPosts() {
       const response = await contentfulClient.getEntries({
-        content_type: 'blog',
+        content_type: "blog",
       });
 
       console.log(response.items);
@@ -54,7 +54,7 @@ export default function Destaques() {
                         <p>
                           {post.fields.body.content[0].content[0].value.slice(
                             0,
-                            100
+                            100,
                           )}
                           ...
                         </p>

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import React, { useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function ProdutosResponsive() {
   const Accordion = () => {
@@ -11,28 +11,28 @@ export default function ProdutosResponsive() {
     };
     const produtosDropdown = [
       {
-        url: 'https://admin.onemonitora.com.br/',
-        name: 'LW SIM (One)',
-        description: 'Clique para acessar o portal.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
+        url: "https://admin.onemonitora.com.br/",
+        name: "LW SIM (One)",
+        description: "Clique para acessar o portal.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg",
       },
       {
-        url: 'https://www.sistemamultas.com.br/app',
-        name: 'LW Multas',
-        description: 'Clique para acessar o portal.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
+        url: "https://www.sistemamultas.com.br/app",
+        name: "LW Multas",
+        description: "Clique para acessar o portal.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg",
       },
       {
-        url: 'https://documentacao.lwtecnologia.com.br/',
-        name: 'LW Doc',
-        description: 'Clique para acessar o portal.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg',
+        url: "https://documentacao.lwtecnologia.com.br/",
+        name: "LW Doc",
+        description: "Clique para acessar o portal.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/DocIcon.svg",
       },
       {
-        url: 'https://debitos.lwtecnologia.com.br/',
-        name: 'LW Débitos',
-        description: 'Clique para acessar o portal.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
+        url: "https://debitos.lwtecnologia.com.br/",
+        name: "LW Débitos",
+        description: "Clique para acessar o portal.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg",
       },
       // Add more items as needed
     ];
@@ -44,7 +44,7 @@ export default function ProdutosResponsive() {
           <div className={styles.button}>
             <button
               className={`${styles.button} ${
-                isAccordionOpen ? styles.open : ''
+                isAccordionOpen ? styles.open : ""
               }`}
               onClick={toggleAccordion}
             >

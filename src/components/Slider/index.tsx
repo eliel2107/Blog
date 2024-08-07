@@ -1,12 +1,12 @@
-import { createClient } from 'contentful';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import styles from './styles.module.scss';
+import { createClient } from "contentful";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./styles.module.scss";
 
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
@@ -19,7 +19,7 @@ export default function SimpleSlider() {
   useEffect(() => {
     async function fetchPosts() {
       const response = await contentfulClient.getEntries({
-        content_type: 'blog',
+        content_type: "blog",
       });
       setPosts(response.items);
     }
@@ -46,10 +46,10 @@ export default function SimpleSlider() {
                     className={styles.image}
                     style={{
                       backgroundImage: `url(${post.fields.thumb?.fields.file.url})`,
-                      width: '320px',
-                      height: '300px',
-                      paddingTop: '24px',
-                      paddingLeft: '24px',
+                      width: "320px",
+                      height: "300px",
+                      paddingTop: "24px",
+                      paddingLeft: "24px",
                     }}
                   >
                     <button>Evento</button>
@@ -61,7 +61,7 @@ export default function SimpleSlider() {
                       <div className={styles.date}>
                         <p>
                           {new Date(post.sys.createdAt).toLocaleDateString(
-                            'pt-BR'
+                            "pt-BR",
                           )}
                         </p>
                       </div>
@@ -69,7 +69,7 @@ export default function SimpleSlider() {
                     <p>
                       {post.fields.body.content[0].content[0].value.slice(
                         0,
-                        100
+                        100,
                       )}
                       ...
                     </p>

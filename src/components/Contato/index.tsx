@@ -1,20 +1,20 @@
-import Link from 'next/link';
-import { useState } from 'react';
-import InputMask from 'react-input-mask';
-import { toast } from 'react-toastify';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import { useState } from "react";
+import InputMask from "react-input-mask";
+import { toast } from "react-toastify";
+import styles from "./styles.module.scss";
 
 export default function Contato() {
-  const [email, setEmail] = useState('');
-  const [nome, setNome] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [cnpj, setCnpj] = useState('');
-  const [enterprise, setEnterprise] = useState('');
-  const [carQuantity, setCarQuantity] = useState('');
+  const [email, setEmail] = useState("");
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [enterprise, setEnterprise] = useState("");
+  const [carQuantity, setCarQuantity] = useState("");
 
-  const [segmento, setSegmento] = useState('');
-  const [mensagem, setMensagem] = useState('');
-  const [emailInscricao, setEmailInscricao] = useState('');
+  const [segmento, setSegmento] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const [emailInscricao, setEmailInscricao] = useState("");
 
   const isValidPhoneNumber = (phone: string) => {
     const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
@@ -28,20 +28,20 @@ export default function Contato() {
 
   const isCorporateEmail = (email: string) => {
     const publicDomains = [
-      'gmail.com',
-      'yahoo.com',
-      'hotmail.com',
-      'outlook.com',
-      'live.com',
-      'aol.com',
-      'icloud.com',
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "live.com",
+      "aol.com",
+      "icloud.com",
     ];
 
-    const domain = email.split('@')[1];
+    const domain = email.split("@")[1];
     return !publicDomains.includes(domain);
   };
   const isValidCNPJ = (cnpj: string) => {
-    cnpj = cnpj.replace(/[^\d]+/g, '');
+    cnpj = cnpj.replace(/[^\d]+/g, "");
 
     if (cnpj.length !== 14) return false;
 
@@ -87,37 +87,37 @@ export default function Contato() {
       !cnpj ||
       !carQuantity
     ) {
-      toast.error('Por favor, preencha todos os campos obrigatórios.', {
-        position: 'top-right',
+      toast.error("Por favor, preencha todos os campos obrigatórios.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
 
     if (telefone && !isValidPhoneNumber(telefone)) {
-      toast.error('Por favor, insira um número de telefone válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um número de telefone válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isValidEmailFormat(email)) {
-      toast.error('Por favor, insira um email válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um email válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isCorporateEmail(email)) {
-      toast.error('Por favor, insira um email corporativo.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um email corporativo.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
     }
     if (!isValidCNPJ(cnpj)) {
-      toast.error('Por favor, insira um CNPJ válido.', {
-        position: 'top-right',
+      toast.error("Por favor, insira um CNPJ válido.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
@@ -144,42 +144,42 @@ export default function Contato() {
     };
 
     try {
-      const response = await fetch('/api/SendBackgroundForm', {
-        method: 'POST',
+      const response = await fetch("/api/SendBackgroundForm", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formDataBackground),
       });
 
       if (response.ok) {
-        toast.success('Mensagem enviada com sucesso!', {
-          position: 'top-right',
+        toast.success("Mensagem enviada com sucesso!", {
+          position: "top-right",
           autoClose: 5000,
         });
         if (window.dataLayer) {
           window.dataLayer.push({
-            event: 'formSubmission',
+            event: "formSubmission",
             formData: formDataBackground,
           });
         }
-        console.log('Mensagem enviada com sucesso');
+        console.log("Mensagem enviada com sucesso");
       } else {
-        toast.error('Erro ao enviar a mensagem.', {
-          position: 'top-right',
+        toast.error("Erro ao enviar a mensagem.", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.error('Erro ao enviar a mensagem');
+        console.error("Erro ao enviar a mensagem");
       }
     } catch (error) {
-      console.error('Erro ao enviar a mensagem:', error);
+      console.error("Erro ao enviar a mensagem:", error);
     }
   };
 
   const verificaEmailInscricao = () => {
     if (!emailInscricao) {
-      toast.error('Por favor, insira seu email para inscrição.', {
-        position: 'top-right',
+      toast.error("Por favor, insira seu email para inscrição.", {
+        position: "top-right",
         autoClose: 5000,
       });
       return false;
@@ -198,29 +198,29 @@ export default function Contato() {
     };
 
     try {
-      const response = await fetch('/api/SendInscricao', {
-        method: 'POST',
+      const response = await fetch("/api/SendInscricao", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formDataInscricao),
       });
 
       if (response.ok) {
-        toast.success('Inscrição realizada com sucesso!', {
-          position: 'top-right',
+        toast.success("Inscrição realizada com sucesso!", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.log('Inscrição realizada com sucesso');
+        console.log("Inscrição realizada com sucesso");
       } else {
-        toast.error('Erro ao realizar a inscrição.', {
-          position: 'top-right',
+        toast.error("Erro ao realizar a inscrição.", {
+          position: "top-right",
           autoClose: 5000,
         });
-        console.error('Erro ao realizar a inscrição');
+        console.error("Erro ao realizar a inscrição");
       }
     } catch (error) {
-      console.error('Erro ao realizar a inscrição:', error);
+      console.error("Erro ao realizar a inscrição:", error);
     }
   };
 
@@ -243,10 +243,10 @@ export default function Contato() {
                       src="https://d10fqir6n4h7sq.cloudfront.net/public/map.svg"
                       alt=""
                     />
-                  </div>{' '}
+                  </div>{" "}
                   <div className={styles.location}>
-                    <Link href={'https://maps.app.goo.gl/kUJqwdEun6XpRDg86'}>
-                      <h1>Endereço</h1>{' '}
+                    <Link href={"https://maps.app.goo.gl/kUJqwdEun6XpRDg86"}>
+                      <h1>Endereço</h1>{" "}
                       <p>
                         R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
                         80020-310
@@ -264,7 +264,7 @@ export default function Contato() {
                   <div className={styles.contatos}>
                     <h1>Nossos contatos</h1>
                     <Link href="mailto:comercial@lwtecnologia.com.br">
-                      <p>comercial@lwtecnologia.com.br</p>{' '}
+                      <p>comercial@lwtecnologia.com.br</p>{" "}
                     </Link>
                   </div>
                 </div>
@@ -360,7 +360,7 @@ export default function Contato() {
                 </div>
 
                 <div className={styles.message}>
-                  <h3>Mensagem*</h3>{' '}
+                  <h3>Mensagem*</h3>{" "}
                   <input
                     type="text"
                     placeholder="Nos conte um pouco sobre sua demanda..."
@@ -381,10 +381,10 @@ export default function Contato() {
                     src="https://d10fqir6n4h7sq.cloudfront.net/public/map.svg"
                     alt=""
                   />
-                </div>{' '}
+                </div>{" "}
                 <div className={styles.location}>
-                  <Link href={'https://maps.app.goo.gl/kUJqwdEun6XpRDg86'}>
-                    <h1>Endereço</h1>{' '}
+                  <Link href={"https://maps.app.goo.gl/kUJqwdEun6XpRDg86"}>
+                    <h1>Endereço</h1>{" "}
                     <p>
                       R. XV de Novembro, 621 2º andar Centro, Curitiba PR,
                       80020-310
@@ -402,7 +402,7 @@ export default function Contato() {
                 <div className={styles.contatos}>
                   <h1>Nossos contatos</h1>
                   <Link href="mailto:comercial@lwtecnologia.com.br">
-                    <p>comercial@lwtecnologia.com.br</p>{' '}
+                    <p>comercial@lwtecnologia.com.br</p>{" "}
                   </Link>
                 </div>
               </div>

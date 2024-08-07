@@ -14,7 +14,7 @@
 }
 
 .container::before {
-  content: '';
+  content: "";
 
   position: absolute;
   top: 0;
@@ -22,7 +22,7 @@
   width: 100%;
   aspect-ratio: 300 / 67;
   z-index: 100;
-  background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/reduzir.svg');
+  background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/reduzir.svg");
   background-size: cover;
   background-position: left -62px;
   background-repeat: no-repeat;
@@ -31,14 +31,14 @@
   }
 }
 .container::after {
-  content: '';
+  content: "";
 
   position: absolute;
   bottom: -1px;
   left: 0;
   width: 100%;
   aspect-ratio: 300 / 67;
-  background-image: url('https://d10fqir6n4h7sq.cloudfront.net/public/destaques.svg');
+  background-image: url("https://d10fqir6n4h7sq.cloudfront.net/public/destaques.svg");
   background-size: cover;
   background-repeat: no-repeat;
 

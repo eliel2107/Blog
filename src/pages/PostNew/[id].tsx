@@ -1,12 +1,12 @@
-import { createClient } from 'contentful';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import { createClient } from "contentful";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from "next/router";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
-import styles from './styles.module.scss';
-import Destaques from '@/components/Destaques';
-import DestaquesNew from '@/components/DestaquesNew';
+import styles from "./styles.module.scss";
+import Destaques from "@/components/Destaques";
+import DestaquesNew from "@/components/DestaquesNew";
 
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
@@ -31,18 +31,18 @@ export default function BlogPost({ post }: BlogPostProps) {
     const year = date.getFullYear();
 
     const months = [
-      'janeiro',
-      'fevereiro',
-      'março',
-      'abril',
-      'maio',
-      'junho',
-      'julho',
-      'agosto',
-      'setembro',
-      'outubro',
-      'novembro',
-      'dezembro',
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro",
     ];
     const month = months[date.getMonth()];
 
@@ -79,7 +79,7 @@ export default function BlogPost({ post }: BlogPostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await contentfulClient.getEntries({ content_type: 'blog' });
+  const response = await contentfulClient.getEntries({ content_type: "blog" });
 
   const paths = response.items.map((post: any) => ({
     params: { id: post.sys.id },

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import React, { useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function ProdutosResponsive() {
   const Accordion = () => {
@@ -18,32 +18,33 @@ export default function ProdutosResponsive() {
       //   image: 'https://d10fqir6n4h7sq.cloudfront.net/public/SecurityCar.svg',
       // },
       {
-        url: '/debitos',
-        name: 'LW Débitos',
+        url: "/debitos",
+        name: "LW Débitos",
         description:
-          'Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg',
+          "Elimine planilhas e processos manuais no pagamento dos débitos da sua frota de veículos.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/MoneyIcon.svg",
       },
       {
-        url: '/doc',
-        name: 'LW Doc',
-        description: 'Simplifique sua gestão documental através da tecnologia.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/EmplacamentoIcon.svg',
+        url: "/doc",
+        name: "LW Doc",
+        description: "Simplifique sua gestão documental através da tecnologia.",
+        image:
+          "https://d10fqir6n4h7sq.cloudfront.net/public/EmplacamentoIcon.svg",
       },
 
       {
-        url: '/sim',
-        name: 'LW SIM',
-        description: 'Controle sua frota com tecnologia de alta performance.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg',
+        url: "/sim",
+        name: "LW SIM",
+        description: "Controle sua frota com tecnologia de alta performance.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/PhoneIcon.svg",
       },
 
       {
-        url: '/multas',
-        name: 'LW Multas',
+        url: "/multas",
+        name: "LW Multas",
         description:
-          'Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.',
-        image: 'https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg',
+          "Sua gestão de multas mais eficiente, ágil e segura para diversos tamanhos de frotas.",
+        image: "https://d10fqir6n4h7sq.cloudfront.net/public/DangerIcon.svg",
       },
     ];
     function handleLinkClick(event: React.MouseEvent<HTMLLIElement>): void {}
@@ -54,7 +55,7 @@ export default function ProdutosResponsive() {
           <div className={styles.button}>
             <button
               className={`${styles.button} ${
-                isAccordionOpen ? styles.open : ''
+                isAccordionOpen ? styles.open : ""
               }`}
               onClick={toggleAccordion}
             >

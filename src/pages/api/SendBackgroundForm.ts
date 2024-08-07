@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
-const formidable = require('formidable');
+import type { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
+const formidable = require("formidable");
 
 export const config = {
   api: {
@@ -10,11 +10,11 @@ export const config = {
 
 export default async function SendBackgroundForm(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-  if (req.method !== 'POST') {
-    console.log('Método não permitido');
-    res.status(405).json({ message: 'Method Not Allowed' });
+  if (req.method !== "POST") {
+    console.log("Método não permitido");
+    res.status(405).json({ message: "Method Not Allowed" });
     return;
   }
 
@@ -23,10 +23,10 @@ export default async function SendBackgroundForm(
 
     form.parse(req, async (err: any, fields: any, files: any) => {
       if (err) {
-        console.log('Erro ao processar o formulário:', err);
+        console.log("Erro ao processar o formulário:", err);
         res
           .status(500)
-          .json({ message: 'Erro no processamento do formulário' });
+          .json({ message: "Erro no processamento do formulário" });
         return;
       }
 
@@ -41,10 +41,10 @@ export default async function SendBackgroundForm(
         !fields.carQuantity
       ) {
         console.log(
-          'Campos obrigatórios não encontrados no corpo da requisição'
+          "Campos obrigatórios não encontrados no corpo da requisição",
         );
         res.status(400).json({
-          message: 'Campos obrigatórios não encontrados no corpo da requisição',
+          message: "Campos obrigatórios não encontrados no corpo da requisição",
         });
         return;
       }
@@ -59,7 +59,7 @@ export default async function SendBackgroundForm(
       const carQuantity = fields.carQuantity;
       try {
         const transporter = nodemailer.createTransport({
-          service: 'gmail',
+          service: "gmail",
 
           auth: {
             user: process.env.EMAIL_USERNAME,
@@ -69,9 +69,9 @@ export default async function SendBackgroundForm(
         });
 
         const mailOptions = {
-          from: 'diogaodieger@gmail.com',
-          to: 'comercial@lwtecnologia.com.br',
-          subject: 'Formulário de Contato',
+          from: "diogaodieger@gmail.com",
+          to: "comercial@lwtecnologia.com.br",
+          subject: "Formulário de Contato",
           text: `
             Nome: ${nome}
             Email: ${email}
@@ -86,22 +86,22 @@ export default async function SendBackgroundForm(
         };
 
         await transporter.sendMail(mailOptions);
-        console.log('E-mail do formulário de background enviado com sucesso');
+        console.log("E-mail do formulário de background enviado com sucesso");
         res.status(200).json({
-          message: 'E-mail do formulário de background enviado com sucesso!',
+          message: "E-mail do formulário de background enviado com sucesso!",
         });
       } catch (error) {
         console.error(
-          'Erro ao enviar e-mail do formulário de background:',
-          error
+          "Erro ao enviar e-mail do formulário de background:",
+          error,
         );
         res.status(500).json({
-          message: 'Erro ao enviar e-mail do formulário de background',
+          message: "Erro ao enviar e-mail do formulário de background",
         });
       }
     });
   } catch (error) {
-    console.error('Erro na API:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
+    console.error("Erro na API:", error);
+    res.status(500).json({ message: "Erro interno do servidor" });
   }
 }

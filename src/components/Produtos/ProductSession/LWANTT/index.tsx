@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export default function Transportadora() {
   return (
@@ -16,12 +16,12 @@ export default function Transportadora() {
                   <strong> automatizada.</strong>
                 </p>
                 <p>
-                  Através dele, você possui <strong>maior controle</strong>{' '}
-                  sobre seus veículos, <strong>evitando complicações</strong>{' '}
+                  Através dele, você possui <strong>maior controle</strong>{" "}
+                  sobre seus veículos, <strong>evitando complicações</strong>{" "}
                   que impossibilitem o funcionamento da sua frota.
                 </p>
               </div>
-              <Link href={'/contato'}>
+              <Link href={"/contato"}>
                 <div className={styles.button}>
                   <button>Saiba mais</button>
                 </div>

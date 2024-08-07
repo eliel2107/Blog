@@ -1,6 +1,6 @@
 // DropdownMenu.js
-import React from 'react';
-import styles from './styles.module.scss';
+import React from "react";
+import styles from "./styles.module.scss";
 
 interface DropdownMenuProps {
   isOpen: boolean; // Explicitly define the type as boolean

@@ -30,7 +30,7 @@ export default function Login() {
     if (selectedImage !== null) {
       document.documentElement.style.setProperty(
         "--button-gradient",
-        buttonGradients[selectedImage]
+        buttonGradients[selectedImage],
       );
     }
   }, [selectedImage]);
@@ -50,7 +50,7 @@ export default function Login() {
     try {
       if (step === 1) {
         const csrfResponse = await axios.get(
-          "https://documentacao.lwtecnologia.com.br/api/ms_usuarios/v1/usuario/csrf"
+          "https://documentacao.lwtecnologia.com.br/api/ms_usuarios/v1/usuario/csrf",
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -62,7 +62,7 @@ export default function Login() {
             email: email,
             senha: password,
             csrf: csrfToken,
-          }
+          },
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
@@ -76,7 +76,7 @@ export default function Login() {
             senha: password,
             codigo: authCode,
             csrf: csrfToken,
-          }
+          },
         );
 
         const accessToken = finalLoginResponse.data.access_token;
@@ -92,7 +92,7 @@ export default function Login() {
     try {
       if (step === 1) {
         const csrfResponse = await axios.get(
-          "https://api.sistemamultas.com.br/v2/auth/csrf"
+          "https://api.sistemamultas.com.br/v2/auth/csrf",
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -105,7 +105,7 @@ export default function Login() {
             senha: password,
             csrf: csrfToken,
             plataforma: "DEBITOS",
-          }
+          },
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
@@ -120,7 +120,7 @@ export default function Login() {
             codigo: authCode,
             csrf: csrfToken,
             plataforma: "DEBITOS",
-          }
+          },
         );
 
         const accessToken = finalLoginResponse.data.token;
@@ -136,7 +136,7 @@ export default function Login() {
     try {
       if (step === 1) {
         const csrfResponse = await axios.get(
-          "https://api.sistemamultas.com.br/v2/auth/csrf"
+          "https://api.sistemamultas.com.br/v2/auth/csrf",
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -148,7 +148,7 @@ export default function Login() {
             login: email,
             senha: password,
             csrf: csrfToken,
-          }
+          },
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
@@ -162,7 +162,7 @@ export default function Login() {
             senha: password,
             codigo2FA: authCode,
             csrf: csrfToken,
-          }
+          },
         );
 
         const accessToken = finalLoginResponse.data.token;
@@ -285,12 +285,12 @@ export default function Login() {
                     <button type="submit">Entrar</button>
                   </div>
                   <div className={styles.divisor}></div>
-                  <div className={styles.create}>
+                  {/* <div className={styles.create}>
                     <p>Ainda não tem uma conta?</p>
                     <Link href={"/cadastro"}>
                       <h4>Criar conta</h4>
                     </Link>
-                  </div>
+                  </div> */}
                 </form>
               </div>
             </div>

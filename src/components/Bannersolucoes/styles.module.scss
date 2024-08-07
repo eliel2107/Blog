@@ -1,100 +1,100 @@
 .container {
-    background: #fff;
-    width: 100%;
-    padding-block: 192px 112px;
+  background: #fff;
+  width: 100%;
+  padding-block: 192px 112px;
 }
 .content {
-    max-width: 1440px;
-    margin-inline: auto;
+  max-width: 1440px;
+  margin-inline: auto;
 
-    display: flex;
+  display: flex;
 
-    justify-content: space-between;
-    margin-inline: auto;
-    padding-inline: 194px;
-    @media (max-width: 768px) {
-        flex-direction: column;
-        padding-inline: 20px;
-    }
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: 194px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-inline: 20px;
+  }
 }
 .title {
+  h1 {
+    color: var(--gray-900, #061c3d);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
     h1 {
-        color: var(--gray-900, #061c3d);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 3.5rem;
-        font-style: normal;
-        font-weight: 400;
+      font-size: 2rem;
     }
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 2rem;
-        }
-    }
+  }
 }
 .undertitle {
-    padding-top: 115px;
-    display: flex;
-    gap: 40px;
-    h2 {
-        color: var(--grayscale-700, #3c3c3c);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 0.8rem;
-        font-style: normal;
-        font-weight: 500;
-        opacity: 0.87;
-    }
-    p {
-        color: var(--grayscale-700, #3c3c3c);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 0.8rem;
-        font-style: normal;
-        font-weight: 400;
-        opacity: 0.87;
-    }
+  padding-top: 115px;
+  display: flex;
+  gap: 40px;
+  h2 {
+    color: var(--grayscale-700, #3c3c3c);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 500;
+    opacity: 0.87;
+  }
+  p {
+    color: var(--grayscale-700, #3c3c3c);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    opacity: 0.87;
+  }
 }
 .rightside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  p {
+    color: var(--gray-700, #42526b);
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    width: 530px;
+  }
+  button {
+    width: 279px;
+    height: 48px;
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    p {
-        color: var(--gray-700, #42526b);
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 400;
-        width: 530px;
-    }
-    button {
-        width: 279px;
-        height: 48px;
-        display: flex;
 
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        border-radius: 7px;
-        border: 1.5px solid #000040;
-        background: none;
-        color: var(--brand-blue, #000040);
-        cursor: pointer;
-        font-family: var(--font-montserrat, sans-serif);
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 7px;
+    border: 1.5px solid #000040;
+    background: none;
+    color: var(--brand-blue, #000040);
+    cursor: pointer;
+    font-family: var(--font-montserrat, sans-serif);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    p {
+      width: unset;
     }
-    @media (max-width: 768px) {
-        p {
-            width: unset;
-        }
-    }
+  }
 }
 .stars {
-    display: flex;
-    align-items: start;
-    gap: 16px;
+  display: flex;
+  align-items: start;
+  gap: 16px;
 }
 .satisfaction {
-    display: flex;
-    align-items: start;
-    gap: 16px;
+  display: flex;
+  align-items: start;
+  gap: 16px;
 }

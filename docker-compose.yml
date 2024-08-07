@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   lw-website:
@@ -7,6 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-    command: 'npm run start'
+    command: "npm run start"
     ports:
-      - '80:3000'
+      - "80:3000"

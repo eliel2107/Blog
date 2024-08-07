@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.scss';
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function Sobrevideo() {
   const [offset, setOffset] = useState(0);
@@ -37,7 +37,10 @@ export default function Sobrevideo() {
                 height="586"
                 controls
               >
-                <source src="https://d10fqir6n4h7sq.cloudfront.net/public/INSTITUCIONAL_LW.mp4" type="video/mp4" />
+                <source
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/INSTITUCIONAL_LW.mp4"
+                  type="video/mp4"
+                />
                 Seu navegador não suporta vídeos.
               </video>
             </div>

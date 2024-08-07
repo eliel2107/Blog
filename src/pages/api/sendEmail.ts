@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
-const formidable = require('formidable');
+import type { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
+const formidable = require("formidable");
 
 export const config = {
   api: {
@@ -10,11 +10,11 @@ export const config = {
 
 export default async function sendEmail(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-  if (req.method !== 'POST') {
-    console.log('Método não permitido');
-    res.status(405).json({ message: 'Method Not Allowed' });
+  if (req.method !== "POST") {
+    console.log("Método não permitido");
+    res.status(405).json({ message: "Method Not Allowed" });
     return;
   }
 
@@ -23,10 +23,10 @@ export default async function sendEmail(
 
     form.parse(req, async (err: any, fields: any, files: any) => {
       if (err) {
-        console.log('Erro ao processar o formulário:', err);
+        console.log("Erro ao processar o formulário:", err);
         res
           .status(500)
-          .json({ message: 'Erro no processamento do formulário' });
+          .json({ message: "Erro no processamento do formulário" });
         return;
       }
 
@@ -52,12 +52,12 @@ export default async function sendEmail(
       }
 
       // Lógica para processar campos e arquivos
-      console.log('Campos:', fields);
-      console.log('Arquivos:', files);
+      console.log("Campos:", fields);
+      console.log("Arquivos:", files);
 
       try {
         const transporter = nodemailer.createTransport({
-          service: 'gmail',
+          service: "gmail",
 
           auth: {
             user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
@@ -67,23 +67,23 @@ export default async function sendEmail(
         });
 
         const mailOptions = {
-          from: 'diogaodieger@gmail.com', // Substitua pelo seu e-mail
-          to: 'comercial@lwtecnologia.com.br', // Substitua pelo e-mail de destino
-          subject: 'Novo Cadastro do Formulário',
+          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
+          to: "comercial@lwtecnologia.com.br", // Substitua pelo e-mail de destino
+          subject: "Novo Cadastro do Formulário",
           text: `Dados do Formulário: ${JSON.stringify(fields)}`,
           attachments: attachments,
         };
 
         await transporter.sendMail(mailOptions);
-        console.log('Email enviado com sucesso');
-        res.status(200).json({ message: 'Email enviado com sucesso!' });
+        console.log("Email enviado com sucesso");
+        res.status(200).json({ message: "Email enviado com sucesso!" });
       } catch (error) {
-        console.error('Erro ao enviar email:', error);
-        res.status(500).json({ message: 'Erro ao enviar email' });
+        console.error("Erro ao enviar email:", error);
+        res.status(500).json({ message: "Erro ao enviar email" });
       }
     });
   } catch (error) {
-    console.error('Erro na API:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
+    console.error("Erro na API:", error);
+    res.status(500).json({ message: "Erro interno do servidor" });
   }
 }

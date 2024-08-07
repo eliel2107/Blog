@@ -38,6 +38,64 @@ export default function App({
       window.dataLayer.push(args);
     }
 
+    // Função para carregar o script do RD Station
+    const loadRDScript = () => {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src =
+        "https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js";
+      script.onload = () => {
+        const observer = new MutationObserver((mutationsList, observer) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === "childList") {
+              const rdElement = document.querySelector(
+                "#rd-floating_button-l9ohyb60"
+              );
+              if (rdElement) {
+                console.log("Elemento do RD Station encontrado");
+                rdElement.addEventListener("click", () => {
+                  gtag("event", "click", {
+                    event_category: "RD Station",
+                    event_label: "RD Station WhatsApp Button",
+                  });
+                });
+                observer.disconnect();
+                return;
+              }
+            }
+          }
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
+
+        // Verificação inicial imediata
+        const rdElement = document.querySelector(
+          "#rd-floating_button-l9ohyb60"
+        );
+        if (rdElement) {
+          console.log("Elemento do RD Station encontrado");
+          rdElement.addEventListener("click", () => {
+            gtag("event", "click", {
+              event_category: "RD Station",
+              event_label: "RD Station WhatsApp Button",
+            });
+          });
+          observer.disconnect();
+        } else {
+          console.log(
+            "Elemento do RD Station não encontrado, observando mudanças no DOM"
+          );
+        }
+      };
+      document.head.appendChild(script);
+    };
+
+    loadRDScript();
+
     const handleConversion = (event: Event) => {
       const target = event.target as HTMLElement;
       if (target.dataset.conversion) {
@@ -45,49 +103,14 @@ export default function App({
           send_to: "AW-16519096883/Lu6HCIeYgK4ZELPU9cQ9",
         });
 
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-        script.src =
-          "https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js";
-        script.onload = () => {
-          const observer = new MutationObserver((mutationsList, observer) => {
-            for (const mutation of mutationsList) {
-              if (mutation.type === "childList") {
-                const rdElement = document.querySelector(
-                  "#rd-floating_button-l9ohyb60"
-                );
-                if (rdElement) {
-                  console.log(
-                    "Elemento do RD Station encontrado, simulando clique"
-                  );
-                  rdElement.dispatchEvent(new Event("click"));
-                  observer.disconnect();
-                  return;
-                }
-              }
-            }
-          });
-
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
-
-          // Verificação inicial imediata
-          const rdElement = document.querySelector(
-            "#rd-floating_button-l9ohyb60"
-          );
-          if (rdElement) {
-            rdElement.dispatchEvent(new Event("click"));
-            observer.disconnect();
-          } else {
-            console.log(
-              "Elemento do RD Station não encontrado, observando mudanças no DOM"
-            );
-          }
-        };
-        document.head.appendChild(script);
+        // Garanta que o script seja carregado apenas uma vez
+        if (
+          !document.querySelector(
+            `script[src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/ee77a7b0-af9e-41c2-9e79-6ccb8a7eb68b-loader.js"]`
+          )
+        ) {
+          loadRDScript();
+        }
       }
     };
 
@@ -141,13 +164,13 @@ export default function App({
       <NextNProgress color="#fff" />
       <div className={`${poppins.variable} ${montserrat.variable}`}>
         {getLayout(<Component {...pageProps} />)}
-        <button
+        {/* <button
           id="conversion-button"
           className="conversion-button"
           data-conversion="true"
         >
           Convert
-        </button>
+        </button> */}
       </div>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
       <Cookies />

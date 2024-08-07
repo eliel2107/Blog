@@ -88,7 +88,14 @@ export default function NossosCompromissos() {
               "https://d10fqir6n4h7sq.cloudfront.net/public/esg/Pol%C3%ADtica%20de%20Compliance.pdf"
             }
           >
-            <p>Políticas da LW</p>
+            <p>Políticas de Compliance</p>
+          </Link>
+          <Link
+            href={
+              "https://d10fqir6n4h7sq.cloudfront.net/public/esg/Politica%20de%20Brindes%20e%20Presentes.pdf"
+            }
+          >
+            <p>Políticas de Brindes e Presentes</p>
           </Link>
           <Link
             href={

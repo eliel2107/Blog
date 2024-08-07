@@ -1,5 +1,5 @@
-declare module 'react-input-mask' {
-  import * as React from 'react';
+declare module "react-input-mask" {
+  import * as React from "react";
 
   interface InputMaskProps extends React.InputHTMLAttributes<HTMLInputElement> {
     mask: string;
@@ -8,7 +8,7 @@ declare module 'react-input-mask' {
     beforeMaskedValueChange?: (
       newState: any,
       oldState: any,
-      userInput: string
+      userInput: string,
     ) => any;
   }
 
