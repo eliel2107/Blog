@@ -244,7 +244,7 @@ export default function OsFundadores() {
               </div>
               <div className={styles.founderName}>
                 <h2>
-                  Supervisora <br />
+                  Gerente <br />
                   Administrativa{" "}
                 </h2>
               </div>
