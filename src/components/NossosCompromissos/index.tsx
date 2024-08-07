@@ -88,7 +88,7 @@ export default function NossosCompromissos() {
               "https://d10fqir6n4h7sq.cloudfront.net/public/esg/Pol%C3%ADtica%20de%20Compliance.pdf"
             }
           >
-            <p>Políticas de Compilance</p>
+            <p>Políticas de Compliance</p>
           </Link>
           <Link
             href={

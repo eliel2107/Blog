@@ -139,8 +139,8 @@ export default function OsFundadores() {
           </div>
         </div>
       </div>
-      <div className={styles.CEOcontainer}>
-        <div className={styles.CEOcontent}>
+      <div className={styles.CEOcontainer3}>
+        <div className={styles.CEOcontent3}>
           <div className={styles.leftSide}>
             <img src="ceo.jpeg" alt="" />
           </div>
