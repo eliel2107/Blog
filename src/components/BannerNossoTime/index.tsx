@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export default function BannerNossoTime() {
@@ -27,7 +28,9 @@ export default function BannerNossoTime() {
             </p>
           </div>
           <div>
-            <button>Faça parte!</button>
+            <Link href="/trabalhe">
+              <button>Faça parte!</button>
+            </Link>
           </div>
         </div>
       </section>
