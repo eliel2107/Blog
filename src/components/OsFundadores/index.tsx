@@ -139,6 +139,9 @@ export default function OsFundadores() {
           </div>
         </div>
       </div>
+      <div className={styles.title1}>
+        <h1>Conheça nossos Diretores!</h1>
+      </div>
       <div className={styles.CEOcontainer3}>
         <div className={styles.CEOcontent3}>
           <div className={styles.leftSide}>
@@ -187,6 +190,7 @@ export default function OsFundadores() {
           </div>
         </div>
       </div>
+
       <div className={styles.CEOcontainer3}>
         <div className={styles.CEOcontent3}>
           <div className={styles.leftSide}>
