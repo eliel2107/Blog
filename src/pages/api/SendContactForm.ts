@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import axios from "axios";
 const formidable = require("formidable");
 
 export const config = {
@@ -10,7 +11,7 @@ export const config = {
 
 export default async function SendContactForm(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");
@@ -42,7 +43,7 @@ export default async function SendContactForm(
         !fields.segmento
       ) {
         console.log(
-          "Campos obrigatórios não encontrados no corpo da requisição",
+          "Campos obrigatórios não encontrados no corpo da requisição"
         );
         res.status(400).json({
           message: "Campos obrigatórios não encontrados no corpo da requisição",
@@ -50,7 +51,7 @@ export default async function SendContactForm(
         return;
       }
 
-      // Lógica para processar o formulário de contato
+      // Dados do formulário
       const name = fields.name;
       const email = fields.email;
       const company = fields.company;
@@ -60,20 +61,48 @@ export default async function SendContactForm(
       const carQuantity = fields.carQuantity;
       const segmento = fields.segmento;
 
+      // Envio para o RD Station
       try {
+        const rdStationData = {
+          event_type: "CONVERSION",
+          event_family: "CDP",
+          payload: {
+            conversion_identifier: "formulario-site", // Identificador da conversão criado no RD Station
+            name: name,
+            email: email,
+            empresa: company,
+            mensagem: message,
+            telefone: phone,
+            cnpj: cnpj,
+            quantidade_de_carros: carQuantity,
+            segmento: segmento,
+          },
+        };
+
+        await axios.post(
+          `https://api.rd.services/platform/conversions`,
+          rdStationData,
+          {
+            headers: {
+              Authorization: `Bearer QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`, // API Key do RD Station
+            },
+          }
+        );
+
+        console.log("Dados enviados ao RD Station com sucesso");
+
+        // Envio do e-mail (opcional)
         const transporter = nodemailer.createTransport({
           service: "gmail",
-
           auth: {
             user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
             pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
           },
-          debug: true, // Isso habilita o modo de depuração, se necessário
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
-          to: "comercial@lwtecnologia.com.br", // Substitua pelo e-mail de destino
+          from: "diogaodieger@gmail.com",
+          to: "comercial@lwtecnologia.com.br",
           subject: "Formulário de Contato",
           text: `
             Nome: ${name}
@@ -90,13 +119,11 @@ export default async function SendContactForm(
         await transporter.sendMail(mailOptions);
         console.log("E-mail do formulário de contato enviado com sucesso");
         res.status(200).json({
-          message: "E-mail do formulário de contato enviado com sucesso!",
+          message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
         });
       } catch (error) {
-        console.error("Erro ao enviar e-mail do formulário de contato:", error);
-        res
-          .status(500)
-          .json({ message: "Erro ao enviar e-mail do formulário de contato" });
+        console.error("Erro ao enviar dados ao RD Station:", error);
+        res.status(500).json({ message: "Erro ao enviar dados ao RD Station" });
       }
     });
   } catch (error) {

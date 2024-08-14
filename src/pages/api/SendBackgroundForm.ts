@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import axios from "axios";
 const formidable = require("formidable");
 
 export const config = {
@@ -10,7 +11,7 @@ export const config = {
 
 export default async function SendBackgroundForm(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");
@@ -41,7 +42,7 @@ export default async function SendBackgroundForm(
         !fields.carQuantity
       ) {
         console.log(
-          "Campos obrigatórios não encontrados no corpo da requisição",
+          "Campos obrigatórios não encontrados no corpo da requisição"
         );
         res.status(400).json({
           message: "Campos obrigatórios não encontrados no corpo da requisição",
@@ -57,10 +58,40 @@ export default async function SendBackgroundForm(
       const segmento = fields.segmento;
       const cnpj = fields.cnpj;
       const carQuantity = fields.carQuantity;
+
+      // Envio para o RD Station
+      const rdStationData = {
+        event_type: "CONVERSION",
+        event_family: "CDP",
+        payload: {
+          conversion_identifier: "formulario-site",
+          name: nome,
+          email: email,
+          personal_phone: telefone,
+          cf_nome_da_empresa: enterprise,
+          cf_cnpj: cnpj,
+          cf_segmento_0: segmento,
+          cf_quantos_veiculos: [carQuantity],
+          cf_mensagem: mensagem,
+        },
+      };
+
+      try {
+        const response = await axios.post(
+          `https://api.rd.services/platform/conversions?api_key=QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`,
+          rdStationData
+        );
+      } catch (error: any) {
+        console.error(
+          "Erro ao enviar dados ao RD Station:",
+          error.response ? error.response.data : error.message
+        );
+      }
+
+      // Envio do e-mail (opcional)
       try {
         const transporter = nodemailer.createTransport({
           service: "gmail",
-
           auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD,
@@ -81,19 +112,18 @@ export default async function SendBackgroundForm(
             Segmento: ${segmento}
             Mensagem: ${mensagem}
             Quantidade de carros: ${carQuantity}
-          
           `,
         };
 
         await transporter.sendMail(mailOptions);
         console.log("E-mail do formulário de background enviado com sucesso");
         res.status(200).json({
-          message: "E-mail do formulário de background enviado com sucesso!",
+          message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
         });
       } catch (error) {
         console.error(
           "Erro ao enviar e-mail do formulário de background:",
-          error,
+          error
         );
         res.status(500).json({
           message: "Erro ao enviar e-mail do formulário de background",
