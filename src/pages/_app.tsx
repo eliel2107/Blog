@@ -91,7 +91,7 @@ export default function App({
           );
         }
       };
-      document.head.appendChild(script);
+      document.body.appendChild(script);
     };
 
     loadRDScript();

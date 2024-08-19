@@ -1,6 +1,5 @@
 .container {
   background: rgba(51, 102, 153, 0.5);
-
   backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
@@ -9,6 +8,9 @@
   z-index: 999;
 }
 
+.resetTop {
+  top: 0 !important;
+}
 .content {
   display: flex;
   align-items: center;

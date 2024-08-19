@@ -11,6 +11,7 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isActive = (route: string) => {
     return route === router.pathname
@@ -114,10 +115,62 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkElement = setInterval(() => {
+        const targetElement = document.querySelector("#rd-section-luhazmn9");
+        console.log("Target Element:", targetElement);
+
+        if (targetElement) {
+          clearInterval(checkElement); // Para de verificar quando o elemento é encontrado
+
+          const adjustHeaderPosition = () => {
+            if (headerRef.current) {
+              const topValue = getComputedStyle(targetElement).top;
+              headerRef.current.style.top =
+                topValue === "110px" ? "110px" : "0";
+            }
+          };
+
+          const resetHeaderPosition = () => {
+            if (headerRef.current) {
+              headerRef.current.style.setProperty("top", "0", "important");
+            }
+          };
+
+          const observer = new MutationObserver(adjustHeaderPosition);
+
+          observer.observe(targetElement, {
+            attributes: true,
+            attributeFilter: ["style"],
+          });
+
+          adjustHeaderPosition();
+
+          const closeButton = document.querySelector(
+            "#rd-close_button-luhazmn7"
+          );
+
+          if (closeButton) {
+            closeButton.addEventListener("click", resetHeaderPosition);
+          }
+
+          return () => {
+            observer.disconnect();
+            if (closeButton) {
+              closeButton.removeEventListener("click", resetHeaderPosition);
+            }
+          };
+        }
+      }, 100); // Verifica a cada 100ms
+
+      return () => clearInterval(checkElement); // Limpa o intervalo ao desmontar o componente
+    }
+  }, []);
 
   return (
     <>
-      <section className={styles.container}>
+      <section className={styles.container} ref={headerRef}>
         <div className={styles.content} ref={dropdownRef}>
           <div className={styles.leftside}>
             <Link href={"/"}>
