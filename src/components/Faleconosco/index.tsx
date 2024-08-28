@@ -3,12 +3,14 @@ import InputMask from "react-input-mask";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles.module.scss";
+import { useLoading } from "@/context/LoadingContext";
 
 export default function Faleconosco() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
+  const { setLoading } = useLoading();
   const [cnpj, setCnpj] = useState("");
   const [carQuantity, setCarQuantity] = useState("");
   const [empresa, setEmpresa] = useState("");
@@ -150,6 +152,8 @@ export default function Faleconosco() {
     formData.append("segmento", segmento);
 
     try {
+      setLoading(true); // Ativar a tela de loading
+
       const response = await fetch("/api/SendContactForm", {
         method: "POST",
         body: formData,
@@ -169,7 +173,13 @@ export default function Faleconosco() {
         console.error("Erro ao enviar o Mensagem");
       }
     } catch (error) {
+      toast.error("Erro ao enviar o Mensagem", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       console.error("Erro ao enviar o Mensagem:", error);
+    } finally {
+      setLoading(false);
     }
   };
 

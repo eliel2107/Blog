@@ -32,6 +32,10 @@
 .logo {
   padding-left: 48px;
   padding-top: 48px;
+  img {
+    max-width: 150px;
+    width: 100%;
+  }
 }
 .logoR {
   display: none;
@@ -79,14 +83,14 @@
   flex-direction: column;
   h1 {
     color: var(--black, #404049);
-    font-family: var(--font-poppins, sans-serif);
+    font-family: var(--font-montserrat, sans-serif);
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
   }
   p {
     color: var(--black, #404049);
-    font-family: var(--font-poppins, sans-serif);
+    font-family: var(--font-montserrat, sans-serif);
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -194,7 +198,7 @@
 
   p {
     color: var(--black, #404049);
-    font-family: var(--font-poppins, sans-serif);
+    font-family: var(--font-montserrat, sans-serif);
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
@@ -203,7 +207,7 @@
     cursor: pointer;
     color: var(--brand-blue, #000040);
 
-    font-family: var(--font-poppins, sans-serif);
+    font-family: var(--font-montserrat, sans-serif);
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 600;

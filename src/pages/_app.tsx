@@ -10,6 +10,8 @@ import { initializeTagManager } from "../../utils/gtm";
 import usePageTracking from "../../utils/usePageTracking";
 import { montserrat, poppins } from "../styles/fonts";
 import "../styles/globals.scss";
+import { LoadingProvider, useLoading } from "../context/LoadingContext"; // Importar o contexto de loading
+import { Loading } from "@/components/Loading/loading"; // Importar o componente de loading
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -161,19 +163,24 @@ export default function App({
           `}
         </script>
       </Head>
-      <NextNProgress color="#fff" />
-      <div className={`${poppins.variable} ${montserrat.variable}`}>
-        {getLayout(<Component {...pageProps} />)}
-        {/* <button
-          id="conversion-button"
-          className="conversion-button"
-          data-conversion="true"
-        >
-          Convert
-        </button> */}
-      </div>
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
-      <Cookies />
+      <LoadingProvider>
+        <LoadingContainer /> {/* Componente de loading */}
+        <NextNProgress color="#fff" />
+        <div className={`${poppins.variable} ${montserrat.variable}`}>
+          {getLayout(<Component {...pageProps} />)}
+        </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          style={{ zIndex: 9000000000000000000000009999999999999999999999999 }}
+        />
+        <Cookies />
+      </LoadingProvider>
     </>
   );
 }
+const LoadingContainer = () => {
+  const { isLoading } = useLoading();
+  return isLoading ? <Loading /> : null;
+};

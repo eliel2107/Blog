@@ -119,50 +119,17 @@ export default function Header() {
     if (typeof window !== "undefined") {
       const checkElement = setInterval(() => {
         const targetElement = document.querySelector("#rd-section-luhazmn9");
-        console.log("Target Element:", targetElement);
 
-        if (targetElement) {
-          clearInterval(checkElement); // Para de verificar quando o elemento é encontrado
-
-          const adjustHeaderPosition = () => {
-            if (headerRef.current) {
-              const topValue = getComputedStyle(targetElement).top;
-              headerRef.current.style.top =
-                topValue === "110px" ? "110px" : "0";
-            }
-          };
-
-          const resetHeaderPosition = () => {
-            if (headerRef.current) {
-              headerRef.current.style.setProperty("top", "0", "important");
-            }
-          };
-
-          const observer = new MutationObserver(adjustHeaderPosition);
-
-          observer.observe(targetElement, {
-            attributes: true,
-            attributeFilter: ["style"],
-          });
-
-          adjustHeaderPosition();
-
-          const closeButton = document.querySelector(
-            "#rd-close_button-luhazmn7"
-          );
-
-          if (closeButton) {
-            closeButton.addEventListener("click", resetHeaderPosition);
+        if (headerRef.current) {
+          if (targetElement) {
+            // Se o elemento existir, defina o top como 110px
+            headerRef.current.style.setProperty("top", "110px", "important");
+          } else {
+            // Se o elemento não existir, defina o top como 0px
+            headerRef.current.style.setProperty("top", "0px", "important");
           }
-
-          return () => {
-            observer.disconnect();
-            if (closeButton) {
-              closeButton.removeEventListener("click", resetHeaderPosition);
-            }
-          };
         }
-      }, 100); // Verifica a cada 100ms
+      }, 1000); // Verifica a cada 1 segundo (1000ms)
 
       return () => clearInterval(checkElement); // Limpa o intervalo ao desmontar o componente
     }
