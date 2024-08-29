@@ -3,6 +3,12 @@ import nodemailer from "nodemailer";
 import axios from "axios";
 const formidable = require("formidable");
 
+type CarQuantityOptions =
+  | "Até 500"
+  | "De 501 à 1.000"
+  | "De 1.001 à 10.000"
+  | "Acima de 10.000";
+
 export const config = {
   api: {
     bodyParser: false,
@@ -57,9 +63,16 @@ export default async function SendBackgroundForm(
       const enterprise = fields.enterprise;
       const segmento = fields.segmento;
       const cnpj = fields.cnpj;
-      const carQuantity = fields.carQuantity;
+      const carQuantity = fields.carQuantity as CarQuantityOptions;
 
-      // Envio para o RD Station
+      // Correctly map the carQuantity options to a valid bitfield array
+      const carQuantityOptions: Record<CarQuantityOptions, number[]> = {
+        "Até 500": [1, 0, 0, 0],
+        "De 501 à 1.000": [0, 1, 0, 0],
+        "De 1.001 à 10.000": [0, 0, 1, 0],
+        "Acima de 10.000": [0, 0, 0, 1],
+      };
+
       const rdStationData = {
         event_type: "CONVERSION",
         event_family: "CDP",

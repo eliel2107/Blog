@@ -31,7 +31,6 @@ export default async function SendContactForm(
         return;
       }
 
-      console.log("Campos do formulário:", fields);
       if (
         !fields.name ||
         !fields.email ||
@@ -51,52 +50,54 @@ export default async function SendContactForm(
         return;
       }
 
-      // Dados do formulário
       const name = fields.name;
       const email = fields.email;
-      const company = fields.company;
-      const message = fields.message;
       const phone = fields.phone;
+      const message = fields.message;
+      const company = fields.company;
+      const segmento = fields.segmento;
       const cnpj = fields.cnpj;
       const carQuantity = fields.carQuantity;
-      const segmento = fields.segmento;
-
+      console.log(carQuantity, "carQuantity");
       // Envio para o RD Station
+      const rdStationData = {
+        event_type: "CONVERSION",
+        event_family: "CDP",
+        payload: {
+          conversion_identifier: "formulario-site",
+          name: name,
+          email: email,
+          personal_phone: phone,
+          cf_nome_da_empresa: company,
+          cf_cnpj: cnpj,
+          cf_segmento_0: segmento,
+          cf_quantos_veiculos: [carQuantity],
+          cf_mensagem: message,
+        },
+      };
+      console.log(rdStationData);
       try {
-        const rdStationData = {
-          event_type: "CONVERSION",
-          event_family: "CDP",
-          payload: {
-            conversion_identifier: "formulario-site", // Identificador da conversão criado no RD Station
-            name: name,
-            email: email,
-            empresa: company,
-            mensagem: message,
-            telefone: phone,
-            cnpj: cnpj,
-            quantidade_de_carros: carQuantity,
-            segmento: segmento,
-          },
-        };
-
         await axios.post(
-          `https://api.rd.services/platform/conversions`,
-          rdStationData,
-          {
-            headers: {
-              Authorization: `Bearer QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`, // API Key do RD Station
-            },
-          }
+          `https://api.rd.services/platform/conversions?api_key=QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`,
+          rdStationData
         );
-
         console.log("Dados enviados ao RD Station com sucesso");
+      } catch (error: any) {
+        console.error(
+          "Erro ao enviar dados ao RD Station:",
+          error.response ? error.response.data : error.message
+        );
+        res.status(500).json({ message: "Erro ao enviar dados ao RD Station" });
+        return;
+      }
 
-        // Envio do e-mail (opcional)
+      // Envio do e-mail (opcional)
+      try {
         const transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
-            pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
           },
         });
 
@@ -107,12 +108,12 @@ export default async function SendContactForm(
           text: `
             Nome: ${name}
             Email: ${email}
-            Empresa: ${company}
-            Mensagem: ${message}
             Telefone: ${phone}
-            CNPJ: ${cnpj}
-            Quantidade de carros: ${carQuantity}
+            Empresa: ${company} 
+            Cnpj: ${cnpj}
             Segmento: ${segmento}
+            Mensagem: ${message}
+            Quantidade de carros: ${carQuantity}
           `,
         };
 
@@ -122,8 +123,10 @@ export default async function SendContactForm(
           message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
         });
       } catch (error) {
-        console.error("Erro ao enviar dados ao RD Station:", error);
-        res.status(500).json({ message: "Erro ao enviar dados ao RD Station" });
+        console.error("Erro ao enviar e-mail do formulário de contato:", error);
+        res.status(500).json({
+          message: "Erro ao enviar e-mail do formulário de contato",
+        });
       }
     });
   } catch (error) {
