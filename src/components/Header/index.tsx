@@ -129,7 +129,7 @@ export default function Header() {
             headerRef.current.style.setProperty("top", "0px", "important");
           }
         }
-      }, 1000); // Verifica a cada 1 segundo (1000ms)
+      }, 100); // Verifica a cada 1 segundo (1000ms)
 
       return () => clearInterval(checkElement); // Limpa o intervalo ao desmontar o componente
     }

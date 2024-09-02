@@ -225,7 +225,7 @@ export default function Login() {
           position: "top-right",
           autoClose: 5000,
         });
-        window.location.href = `https://www.sistemamultas.com.br?token=${accessToken}`;
+        window.location.href = `${urlValidar}`;
       }
     } catch (error) {
       console.error("Error during login:", error);
