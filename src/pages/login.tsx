@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Login.module.scss";
 import axios from "axios";
+import { useLoading } from "@/context/LoadingContext";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -11,6 +13,7 @@ export default function Login() {
   const [csrfToken, setCsrfToken] = useState("");
   const [authCode, setAuthCode] = useState("");
   const [step, setStep] = useState(1);
+  const { setLoading } = useLoading();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -30,7 +33,7 @@ export default function Login() {
     if (selectedImage !== null) {
       document.documentElement.style.setProperty(
         "--button-gradient",
-        buttonGradients[selectedImage],
+        buttonGradients[selectedImage]
       );
     }
   }, [selectedImage]);
@@ -49,8 +52,10 @@ export default function Login() {
   const handleDocLogin = async () => {
     try {
       if (step === 1) {
+        setLoading(true); // Ativar a tela de loading
+
         const csrfResponse = await axios.get(
-          "https://documentacao.lwtecnologia.com.br/api/ms_usuarios/v1/usuario/csrf",
+          "https://documentacao.lwtecnologia.com.br/api/ms_usuarios/v1/usuario/csrf"
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -62,13 +67,21 @@ export default function Login() {
             email: email,
             senha: password,
             csrf: csrfToken,
-          },
+          }
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
 
+        toast.success("Primeiro passo concluído!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
+
+        setLoading(false); // Desativar a tela de loading após o primeiro step
         setStep(2);
       } else if (step === 2) {
+        setLoading(true); // Reativar a tela de loading no segundo step
+
         const finalLoginResponse = await axios.post(
           "https://documentacao.lwtecnologia.com.br/api/ms_usuarios/v1/usuario/login",
           {
@@ -76,23 +89,35 @@ export default function Login() {
             senha: password,
             codigo: authCode,
             csrf: csrfToken,
-          },
+          }
         );
 
-        const accessToken = finalLoginResponse.data.access_token;
+        const accessToken = finalLoginResponse.data.token;
         console.log("Login successful!", accessToken);
+        toast.success("Login realizado com sucesso!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
         window.location.href = `https://documentacao.lwtecnologia.com.br?token=${accessToken}`;
       }
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error("Erro durante o login.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+    } finally {
+      setLoading(false); // Desativar a tela de loading após o segundo step
     }
   };
 
   const handleDebitosLogin = async () => {
     try {
       if (step === 1) {
+        setLoading(true); // Ativar a tela de loading
+
         const csrfResponse = await axios.get(
-          "https://api.sistemamultas.com.br/v2/auth/csrf",
+          "https://api.sistemamultas.com.br/v2/auth/csrf"
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -105,13 +130,21 @@ export default function Login() {
             senha: password,
             csrf: csrfToken,
             plataforma: "DEBITOS",
-          },
+          }
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
 
+        toast.success("Primeiro passo concluído!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
+
+        setLoading(false); // Desativar a tela de loading após o primeiro step
         setStep(2);
       } else if (step === 2) {
+        setLoading(true); // Reativar a tela de loading no segundo step
+
         const finalLoginResponse = await axios.post(
           "https://api.sistemamultas.com.br/v2/auth/plataforma",
           {
@@ -120,23 +153,34 @@ export default function Login() {
             codigo: authCode,
             csrf: csrfToken,
             plataforma: "DEBITOS",
-          },
+          }
         );
 
         const accessToken = finalLoginResponse.data.token;
         console.log("Login successful!", accessToken);
+        toast.success("Login realizado com sucesso!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
         window.location.href = `https://debitos.lwtecnologia.com.br?token=${accessToken}`;
       }
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error("Erro durante o login.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+    } finally {
+      setLoading(false); // Desativar a tela de loading após o segundo step
     }
   };
-
   const handleMultasLogin = async () => {
     try {
       if (step === 1) {
+        setLoading(true); // Ativar a tela de loading
+
         const csrfResponse = await axios.get(
-          "https://api.sistemamultas.com.br/v2/auth/csrf",
+          "https://api.sistemamultas.com.br/v2/auth/csrf"
         );
         const csrfToken = csrfResponse.data.tokenCSRF;
         setCsrfToken(csrfToken);
@@ -148,13 +192,21 @@ export default function Login() {
             login: email,
             senha: password,
             csrf: csrfToken,
-          },
+          }
         );
         const idEnvioEmail = loginResponse.data.idEnvioEmail;
         console.log(idEnvioEmail);
 
+        toast.success("Primeiro passo concluído!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
+
+        setLoading(false); // Desativar a tela de loading após o primeiro step
         setStep(2);
       } else if (step === 2) {
+        setLoading(true); // Reativar a tela de loading no segundo step
+
         const finalLoginResponse = await axios.post(
           "https://api.sistemamultas.com.br/v2/auth",
           {
@@ -162,17 +214,27 @@ export default function Login() {
             senha: password,
             codigo2FA: authCode,
             csrf: csrfToken,
-          },
+          }
         );
-
+        console.log(finalLoginResponse.data);
         const accessToken = finalLoginResponse.data.token;
         const urlValidar = finalLoginResponse.data.urlValidar;
         console.log(urlValidar);
         console.log("Login successful!", accessToken);
-        window.location.href = urlValidar;
+        toast.success("Login realizado com sucesso!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
+        window.location.href = `${urlValidar}`;
       }
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error("Erro durante o login.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+    } finally {
+      setLoading(false); // Desativar a tela de loading após o segundo step
     }
   };
 
@@ -182,24 +244,30 @@ export default function Login() {
         <div className={styles.leftside}>
           <div className={styles.logo}>
             <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOLW.svg"
-              alt=""
+              src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+              alt="Logo"
             />
           </div>
           <div className={styles.socials}>
-            <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/fbicon.svg"
-              alt=""
-            />
-            <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/igicon.svg"
-              alt=""
-            />
-            <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/tticon.svg"
-              alt=""
-            />
-          </div>
+            <Link
+              href="https://www.facebook.com/lwtecnologia?mibextid=ZbWKwL"
+              passHref
+            >
+              <img
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/fbicon.svg"
+                alt="Facebook"
+              />
+            </Link>
+            <Link
+              href="https://www.instagram.com/grupolw_gestaodefrotas/"
+              passHref
+            >
+              <img
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/igicon.svg"
+                alt="Instagram"
+              />
+            </Link>
+          </div>{" "}
         </div>
         <div className={styles.rightside}>
           <div className={styles.title}>

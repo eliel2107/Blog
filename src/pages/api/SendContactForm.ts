@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import axios from "axios";
 const formidable = require("formidable");
 
 export const config = {
@@ -10,7 +11,7 @@ export const config = {
 
 export default async function SendContactForm(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");
@@ -30,7 +31,6 @@ export default async function SendContactForm(
         return;
       }
 
-      console.log("Campos do formulário:", fields);
       if (
         !fields.name ||
         !fields.email ||
@@ -42,7 +42,7 @@ export default async function SendContactForm(
         !fields.segmento
       ) {
         console.log(
-          "Campos obrigatórios não encontrados no corpo da requisição",
+          "Campos obrigatórios não encontrados no corpo da requisição"
         );
         res.status(400).json({
           message: "Campos obrigatórios não encontrados no corpo da requisição",
@@ -50,53 +50,83 @@ export default async function SendContactForm(
         return;
       }
 
-      // Lógica para processar o formulário de contato
       const name = fields.name;
       const email = fields.email;
-      const company = fields.company;
-      const message = fields.message;
       const phone = fields.phone;
+      const message = fields.message;
+      const company = fields.company;
+      const segmento = fields.segmento;
       const cnpj = fields.cnpj;
       const carQuantity = fields.carQuantity;
-      const segmento = fields.segmento;
+      console.log(carQuantity, "carQuantity");
+      // Envio para o RD Station
+      const rdStationData = {
+        event_type: "CONVERSION",
+        event_family: "CDP",
+        payload: {
+          conversion_identifier: "formulario-site",
+          name: name,
+          email: email,
+          personal_phone: phone,
+          cf_nome_da_empresa: company,
+          cf_cnpj: cnpj,
+          cf_segmento_0: segmento,
+          cf_quantos_veiculos: [carQuantity],
+          cf_mensagem: message,
+        },
+      };
+      console.log(rdStationData);
+      try {
+        await axios.post(
+          `https://api.rd.services/platform/conversions?api_key=QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`,
+          rdStationData
+        );
+        console.log("Dados enviados ao RD Station com sucesso");
+      } catch (error: any) {
+        console.error(
+          "Erro ao enviar dados ao RD Station:",
+          error.response ? error.response.data : error.message
+        );
+        res.status(500).json({ message: "Erro ao enviar dados ao RD Station" });
+        return;
+      }
 
+      // Envio do e-mail (opcional)
       try {
         const transporter = nodemailer.createTransport({
           service: "gmail",
-
           auth: {
-            user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
-            pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
           },
-          debug: true, // Isso habilita o modo de depuração, se necessário
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
-          to: "comercial@lwtecnologia.com.br", // Substitua pelo e-mail de destino
+          from: "diogaodieger@gmail.com",
+          to: "comercial@lwtecnologia.com.br",
           subject: "Formulário de Contato",
           text: `
             Nome: ${name}
             Email: ${email}
-            Empresa: ${company}
-            Mensagem: ${message}
             Telefone: ${phone}
-            CNPJ: ${cnpj}
-            Quantidade de carros: ${carQuantity}
+            Empresa: ${company} 
+            Cnpj: ${cnpj}
             Segmento: ${segmento}
+            Mensagem: ${message}
+            Quantidade de carros: ${carQuantity}
           `,
         };
 
         await transporter.sendMail(mailOptions);
         console.log("E-mail do formulário de contato enviado com sucesso");
         res.status(200).json({
-          message: "E-mail do formulário de contato enviado com sucesso!",
+          message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
         });
       } catch (error) {
         console.error("Erro ao enviar e-mail do formulário de contato:", error);
-        res
-          .status(500)
-          .json({ message: "Erro ao enviar e-mail do formulário de contato" });
+        res.status(500).json({
+          message: "Erro ao enviar e-mail do formulário de contato",
+        });
       }
     });
   } catch (error) {

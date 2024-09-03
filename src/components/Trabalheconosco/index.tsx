@@ -3,11 +3,12 @@ import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles.module.scss";
+import { useLoading } from "@/context/LoadingContext";
 
 export default function Trabalheconosco() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>("");
-
+  const { setLoading } = useLoading();
   const handleAttachmentButtonClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click();
@@ -17,7 +18,24 @@ export default function Trabalheconosco() {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     console.log("Selected File:", selectedFile);
+
+    const allowedExtensions = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
     if (selectedFile) {
+      if (!allowedExtensions.includes(selectedFile.type)) {
+        toast.error(
+          "Formato de arquivo não suportado. Por favor, anexe um arquivo .pdf, .doc ou .docx.",
+          {
+            position: "top-right",
+            autoClose: 5000,
+          }
+        );
+        return;
+      }
       setFileName(selectedFile.name);
     }
   };
@@ -42,6 +60,7 @@ export default function Trabalheconosco() {
     const formData = new FormData(event.currentTarget);
 
     try {
+      setLoading(true); // Ativar a tela de loading
       const response = await fetch("/api/sendEmailRH", {
         method: "POST",
         body: formData,
@@ -61,7 +80,13 @@ export default function Trabalheconosco() {
         console.error("Erro ao enviar o currículo");
       }
     } catch (error) {
+      toast.error("Erro ao enviar o currículo.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       console.error("Erro ao enviar o currículo:", error);
+    } finally {
+      setLoading(false); // Desativar a tela de loading
     }
   };
 
@@ -118,7 +143,7 @@ export default function Trabalheconosco() {
                       ref={fileInputRef}
                       type="file"
                       name="curriculo"
-                      accept=".pdf"
+                      accept=".pdf,.doc,.docx"
                       style={{ display: "none" }}
                       onChange={handleFileChange}
                     />

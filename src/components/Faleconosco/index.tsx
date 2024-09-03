@@ -3,16 +3,18 @@ import InputMask from "react-input-mask";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles.module.scss";
+import { useLoading } from "@/context/LoadingContext";
 
 export default function Faleconosco() {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [nome, setNome] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
+  const [phone, setphone] = useState("");
+  const { setLoading } = useLoading();
   const [cnpj, setCnpj] = useState("");
   const [carQuantity, setCarQuantity] = useState("");
-  const [empresa, setEmpresa] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
   const [segmento, setSegmento] = useState("");
   const isValidPhoneNumber = (phone: string) => {
     const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
@@ -76,11 +78,11 @@ export default function Faleconosco() {
 
   const verificaCamposContato = () => {
     if (
-      !nome ||
+      !name ||
       !email ||
-      !telefone ||
-      !mensagem ||
-      !empresa ||
+      !phone ||
+      !message ||
+      !company ||
       !segmento ||
       !cnpj ||
       !carQuantity
@@ -92,7 +94,7 @@ export default function Faleconosco() {
       return false;
     }
 
-    if (telefone && !isValidPhoneNumber(telefone)) {
+    if (phone && !isValidPhoneNumber(phone)) {
       toast.error("Por favor, insira um número de telefone válido.", {
         position: "top-right",
         autoClose: 5000,
@@ -139,20 +141,26 @@ export default function Faleconosco() {
     event.preventDefault();
     if (!verificaCamposContato()) return;
 
-    const formData = new FormData();
-    formData.append("name", nome);
-    formData.append("email", email);
-    formData.append("company", empresa);
-    formData.append("message", mensagem);
-    formData.append("phone", telefone);
-    formData.append("cnpj", cnpj);
-    formData.append("carQuantity", carQuantity);
-    formData.append("segmento", segmento);
+    const formDataBackground = {
+      name,
+      phone,
+      message,
+      email,
+      company,
+      segmento,
+      cnpj,
+      carQuantity,
+    };
 
     try {
+      setLoading(true); // Ativar a tela de loading
+
       const response = await fetch("/api/SendContactForm", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataBackground),
       });
 
       if (response.ok) {
@@ -169,7 +177,13 @@ export default function Faleconosco() {
         console.error("Erro ao enviar o Mensagem");
       }
     } catch (error) {
+      toast.error("Erro ao enviar o Mensagem", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       console.error("Erro ao enviar o Mensagem:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -195,8 +209,8 @@ export default function Faleconosco() {
                     <input
                       placeholder="Nome completo"
                       type="name"
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value)}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div>
@@ -214,8 +228,8 @@ export default function Faleconosco() {
                   <input
                     placeholder="Nome da empresa"
                     type="text"
-                    value={empresa}
-                    onChange={(e) => setEmpresa(e.target.value)}
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
                   />
                 </div>
                 <div className={styles.flexInputb}>
@@ -223,8 +237,8 @@ export default function Faleconosco() {
                   <input
                     placeholder="Nos conte mais..."
                     type="text"
-                    value={mensagem}
-                    onChange={(e) => setMensagem(e.target.value)}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                   />
                 </div>
                 <div className={styles.flexInput}>
@@ -246,8 +260,8 @@ export default function Faleconosco() {
                   <input
                     type="text"
                     placeholder="61 99999-9999"
-                    value={telefone}
-                    onChange={(e) => setTelefone(e.target.value)}
+                    value={phone}
+                    onChange={(e) => setphone(e.target.value)}
                   />
                 </div>
                 <div className={styles.flexInput}>

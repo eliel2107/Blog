@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../styles/Id.module.scss";
+import { useLoading } from "../context/LoadingContext";
 
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
@@ -47,6 +48,8 @@ export default function BlogPost({ post }: BlogPostProps) {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
+  const { setLoading } = useLoading();
+
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
@@ -61,6 +64,8 @@ export default function BlogPost({ post }: BlogPostProps) {
     };
 
     try {
+      setLoading(true); // Ativar a tela de loading
+
       const response = await fetch("/api/SendInscricao", {
         method: "POST",
         headers: {
@@ -83,7 +88,13 @@ export default function BlogPost({ post }: BlogPostProps) {
         console.error("Erro ao realizar a inscrição");
       }
     } catch (error) {
+      toast.error("Erro ao realizar a inscrição.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       console.error("Erro ao realizar a inscrição:", error);
+    } finally {
+      setLoading(false); // Desativar a tela de loading
     }
   };
 

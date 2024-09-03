@@ -10,7 +10,7 @@ export const config = {
 
 export default async function sendEmail(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");

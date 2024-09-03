@@ -11,6 +11,7 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClienteDropdownOpen, setIsClienteDropdownOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isActive = (route: string) => {
     return route === router.pathname
@@ -114,10 +115,29 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkElement = setInterval(() => {
+        const targetElement = document.querySelector("#rd-section-luhazmn9");
+
+        if (headerRef.current) {
+          if (targetElement) {
+            // Se o elemento existir, defina o top como 110px
+            headerRef.current.style.setProperty("top", "110px", "important");
+          } else {
+            // Se o elemento não existir, defina o top como 0px
+            headerRef.current.style.setProperty("top", "0px", "important");
+          }
+        }
+      }, 100); // Verifica a cada 1 segundo (1000ms)
+
+      return () => clearInterval(checkElement); // Limpa o intervalo ao desmontar o componente
+    }
+  }, []);
 
   return (
     <>
-      <section className={styles.container}>
+      <section className={styles.container} ref={headerRef}>
         <div className={styles.content} ref={dropdownRef}>
           <div className={styles.leftside}>
             <Link href={"/"}>

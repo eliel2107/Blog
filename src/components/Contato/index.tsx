@@ -3,6 +3,7 @@ import { useState } from "react";
 import InputMask from "react-input-mask";
 import { toast } from "react-toastify";
 import styles from "./styles.module.scss";
+import { useLoading } from "@/context/LoadingContext";
 
 export default function Contato() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export default function Contato() {
   const [cnpj, setCnpj] = useState("");
   const [enterprise, setEnterprise] = useState("");
   const [carQuantity, setCarQuantity] = useState("");
-
+  const { setLoading } = useLoading();
   const [segmento, setSegmento] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [emailInscricao, setEmailInscricao] = useState("");
@@ -144,6 +145,8 @@ export default function Contato() {
     };
 
     try {
+      setLoading(true); // Ativar a tela de loading
+
       const response = await fetch("/api/SendBackgroundForm", {
         method: "POST",
         headers: {
@@ -172,7 +175,13 @@ export default function Contato() {
         console.error("Erro ao enviar a mensagem");
       }
     } catch (error) {
+      toast.error("Erro ao enviar a mensagem.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       console.error("Erro ao enviar a mensagem:", error);
+    } finally {
+      setLoading(false); // Desativar a tela de loading
     }
   };
 
@@ -198,6 +207,7 @@ export default function Contato() {
     };
 
     try {
+      setLoading(true);
       const response = await fetch("/api/SendInscricao", {
         method: "POST",
         headers: {
@@ -221,6 +231,8 @@ export default function Contato() {
       }
     } catch (error) {
       console.error("Erro ao realizar a inscrição:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
