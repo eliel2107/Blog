@@ -344,11 +344,11 @@ export default function Login() {
                       </div>
                     </>
                   )}
-                  <div className={styles.forgot}>
+                  {/* <div className={styles.forgot}>
                     <Link href={"/recuperar"}>
                       <p>Esqueci minha senha</p>
                     </Link>
-                  </div>
+                  </div> */}
                   <div className={styles.button}>
                     <button type="submit">Entrar</button>
                   </div>
