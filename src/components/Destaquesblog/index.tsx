@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation"; // Importação do CSS para navegação
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import SimpleSlider from "../Slider";
 import styles from "./styles.module.scss";
 
@@ -11,6 +13,7 @@ const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
 });
+
 export default function Destaquesblog() {
   const [posts, setPosts] = useState<any[]>([]);
 
@@ -24,6 +27,7 @@ export default function Destaquesblog() {
     }
     fetchPosts();
   }, []);
+
   return (
     <>
       <section className={styles.container}>
@@ -32,7 +36,20 @@ export default function Destaquesblog() {
             <h1>Destaques</h1>
           </div>
           <SimpleSlider />
+          <div className={styles.swiperNav}>
+            <div className={styles.prevBtn} id="prevBtn">
+              {"<"}
+            </div>
+            <div className={styles.nextBtn} id="nextBtn">
+              {">"}
+            </div>
+          </div>
           <Swiper
+            modules={[Navigation]}
+            navigation={{
+              prevEl: "#prevBtn",
+              nextEl: "#nextBtn",
+            }}
             slidesPerView="auto"
             spaceBetween={30}
             grabCursor={true}
@@ -48,9 +65,7 @@ export default function Destaquesblog() {
                         style={{
                           backgroundImage: `url(${post.fields.thumb?.fields.file.url})`,
                         }}
-                      >
-                        <button>Evento</button>
-                      </div>
+                      ></div>
                       <div className={styles.text}>
                         <h1>{post.fields.title.slice(0, 45)}...</h1>
                         <div className={styles.day}>
@@ -58,7 +73,7 @@ export default function Destaquesblog() {
                           <div className={styles.date}>
                             <p>
                               {new Date(post.sys.createdAt).toLocaleDateString(
-                                "pt-BR",
+                                "pt-BR"
                               )}
                             </p>
                           </div>
@@ -67,7 +82,7 @@ export default function Destaquesblog() {
                           {" "}
                           {post.fields.body.content[0].content[0].value.slice(
                             0,
-                            150,
+                            150
                           )}
                           ...
                         </p>

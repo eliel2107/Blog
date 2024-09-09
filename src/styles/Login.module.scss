@@ -186,7 +186,11 @@
   }
 }
 .forgot {
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   p {
     text-decoration: underline;
     cursor: pointer;
@@ -217,7 +221,7 @@
   width: 443px;
   height: 1px;
   background: unset;
-  margin-top: 66px;
+
   margin-bottom: 24px;
   @media only screen and (max-width: 768px) {
     width: 100%;

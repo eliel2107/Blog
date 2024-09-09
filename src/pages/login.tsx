@@ -14,6 +14,19 @@ export default function Login() {
   const [authCode, setAuthCode] = useState("");
   const [step, setStep] = useState(1);
   const { setLoading } = useLoading();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const sectionToRemove = document.getElementById(
+        "bricks-component-RhBWLcUL9wEqpIyJF77xrw"
+      );
+      if (sectionToRemove) {
+        sectionToRemove.remove();
+        clearInterval(interval); // Remove o intervalo assim que o elemento for encontrado e removido
+      }
+    }, 1); // Verifica a cada 100ms se o elemento está presente no DOM
+
+    return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
+  }, []);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -243,10 +256,12 @@ export default function Login() {
       <section className={styles.container}>
         <div className={styles.leftside}>
           <div className={styles.logo}>
-            <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
-              alt="Logo"
-            />
+            <Link href={"/"}>
+              <img
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+                alt="Logo"
+              />
+            </Link>
           </div>
           <div className={styles.socials}>
             <Link
@@ -266,6 +281,12 @@ export default function Login() {
                 src="https://d10fqir6n4h7sq.cloudfront.net/public/igicon.svg"
                 alt="Instagram"
               />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/lwtecnologia/"
+              passHref
+            >
+              <img src="/linkedin.svg" alt="Instagram" />
             </Link>
           </div>{" "}
         </div>
@@ -344,15 +365,16 @@ export default function Login() {
                       </div>
                     </>
                   )}
-                  {/* <div className={styles.forgot}>
-                    <Link href={"/recuperar"}>
-                      <p>Esqueci minha senha</p>
-                    </Link>
-                  </div> */}
+
                   <div className={styles.button}>
                     <button type="submit">Entrar</button>
                   </div>
                   <div className={styles.divisor}></div>
+                  <div className={styles.forgot}>
+                    <Link href={"/"}>
+                      <p>Voltar para home!</p>
+                    </Link>
+                  </div>
                   {/* <div className={styles.create}>
                     <p>Ainda não tem uma conta?</p>
                     <Link href={"/cadastro"}>

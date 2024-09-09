@@ -29,7 +29,7 @@
   gap: 1rem;
   h1 {
     font-size: 64px;
-    font-family: poppins;
+    font-family: var(--font-montserrat, sans-serif);
     color: #243d66;
     @media only screen and (max-width: 768px) {
       font-size: 40px;
@@ -43,7 +43,8 @@
   }
   button {
     background-color: #243d66;
-    font-family: poppins;
+    font-family: var(--font-montserrat, sans-serif);
+    color: white;
     width: 250px;
     border-radius: 20px;
     border: none;

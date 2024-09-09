@@ -414,3 +414,28 @@
     }
   }
 }
+.swiperWrapper {
+  position: relative;
+  .swiperNav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    .prevBtn,
+    .nextBtn {
+      color: #000040;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

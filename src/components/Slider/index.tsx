@@ -51,9 +51,7 @@ export default function SimpleSlider() {
                       paddingTop: "24px",
                       paddingLeft: "24px",
                     }}
-                  >
-                    <button>Evento</button>
-                  </div>
+                  ></div>
                   <div className={styles.text}>
                     <h1>{post.fields.title.slice(0, 45)}...</h1>
                     <div className={styles.day}>
@@ -61,7 +59,7 @@ export default function SimpleSlider() {
                       <div className={styles.date}>
                         <p>
                           {new Date(post.sys.createdAt).toLocaleDateString(
-                            "pt-BR",
+                            "pt-BR"
                           )}
                         </p>
                       </div>
@@ -69,7 +67,7 @@ export default function SimpleSlider() {
                     <p>
                       {post.fields.body.content[0].content[0].value.slice(
                         0,
-                        100,
+                        100
                       )}
                       ...
                     </p>
