@@ -21,11 +21,14 @@ export default function Login() {
       );
       if (sectionToRemove) {
         sectionToRemove.remove();
-        clearInterval(interval); // Remove o intervalo assim que o elemento for encontrado e removido
+        clearInterval(interval); // Remove the interval once the element is found and removed
+      } else {
+        // Set padding-top to 0 when the element is not found
+        document.body.style.paddingTop = "0";
       }
-    }, 1); // Verifica a cada 100ms se o elemento está presente no DOM
+    }, 1); // Check every millisecond if the element is present in the DOM
 
-    return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts
   }, []);
 
   const togglePasswordVisibility = () => {

@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules"; // Import Swiper modules
 import styles from "./styles.module.scss";
 
 const contentfulClient = createClient({
@@ -28,6 +29,18 @@ export default function SimpleSlider() {
 
   return (
     <section className={styles.container}>
+      <div className={styles.swiperNav}>
+        <div className={styles.wrapArrow} id="prevBtnSimpleSlider">
+          <img
+            src="/arrowleft.svg"
+            className={styles.leftArrow}
+            alt="Previous"
+          />
+        </div>
+        <div className={styles.wrapArrow} id="nextBtnSimpleSlider">
+          <img src="/arrowright.svg" alt="Next" />
+        </div>
+      </div>
       <Swiper
         slidesPerView={2}
         spaceBetween={300}
@@ -35,6 +48,11 @@ export default function SimpleSlider() {
         pagination={{
           clickable: true,
         }}
+        navigation={{
+          prevEl: "#prevBtnSimpleSlider", // Connect to the navigation buttons
+          nextEl: "#nextBtnSimpleSlider",
+        }}
+        modules={[Navigation, Pagination]} // Enable navigation and pagination modules
         className={styles.swiperContainer}
       >
         {posts.map((post) => (

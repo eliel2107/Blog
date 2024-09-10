@@ -41,14 +41,16 @@ export default function Destaques() {
           </div>
           <div className={styles.swiperWrapper}>
             <div className={styles.swiperNav}>
-              <div className={styles.prevBtn} id="prevBtn">
-                {"<"}
-              </div>{" "}
-              {/* Seta anterior */}
+              <div className={styles.wrapArrow} id="prevBtn">
+                <img
+                  src="/arrowleft.svg"
+                  className={styles.prevBtn}
+                  alt="Previous"
+                />
+              </div>
               <div className={styles.nextBtn} id="nextBtn">
-                {">"}
-              </div>{" "}
-              {/* Seta próxima */}
+                <img src="/arrowright.svg" alt="Next" />
+              </div>
             </div>
             <Swiper
               modules={[Navigation]} // Ativando o módulo de navegação

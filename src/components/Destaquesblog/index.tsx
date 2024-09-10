@@ -37,11 +37,15 @@ export default function Destaquesblog() {
           </div>
           <SimpleSlider />
           <div className={styles.swiperNav}>
-            <div className={styles.prevBtn} id="prevBtn">
-              {"<"}
+            <div className={styles.wrapArrow} id="prevBtn">
+              <img
+                src="/arrowleft.svg"
+                className={styles.leftArrow}
+                alt="Previous"
+              />
             </div>
-            <div className={styles.nextBtn} id="nextBtn">
-              {">"}
+            <div className={styles.wrapArrow} id="nextBtn">
+              <img src="/arrowright.svg" alt="Next" />
             </div>
           </div>
           <Swiper
