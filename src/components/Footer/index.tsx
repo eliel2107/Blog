@@ -76,6 +76,9 @@ export default function Footer({ variant }: FooterProps) {
             <Link href={"/termos"}>
               <li>Termos de serviço</li>
             </Link>
+            <Link href={"/appprivacy"}>
+              <li>Privacidade APP</li>
+            </Link>
             <Link href={"/privacidade"}>
               <li>Políticas de privacidade</li>
             </Link>
@@ -136,6 +139,9 @@ export default function Footer({ variant }: FooterProps) {
               <ul>
                 <Link href={"/termos"}>
                   <li>Termos de serviço</li>
+                </Link>
+                <Link href={"/appprivacy"}>
+                  <li>Privacidade APP</li>
                 </Link>
                 <Link href={"/privacidade"}>
                   {" "}

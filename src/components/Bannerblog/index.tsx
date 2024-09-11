@@ -34,7 +34,6 @@ export default function Bannerblog() {
       <div className={styles.overlay}>
         <div className={styles.text}>
           <div className={styles.toptitle}>
-            <button>Evento</button>
             <p>Leia em 5 min</p>
           </div>
 

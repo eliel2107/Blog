@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation"; // Importação do CSS para navegação
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 const contentfulClient = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
@@ -27,6 +29,7 @@ export default function Destaques() {
     }
     fetchPosts();
   }, []);
+
   return (
     <>
       <section className={styles.container} id="Destaques">
@@ -37,7 +40,24 @@ export default function Destaques() {
             <p>As últimas notícias e tendências no setor de gestão de frotas</p>
           </div>
           <div className={styles.swiperWrapper}>
+            <div className={styles.swiperNav}>
+              <div className={styles.wrapArrow} id="prevBtn">
+                <img
+                  src="/arrowleft.svg"
+                  className={styles.prevBtn}
+                  alt="Previous"
+                />
+              </div>
+              <div className={styles.nextBtn} id="nextBtn">
+                <img src="/arrowright.svg" alt="Next" />
+              </div>
+            </div>
             <Swiper
+              modules={[Navigation]} // Ativando o módulo de navegação
+              navigation={{
+                prevEl: "#prevBtn", // Referência à seta anterior
+                nextEl: "#nextBtn", // Referência à seta próxima
+              }}
               slidesPerView="auto"
               spaceBetween={30}
               grabCursor={true}
@@ -55,7 +75,7 @@ export default function Destaques() {
                         <p>
                           {post.fields.body.content[0].content[0].value.slice(
                             0,
-                            100,
+                            100
                           )}
                           ...
                         </p>

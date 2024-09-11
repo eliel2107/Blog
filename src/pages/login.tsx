@@ -14,6 +14,22 @@ export default function Login() {
   const [authCode, setAuthCode] = useState("");
   const [step, setStep] = useState(1);
   const { setLoading } = useLoading();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const sectionToRemove = document.getElementById(
+        "bricks-component-RhBWLcUL9wEqpIyJF77xrw"
+      );
+      if (sectionToRemove) {
+        sectionToRemove.remove();
+        clearInterval(interval); // Remove the interval once the element is found and removed
+      } else {
+        // Set padding-top to 0 when the element is not found
+        document.body.style.paddingTop = "0";
+      }
+    }, 1); // Check every millisecond if the element is present in the DOM
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts
+  }, []);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -243,10 +259,12 @@ export default function Login() {
       <section className={styles.container}>
         <div className={styles.leftside}>
           <div className={styles.logo}>
-            <img
-              src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
-              alt="Logo"
-            />
+            <Link href={"/"}>
+              <img
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/LOGOPRINCIPAL.png"
+                alt="Logo"
+              />
+            </Link>
           </div>
           <div className={styles.socials}>
             <Link
@@ -266,6 +284,12 @@ export default function Login() {
                 src="https://d10fqir6n4h7sq.cloudfront.net/public/igicon.svg"
                 alt="Instagram"
               />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/lwtecnologia/"
+              passHref
+            >
+              <img src="/linkedin.svg" alt="Instagram" />
             </Link>
           </div>{" "}
         </div>
@@ -344,15 +368,16 @@ export default function Login() {
                       </div>
                     </>
                   )}
-                  <div className={styles.forgot}>
-                    <Link href={"/recuperar"}>
-                      <p>Esqueci minha senha</p>
-                    </Link>
-                  </div>
+
                   <div className={styles.button}>
                     <button type="submit">Entrar</button>
                   </div>
                   <div className={styles.divisor}></div>
+                  <div className={styles.forgot}>
+                    <Link href={"/"}>
+                      <p>Voltar para home!</p>
+                    </Link>
+                  </div>
                   {/* <div className={styles.create}>
                     <p>Ainda não tem uma conta?</p>
                     <Link href={"/cadastro"}>

@@ -30,6 +30,21 @@ export default function App({
   useEffect(() => {
     initializeTagManager();
   }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const sectionToRemove = document.getElementById(
+        "bricks-component-RhBWLcUL9wEqpIyJF77xrw"
+      );
+      if (!sectionToRemove) {
+        // Set padding-top to 0 if the element is not found
+        document.body.style.paddingTop = "0";
+      } else {
+        clearInterval(interval); // Remove the interval once the element is found
+      }
+    }, 1); // Check every millisecond if the element is present in the DOM
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts
+  }, [Component]); // Run this effect on every page load
 
   usePageTracking();
 
