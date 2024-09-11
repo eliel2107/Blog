@@ -8,7 +8,7 @@ export default function AppPolicy() {
       <Header />
       <div className={styles.container}>
         <div className={styles.title}>
-          <h1>POLÍTICA DE APPS</h1>
+          <h1>Política de Privacidade APP</h1>
           <div className={styles.content}>
             <p>Última atualização: 11 de setembro de 2024.</p>
             <p>
