@@ -46,7 +46,7 @@ stages:
                 source ./azure-settings-portal.sh
 
                 envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU" < "portal-task-definition.json" > "temp-portal-task.json"
-                env | sort
+                #env | sort
 
                 cat temp-portal-task.json
 
@@ -63,11 +63,11 @@ stages:
               awsArguments: "--cli-input-json file://temp-portal-task.json"
               failOnStandardError: false
           - task: AWSCLI@1
-            displayName: "Atualizando o serviço $(SERVICE_NAME)"
+            displayName: "Atualizando o serviço $(IMAGE_NAME)"
             inputs:
               awsCredentials: $(AWS_CREDENTIALS)
               regionName: "us-east-1"
               awsCommand: ecs
               awsSubCommand: "update-service"
-              awsArguments: "--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment  --enable-execute-command"
+              awsArguments: "--cluster $(CLUSTER_NAME) --service $(IMAGE_NAME)-service --task-definition $(IMAGE_NAME) --force-new-deployment  --enable-execute-command"
               failOnStandardError: false
