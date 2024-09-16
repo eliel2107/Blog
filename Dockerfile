@@ -1,15 +1,13 @@
-FROM node:20-alpine as build
+FROM node:20-alpine as production
 ENV TZ=America/Sao_Paulo
+USER node
 
 WORKDIR /home/node/website
 
-USER node
-
-COPY --chown=node:node ./yarn.lock /home/node/app/yarn.lock
-COPY --chown=node:node ./package.json /home/node/app/package.json
-
+COPY --chown=node:node ./package*.json .
 RUN npm install
 
+COPY --chown=node:node . .
 RUN npm run build
 
 EXPOSE 3000
