@@ -31,7 +31,7 @@ stages:
               pushTag: "$(version)"
               # autoCreateRepository: true
 
-  - stage: Adjust_vars
+  - stage: Deploy
     jobs:
       - job: Adjust_vars
         steps:
@@ -55,9 +55,8 @@ stages:
 
                 cat temp-portal-task.json
 
-  - stage: Deploy
-    jobs:
       - job: Deploy
+        dependsOn: [Adjust_vars]
         steps:
           - task: AWSCLI@1
             displayName: "Registrando a task-definition"
@@ -69,12 +68,12 @@ stages:
               awsArguments: "--cli-input-json file://temp-portal-task.json"
               failOnStandardError: false
 
-          - task: AWSCLI@1
-            displayName: "Atualizando o serviço $(SERVICE_NAME)"
-            inputs:
-              awsCredentials: $(AWS_CREDENTIALS)
-              regionName: "us-east-1"
-              awsCommand: ecs
-              awsSubCommand: "update-service"
-              awsArguments: "--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment  --enable-execute-command"
-              failOnStandardError: false
+          # - task: AWSCLI@1
+          #   displayName: "Atualizando o serviço $(SERVICE_NAME)"
+          #   inputs:
+          #     awsCredentials: $(AWS_CREDENTIALS)
+          #     regionName: "us-east-1"
+          #     awsCommand: ecs
+          #     awsSubCommand: "update-service"
+          #     awsArguments: "--cluster $(CLUSTER_NAME) --service $(SERVICE_NAME) --task-definition $(TASK_FAMILY) --force-new-deployment  --enable-execute-command"
+          #     failOnStandardError: false
