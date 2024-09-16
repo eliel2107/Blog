@@ -16,8 +16,8 @@ stages:
             inputs:
               command: "build"
               Dockerfile: "$(DOCKER_FILE)"
-              repository: "$(image)"
-              tags: "$(version)"
+              repository: "$(IMAGE_NAME)"
+              tags: "latest"
 
           - task: ECRPushImage@1
             displayName: "Publicando a imagem"
