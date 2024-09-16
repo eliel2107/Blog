@@ -33,7 +33,7 @@ stages:
 
   - stage: Deploy
     jobs:
-      - job: Adjust_vars
+      - job: Build_Json
         steps:
           - task: Bash@3
             displayName: "Carregando as variáveis"
@@ -51,7 +51,7 @@ stages:
                 cat temp-portal-task.json
 
       - job: Deploy
-        dependsOn: [Adjust_vars]
+        dependsOn: [Build_Json]
         steps:
           - task: AWSCLI@1
             displayName: "Registrando a task-definition"
