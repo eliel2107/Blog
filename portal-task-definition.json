@@ -12,6 +12,24 @@
           "awslogs-stream-prefix": "ecs"
         }
       },
+      "secrets": [
+          {
+              "name": "EMAIL_PASSWORD",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:539841448493:secret:svc-dev-lw-site-service:EMAIL_PASSWORD::"
+          },
+          {
+              "name": "EMAIL_USERNAME",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:539841448493:secret:svc-dev-lw-site-service:EMAIL_USERNAME::"
+          },
+          {
+              "name": "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:539841448493:secret:svc-dev-lw-site-service:NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN::"
+          },
+          {
+              "name": "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:539841448493:secret:svc-dev-lw-site-service:NEXT_PUBLIC_CONTENTFUL_SPACE_ID::"
+          }
+      ],
       "portMappings": [
         {
           "hostPort": 3000,
