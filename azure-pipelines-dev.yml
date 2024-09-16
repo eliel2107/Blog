@@ -28,7 +28,7 @@ stages:
               sourceImageName: "$(IMAGE_NAME)"
               sourceImageTag: "latest"
               repositoryName: "$(REPOSITORY_NAME)"
-              pushTag: "$(version)"
+              pushTag: "latest"
               # autoCreateRepository: true
 
   - stage: Deploy
