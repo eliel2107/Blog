@@ -27,7 +27,7 @@ stages:
               imageSource: "imagename"
               sourceImageName: "$(IMAGE_NAME)"
               sourceImageTag: "latest"
-              repositoryName: "$(REPOSITORY_NAME)"
+              repositoryName: "$(IMAGE_NAME)"
               pushTag: "latest"
               # autoCreateRepository: true
 
