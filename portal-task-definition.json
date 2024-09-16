@@ -1,13 +1,13 @@
 {
-  "family": "${TASK_FAMILY}",
+  "family": "svc-${IMAGE_NAME}",
   "networkMode": "awsvpc",
-  "executionRoleArn": "${TASK_ROLE}",
+  "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT}:role/svc-${IMAGE_NAME}-ecs-execution-role",
   "containerDefinitions": [
     {
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/${TASK_FAMILY}",
+          "awslogs-group": "/ecs/${IMAGE_NAME}",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -38,19 +38,13 @@
         }
       ],
       "cpu": 0,
-      "environment": [
-        {
-          "name": "site",
-          "value": ""
-        }
-      ],
-      "image": "${AWS_ECR_IMAGE}",
+      "image": "${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/${IMAGE_NAME}:latest",
       "essential": true,
-      "name": "${CONTAINER_NAME}"
+      "name": "${IMAGE_NAME}"
     }
   ],
   "placementConstraints": [],
-  "taskRoleArn": "${TASK_ROLE}",
+  "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT}:role/svc-${IMAGE_NAME}-ecs-task-role",
   "requiresCompatibilities": ["FARGATE"],
   "runtimePlatform": {
     "operatingSystemFamily": "LINUX"
