@@ -1,0 +1,54 @@
+{
+  "family": "svc-${IMAGE_NAME}",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT}:role/svc-${IMAGE_NAME}-ecs-execution-role",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/${IMAGE_NAME}",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "secrets": [
+          {
+              "name": "EMAIL_PASSWORD",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:${AWS_ACCOUNT}:secret:svc-dev-lw-site-service:EMAIL_PASSWORD::"
+          },
+          {
+              "name": "EMAIL_USERNAME",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:${AWS_ACCOUNT}:secret:svc-dev-lw-site-service:EMAIL_USERNAME::"
+          },
+          {
+              "name": "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:${AWS_ACCOUNT}:secret:svc-dev-lw-site-service:NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN::"
+          },
+          {
+              "name": "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
+              "valueFrom": "arn:aws:secretsmanager:us-east-1:${AWS_ACCOUNT}:secret:svc-dev-lw-site-service:NEXT_PUBLIC_CONTENTFUL_SPACE_ID::"
+          }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
+      ],
+      "cpu": 0,
+      "image": "${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/${IMAGE_NAME}:latest",
+      "essential": true,
+      "name": "${IMAGE_NAME}"
+    }
+  ],
+  "placementConstraints": [],
+  "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT}:role/svc-${IMAGE_NAME}-ecs-task-role",
+  "requiresCompatibilities": ["FARGATE"],
+  "runtimePlatform": {
+    "operatingSystemFamily": "LINUX"
+  },
+  "memory": "${TASK_MEMORY}",
+  "cpu": "${TASK_CPU}"
+}

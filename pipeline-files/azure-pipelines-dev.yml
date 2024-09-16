@@ -1,0 +1,80 @@
+trigger:
+  branches:
+    include:
+      - dev
+  paths:
+    exclude:
+      - pipeline-files/*
+pool:
+  name: LW-Agents
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Build
+        steps:
+          - task: Docker@2
+            displayName: "Build"
+            inputs:
+              command: "build"
+              Dockerfile: "$(DOCKER_FILE)"
+              repository: "$(IMAGE_NAME)"
+              tags: |
+                $(Build.BuildId)
+                latest
+              arguments: '--build-arg NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN) --build-arg NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)'
+                    
+
+      - job: Push
+        dependsOn: [Build]
+        steps:
+          - task: ECRPushImage@1
+            displayName: "Publicando a imagem"
+            inputs:
+              awsCredentials: $(AWS_CREDENTIALS)
+              regionName: "us-east-1"
+              imageSource: "imagename"
+              sourceImageName: "$(IMAGE_NAME)"
+              sourceImageTag: "latest"
+              repositoryName: "$(IMAGE_NAME)"
+              pushTag: "latest"
+              # autoCreateRepository: true
+
+  - stage: Deploy
+    jobs:
+      - job: Build_Json
+        steps:
+          - task: Bash@3
+            displayName: "Carregando as variáveis"
+            inputs:
+              targetType: "inline"
+              script: |
+                echo "Iniciando o processo no Shell"
+                sudo apt-get update
+                sudo apt-get install -y jq gettext-base
+
+                envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+
+                cat temp-portal-task.json
+
+      - job: Deploy
+        dependsOn: [Build_Json]
+        steps:
+          - task: AWSCLI@1
+            displayName: "Registrando a task-definition"
+            inputs:
+              awsCredentials: $(AWS_CREDENTIALS)
+              regionName: "us-east-1"
+              awsCommand: "ecs"
+              awsSubCommand: "register-task-definition"
+              awsArguments: "--cli-input-json file://temp-portal-task.json"
+              failOnStandardError: false
+          - task: AWSCLI@1
+            displayName: "Atualizando o serviço $(IMAGE_NAME)"
+            inputs:
+              awsCredentials: $(AWS_CREDENTIALS)
+              regionName: "us-east-1"
+              awsCommand: ecs
+              awsSubCommand: "update-service"
+              awsArguments: "--cluster $(CLUSTER_NAME) --service $(IMAGE_NAME)-service --task-definition svc-$(IMAGE_NAME) --force-new-deployment  --enable-execute-command"
+              failOnStandardError: false

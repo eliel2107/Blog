@@ -1,11 +1,20 @@
-FROM node:20-alpine as build
+FROM node:20-alpine AS production
+ENV TZ=America/Sao_Paulo
 
-WORKDIR /website
+ARG NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+ARG NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
-COPY ./ /website/
+ENV NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+ENV NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$NEXT_PUBLIC_CONTENTFUL_SPACE_ID
 
+USER node
+
+WORKDIR /home/node/website
+
+COPY --chown=node:node ./package*.json .
 RUN npm install
 
+COPY --chown=node:node . .
 RUN npm run build
 
 EXPOSE 3000
