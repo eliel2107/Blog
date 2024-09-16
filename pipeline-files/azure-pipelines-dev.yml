@@ -22,9 +22,8 @@ stages:
               tags: |
                 $(Build.BuildId)
                 latest
-              arguments: |
-                    --build-arg NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID) \
-                    --build-arg NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
+              arguments: '--build-arg NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN) --build-arg NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)'
+                    
 
       - job: Push
         dependsOn: [Build]
