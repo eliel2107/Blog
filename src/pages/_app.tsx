@@ -188,7 +188,7 @@ export default function App({
           position="top-right"
           autoClose={5000}
           hideProgressBar
-          style={{ zIndex: 9000000000000000000000009999999999999999999999999 }}
+          style={{ zIndex: 9999999999999999, position: "fixed" }}
         />
         <Cookies />
       </LoadingProvider>

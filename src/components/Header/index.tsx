@@ -122,14 +122,20 @@ export default function Header() {
 
         if (headerRef.current) {
           if (targetElement) {
-            // Se o elemento existir, defina o top como 110px
-            headerRef.current.style.setProperty("top", "110px", "important");
+            // Obtém a altura do elemento
+            const elementHeight = (targetElement as HTMLElement).offsetHeight;
+            // Define o top com base na altura do elemento
+            headerRef.current.style.setProperty(
+              "top",
+              `${elementHeight}px`,
+              "important"
+            );
           } else {
             // Se o elemento não existir, defina o top como 0px
             headerRef.current.style.setProperty("top", "0px", "important");
           }
         }
-      }, 100); // Verifica a cada 1 segundo (1000ms)
+      }, 100); // Verifica a cada 100ms
 
       return () => clearInterval(checkElement); // Limpa o intervalo ao desmontar o componente
     }
