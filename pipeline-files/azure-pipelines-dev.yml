@@ -22,8 +22,8 @@ stages:
               tags: |
                 $(Build.BuildId)
                 latest
-              arguments: |
-                NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)
+              arguments:
+                NEXT_PUBLIC_CONTENTFUL_SPACE_ID=$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID) \
                 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)
 
       - job: Push
