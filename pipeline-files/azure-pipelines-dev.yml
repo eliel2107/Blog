@@ -22,7 +22,7 @@ stages:
               tags: |
                 $(Build.BuildId)
                 latest
-              arguments: "--build-arg EMAIL_USERNAME=$(EMAIL_USERNAME) --build-arg EMAIL_PASSWORD='$(EMAIL_PASSWORD)'"
+              arguments: "--build-arg EMAIL_USERNAME='$(EMAIL_USERNAME)' --build-arg EMAIL_PASSWORD='$(EMAIL_PASSWORD)'"
               
       - job: Push
         dependsOn: [Build]
