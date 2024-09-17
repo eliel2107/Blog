@@ -22,7 +22,7 @@ export default async function SendContactForm(
   try {
     const form = new formidable.IncomingForm();
 
-    form.parse(req, async (err: any, fields: any, files: any) => {
+    form.parse(req, async (err: any, fields: any) => {
       if (err) {
         console.log("Erro ao processar o formulário:", err);
         res
@@ -31,15 +31,26 @@ export default async function SendContactForm(
         return;
       }
 
+      const {
+        name,
+        email,
+        phone,
+        message,
+        company,
+        segmento,
+        cnpj,
+        carQuantity,
+      } = fields;
+
       if (
-        !fields.name ||
-        !fields.email ||
-        !fields.company ||
-        !fields.message ||
-        !fields.phone ||
-        !fields.cnpj ||
-        !fields.carQuantity ||
-        !fields.segmento
+        !name ||
+        !email ||
+        !company ||
+        !message ||
+        !phone ||
+        !cnpj ||
+        !carQuantity ||
+        !segmento
       ) {
         console.log(
           "Campos obrigatórios não encontrados no corpo da requisição"
@@ -50,23 +61,16 @@ export default async function SendContactForm(
         return;
       }
 
-      const name = fields.name;
-      const email = fields.email;
-      const phone = fields.phone;
-      const message = fields.message;
-      const company = fields.company;
-      const segmento = fields.segmento;
-      const cnpj = fields.cnpj;
-      const carQuantity = fields.carQuantity;
       console.log(carQuantity, "carQuantity");
+
       // Envio para o RD Station
       const rdStationData = {
         event_type: "CONVERSION",
         event_family: "CDP",
         payload: {
           conversion_identifier: "formulario-site",
-          name: name,
-          email: email,
+          name,
+          email,
           personal_phone: phone,
           cf_nome_da_empresa: company,
           cf_cnpj: cnpj,
@@ -75,10 +79,12 @@ export default async function SendContactForm(
           cf_mensagem: message,
         },
       };
+
       console.log(rdStationData);
+
       try {
         await axios.post(
-          `https://api.rd.services/platform/conversions?api_key=QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`,
+          `https://api.rd.services/platform/conversions?api_key=${process.env.RD_STATION_API_KEY}`,
           rdStationData
         );
         console.log("Dados enviados ao RD Station com sucesso");
@@ -91,10 +97,12 @@ export default async function SendContactForm(
         return;
       }
 
-      // Envio do e-mail (opcional)
+      // Envio do e-mail
       try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
+          host: process.env.SMTP_HOST, // e.g., 'smtp.office365.com' ou 'smtp.gmail.com'
+          port: Number(process.env.SMTP_PORT) || 587, // Converte o valor da porta para número
+          secure: process.env.SMTP_SECURE === "true", // Se for 465, utilize `true`
           auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD,
@@ -102,7 +110,7 @@ export default async function SendContactForm(
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com",
+          from: process.env.EMAIL_USERNAME,
           to: "comercial@lwtecnologia.com.br",
           subject: "Formulário de Contato",
           text: `
@@ -110,7 +118,7 @@ export default async function SendContactForm(
             Email: ${email}
             Telefone: ${phone}
             Empresa: ${company} 
-            Cnpj: ${cnpj}
+            CNPJ: ${cnpj}
             Segmento: ${segmento}
             Mensagem: ${message}
             Quantidade de carros: ${carQuantity}
@@ -122,14 +130,14 @@ export default async function SendContactForm(
         res.status(200).json({
           message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
         });
-      } catch (error) {
+      } catch (error: any) {
         console.error("Erro ao enviar e-mail do formulário de contato:", error);
         res.status(500).json({
           message: "Erro ao enviar e-mail do formulário de contato",
         });
       }
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Erro na API:", error);
     res.status(500).json({ message: "Erro interno do servidor" });
   }

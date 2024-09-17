@@ -4,13 +4,13 @@ const formidable = require("formidable");
 
 export const config = {
   api: {
-    bodyParser: false,
+    bodyParser: false, // Desabilita o bodyParser padrão do Next.js para lidar com uploads de arquivos
   },
 };
 
 export default async function sendEmail(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");
@@ -31,24 +31,24 @@ export default async function sendEmail(
       }
 
       // Inicializa a variável attachments como um array vazio
-      const attachments: { filename: any; path: any }[] = [];
+      const attachments: { filename: string; path: string }[] = [];
 
       // Se você está esperando um arquivo chamado 'curriculo'
       if (files.curriculo) {
-        // Pode ser um único arquivo ou um array de arquivos
         const curriculos = Array.isArray(files.curriculo)
           ? files.curriculo
           : [files.curriculo];
 
-        // Adiciona cada arquivo ao array de attachments
-        curriculos.forEach((file: { originalFilename: any; filepath: any }) => {
-          if (file.originalFilename) {
-            attachments.push({
-              filename: file.originalFilename,
-              path: file.filepath,
-            });
+        curriculos.forEach(
+          (file: { originalFilename: string; filepath: string }) => {
+            if (file.originalFilename) {
+              attachments.push({
+                filename: file.originalFilename,
+                path: file.filepath,
+              });
+            }
           }
-        });
+        );
       }
 
       // Lógica para processar campos e arquivos
@@ -57,21 +57,22 @@ export default async function sendEmail(
 
       try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
-
+          host: process.env.SMTP_HOST, // Se for necessário, adicione o host, ex: 'smtp.office365.com'
+          port: Number(process.env.SMTP_PORT) || 587, // Porta SMTP, 587 geralmente para TLS
+          secure: process.env.SMTP_SECURE === "true", // false para STARTTLS, true para SSL
           auth: {
             user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
             pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
           },
-          debug: true, // Isso habilita o modo de depuração, se necessário
+          debug: true, // Isso habilita o modo de depuração
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
+          from: process.env.EMAIL_USERNAME, // Substitua pelo seu e-mail
           to: "comercial@lwtecnologia.com.br", // Substitua pelo e-mail de destino
           subject: "Novo Cadastro do Formulário",
-          text: `Dados do Formulário: ${JSON.stringify(fields)}`,
-          attachments: attachments,
+          text: `Dados do Formulário:\nNome: ${fields.nome}\nEmail: ${fields.email}\nTelefone: ${fields.telefone}\nMensagem: ${fields.mensagem}`,
+          attachments: attachments, // Anexa os arquivos
         };
 
         await transporter.sendMail(mailOptions);

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import SMTPTransport from "nodemailer/lib/smtp-transport"; // Import the correct type
 import axios from "axios";
 const formidable = require("formidable");
 
@@ -65,7 +66,6 @@ export default async function SendBackgroundForm(
       const cnpj = fields.cnpj;
       const carQuantity = fields.carQuantity as CarQuantityOptions;
 
-      // Correctly map the carQuantity options to a valid bitfield array
       const carQuantityOptions: Record<CarQuantityOptions, number[]> = {
         "Até 500": [1, 0, 0, 0],
         "De 501 à 1.000": [0, 1, 0, 0],
@@ -104,16 +104,17 @@ export default async function SendBackgroundForm(
       // Envio do e-mail (opcional)
       try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
+          host: process.env.SMTP_HOST, // e.g., 'smtp.office365.com'
+          port: Number(process.env.SMTP_PORT), // e.g., 587, ensure port is a number
+          secure: process.env.SMTP_SECURE === "true", // use true for 465, false for other ports
           auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD,
           },
-          debug: true,
-        });
+        } as SMTPTransport.Options); // Define the correct type here
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com",
+          from: process.env.EMAIL_USERNAME,
           to: "comercial@lwtecnologia.com.br",
           subject: "Formulário de Contato",
           text: `
