@@ -22,7 +22,7 @@ stages:
               tags: |
                 $(Build.BuildId)
                 latest
-                  arguments: --build-arg EMAIL_USERNAME="$(EMAIL_USERNAME)" --build-arg EMAIL_PASSWORD="$(EMAIL_PASSWORD)" --build-arg NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN="$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)" --build-arg NEXT_PUBLIC_CONTENTFUL_SPACE_ID="$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)"
+                  arguments: '--build-arg EMAIL_USERNAME="$(EMAIL_USERNAME)" --build-arg EMAIL_PASSWORD="$(EMAIL_PASSWORD)" --build-arg NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN="$(NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN)" --build-arg NEXT_PUBLIC_CONTENTFUL_SPACE_ID="$(NEXT_PUBLIC_CONTENTFUL_SPACE_ID)"'
 
       - job: Push
         dependsOn: [Build]
