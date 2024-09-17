@@ -33,10 +33,11 @@ Thumbs.db
 # Arquivos de lock (gerenciadores de pacotes)
 package-lock.json
 yarn.lock
+.yarn
 
 # Cobertura de testes
 coverage/
 
 # Imagens do Docker
 *.tar
-.env
+
