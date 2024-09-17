@@ -51,13 +51,13 @@ export default async function sendEmail(
         });
       }
 
-      // Lógica para processar campos e arquivos
+      // Lógica para processar campos e arquivo
       console.log("Campos:", fields);
       console.log("Arquivos:", files);
 
       try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
+          service: process.env.SMTP_SERVICE,
 
           auth: {
             user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
@@ -67,7 +67,7 @@ export default async function sendEmail(
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
+          from: process.env.SMTP_USER, // Substitua pelo seu e-mail
           to: "lwlover@lwtecnologia.com.br", // Substitua pelo e-mail de destino
           subject: "Novo Cadastro do Formulário",
           text: `Dados do Formulário: ${JSON.stringify(fields)}`,
