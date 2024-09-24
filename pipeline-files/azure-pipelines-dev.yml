@@ -34,9 +34,11 @@ stages:
               regionName: "us-east-1"
               imageSource: "imagename"
               sourceImageName: "$(IMAGE_NAME)"
-              sourceImageTag: "latest"
+              sourceImageTag: "$(Build.BuildId)"
               repositoryName: "$(IMAGE_NAME)"
-              pushTag: "latest"
+              pushTag: |
+                 $(Build.BuildId)  # Primeira tag para o BuildId
+                 latest            # Segunda tag 'latest' para a versão mais recente
               # autoCreateRepository: true
 
   - stage: Deploy
