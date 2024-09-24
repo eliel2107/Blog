@@ -27,8 +27,6 @@ stages:
       - job: Push
         dependsOn: [Build]
         steps:
-          
-          
           - task: ECRPushImage@1
             displayName: "Publicando a imagem"
             inputs:
@@ -39,8 +37,8 @@ stages:
               sourceImageTag: "$(Build.BuildId)"
               repositoryName: "$(IMAGE_NAME)"
               pushTag: |
-                 $(Build.BuildId)  # Tag única para o BuildId
-                  latest
+                $(Build.BuildId)
+                latest
 
   - stage: Deploy
     jobs:
