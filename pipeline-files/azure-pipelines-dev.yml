@@ -35,7 +35,6 @@ stages:
               sourceImageTag: "$(Build.BuildId)"
               repositoryName: "$(IMAGE_NAME)"
               pushTag: "$(Build.BuildId)"
-
   - stage: Deploy
     jobs:
       - job: Build_Json
@@ -48,9 +47,10 @@ stages:
                 echo "Iniciando o processo no Shell"
                 sudo apt-get update
                 sudo apt-get install -y jq gettext-base
-
+                echo "AWS_ACCOUNT: $(AWS_ACCOUNT)"
+                echo "IMAGE_NAME: $(IMAGE_NAME)"
+                echo "Build ID: $(Build.BuildId)"
                 envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU,\$Build.BuildId" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
-
                 cat temp-portal-task.json
 
       - job: Deploy
