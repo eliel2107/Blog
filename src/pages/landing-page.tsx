@@ -542,7 +542,9 @@ export default function LandingPage() {
         <div className={styles.copyrightRow}>
           <p>
             Copyright © 2024 Grupo LW | Todos os direitos reservados |{" "}
-            <a href="#">Política de privacidade |</a>
+            <Link href={"/landing-page-politica"}>
+              Política de privacidade |
+            </Link>
           </p>
           <img src="/cinza.png" alt="Grupo LW logo" className={styles.logo} />
         </div>
