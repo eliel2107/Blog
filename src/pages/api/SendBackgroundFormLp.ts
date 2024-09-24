@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
-import SMTPTransport from "nodemailer/lib/smtp-transport"; // Import the correct type
+
 import axios from "axios";
 const formidable = require("formidable");
 
@@ -41,11 +40,9 @@ export default async function SendBackgroundForm(
       if (
         !fields.nome ||
         !fields.telefone ||
-        !fields.mensagem ||
         !fields.email ||
         !fields.enterprise ||
         !fields.segmento ||
-        !fields.cnpj ||
         !fields.carQuantity
       ) {
         console.log(
@@ -60,32 +57,32 @@ export default async function SendBackgroundForm(
       const nome = fields.nome;
       const email = fields.email;
       const telefone = fields.telefone;
-      const mensagem = fields.mensagem;
+
       const enterprise = fields.enterprise;
       const segmento = fields.segmento;
-      const cnpj = fields.cnpj;
-      const carQuantity = fields.carQuantity as CarQuantityOptions;
 
+      const carQuantity = fields.carQuantity as CarQuantityOptions;
+      console.log(carQuantity);
       const carQuantityOptions: Record<CarQuantityOptions, number[]> = {
         "Até 500": [1, 0, 0, 0],
         "De 501 à 1.000": [0, 1, 0, 0],
         "De 1.001 à 10.000": [0, 0, 1, 0],
         "Acima de 10.000": [0, 0, 0, 1],
       };
-      console.log(carQuantity);
+
       const rdStationData = {
         event_type: "CONVERSION",
         event_family: "CDP",
         payload: {
-          conversion_identifier: "formulario-site",
+          conversion_identifier: "produtos-grupo-lw",
           name: nome,
           email: email,
           personal_phone: telefone,
-          cf_nome_da_empresa: enterprise,
-          cf_cnpj: cnpj,
+          company_name: enterprise,
+
           cf_segmento_0: segmento,
           cf_quantos_veiculos: [carQuantity],
-          cf_mensagem: mensagem,
+          // cf_mensagem: mensagem,
         },
       };
 
@@ -99,49 +96,6 @@ export default async function SendBackgroundForm(
           "Erro ao enviar dados ao RD Station:",
           error.response ? error.response.data : error.message
         );
-      }
-
-      // Envio do e-mail (opcional)
-      try {
-        const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST, // e.g., 'smtp.office365.com'
-          port: Number(process.env.SMTP_PORT), // e.g., 587, ensure port is a number
-          secure: process.env.SMTP_SECURE === "true", // use true for 465, false for other ports
-          auth: {
-            user: process.env.EMAIL_USERNAME,
-            pass: process.env.EMAIL_PASSWORD,
-          },
-        } as SMTPTransport.Options); // Define the correct type here
-
-        const mailOptions = {
-          from: process.env.EMAIL_USERNAME,
-          to: "comercial@lwtecnologia.com.br",
-          subject: "Formulário de Contato",
-          text: `
-            Nome: ${nome}
-            Email: ${email}
-            Telefone: ${telefone}
-            Empresa: ${enterprise} 
-            Cnpj: ${cnpj}
-            Segmento: ${segmento}
-            Mensagem: ${mensagem}
-            Quantidade de carros: ${carQuantity}
-          `,
-        };
-
-        await transporter.sendMail(mailOptions);
-        console.log("E-mail do formulário de background enviado com sucesso");
-        res.status(200).json({
-          message: "Dados enviados ao RD Station e e-mail enviado com sucesso!",
-        });
-      } catch (error) {
-        console.error(
-          "Erro ao enviar e-mail do formulário de background:",
-          error
-        );
-        res.status(500).json({
-          message: "Erro ao enviar e-mail do formulário de background",
-        });
       }
     });
   } catch (error) {

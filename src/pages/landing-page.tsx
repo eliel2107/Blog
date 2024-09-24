@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 SwiperCore.use([Pagination]);
 
 export default function LandingPage() {
@@ -77,7 +78,7 @@ export default function LandingPage() {
       <div className={styles.content}>
         <div className={styles.header}>
           <div className={styles.headerContent}>
-            <img src="/biscoito.png" alt="" />
+            <img src="/grupo.png" alt="" />
             <button onClick={handleGotoForm}>Experimente Grátis</button>
           </div>
         </div>
@@ -103,20 +104,20 @@ export default function LandingPage() {
             <h2>As melhores soluções para o seu tipo de negócio</h2>
             <div className={styles.rowBottom}>
               <div className={styles.rowCard}>
-                <img src="/bank.svg" alt="" />
-                <h3>Servico</h3>
+                <img src="/car 1.png" alt="" />
+                <h3>Locadoras</h3>
               </div>
               <div className={styles.rowCard}>
-                <img src="/bank.svg" alt="" />
-                <h3>Servico</h3>
+                <img src="/truck.png" alt="" />
+                <h3>Transportadoras</h3>
               </div>
               <div className={styles.rowCard}>
-                <img src="/bank.svg" alt="" />
-                <h3>Servico</h3>
+                <img src="/car.png" alt="" />
+                <h3>Concessionárias</h3>
               </div>
               <div className={styles.rowCard}>
-                <img src="/bank.svg" alt="" />
-                <h3>Servico</h3>
+                <img src="/person.png" alt="" />
+                <h3>Gestores de frota</h3>
               </div>
             </div>
           </div>
@@ -134,39 +135,59 @@ export default function LandingPage() {
             </div>
             <div className={styles.allServicesMiddle}>
               <div className={styles.allServicesCard}>
-                <img src="/biscoito.png" alt="" />
+                <div className={styles.imageContainer}>
+                  <img
+                    src="/multas.png"
+                    alt=""
+                    style={{ width: "129px", height: "48px" }}
+                  />
+                </div>
 
                 <p>
-                  Tenha agilidade e assertividade na gestão de multas,
-                  documentação e débitos veiculares com soluções que se integram
-                  para alavancar os seus negócios.
+                  Gerencie o recebimento de notificações e boletos, indicações
+                  de condutores e o pagamento das infrações da sua frota.
                 </p>
               </div>
               <div className={styles.allServicesCard}>
-                <img src="/biscoito.png" alt="" />
+                <div className={styles.imageContainer}>
+                  <img
+                    src="/doc.png"
+                    alt=""
+                    style={{ width: "93px", height: "48px" }}
+                  />
+                </div>
 
                 <p>
-                  Tenha agilidade e assertividade na gestão de multas,
-                  documentação e débitos veiculares com soluções que se integram
-                  para alavancar os seus negócios.
+                  Tecnologia, agilidade, assertividade e controle na abertura e
+                  acompanhamento dos processos de documentação veicular.
                 </p>
               </div>
               <div className={styles.allServicesCard}>
-                <img src="/biscoito.png" alt="" />
-
+                <div className={styles.imageContainer}>
+                  <img
+                    src="/debitos.png"
+                    alt=""
+                    style={{ width: "135px", height: "48px" }}
+                  />
+                </div>
                 <p>
-                  Tenha agilidade e assertividade na gestão de multas,
-                  documentação e débitos veiculares com soluções que se integram
-                  para alavancar os seus negócios.
+                  Inovação e agilidade na consulta e pagamento de IPVA e
+                  Licenciamento da sua frota. Além do extrato de pendências dos
+                  seus veículos.
                 </p>
               </div>
               <div className={styles.allServicesCard}>
-                <img src="/biscoito.png" alt="" />
-
+                <div className={styles.imageContainer}>
+                  <img
+                    src="/sim.png"
+                    alt=""
+                    style={{ width: "78px", height: "48px" }}
+                  />
+                </div>
                 <p>
-                  Tenha agilidade e assertividade na gestão de multas,
-                  documentação e débitos veiculares com soluções que se integram
-                  para alavancar os seus negócios.
+                  Maior segurança para sua frota, com rastreio e monitoramento,
+                  cerca virtual, controle de movimento e velocidade e outras
+                  funções.
                 </p>
               </div>
             </div>
@@ -214,11 +235,16 @@ export default function LandingPage() {
                   style={{
                     display: "flex",
                     flexDirection: isMobile ? "column" : "row", // Use the state to determine the flex direction
-                    height: "auto", // Make sure the height adapts to the content
+                    height: "auto",
+                    gap: "85px", // Make sure the height adapts to the content
                   }}
                 >
                   <div className={styles.sliderCardLeft}>
-                    <img src="/biscoito.png" alt="Image 1" />
+                    <img
+                      src="/multas.png"
+                      alt=""
+                      style={{ width: "129px", height: "48px" }}
+                    />
                     <div className={styles.description}>
                       <p>
                         A gestão de multas de uma frota demanda tempo, mão de
@@ -264,10 +290,15 @@ export default function LandingPage() {
                     display: "flex",
                     flexDirection: isMobile ? "column" : "row", // Use the state to determine the flex direction
                     height: "auto", // Make sure the height adapts to the content
+                    gap: "85px",
                   }}
                 >
                   <div className={styles.sliderCardLeft}>
-                    <img src="/biscoito.png" alt="Image 1" />
+                    <img
+                      src="/doc.png"
+                      alt="Image 1"
+                      style={{ width: "93px", height: "48px" }}
+                    />
                     <div className={styles.description}>
                       <p>
                         Gestão inteligente de documentação veicular, eliminando
@@ -309,20 +340,25 @@ export default function LandingPage() {
                     display: "flex",
                     flexDirection: isMobile ? "column" : "row", // Use the state to determine the flex direction
                     height: "auto", // Make sure the height adapts to the content
+                    gap: "85px",
                   }}
                 >
                   <div className={styles.sliderCardLeft}>
-                    <img src="/biscoito.png" alt="Image 1" />
+                    <img
+                      src="/debitos.png"
+                      alt="Image 1"
+                      style={{ width: "135px", height: "48px" }}
+                    />
                     <div className={styles.description}>
                       <p>
                         Fim das planilhas, processos demorados e prejuízos com
-                        juros e multas. <br />
+                        juros e multas. Com o LW Débitos você consulta e paga os
+                        débitos anuais da sua frota de veículos de forma simples
+                        e rápida, com tecnologia e processamento em lote. <br />
                         <br />
-                        Com o LW Débitos você consulta e paga os débitos anuais
-                        da sua frota de veículos de forma simples e rápida, com
-                        tecnologia e processamento em lote. Além disso temos o
-                        Extrato veicular, onde você consulta todos os débitos,
-                        pendências e restrições da sua frota em poucos segundos.
+                        Além disso temos o Extrato veicular, onde você consulta
+                        todos os débitos, pendências e restrições da sua frota
+                        em poucos segundos.
                       </p>
                     </div>
                     <h3>
@@ -359,10 +395,15 @@ export default function LandingPage() {
                     display: "flex",
                     flexDirection: isMobile ? "column" : "row", // Use the state to determine the flex direction
                     height: "auto", // Make sure the height adapts to the content
+                    gap: "85px",
                   }}
                 >
                   <div className={styles.sliderCardLeft}>
-                    <img src="/biscoito.png" alt="Image 1" />
+                    <img
+                      src="/sim.png"
+                      alt="Image 1"
+                      style={{ width: "78px", height: "48px" }}
+                    />
                     <div className={styles.description}>
                       <p>
                         Assuma o controle e tenha mais segurança para a sua
@@ -407,14 +448,16 @@ export default function LandingPage() {
           <div className={styles.segurancaContent}>
             <div className={styles.left}>
               <div className={styles.text}>
-                <h3>Segurança & Tecnologia</h3>
+                <h3>
+                  Segurança <br />& Tecnologia
+                </h3>
               </div>
               <img src="/arrow.svg" alt="" />
             </div>
             <div className={styles.right}>
-              <img src="/biscoito.png" alt="" />
-              <img src="/biscoito.png" alt="" />
-              <img src="/biscoito.png" alt="" />
+              <img src="/ISO.png" alt="" />
+              <img src="/TECNO.png" alt="" />
+              <img src="/PCI.png" alt="" />
             </div>
           </div>
         </div>
@@ -452,7 +495,7 @@ export default function LandingPage() {
           <div className={styles.footerContent}>
             <div className={styles.footerLeft}>
               <img
-                src="/biscoito.png"
+                src="/grupow.png"
                 alt="Grupo LW logo"
                 className={styles.logo}
               />
@@ -461,21 +504,28 @@ export default function LandingPage() {
               </p>
               <p>R. XV de Novembro, 621 - 2º andar</p>
               <p>Centro, Curitiba - PR</p>
-              <div className={styles.socialIcons}>
-                <div>
-                  <a href="#">
-                    <img src="/biscoito.png" alt="LinkedIn" />
-                  </a>
-                  <a href="#">
-                    <img src="/biscoito.png" alt="Facebook" />
-                  </a>
-                  <a href="#">
-                    <img src="/biscoito.png" alt="Instagram" />
-                  </a>
-                  <a href="#">
-                    <img src="/biscoito.png" alt="Link" />
-                  </a>
-                </div>
+              <div className={styles.socialIcons2}>
+                <Link
+                  href="https://www.linkedin.com/company/lwtecnologia/"
+                  passHref
+                >
+                  <img src="/lkd.svg" alt="LinkedIn" />
+                </Link>
+                <Link
+                  href="https://www.facebook.com/lwtecnologia?mibextid=ZbWKwL"
+                  passHref
+                >
+                  <img src="/fb.svg" alt="Facebook" />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/grupolw_gestaodefrotas/"
+                  passHref
+                >
+                  <img src="/ig.svg" alt="Instagram" />
+                </Link>
+                <Link href="/" passHref>
+                  <img src="/link.svg" alt="Link" />
+                </Link>
               </div>
             </div>
             <div className={styles.footerRight}>
@@ -494,11 +544,7 @@ export default function LandingPage() {
             Copyright © 2024 Grupo LW | Todos os direitos reservados |{" "}
             <a href="#">Política de privacidade |</a>
           </p>
-          <img
-            src="/biscoito.png"
-            alt="Grupo LW logo"
-            className={styles.logo}
-          />
+          <img src="/cinza.png" alt="Grupo LW logo" className={styles.logo} />
         </div>
       </div>
     </div>

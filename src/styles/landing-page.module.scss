@@ -5,7 +5,7 @@
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .content {
   width: 100%;
@@ -112,8 +112,19 @@
   padding-inline: 24px;
   padding-block: 16px;
   background-color: white;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
   img {
     cursor: pointer;
+    @media only screen and (max-width: 768px) {
+      width: 150px;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
   button {
     background-color: #336699;
@@ -124,6 +135,11 @@
     font-size: 16px;
     border-radius: 100px;
     color: #fff;
+    @media only screen and (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      height: 50px;
+    }
   }
   max-width: 1440px;
   margin: 0 auto;
@@ -170,6 +186,10 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    img {
+      width: 100%;
+      max-width: 57px;
+    }
     h3 {
       font-size: 20px;
       font-weight: 400;
@@ -214,6 +234,7 @@
         font-weight: 500;
         text-align: center;
         font-size: 24px;
+        max-width: 1100px;
         color: #000;
         @media only screen and (max-width: 768px) {
           font-size: 18px;
@@ -232,16 +253,21 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      img {
-        width: 100%;
-        max-width: 90px;
-      }
+
+      // img {
+      //   width: 50%; /* Ocupará 100% da largura do container */
+      //   height: 100px; /* Altura fixa para todas as imagens */
+      //   object-fit: contain; /* Cobre todo o container sem distorcer a imagem */
+      //   border-radius: 8px; /* (Opcional) Para dar cantos arredondados */
+      // }
+
       p {
         color: #1a1a1a;
         font-size: 16px;
         font-weight: 300;
       }
     }
+
     .allServicesBottom {
       display: flex;
       align-items: center;
@@ -354,6 +380,9 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    img {
+      margin-bottom: 20px;
+    }
     @media only screen and (max-width: 768px) {
       width: 100%;
     }
@@ -367,7 +396,6 @@
     }
     img {
       width: 100%;
-      max-width: 100px;
     }
     h3 {
       font-family: "Inter", sans-serif;
@@ -383,7 +411,7 @@
       width: 100%;
     }
     img {
-      width: 100%;
+      width: 90%;
     }
   }
   .redList {
@@ -525,12 +553,14 @@
       align-items: center;
       justify-content: center;
       gap: 104px;
+
       @media only screen and (max-width: 768px) {
         width: 100%;
+        gap: 20px;
       }
       img {
         width: 100%;
-        max-width: 50px;
+        max-width: 100px;
       }
       width: 70%;
       padding-block: 35px;
@@ -613,12 +643,18 @@
     }
 
     .needRight {
+      position: relative;
       width: 50%;
       @media only screen and (max-width: 768px) {
         width: 100%;
       }
       img {
+        position: absolute;
+        top: -210px;
         width: 100%;
+        @media only screen and (max-width: 768px) {
+          display: none;
+        }
       }
     }
   }
@@ -645,6 +681,7 @@
     .footerLeft {
       width: 50%;
       display: flex;
+
       flex-direction: column;
       gap: 16px;
       color: #fff;
@@ -653,8 +690,11 @@
       }
       .logo {
         width: 100%;
-        max-width: 100px;
+        max-width: 250px;
         margin-bottom: 16px;
+        @media only screen and (max-width: 768px) {
+          max-width: 100px;
+        }
       }
 
       p {
@@ -662,7 +702,7 @@
         font-family: "Inter", sans-serif;
       }
 
-      .socialIcons {
+      .socialIcons2 {
         display: flex;
         gap: 16px;
         margin-top: 20px;
@@ -695,6 +735,7 @@
       color: #fff;
 
       h3 {
+        max-width: 467px;
         font-size: 28px;
         font-family: "Inter", sans-serif;
         color: #fff;
@@ -754,7 +795,7 @@
 
   .logo {
     width: 100%;
-    max-width: 20px;
+    max-width: 110px;
     @media only screen and (max-width: 768px) {
       display: none;
     }
@@ -801,21 +842,41 @@
 
 .socialIcons a {
   margin-right: 10px;
+  position: relative; // Ensure the icons are positioned relative to the circle
 }
+
 .socialIcons img {
   width: 30px;
+  position: relative;
+  z-index: 100 !important; // Ensure the icon is above the circle
 }
+
 .socialIcons {
   margin-top: 56px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
   div {
     display: flex;
     gap: 1rem;
   }
+
   h4 {
     color: #000;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; // Adjust size as needed
+    height: 50px;
+    background-color: #ecf0f5;
+    border-radius: 50%; // Make it a circle
+    z-index: 0; // Place the circle behind the icon
   }
 }
 

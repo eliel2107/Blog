@@ -10,14 +10,29 @@ import { useLoading } from "@/context/LoadingContext";
 SwiperCore.use([Pagination]);
 
 export default function LandingPage() {
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+  const [captchaNum1, setCaptchaNum1] = useState(0);
+  const [captchaNum2, setCaptchaNum2] = useState(0);
+  const [captchaInput, setCaptchaInput] = useState("");
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    setCaptchaNum1(num1);
+    setCaptchaNum2(num2);
+  };
+  const isValidCaptcha = () => {
+    const correctAnswer = captchaNum1 + captchaNum2;
+    return parseInt(captchaInput) === correctAnswer;
+  };
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [enterprise, setEnterprise] = useState("");
   const [segmento, setSegmento] = useState("");
   const [carQuantity, setCarQuantity] = useState("");
-  const [mensagem, setMensagem] = useState("");
-  const [cnpj, setCNPJ] = useState("");
+
   const { setLoading } = useLoading();
   const isValidPhoneNumber = (phone: string) => {
     const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
@@ -87,50 +102,14 @@ export default function LandingPage() {
     const domain = email.split("@")[1];
     return !publicDomains.includes(domain);
   };
-  const isValidCNPJ = (cnpj: string) => {
-    cnpj = cnpj.replace(/[^\d]+/g, "");
 
-    if (cnpj.length !== 14) return false;
-
-    // Eliminate known invalid CNPJs
-    if (/^(\d)\1+$/.test(cnpj)) return false;
-
-    let length = cnpj.length - 2;
-    let numbers = cnpj.substring(0, length);
-    let digits = cnpj.substring(length);
-    let sum = 0;
-    let pos = length - 7;
-
-    for (let i = length; i >= 1; i--) {
-      sum += +numbers.charAt(length - i) * pos--;
-      if (pos < 2) pos = 9;
-    }
-
-    let result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
-    if (result !== +digits.charAt(0)) return false;
-
-    length += 1;
-    numbers = cnpj.substring(0, length);
-    sum = 0;
-    pos = length - 7;
-
-    for (let i = length; i >= 1; i--) {
-      sum += +numbers.charAt(length - i) * pos--;
-      if (pos < 2) pos = 9;
-    }
-
-    result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
-    return result === +digits.charAt(1);
-  };
   const verificaCamposContato = () => {
     if (
       !nome ||
       !email ||
       !telefone ||
-      !mensagem ||
       !enterprise ||
       !segmento ||
-      !cnpj ||
       !carQuantity
     ) {
       toast.error("Por favor, preencha todos os campos obrigatórios.");
@@ -148,8 +127,10 @@ export default function LandingPage() {
       toast.error("Por favor, insira um email corporativo.");
       return false;
     }
-    if (!isValidCNPJ(cnpj)) {
-      toast.error("Por favor, insira um CNPJ válido.");
+
+    if (!isValidCaptcha()) {
+      toast.error("Captcha incorreto. Tente novamente.");
+      generateCaptcha(); // Regenerate captcha
       return false;
     }
     return true;
@@ -162,17 +143,17 @@ export default function LandingPage() {
     const formDataBackground = {
       nome,
       telefone,
-      mensagem,
+
       email,
       enterprise,
       segmento, // Make sure this value matches RD Station's options
-      cnpj,
+
       carQuantity,
     };
 
     try {
       setLoading(true);
-      const response = await fetch("/api/SendBackgroundForm", {
+      const response = await fetch("/api/SendBackgroundFormLp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -221,7 +202,7 @@ export default function LandingPage() {
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerContent}>
-            <img src="/biscoito.png" alt="Logo" onClick={handleLandingPage} />
+            <img src="/grupo.png" alt="Logo" onClick={handleLandingPage} />
 
             <button>Experimente Grátis</button>
           </div>
@@ -256,18 +237,27 @@ export default function LandingPage() {
             <div className={styles.socialIcons}>
               <h4>Siga-nos em nossas redes sociais</h4>
               <div>
-                <a href="#">
-                  <img src="/biscoito.png" alt="LinkedIn" />
-                </a>
-                <a href="#">
-                  <img src="/biscoito.png" alt="Facebook" />
-                </a>
-                <a href="#">
-                  <img src="/biscoito.png" alt="Instagram" />
-                </a>
-                <a href="#">
-                  <img src="/biscoito.png" alt="Website" />
-                </a>
+                <Link
+                  href="https://www.linkedin.com/company/lwtecnologia/"
+                  passHref
+                >
+                  <img src="/lkdblue.svg" alt="LinkedIn" />
+                </Link>
+                <Link
+                  href="https://www.facebook.com/lwtecnologia?mibextid=ZbWKwL"
+                  passHref
+                >
+                  <img src="/fbblue.svg" alt="Facebook" />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/grupolw_gestaodefrotas/"
+                  passHref
+                >
+                  <img src="/igblue.svg" alt="Instagram" />
+                </Link>
+                <Link href="/" passHref>
+                  <img src="/linkblue.svg" alt="Link" />
+                </Link>
               </div>
             </div>
           </div>
@@ -295,12 +285,7 @@ export default function LandingPage() {
                 value={telefone}
                 onChange={(e) => setTelefone(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="CNPJ"
-                value={cnpj}
-                onChange={(e) => setCNPJ(e.target.value)}
-              />
+
               <input
                 type="text"
                 placeholder="Empresa"
@@ -335,21 +320,21 @@ export default function LandingPage() {
                   <input
                     type="radio"
                     name="placas"
-                    value="De 501 à 1.000"
-                    checked={carQuantity === "De 501 à 1.000"}
+                    value="De 501 até 1.000"
+                    checked={carQuantity === "De 501 até 1.000"}
                     onChange={(e) => setCarQuantity(e.target.value)}
                   />{" "}
-                  <p>De 501 à 1.000</p>
+                  <p>De 501 até 1.000</p>
                 </div>
                 <div>
                   <input
                     type="radio"
                     name="placas"
-                    value="De 1.001 à 10.000"
-                    checked={carQuantity === "De 1.001 à 10.000"}
+                    value="De 1.001 até 10.000"
+                    checked={carQuantity === "De 1.001 até 10.000"}
                     onChange={(e) => setCarQuantity(e.target.value)}
                   />{" "}
-                  <p>De 1.001 à 10.000</p>
+                  <p>De 1.001 até 10.000</p>
                 </div>
                 <div>
                   <input
@@ -366,9 +351,9 @@ export default function LandingPage() {
               <div className={styles.captcha}>
                 <input
                   type="text"
-                  placeholder="Digite aqui sua mensagem!"
-                  value={mensagem}
-                  onChange={(e) => setMensagem(e.target.value)}
+                  placeholder={`${captchaNum1} + ${captchaNum2}`}
+                  value={captchaInput}
+                  onChange={(e) => setCaptchaInput(e.target.value)}
                 />
               </div>
 
