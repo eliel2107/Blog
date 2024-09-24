@@ -27,6 +27,8 @@ stages:
       - job: Push
         dependsOn: [Build]
         steps:
+          
+          
           - task: ECRPushImage@1
             displayName: "Publicando a imagem"
             inputs:
@@ -37,9 +39,22 @@ stages:
               sourceImageTag: "$(Build.BuildId)"
               repositoryName: "$(IMAGE_NAME)"
               pushTag: |
-                 $(Build.BuildId)  # Primeira tag para o BuildId
-                 latest            # Segunda tag 'latest' para a versão mais recente
-              # autoCreateRepository: true
+                 $(Build.BuildId)  # Tag única para o BuildId
+                  latest            # Tag 'latest' para a versão mais recente
+
+#         - task: ECRPushImage@1
+#            displayName: "Publicando a imagem"
+#            inputs:
+#             awsCredentials: $(AWS_CREDENTIALS)
+#             regionName: "us-east-1"
+#             imageSource: "imagename"
+#             sourceImageName: "$(IMAGE_NAME)"
+#             sourceImageTag: "$(Build.BuildId)"
+#             repositoryName: "$(IMAGE_NAME)"
+#             pushTag: |
+#               $(Build.BuildId)  # Primeira tag para o BuildId
+#                latest            # Segunda tag 'latest' para a versão mais recente
+#             # autoCreateRepository: true
 
   - stage: Deploy
     jobs:
