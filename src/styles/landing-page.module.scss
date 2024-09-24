@@ -848,7 +848,7 @@
 .socialIcons img {
   width: 30px;
   position: relative;
-  z-index: 100 !important; // Ensure the icon is above the circle
+  z-index: 1 !important; // Ensure the icon is above the circle
 }
 
 .socialIcons {
