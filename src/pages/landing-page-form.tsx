@@ -231,7 +231,7 @@ export default function LandingPage() {
               </p>
               <p>
                 Telefone: <br />
-                <strong>(41) 99999-9999</strong>
+                <strong>(41) 99125-8315</strong>
               </p>
             </div>
             <div className={styles.socialIcons}>

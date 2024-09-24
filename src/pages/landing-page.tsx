@@ -79,7 +79,7 @@ export default function LandingPage() {
         <div className={styles.header}>
           <div className={styles.headerContent}>
             <img src="/grupo.png" alt="" />
-            <button onClick={handleGotoForm}>Experimente Grátis</button>
+            <button onClick={handleGotoForm}>Experimente grátis</button>
           </div>
         </div>
         <div className={styles.banner}>
@@ -93,7 +93,7 @@ export default function LandingPage() {
               e débitos veiculares com soluções que se integram para alavancar
               os seus negócios.
             </p>
-            <button onClick={handleGotoForm}>Experimente Grátis</button>
+            <button onClick={handleGotoForm}>Experimente grátis</button>
           </div>
           <div className={styles.bannerRight}>
             <img src="/lp-banner.jpg" alt="" />
@@ -205,7 +205,7 @@ export default function LandingPage() {
                 importa.
               </h2>
 
-              <button onClick={handleGotoForm}>Experimente Grátis</button>
+              <button onClick={handleGotoForm}>Experimente grátis</button>
             </div>
             <div className={styles.tryItRight}>
               <img src="/segunda-img.png" alt="" />
@@ -484,7 +484,7 @@ export default function LandingPage() {
                 </li>
                 <li>Para pequenas, médias e grandes frotas.</li>
               </ul>
-              <button onClick={handleGotoForm}>Experimente Grátis</button>
+              <button onClick={handleGotoForm}>Experimente grátis</button>
             </div>
             <div className={styles.needRight}>
               <img src="/need-image.jpg" alt="" />

@@ -56,16 +56,15 @@ export default async function sendEmail(
       console.log("Arquivos anexados:", files);
 
       try {
-        // Criação do transporte para envio de e-mail
         const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST, // Se necessário, configure o host do serviço SMTP
-          port: parseInt(process.env.SMTP_PORT || "587"), // Use a porta correta para o serviço SMTP (587 para TLS)
-          secure: process.env.SMTP_SECURE === "true", // true para SSL, false para TLS
+          host: process.env.SMTP_HOST,
+          port: parseInt(process.env.SMTP_PORT || "587"),
+          secure: process.env.SMTP_SECURE === "true",
           auth: {
-            user: process.env.EMAIL_USERNAME, // Usuário do SMTP (endereço de e-mail)
-            pass: process.env.EMAIL_PASSWORD, // Senha ou token de app
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
           },
-          debug: true, // Habilitar logs para depuração
+          debug: true,
         });
 
         // Configurações do e-mail
