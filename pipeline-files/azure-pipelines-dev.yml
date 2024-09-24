@@ -49,7 +49,7 @@ stages:
                 sudo apt-get update
                 sudo apt-get install -y jq gettext-base
 
-                envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+                envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU,\$Build.BuildId" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
 
                 cat temp-portal-task.json
 
