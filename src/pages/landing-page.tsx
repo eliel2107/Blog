@@ -1,11 +1,11 @@
 import "swiper/swiper-bundle.css";
 import styles from "../styles/landing-page.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Navigation]);
 
 export default function LandingPage() {
   const handleGotoForm = () => {
@@ -224,6 +224,10 @@ export default function LandingPage() {
                 slidesPerView={1}
                 loop={true}
                 pagination={{ clickable: true }}
+                navigation={{
+                  nextEl: `.${styles.swiperButtonNext}`,
+                  prevEl: `.${styles.swiperButtonPrev}`,
+                }} // Add navigation
                 autoHeight={true}
                 style={{
                   flexDirection: isMobile ? "column" : "row",
@@ -441,6 +445,16 @@ export default function LandingPage() {
                   </div>
                 </SwiperSlide>
               </Swiper>
+              <div
+                className={`${styles.swiperButtonPrev} ${styles.customButton}`}
+              >
+                <img src="/arrowslider.svg" alt="Previous" />
+              </div>
+              <div
+                className={`${styles.swiperButtonNext} ${styles.customButton}`}
+              >
+                <img src="/arrowslider.svg" alt="Next" />
+              </div>
             </div>
           </div>
         </div>
@@ -455,9 +469,9 @@ export default function LandingPage() {
               <img src="/arrow.svg" alt="" />
             </div>
             <div className={styles.right}>
+              <img src="/PCI.png" alt="" />
               <img src="/ISO.png" alt="" />
               <img src="/TECNO.png" alt="" />
-              <img src="/PCI.png" alt="" />
             </div>
           </div>
         </div>
