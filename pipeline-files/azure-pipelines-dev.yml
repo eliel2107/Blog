@@ -49,6 +49,10 @@ stages:
                 echo "AWS_ACCOUNT: $(AWS_ACCOUNT)"
                 echo "IMAGE_NAME: $(IMAGE_NAME)"
                 echo "Build ID: $(Build.BuildId)"
+                echo "AWS_ACCOUNT: $AWS_ACCOUNT"
+                echo "IMAGE_NAME: $IMAGE_NAME"
+                echo "Build ID: $Build_BuildId"
+                # Substituição de variáveis
                 sed -e "s|\$IMAGE_NAME|$IMAGE_NAME|g" \
                     -e "s|\$AWS_ACCOUNT|$AWS_ACCOUNT|g" \
                     -e "s|\$TASK_MEMORY|$TASK_MEMORY|g" \
