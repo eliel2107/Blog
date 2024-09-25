@@ -46,16 +46,7 @@ stages:
               script: |
                   echo "Iniciando o processo no Shell"
                   apt-get update && apt-get install -y jq gettext-base
-                  echo "AWS_ACCOUNT: $AWS_ACCOUNT"
-                  echo "IMAGE_NAME: $IMAGE_NAME"
-                  echo "Build ID geral: $(Build.BuildId)"
                   BUILD_ID_TEMP=$(Build.BuildId)
-                  echo "Build ID tratado: $BUILD_ID_TEMP"
-                  echo "AWS_ACCOUNT: $AWS_ACCOUNT"
-                  echo "IMAGE_NAME: $IMAGE_NAME"
-                  echo "DEBUG: IMAGE_NAME=$IMAGE_NAME"
-                  echo "DEBUG: AWS_ACCOUNT=$AWS_ACCOUNT"
-                  echo "DEBUG: BUILD_ID_TEMP=$BUILD_ID_TEMP"
                   export IMAGE_NAME=$IMAGE_NAME
                   export AWS_ACCOUNT=$AWS_ACCOUNT
                   export BUILD_ID_TEMP=$BUILD_ID_TEMP
