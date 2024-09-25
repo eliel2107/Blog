@@ -53,6 +53,15 @@ stages:
                   echo "Build ID tratado: $BUILD_ID_TEMP"
                   echo "AWS_ACCOUNT: $AWS_ACCOUNT"
                   echo "IMAGE_NAME: $IMAGE_NAME"
+                  echo "DEBUG: IMAGE_NAME=$IMAGE_NAME"
+                  echo "DEBUG: AWS_ACCOUNT=$AWS_ACCOUNT"
+                  echo "DEBUG: BUILD_ID_TEMP=$BUILD_ID_TEMP"
+                  export IMAGE_NAME=$IMAGE_NAME
+                  export AWS_ACCOUNT=$AWS_ACCOUNT
+                  export BUILD_ID_TEMP=$BUILD_ID_TEMP
+                  env | grep IMAGE_NAME
+                  env | grep AWS_ACCOUNT
+                  env | grep BUILD_ID_TEMP
                   envsubst '$IMAGE_NAME,$AWS_ACCOUNT,$TASK_MEMORY,$TASK_CPU,$BUILD_ID_TEMP' < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
                   cat temp-portal-task.json
       - job: Deploy
