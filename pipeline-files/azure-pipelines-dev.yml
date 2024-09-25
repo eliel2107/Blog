@@ -49,7 +49,12 @@ stages:
                 echo "AWS_ACCOUNT: $(AWS_ACCOUNT)"
                 echo "IMAGE_NAME: $(IMAGE_NAME)"
                 echo "Build ID: $(Build.BuildId)"
-                envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU,\$Build.BuildId" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+                sed -e "s|\$IMAGE_NAME|$IMAGE_NAME|g" \
+                -e "s|\$AWS_ACCOUNT|$AWS_ACCOUNT|g" \
+                -e "s|\$TASK_MEMORY|$TASK_MEMORY|g" \
+                -e "s|\$TASK_CPU|$TASK_CPU|g" \
+                -e "s|\$Build\.BuildId|$Build_BuildId|g" \
+                "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
                 cat temp-portal-task.json
 
       - job: Deploy
