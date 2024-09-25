@@ -35,7 +35,6 @@ stages:
               sourceImageTag: "$(Build.BuildId)"
               repositoryName: "$(IMAGE_NAME)"
               pushTag: "$(Build.BuildId)"
-
   - stage: Deploy
     jobs:
       - job: Build_Json
@@ -45,14 +44,17 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                echo "Iniciando o processo no Shell"
-                sudo apt-get update
-                sudo apt-get install -y jq gettext-base
-
-                envsubst "\$IMAGE_NAME,\$AWS_ACCOUNT,\$TASK_MEMORY,\$TASK_CPU" < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
-
-                cat temp-portal-task.json
-
+                  echo "Iniciando o processo no Shell"
+                  apt-get update && apt-get install -y jq gettext-base
+                  BUILD_ID_TEMP=$(Build.BuildId)
+                  export IMAGE_NAME=$IMAGE_NAME
+                  export AWS_ACCOUNT=$AWS_ACCOUNT
+                  export BUILD_ID_TEMP=$BUILD_ID_TEMP
+                  env | grep IMAGE_NAME
+                  env | grep AWS_ACCOUNT
+                  env | grep BUILD_ID_TEMP
+                  envsubst '$IMAGE_NAME,$AWS_ACCOUNT,$TASK_MEMORY,$TASK_CPU,$BUILD_ID_TEMP' < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+                  cat temp-portal-task.json
       - job: Deploy
         dependsOn: [Build_Json]
         steps:
