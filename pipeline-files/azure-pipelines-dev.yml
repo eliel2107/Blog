@@ -49,7 +49,7 @@ stages:
                 echo "AWS_ACCOUNT: $(AWS_ACCOUNT)"
                 echo "IMAGE_NAME: $(IMAGE_NAME)"
                 echo "Build ID geral: $(BUILD_BUILDID)"
-                BUILD_ID_TEMP="${BUILD_BUILDID}"
+                $BUILD_ID_TEMP="$(Build.BuildId)"
                 echo "Build ID tratado: $(BUILD_ID_TEMP)"
                 echo "AWS_ACCOUNT: $AWS_ACCOUNT"
                 echo "IMAGE_NAME: $IMAGE_NAME"
