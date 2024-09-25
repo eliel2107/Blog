@@ -50,11 +50,11 @@ stages:
                 echo "IMAGE_NAME: $(IMAGE_NAME)"
                 echo "Build ID: $(Build.BuildId)"
                 sed -e "s|\$IMAGE_NAME|$IMAGE_NAME|g" \
-                -e "s|\$AWS_ACCOUNT|$AWS_ACCOUNT|g" \
-                -e "s|\$TASK_MEMORY|$TASK_MEMORY|g" \
-                -e "s|\$TASK_CPU|$TASK_CPU|g" \
-                -e "s|\$BUILDID|$Build_BuildId|g" \
-                "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+                    -e "s|\$AWS_ACCOUNT|$AWS_ACCOUNT|g" \
+                    -e "s|\$TASK_MEMORY|$TASK_MEMORY|g" \
+                    -e "s|\$TASK_CPU|$TASK_CPU|g" \
+                    -e "s|\$BUILDID|$Build_BuildId|g" \
+                    "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
                 cat temp-portal-task.json
       - job: Deploy
         dependsOn: [Build_Json]
