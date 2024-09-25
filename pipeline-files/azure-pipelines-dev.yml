@@ -56,7 +56,6 @@ stages:
                 -e "s|\$BUILDID|$Build_BuildId|g" \
                 "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
                 cat temp-portal-task.json
-
       - job: Deploy
         dependsOn: [Build_Json]
         steps:
