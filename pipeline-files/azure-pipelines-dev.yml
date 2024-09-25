@@ -44,19 +44,17 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                echo "Iniciando o processo no Shell"
-                apt-get update && apt-get install -y jq gettext-base
-                echo "AWS_ACCOUNT: $(AWS_ACCOUNT)"
-                echo "IMAGE_NAME: $(IMAGE_NAME)"
-                echo "Build ID geral: $(Build.BuildId)"
-                BUILD_ID_TEMP=$(Build.BuildId)
-                echo "Build ID tratado: $BUILD_ID_TEMP"
-                echo "AWS_ACCOUNT: $AWS_ACCOUNT"
-                echo "IMAGE_NAME: $IMAGE_NAME"
-
-                # Substituição de variáveis
-                envsubst '$IMAGE_NAME,$AWS_ACCOUNT,$TASK_MEMORY,$TASK_CPU,$BUILD_ID_TEMP' < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
-                cat temp-portal-task.json
+                  echo "Iniciando o processo no Shell"
+                  apt-get update && apt-get install -y jq gettext-base
+                  echo "AWS_ACCOUNT: $AWS_ACCOUNT"
+                  echo "IMAGE_NAME: $IMAGE_NAME"
+                  echo "Build ID geral: $(Build.BuildId)"
+                  BUILD_ID_TEMP=$(Build.BuildId)
+                  echo "Build ID tratado: $BUILD_ID_TEMP"
+                  echo "AWS_ACCOUNT: $AWS_ACCOUNT"
+                  echo "IMAGE_NAME: $IMAGE_NAME"
+                  envsubst '$IMAGE_NAME,$AWS_ACCOUNT,$TASK_MEMORY,$TASK_CPU,$BUILD_ID_TEMP' < "$(Build.SourcesDirectory)/pipeline-files/portal-task-definition.json" > "temp-portal-task.json"
+                  cat temp-portal-task.json
       - job: Deploy
         dependsOn: [Build_Json]
         steps:
