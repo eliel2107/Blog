@@ -63,18 +63,12 @@ export default async function SendBackgroundForm(
 
       const carQuantity = fields.carQuantity as CarQuantityOptions;
       console.log(carQuantity);
-      const carQuantityOptions: Record<CarQuantityOptions, number[]> = {
-        "Até 500": [1, 0, 0, 0],
-        "De 501 à 1.000": [0, 1, 0, 0],
-        "De 1.001 à 10.000": [0, 0, 1, 0],
-        "Acima de 10.000": [0, 0, 0, 1],
-      };
 
       const rdStationData = {
         event_type: "CONVERSION",
         event_family: "CDP",
         payload: {
-          conversion_identifier: "produtos-grupo-lw",
+          conversion_identifier: "Conversão landing page",
           name: nome,
           email: email,
           personal_phone: telefone,
@@ -82,13 +76,12 @@ export default async function SendBackgroundForm(
 
           cf_segmento_0: segmento,
           cf_quantos_veiculos: [carQuantity],
-          // cf_mensagem: mensagem,
         },
       };
 
       try {
         const response = await axios.post(
-          `https://api.rd.services/platform/conversions?api_key=QwexONNiIMcqTWjBVzrGDVPxoqvgisMSkVIq`,
+          `https://api.rd.services/platform/conversions?api_key=fkidlIhSekYJYxaXLqENeubCVgChGqkQjcfQ`,
           rdStationData
         );
       } catch (error: any) {
