@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
 import axios from "axios";
 const formidable = require("formidable");
 
@@ -57,11 +56,10 @@ export default async function SendBackgroundForm(
       const nome = fields.nome;
       const email = fields.email;
       const telefone = fields.telefone;
-
       const enterprise = fields.enterprise;
       const segmento = fields.segmento;
-
       const carQuantity = fields.carQuantity as CarQuantityOptions;
+
       console.log(carQuantity);
 
       const rdStationData = {
@@ -73,22 +71,31 @@ export default async function SendBackgroundForm(
           email: email,
           personal_phone: telefone,
           company_name: enterprise,
-
           cf_segmento_0: segmento,
           cf_quantos_veiculos: [carQuantity],
         },
       };
 
       try {
+        console.log("Enviando dados ao RD Station...");
         const response = await axios.post(
           `https://api.rd.services/platform/conversions?api_key=fkidlIhSekYJYxaXLqENeubCVgChGqkQjcfQ`,
-          rdStationData
+          rdStationData,
+          {
+            headers: {
+              accept: "application/json",
+              "content-type": "application/json",
+            },
+          }
         );
+        console.log("Dados enviados ao RD Station:", response.data);
+        res.status(200).json({ message: "Dados enviados com sucesso" });
       } catch (error: any) {
         console.error(
           "Erro ao enviar dados ao RD Station:",
           error.response ? error.response.data : error.message
         );
+        res.status(500).json({ message: "Erro ao enviar dados ao RD Station" });
       }
     });
   } catch (error) {
