@@ -17,7 +17,6 @@ WORKDIR /home/node/website
 
 COPY --chown=node:node ./package*.json .
 RUN npm install
-RUN npm cache clean --force
 
 COPY --chown=node:node . .
 RUN npm run build
