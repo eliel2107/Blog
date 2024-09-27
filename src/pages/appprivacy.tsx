@@ -14,19 +14,19 @@ export default function AppPolicy() {
             <h2>1. Introdução</h2>
             <p>
               Esta Política de Privacidade descreve como coletamos, usamos e
-              compartilhamos suas informações ao utilizar o nosso aplicativo
-              disponível na Google Play Store ou Apple Store operada pela LW
+              compartilhamos suas informações ao utilizar nosso aplicativo
+              disponível na Google Play Store ou Apple Store operado pela LW
               Tecnologia Ltda. ("LW Tecnologia"), CNPJ: 44.383.200/0001-46. Ao
               utilizar nossos serviços, você concorda com esta política. Caso
               não concorde, a utilização dos nossos serviços deverá ser
-              interrompida, e o DPO deverá ser notificado por meio do e-mail
-              informado nessa política.
+              interrompida e o DPO deverá ser notificado por meio do e-mail
+              informado nesta política.
             </p>
-            <h2>2. Informações que coletamos</h2>
+            <h2>2. Informações que Coletamos</h2>
             <h3>2.1. Informações Pessoais</h3>
             <p>
-              Podemos coletar informações que você nos fornece diretamente, como
-              nome, e-mail, número de telefone, endereço, CEP, dados de
+              Podemos coletar informações fornecidas diretamente por você como:
+              Nome, E-mail, Número de telefone, Endereço e CEP, Dados de
               pagamento e outras informações de contato.
             </p>
             <h3>2.2. Informações Coletadas Automaticamente</h3>
@@ -36,7 +36,7 @@ export default function AppPolicy() {
             </p>
             <ul>
               <li>
-                Dados de uso (interações com o aplicativo ou a plataforma,
+                Dados de uso (interações com o aplicativo ou plataforma,
                 preferências);
               </li>
               <li>
@@ -57,34 +57,35 @@ export default function AppPolicy() {
             </p>
             <h3>2.4. Fonte das Informações</h3>
             <p>
-              Os dados do usuário são coletados através de formulários ou
-              fornecidos através de integrações com outros sistemas contratados.
-              As informações de fontes governamentais que coletamos são todas
-              disponibilizadas para acesso geral do público. De forma geral, as
-              informações coletadas são advindas dos Órgãos de Trânsito,
-              Prefeituras e Secretarias relacionadas com as áreas de transportes
-              e trânsito. A LW Tecnologia não possui qualquer ligação, vínculo
-              ou poder de representação dos referidos órgãos.
+              Os dados dos usuários são coletados através de formulários ou
+              fornecidos por meio de integrações com outros sistemas
+              contratados. As informações provenientes de fontes governamentais
+              que coletamos são públicas e acessíveis. De maneira geral, as
+              informações coletadas advêm de Órgãos de Trânsito, Prefeituras e
+              Secretarias relacionadas ao transporte e trânsito, como o DENATRAN
+              e DETRANs estaduais. Ressaltamos que a LW Tecnologia não possui
+              qualquer vínculo oficial ou poder de representação desses órgãos.
             </p>
             <h2>3. Uso das Informações</h2>
             <p>
-              Os dados são utilizados com a finalidade de realizar processos de
-              indicação de condutor, onde o usuário reconhece de forma legal que
-              estava dirigindo o veículo locado no momento da infração.
+              Os dados coletados são utilizados com a finalidade de realizar
+              processos de indicação de condutor, onde o usuário reconhece
+              legalmente que estava dirigindo o veículo locado no momento da
+              infração.
             </p>
             <h2>4. Compartilhamento de Informações</h2>
             <p>
-              Não vendemos suas informações pessoais. Podemos compartilhar suas
-              informações nas seguintes circunstâncias:
+              Não vendemos suas informações pessoais. Podemos compartilhá-las
+              nas seguintes circunstâncias:
             </p>
             <ul>
               <li>
                 Com fornecedores de serviços que ajudam a operar o aplicativo ou
-                a plataforma;
+                plataforma;
               </li>
               <li>
-                Para cumprir com obrigações legais, ordens judiciais ou
-                processos legais;
+                Para cumprir obrigações legais, ordens judiciais ou processos
+                legais;
               </li>
               <li>
                 Para proteger nossos direitos, propriedade e segurança, bem como
@@ -93,22 +94,21 @@ export default function AppPolicy() {
             </ul>
             <h2>5. Segurança</h2>
             <p>
-              Implementamos todas as medidas de segurança necessárias, como
-              criptografia de dados sensíveis, para proteger suas informações
-              contra acesso não autorizado, perda, alteração ou divulgação.
+              Implementamos medidas de segurança, como criptografia de dados
+              sensíveis, para proteger suas informações contra acessos não
+              autorizados, perdas, alterações ou divulgações.
             </p>
             <h2>6. Retenção de Dados</h2>
             <p>
-              Manteremos suas informações enquanto for necessário para cumprir
-              as finalidades descritas nesta política. Em algumas
-              circunstâncias, os dados podem ser mantidos por um período
-              indeterminado, conforme exigido ou permitido por lei. Você pode
-              solicitar a exclusão dos dados pelo e-mail de contato informado
-              nessa política.
+              Manteremos suas informações pelo tempo necessário para cumprir as
+              finalidades descritas nesta política. Em algumas circunstâncias,
+              os dados podem ser mantidos por um período indeterminado conforme
+              exigido ou permitido por lei. Você pode solicitar a exclusão dos
+              dados pelo e-mail de contato informado.
             </p>
             <h2>7. Seus Direitos</h2>
             <p>
-              Dependendo da sua localização, você pode ter direitos sobre suas
+              Dependendo de sua localização, você pode ter direitos sobre suas
               informações, como o direito de acessar, corrigir ou excluir seus
               dados pessoais. Para exercer esses direitos, entre em contato
               conosco.
@@ -118,7 +118,7 @@ export default function AppPolicy() {
               Após aceitar esta Política de Privacidade, você não poderá revogar
               o consentimento para o processamento dos dados enquanto utilizar
               nossos serviços. O consentimento poderá ser revogado ao solicitar
-              a exclusão da conta e interrupção do uso.
+              a exclusão da conta e a interrupção do uso.
             </p>
             <h2>9. Alterações nesta Política de Privacidade</h2>
             <p>
