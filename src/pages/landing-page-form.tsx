@@ -147,7 +147,7 @@ export default function LandingPage() {
 
       email,
       enterprise,
-      segmento, // Make sure this value matches RD Station's options
+      segmento,
 
       carQuantity,
     };
