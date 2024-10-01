@@ -7,6 +7,7 @@ import SwiperCore from "swiper";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useLoading } from "@/context/LoadingContext";
+import InputMask from "react-input-mask";
 SwiperCore.use([Pagination]);
 
 export default function LandingPage() {
@@ -163,6 +164,14 @@ export default function LandingPage() {
 
       if (response.ok) {
         toast.success("Mensagem enviada com sucesso!");
+        setNome("");
+        setEmail("");
+        setTelefone("");
+        setEnterprise("");
+        setSegmento("");
+        setCarQuantity("");
+        setCaptchaInput("");
+        generateCaptcha();
       } else {
         const errorData = await response.json();
         toast.error(
@@ -279,12 +288,25 @@ export default function LandingPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <input
-                type="tel"
-                placeholder="Telefone"
-                value={telefone}
-                onChange={(e) => setTelefone(e.target.value)}
-              />
+
+              <div className={styles.phoneInputContainer}>
+                <InputMask
+                  mask="(99) 99999-9999"
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
+                >
+                  {
+                    // @ts-ignore: Ignore TypeScript check for this case
+                    (inputProps) => (
+                      <input
+                        {...inputProps}
+                        type="tel"
+                        placeholder="Telefone"
+                      />
+                    )
+                  }
+                </InputMask>
+              </div>
 
               <input
                 type="text"

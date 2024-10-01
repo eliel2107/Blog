@@ -231,7 +231,7 @@ export default function LandingPage() {
                 autoHeight={true}
                 style={{
                   flexDirection: isMobile ? "column" : "row",
-                  height: isMobile ? "1000px" : "auto",
+                  height: isMobile ? "1000px" : "550px",
                 }}
                 autoplay={true}
               >

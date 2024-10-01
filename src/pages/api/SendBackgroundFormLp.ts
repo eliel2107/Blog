@@ -66,7 +66,7 @@ export default async function SendBackgroundForm(
         event_type: "CONVERSION",
         event_family: "CDP",
         payload: {
-          conversion_identifier: "Conversão landing page",
+          conversion_identifier: "LP Produtos",
           name: nome,
           email: email,
           personal_phone: telefone,
