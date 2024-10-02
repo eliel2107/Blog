@@ -36,9 +36,12 @@ export default function LandingPage() {
 
   const { setLoading } = useLoading();
   const isValidPhoneNumber = (phone: string) => {
-    const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
+    // Regex que valida números de telefone brasileiros e impede dígitos consecutivos repetidos como (14) 99999-9999
+    const phoneRegex =
+      /^(?:(?:\+?55)?\s?)?(?:\(?[1-9]{2}\)?\s?)?(?!(\d)\1{4})(?:9[1-9]\d{3}|[2-8]\d{3})-?\d{4}$/;
     return phoneRegex.test(phone);
   };
+
   useEffect(() => {
     const observer = new MutationObserver((mutationsList) => {
       mutationsList.forEach((mutation) => {
@@ -116,6 +119,7 @@ export default function LandingPage() {
       toast.error("Por favor, preencha todos os campos obrigatórios.");
       return false;
     }
+    console.log(telefone);
     if (!isValidPhoneNumber(telefone)) {
       toast.error("Por favor, insira um número de telefone válido.");
       return false;
@@ -173,6 +177,9 @@ export default function LandingPage() {
         setSegmento("");
         setCarQuantity("");
         setCaptchaInput("");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
         generateCaptcha();
       } else {
         const errorData = await response.json();
