@@ -163,7 +163,9 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        toast.success("Mensagem enviada com sucesso!");
+        toast.success(
+          "Obrigado por se conectar conosco! Recebemos suas informações e nossa equipe fará contato o mais rápido possível."
+        );
         setNome("");
         setEmail("");
         setTelefone("");
