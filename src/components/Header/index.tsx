@@ -77,9 +77,9 @@ export default function Header() {
         "https://d10fqir6n4h7sq.cloudfront.net/public/NewIcons/MultasIconNew.svg",
     },
     {
-      url: "",
+      url: "https://lwauto.com.br/",
 
-      name: "LW Auto (em breve)",
+      name: "LW Auto",
       description: "O jeito mais facil de comprar e vender seus veiculos",
       image: "/LogoAuto.svg",
     },

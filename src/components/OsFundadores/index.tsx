@@ -106,6 +106,8 @@ export default function OsFundadores() {
     "Com mais de 15 anos de experiência em liderança tanto em empresas nacionais quanto multinacionais, assumiu desafios como Head em diversas áreas-chave, incluindo Atendimento ao Cliente, Serviços, Pós Vendas, Customer Experience e Projetos. Possui amplo conhecimento em toda a jornada do cliente, desde a área comercial até operações, e significativa experiência em planejamento, execução e gerenciamento de implantação de novos produtos. Participou ativamente de processos de M&A, atuando desde as melhorias sistêmicas, políticas organizacionais e retenção de clientes, e incluindo experiência em Omnichannel. Com habilidade na formação de equipes de alto desempenho, focadas na qualidade e no atendimento ao cliente. Além disso, possui experiência internacional no atendimento a clientes premium.";
   const alessandra =
     "Gestão e estruturação de equipes estratégicas em empresas nacionais e multinacionais do setor automotivo. Com formação em Gestão Estratégica de Pessoas e Gerenciamento de Equipes de Alta Performance, Psicologia Organizacional e certificações em Leader Coach e Analista Comportamental, especialista em diversas áreas, incluindo gestão de clima organizacional, treinamento e desenvolvimento, recrutamento e seleção, gestão de desempenho e plano de carreira. Seus conhecimentos abrangem desde a construção de diagnósticos organizacionais, desenvolvimento de trilha de carreira e implantação de programas de plano de sucessão. Possui habilidade na facilitação de treinamentos técnicos e comportamentais, análises de indicadores de RH e condução de processos de feedback e feedforward.";
+  const valtencir =
+    "Profissional de Tecnologia da Informação com formação em Desenvolvimento de Sistemas e mais de 15 anos de experiência na área. Possui expertise em SRE, DevOps, desenvolvimento e liderança de equipes técnicas. Ao longo de sua carreira, atuou em cargos de gerência e coordenação, aplicando práticas avançadas para a otimização de infraestrutura em nuvem e automação de processos. Com uma abordagem voltada para a liderança técnica e inovação, gerenciou a implementação de protocolos de TI e garantiu a eficiência operacional em ambientes complexos, especialmente nos setores de finanças e serviços. Comprometido com a busca contínua por novos desafios e oportunidades, está sempre à disposição para colaborar em projetos que demandem soluções tecnológicas inovadoras.";
   return (
     <>
       <div className={styles.container}>
@@ -269,8 +271,8 @@ export default function OsFundadores() {
               <FounderDescription2 text={caioLeandro} />
             </div>
           </div>
-          <div className={styles.founderContent2}>
-            <div className={styles.founderCard2}>
+          <div className={styles.founderContent1}>
+            <div className={styles.founderCard1}>
               <div className={styles.founderImg1}>
                 <img src="/gn.jpeg" alt="" />
               </div>
@@ -293,6 +295,21 @@ export default function OsFundadores() {
                 <h2>Alessandra Carvalho</h2>
               </div>
               <FounderDescription2 text={alessandra} />
+            </div>
+            <div className={styles.founderCard1}>
+              <div className={styles.founderImg1}>
+                <img
+                  src="https://d10fqir6n4h7sq.cloudfront.net/public/IMG_9067.jpeg"
+                  alt=""
+                />
+              </div>
+              <div className={styles.founderName}>
+                <h2>Gerente de TI</h2>
+              </div>
+              <div className={styles.founderName}>
+                <h2>Valtencir Novicki</h2>
+              </div>
+              <FounderDescription2 text={valtencir} />
             </div>
           </div>
         </div>
