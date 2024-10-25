@@ -271,7 +271,7 @@ export default function OsFundadores() {
               <FounderDescription2 text={caioLeandro} />
             </div>
           </div>
-          <div className={styles.founderContent1}>
+          <div className={styles.founderContent2}>
             <div className={styles.founderCard1}>
               <div className={styles.founderImg1}>
                 <img src="/gn.jpeg" alt="" />
@@ -284,18 +284,7 @@ export default function OsFundadores() {
               </div>
               <FounderDescription2 text={daniely} />
             </div>
-            <div className={styles.founderCard1}>
-              <div className={styles.founderImg1}>
-                <img src="/gr.jpeg" alt="" />
-              </div>
-              <div className={styles.founderName}>
-                <h2>Gerente de RH</h2>
-              </div>
-              <div className={styles.founderName}>
-                <h2>Alessandra Carvalho</h2>
-              </div>
-              <FounderDescription2 text={alessandra} />
-            </div>
+
             <div className={styles.founderCard1}>
               <div className={styles.founderImg1}>
                 <img
