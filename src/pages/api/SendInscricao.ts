@@ -4,13 +4,13 @@ const formidable = require("formidable");
 
 export const config = {
   api: {
-    bodyParser: false,
+    bodyParser: false, // Para permitir o uso do formidable
   },
 };
 
 export default async function sendEmail(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   if (req.method !== "POST") {
     console.log("Método não permitido");
@@ -21,7 +21,7 @@ export default async function sendEmail(
   try {
     const form = new formidable.IncomingForm();
 
-    form.parse(req, async (err: any, fields: any, files: any) => {
+    form.parse(req, async (err: any, fields: any) => {
       if (err) {
         console.log("Erro ao processar o formulário:", err);
         res
@@ -29,6 +29,8 @@ export default async function sendEmail(
           .json({ message: "Erro no processamento do formulário" });
         return;
       }
+
+      // Verificar se o campo email foi enviado
       if (!fields.email) {
         console.log("E-mail não encontrado no corpo da requisição");
         res
@@ -40,23 +42,26 @@ export default async function sendEmail(
       const email = fields.email;
 
       try {
+        // Configuração do transporte de e-mail
         const transporter = nodemailer.createTransport({
-          service: "gmail",
-
+          host: process.env.SMTP_HOST, // Use o host do seu serviço de e-mail (ex: 'smtp.office365.com')
+          port: parseInt(process.env.SMTP_PORT || "587"), // Porta padrão, ajuste conforme necessário
+          secure: process.env.SMTP_SECURE === "true", // true para SSL, false para TLS (587)
           auth: {
-            user: process.env.EMAIL_USERNAME,
-            pass: process.env.EMAIL_PASSWORD,
+            user: process.env.EMAIL_USERNAME, // Usuário (e-mail)
+            pass: process.env.EMAIL_PASSWORD, // Senha ou token de app
           },
-          debug: true,
+          debug: true, // Habilita o log de depuração
         });
 
         const mailOptions = {
-          from: "diogaodieger@gmail.com",
-          to: "marketing@lwtecnologia.com.br",
+          from: process.env.EMAIL_USERNAME, // E-mail remetente
+          to: "marketing@lwtecnologia.com.br", // Destinatário
           subject: "Inscrição de E-mail",
           text: `E-mail de inscrição: ${email}`,
         };
 
+        // Envio do e-mail
         await transporter.sendMail(mailOptions);
         console.log("E-mail de inscrição enviado com sucesso");
         res

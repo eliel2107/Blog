@@ -10,6 +10,8 @@ import { initializeTagManager } from "../../utils/gtm";
 import usePageTracking from "../../utils/usePageTracking";
 import { montserrat, poppins } from "../styles/fonts";
 import "../styles/globals.scss";
+import "slick-carousel/slick/slick.css"; // Import do CSS do slick-carousel
+import "slick-carousel/slick/slick-theme.css";
 import { LoadingProvider, useLoading } from "../context/LoadingContext"; // Importar o contexto de loading
 import { Loading } from "@/components/Loading/loading"; // Importar o componente de loading
 

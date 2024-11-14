@@ -4,7 +4,7 @@ const formidable = require("formidable");
 
 export const config = {
   api: {
-    bodyParser: false,
+    bodyParser: false, // Necessário para lidar com arquivos
   },
 };
 
@@ -31,51 +31,54 @@ export default async function sendEmail(
       }
 
       // Inicializa a variável attachments como um array vazio
-      const attachments: { filename: any; path: any }[] = [];
+      const attachments: { filename: string; path: string }[] = [];
 
-      // Se você está esperando um arquivo chamado 'curriculo'
+      // Verifica se há arquivo anexado no campo 'curriculo'
       if (files.curriculo) {
-        // Pode ser um único arquivo ou um array de arquivos
         const curriculos = Array.isArray(files.curriculo)
           ? files.curriculo
           : [files.curriculo];
 
-        // Adiciona cada arquivo ao array de attachments
-        curriculos.forEach((file: { originalFilename: any; filepath: any }) => {
-          if (file.originalFilename) {
-            attachments.push({
-              filename: file.originalFilename,
-              path: file.filepath,
-            });
+        curriculos.forEach(
+          (file: { originalFilename: string; filepath: string }) => {
+            if (file.originalFilename) {
+              attachments.push({
+                filename: file.originalFilename,
+                path: file.filepath,
+              });
+            }
           }
-        });
+        );
       }
 
-      // Lógica para processar campos e arquivos
-      console.log("Campos:", fields);
-      console.log("Arquivos:", files);
+      // Exibir os campos e os arquivos recebidos
+      console.log("Campos recebidos:", fields);
+      console.log("Arquivos anexados:", files);
 
       try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
-
+          host: process.env.SMTP_HOST,
+          port: parseInt(process.env.SMTP_PORT || "587"),
+          secure: process.env.SMTP_SECURE === "true",
           auth: {
-            user: process.env.EMAIL_USERNAME, // Seu endereço de e-mail
-            pass: process.env.EMAIL_PASSWORD, // Sua senha ou token de app
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
           },
-          debug: true, // Isso habilita o modo de depuração, se necessário
+          debug: true,
         });
 
+        // Configurações do e-mail
         const mailOptions = {
-          from: "diogaodieger@gmail.com", // Substitua pelo seu e-mail
-          to: "lwlover@lwtecnologia.com.br", // Substitua pelo e-mail de destino
+          from: process.env.EMAIL_USERNAME, // Remetente do e-mail
+          to: "lwlover@lwtecnologia.com.br", // Destinatário
           subject: "Novo Cadastro do Formulário",
-          text: `Dados do Formulário: ${JSON.stringify(fields)}`,
-          attachments: attachments,
+          text: `Dados do Formulário: ${JSON.stringify(fields, null, 2)}`, // Formatação dos campos no corpo do e-mail
+          attachments: attachments, // Anexos
         };
 
+        // Enviar e-mail
         await transporter.sendMail(mailOptions);
-        console.log("Email enviado com sucesso");
+        console.log("E-mail enviado com sucesso");
         res.status(200).json({ message: "Email enviado com sucesso!" });
       } catch (error) {
         console.error("Erro ao enviar email:", error);
