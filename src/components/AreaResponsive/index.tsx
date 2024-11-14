@@ -50,7 +50,7 @@ export default function ProdutosResponsive() {
             >
               ÁREA DO CLIENTE
               <img
-                src="ArrowHeader.svg"
+                src="https://d10fqir6n4h7sq.cloudfront.net/public/ArrowHeader.svg"
                 alt=""
                 className={`${
                   isAccordionOpen ? styles.rotate : styles.rotateBack
