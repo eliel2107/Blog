@@ -1,3 +1,4 @@
+declare let gtag: (...args: any[]) => void;
 import { useEffect, useState } from "react";
 import "swiper/swiper-bundle.css";
 import styles from "../styles/landing-page.module.scss";
@@ -13,6 +14,13 @@ SwiperCore.use([Pagination]);
 export default function LandingPage() {
   useEffect(() => {
     generateCaptcha();
+    if (typeof window !== "undefined" && typeof gtag === "function") {
+      gtag("event", "conversion", {
+        send_to: "AW-16519096883/XN6aCMnFpOoZELPU9cQ9",
+        value: 1.0,
+        currency: "BRL",
+      });
+    }
   }, []);
   const [captchaNum1, setCaptchaNum1] = useState(0);
   const [captchaNum2, setCaptchaNum2] = useState(0);
@@ -167,6 +175,13 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
+        if (typeof window !== "undefined" && typeof gtag === "function") {
+          gtag("event", "conversion", {
+            send_to: "AW-16519096883/EjwuCNKepOoZELPU9cQ9",
+            value: 1.0,
+            currency: "BRL",
+          });
+        }
         toast.success(
           "Obrigado por se conectar conosco! Recebemos suas informações e nossa equipe fará contato o mais rápido possível."
         );

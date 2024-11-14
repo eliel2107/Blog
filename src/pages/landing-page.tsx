@@ -58,6 +58,17 @@ export default function LandingPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Send a standard 'page_view' event on landing page load
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "page_view", {
+        event_category: "Landing Page",
+        event_label: "view-lp",
+      });
+      console.log("Standard page_view event sent to Google Ads");
+    }
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       // Check if window width is less than or equal to 768px
       setIsMobile(window.innerWidth <= 768);
