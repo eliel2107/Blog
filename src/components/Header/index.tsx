@@ -248,6 +248,11 @@ export default function Header() {
               <Link href={"/login"}>
                 <li className={`${isActive("/login")} `}>Área do cliente</li>
               </Link>
+              <Link href={"/"}>
+                <li className={`${isActive("/login")} ${styles.buttonHeader}`}>
+                  EMITIR CRLV
+                </li>
+              </Link>
             </ul>
           </div>
           <div className={styles.hamburger} onClick={toggleDrawer}>
@@ -298,6 +303,9 @@ export default function Header() {
               </Link>
               <Link href="/trabalhe">
                 <li onClick={handleLinkClick}>Trabalhe Conosco</li>
+              </Link>
+              <Link href="/">
+                <li onClick={handleLinkClick}>EMITIR CRLV</li>
               </Link>
               <div className={styles.divisor}></div>
               {/* <AreaResponsive /> */}
