@@ -11,10 +11,12 @@ import { toast } from "react-toastify";
 import styles from "../styles/Id.module.scss";
 import { useLoading } from "../context/LoadingContext";
 
-const contentfulClient = createClient({
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-});
+function getContentfulClient() {
+  return createClient({
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  });
+}
 
 const options = {
   renderNode: {
@@ -165,7 +167,9 @@ export default function BlogPost({ post }: BlogPostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await contentfulClient.getEntries({
+  const client = getContentfulClient();
+
+  const response = await client.getEntries({
     content_type: "blog",
   });
 
@@ -177,10 +181,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const client = getContentfulClient();
   const id = params?.id as string;
 
   try {
-    const post = await contentfulClient.getEntry(id);
+    const post = await client.getEntry(id);
 
     return {
       props: {
@@ -190,9 +195,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   } catch (error) {
     if ((error as any).sys?.id === "NotFound") {
-      return {
-        notFound: true,
-      };
+      return { notFound: true };
     }
 
     throw error;
