@@ -183,7 +183,7 @@ export default function App({
       <LoadingProvider>
         <LoadingContainer /> {/* Componente de loading */}
         <NextNProgress color="#fff" />
-        <div className={`${poppins.variable} ${montserrat.variable}`}>
+        <div className={`$font-poppins`}>
           {getLayout(<Component {...pageProps} />)}
         </div>
         <ToastContainer

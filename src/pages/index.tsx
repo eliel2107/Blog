@@ -18,7 +18,6 @@ export default function Home() {
       <Numeros />
       <Reduzir />
 
-      <Destaques />
       <Contato />
       <Footer />
     </>
